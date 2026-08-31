@@ -1,6 +1,6 @@
 # wedding-invite — Richard & Hazuki 披露宴Web招待状
 
-オーナー(rmrmrmob / rmrmrmob33@gmail.com)の披露宴のWeb招待状。LINEでゲストに
+オーナー(GitHub: rmrmrmob)の披露宴のWeb招待状。LINEでゲストに
 URLを配り、サインインなしで誰でも開ける。作業を続けるときはまずこのファイルを読むこと。
 
 ## 披露宴の情報
