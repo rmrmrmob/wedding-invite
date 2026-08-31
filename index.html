@@ -158,9 +158,15 @@
     border-bottom: 2px solid rgba(255,255,255,.7);
     text-shadow: 0 2px 0 rgba(0,0,0,.2);
   }
-  .hero.has-photo .hero-invite {
-    margin: 10px 0 0;
+  .hero-invite.invite-bottom { display: none; }
+  .hero.has-photo .hero-invite.invite-top { display: none; }
+  .hero.has-photo .hero-invite.invite-bottom {
+    display: inline-block;
+    margin: 0 0 12px;
     font-size: 13px;
+    padding: 5px 4px 4px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
     text-shadow: 0 1px 6px rgba(0,0,0,.6);
   }
   .hero-names {
@@ -519,9 +525,10 @@
         <span class="hero-open">WE ARE GETTING MARRIED</span>
         <h1 class="hero-script">Wedding<br>Celebration</h1>
         <p class="hero-sub">JUST A HAPPY PARTY FOR YOU</p>
-        <p class="hero-invite">披露宴のご招待</p>
+        <p class="hero-invite invite-top">披露宴のご招待</p>
       </div>
       <div class="hero-bottom">
+        <p class="hero-invite invite-bottom">披露宴のご招待</p>
         <p class="hero-names">RICHARD <span class="amp">&amp;</span> HAZUKI</p>
         <div class="hero-date">
           <span class="d">2026.12.13</span><span class="w">SUN</span>
