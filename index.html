@@ -869,6 +869,33 @@
     document.getElementById('rsvp').scrollIntoView();
   }
 
+  var GOOGLE_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScGOIkMYKBRQ-AE9gyJU7H10WpKAS4TOCMEzk3ktfj_28w7fA/formResponse';
+  var GOOGLE_ENTRY = {
+    attend: 'entry.1634689180',
+    name: 'entry.871671189',
+    kana: 'entry.1019830989',
+    side: 'entry.1635121412',
+    address: 'entry.605792534',
+    tel: 'entry.932715648',
+    bus: 'entry.1879289786',
+    party: 'entry.157965281',
+    allergy: 'entry.1974528831',
+    message: 'entry.519764689'
+  };
+
+  function sendToGoogle(r) {
+    var params = new URLSearchParams();
+    Object.keys(GOOGLE_ENTRY).forEach(function (k) {
+      params.append(GOOGLE_ENTRY[k], r[k] || '');
+    });
+    return fetch(GOOGLE_FORM, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    });
+  }
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     var r = collect();
@@ -882,22 +909,27 @@
 
     var text = formatText(r);
 
-    var fallback = function () { showThanks(false, text); };
+    var copyFallback = function () { showThanks(false, text); };
 
-    var useFn = (window.claude && typeof window.claude.use === 'function') ? window.claude.use : null;
-    if (!useFn) { fallback(); return; }
+    var artifactFallback = function () {
+      var useFn = (window.claude && typeof window.claude.use === 'function') ? window.claude.use : null;
+      if (!useFn) { copyFallback(); return; }
+      useFn.call(window.claude, 'artifact').then(function (artifact) {
+        if (!artifact || typeof artifact.publish !== 'function') { copyFallback(); return; }
+        var state = readState();
+        if (!state.responses) state.responses = [];
+        state.responses.push(r);
+        var html = buildHtml(state);
+        if (!html) { copyFallback(); return; }
+        artifact.publish(html).then(function () {
+          showThanks(true, text);
+        }).catch(copyFallback);
+      }).catch(copyFallback);
+    };
 
-    useFn.call(window.claude, 'artifact').then(function (artifact) {
-      if (!artifact || typeof artifact.publish !== 'function') { fallback(); return; }
-      var state = readState();
-      if (!state.responses) state.responses = [];
-      state.responses.push(r);
-      var html = buildHtml(state);
-      if (!html) { fallback(); return; }
-      artifact.publish(html).then(function () {
-        showThanks(true, text);
-      }).catch(fallback);
-    }).catch(fallback);
+    sendToGoogle(r).then(function () {
+      showThanks(true, text);
+    }).catch(artifactFallback);
   });
 
   document.getElementById('copy-btn').addEventListener('click', function () {
