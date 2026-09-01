@@ -27,12 +27,11 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 「回答」タブ / 連携スプレッドシートで確認する。
 
 - 送信先: `https://docs.google.com/forms/d/e/1FAIpQLScGOIkMYKBRQ-AE9gyJU7H10WpKAS4TOCMEzk3ktfj_28w7fA/formResponse`
-- entry ID対応表は `index.html` の `GOOGLE_ENTRY`(attend/name/kana/side/address/tel/bus/party/allergy/message の10項目)
-- 送信失敗時のフォールバック: アーティファクト保存 → それも不可ならLINEコピー方式
-- **【未完了】追加項目 companions(お連れ様)/children(お子様連れ)/zip(郵便番号)/buscount(バス利用人数)の
-  entry IDが未設定(空文字)**。空の間はこれらの値はメッセージ欄に【ラベル】付きで合流して送信される。
-  オーナーがGoogleフォーム末尾に記述式の質問4つ(お連れ様→お子様連れ→郵便番号→バス利用人数の順)を追加し、
-  事前入力リンク(その4つに 11,12,13,14 と入力)をもらったら `GOOGLE_ENTRY` に反映すること
+- entry ID対応表は `index.html` の `GOOGLE_ENTRY`(全14項目、すべて接続済み)。
+  Googleフォームの質問順はサイトの項目順と同じ(attend/name/kana/side/companions/children/zip/
+  address/tel/bus/buscount/party/allergy/message)
+- 送信失敗時のフォールバック: アーティファクト保存 → それも不可ならLINEコピー方式。
+  entry IDが空の項目があれば、その値は【ラベル】付きでメッセージ欄に合流する仕組みが入っている
 - Googleフォーム側は「公開」済み・「リンクを知っている全員」が回答可・メール収集なしであること
 
 ## デザイン・構成
