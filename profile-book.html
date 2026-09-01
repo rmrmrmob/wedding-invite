@@ -22,7 +22,9 @@
   .page {
     width: 148mm;
     height: 210mm;
-    background: var(--cream);
+    background:
+      radial-gradient(rgba(215,38,61,.05) 1mm, transparent 1.15mm) 0 0 / 9mm 9mm,
+      var(--cream);
     overflow: hidden;
     position: relative;
     page-break-after: always;
@@ -30,39 +32,75 @@
     flex-direction: column;
   }
   .checker {
-    height: 7mm;
+    height: 6mm;
     flex: none;
-    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 7mm 7mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 6mm 6mm;
   }
-  .body { flex: 1; padding: 10mm 12mm; display: flex; flex-direction: column; }
+  /* awning: red/white stripes + hanging scallops */
+  .awning { flex: none; }
+  .awning .stripes {
+    height: 6mm;
+    background: repeating-linear-gradient(90deg, var(--cherry) 0 12mm, #FFFFFF 12mm 24mm);
+    border-bottom: 0.4mm solid rgba(0,0,0,.12);
+  }
+  .awning .scallops {
+    height: 5.5mm;
+    background:
+      radial-gradient(circle at 6mm 0mm, var(--cherry) 5.5mm, transparent 5.75mm),
+      radial-gradient(circle at 18mm 0mm, #FFFFFF 5.5mm, transparent 5.75mm);
+    background-size: 24mm 6mm;
+    background-repeat: repeat-x;
+    filter: drop-shadow(0 0.6mm 0 rgba(0,0,0,.12));
+  }
+  .awning.flip { transform: scaleY(-1); }
 
-  .slab { font-weight: bold; letter-spacing: .12em; }
-  .sec-head { text-align: center; margin-bottom: 7mm; }
-  .sec-head .en {
+  .body { flex: 1; padding: 8mm 11mm 6mm; display: flex; flex-direction: column; position: relative; }
+
+  /* sparkle stars */
+  .spark { position: absolute; }
+  .spark svg { display: block; }
+
+  /* marquee section heading */
+  .marquee-wrap { text-align: center; margin-bottom: 6mm; position: relative; }
+  .marquee {
     display: inline-block;
-    font-size: 21pt;
+    background: var(--cherry-deep);
+    color: #FFF;
+    font-size: 17pt;
     font-weight: bold;
-    letter-spacing: .18em;
-    color: var(--cherry);
-    border-bottom: 1.2mm solid var(--mustard);
-    padding: 0 4mm 1.5mm;
+    letter-spacing: .2em;
+    padding: 3mm 9mm 3mm 10.5mm;
+    border-radius: 3mm;
+    border: 1.3mm solid var(--mustard);
+    box-shadow: 0 1.6mm 0 rgba(0,0,0,.25), inset 0 0 3mm rgba(255,182,39,.35);
+    text-shadow: 0 0 1.5mm rgba(255,214,140,.9);
+    position: relative;
   }
-  .sec-head .jp { font-size: 9pt; margin-top: 2mm; color: var(--ink); opacity: .75; letter-spacing: .3em; }
+  .marquee::before, .marquee::after {
+    content: "★";
+    color: var(--mustard);
+    font-size: 10pt;
+    vertical-align: middle;
+    margin: 0 1.5mm;
+    text-shadow: none;
+  }
+  .marquee-jp { font-size: 9pt; margin-top: 2.2mm; letter-spacing: .34em; color: var(--cherry-deep); font-weight: bold; }
 
-  .ph { color: #B26A4A; }   /* placeholder text color */
+  .ph { color: #B26A4A; }
 
   /* ---- cover ---- */
   .cover .body {
     background:
-      radial-gradient(circle at 18% 12%, rgba(255,182,39,.35), transparent 34%),
-      radial-gradient(circle at 84% 20%, rgba(23,190,187,.30), transparent 30%),
+      radial-gradient(circle at 18% 10%, rgba(255,182,39,.4), transparent 32%),
+      radial-gradient(circle at 85% 18%, rgba(23,190,187,.35), transparent 28%),
+      radial-gradient(circle at 80% 85%, rgba(255,255,255,.12), transparent 38%),
       linear-gradient(165deg, #E23A50 0%, var(--cherry) 46%, var(--cherry-deep) 100%);
     color: #FFF;
     text-align: center;
     align-items: center;
     justify-content: space-between;
-    padding-top: 14mm;
-    padding-bottom: 12mm;
+    padding-top: 9mm;
+    padding-bottom: 8mm;
   }
   .cover-badge {
     display: inline-block;
@@ -74,127 +112,288 @@
     border-radius: 99mm;
     padding: 2mm 6mm;
     transform: rotate(-3deg);
+    box-shadow: 0 1.2mm 0 rgba(0,0,0,.3);
+  }
+  .neon-frame {
+    display: inline-block;
+    border: 1mm solid rgba(255,255,255,.55);
+    border-radius: 4mm;
+    padding: 3.5mm 9mm;
+    box-shadow: 0 0 4mm rgba(255,182,39,.55), inset 0 0 4mm rgba(255,182,39,.35);
   }
   .cover-title {
-    font-size: 34pt;
+    font-size: 30pt;
     font-weight: bold;
-    letter-spacing: .06em;
-    line-height: 1.2;
-    text-shadow: 0 1.2mm 0 rgba(0,0,0,.25);
+    letter-spacing: .1em;
+    line-height: 1.18;
+    color: #FFEFC2;
+    text-shadow:
+      0 0 2mm rgba(255,214,140,.95),
+      0 0 6mm rgba(255,182,39,.65),
+      0 1.4mm 0 rgba(0,0,0,.3);
   }
+  .cover-sub {
+    font-size: 8pt; font-weight: bold; letter-spacing: .3em; margin-top: 2.5mm; opacity: .95;
+  }
+  .cover-photo-wrap { position: relative; }
   .cover-photo {
-    width: 92mm;
-    height: 82mm;
+    width: 88mm;
+    height: 74mm;
     object-fit: cover;
     border: 2.4mm solid #FFF;
     border-radius: 3mm;
     box-shadow: 0 2mm 0 rgba(0,0,0,.28);
     transform: rotate(-1.5deg);
+    display: block;
   }
-  .cover-names { font-size: 17pt; font-weight: bold; letter-spacing: .1em; }
+  .photo-ribbon {
+    position: absolute;
+    left: 50%; bottom: -4mm;
+    transform: translateX(-50%) rotate(1.5deg);
+    background: var(--teal);
+    color: #FFF;
+    font-size: 8.5pt;
+    font-weight: bold;
+    letter-spacing: .18em;
+    padding: 1.6mm 6mm;
+    border-radius: 99mm;
+    box-shadow: 0 1.2mm 0 rgba(0,0,0,.3);
+    white-space: nowrap;
+  }
+  .cover-names { font-size: 16pt; font-weight: bold; letter-spacing: .1em; text-shadow: 0 1mm 0 rgba(0,0,0,.25); }
   .cover-names .amp { color: var(--mustard); }
   .cover-date {
     display: inline-block;
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: bold;
     letter-spacing: .12em;
-    background: rgba(0,0,0,.28);
+    background: rgba(0,0,0,.3);
     border: 0.5mm dashed rgba(255,255,255,.7);
     border-radius: 2.5mm;
     padding: 2mm 6mm;
-    margin-top: 3mm;
+    margin-top: 2.5mm;
+  }
+  .cover-tagline {
+    font-size: 7.5pt; font-weight: bold; letter-spacing: .26em; opacity: .9; margin-top: 3mm;
   }
 
   /* ---- greeting ---- */
-  .greet-text { text-align: center; font-size: 10.5pt; line-height: 2.2; }
-  .greet-text p { margin-bottom: 6mm; }
-  .greet-sign { text-align: center; font-size: 14pt; font-weight: bold; color: var(--cherry); margin-top: 8mm; }
+  .diner-plate {
+    background: var(--paper);
+    border: 1mm solid var(--cherry);
+    border-radius: 4mm;
+    box-shadow: 0 1.6mm 0 rgba(0,0,0,.15), inset 0 0 0 1.8mm var(--cream-deep);
+    padding: 8mm 8mm;
+  }
+  .greet-text { text-align: center; font-size: 10.5pt; line-height: 2.15; }
+  .greet-text p { margin-bottom: 5mm; }
+  .greet-text p:last-child { margin-bottom: 0; }
+  .greet-sign { text-align: center; font-size: 14pt; font-weight: bold; color: var(--cherry); margin-top: 7mm; }
+  .greet-icons { text-align: center; font-size: 15pt; letter-spacing: .6em; text-indent: .6em; margin-top: 6mm; }
 
-  /* ---- profile ---- */
-  .prof-top { display: flex; gap: 6mm; align-items: center; margin-bottom: 6mm; }
+  /* ---- profile: guest-check ticket ---- */
+  .ticket {
+    background: var(--paper);
+    border-radius: 2.5mm;
+    box-shadow: 0 1.6mm 0 rgba(0,0,0,.18);
+    border: 0.5mm solid #E0CBB2;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticket-head {
+    background: var(--cherry);
+    color: #FFF;
+    font-weight: bold;
+    font-size: 10pt;
+    letter-spacing: .22em;
+    text-align: center;
+    padding: 2.4mm 0;
+  }
+  .ticket-head .no { color: var(--mustard); }
+  .ticket-inner { padding: 5mm 6mm 6mm; }
+  .ticket-perf {
+    height: 0;
+    border-top: 0.6mm dashed #C9B295;
+    margin: 0 4mm;
+  }
+  .prof-top { display: flex; gap: 5mm; align-items: center; margin-bottom: 4mm; }
   .prof-photo {
-    width: 44mm; height: 44mm; flex: none;
+    width: 40mm; height: 40mm; flex: none;
     border-radius: 50%;
-    background: var(--cream-deep);
+    background:
+      repeating-conic-gradient(var(--cream-deep) 0% 25%, #FFF 0% 50%) 0 0 / 6mm 6mm;
     border: 1.6mm solid var(--mustard);
+    box-shadow: 0 1.2mm 0 rgba(0,0,0,.18);
     display: flex; align-items: center; justify-content: center;
     font-size: 9pt; color: #B26A4A; text-align: center; line-height: 1.6;
   }
-  .prof-name-en { font-size: 19pt; font-weight: bold; color: var(--cherry); letter-spacing: .06em; }
-  .prof-name-jp { font-size: 11pt; margin-top: 2mm; }
+  .prof-name-en { font-size: 18pt; font-weight: bold; color: var(--cherry); letter-spacing: .06em; }
+  .prof-name-en.teal { color: var(--teal); }
+  .prof-name-jp { font-size: 10.5pt; margin-top: 1.6mm; }
   .prof-role {
-    display: inline-block; font-size: 8.5pt; font-weight: bold; color: #FFF;
-    background: var(--teal); border-radius: 99mm; padding: 1mm 4mm; margin-top: 2.5mm; letter-spacing: .15em;
+    display: inline-block; font-size: 8pt; font-weight: bold; color: #FFF;
+    border-radius: 99mm; padding: 1mm 4mm; margin-top: 2mm; letter-spacing: .18em;
+    box-shadow: 0 0.8mm 0 rgba(0,0,0,.2);
   }
-  .prof-role.groom { background: var(--teal); }
-  .prof-role.bride { background: var(--cherry); }
-  table.prof {
-    width: 100%; border-collapse: collapse; font-size: 10pt;
-  }
+  table.prof { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
   table.prof th, table.prof td {
     border-bottom: 0.4mm dashed #D8BFA5;
-    padding: 2.6mm 1mm;
+    padding: 2.3mm 1mm;
     text-align: left;
     vertical-align: top;
   }
   table.prof th { width: 30mm; color: var(--cherry-deep); font-weight: bold; white-space: nowrap; }
+  table.prof th::before { content: "◆ "; color: var(--mustard); }
   .prof-comment {
-    margin-top: 5mm;
-    background: var(--paper);
+    margin-top: 4mm;
+    background: var(--cream);
     border: 0.6mm solid var(--mustard);
     border-radius: 2.5mm;
-    padding: 4mm;
+    padding: 3.5mm 4mm;
     font-size: 9.5pt;
     line-height: 1.8;
   }
   .prof-comment b { color: var(--cherry); }
+  .stamp {
+    position: absolute;
+    right: 5mm; top: 13mm;
+    width: 22mm; height: 22mm;
+    border: 1mm solid var(--teal);
+    border-radius: 50%;
+    color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 6.5pt; font-weight: bold; line-height: 1.5;
+    transform: rotate(12deg);
+    opacity: .85;
+    letter-spacing: .05em;
+  }
+  .stamp.pink { border-color: var(--cherry); color: var(--cherry); transform: rotate(-10deg); }
 
   /* ---- Q&A ---- */
   .qa { font-size: 9.5pt; }
-  .qa-item { margin-bottom: 4.5mm; }
+  .qa-item { margin-bottom: 4.4mm; position: relative; }
   .qa-q {
     font-weight: bold; color: #FFF; background: var(--cherry);
-    border-radius: 2mm; padding: 1.6mm 3mm; display: inline-block; margin-bottom: 1.6mm;
+    border-radius: 99mm; padding: 1.6mm 4mm; display: inline-block; margin-bottom: 1.6mm;
+    box-shadow: 0 1mm 0 rgba(0,0,0,.18);
   }
   .qa-q .qmark { color: var(--mustard); font-weight: bold; }
-  .qa-a { padding-left: 3mm; line-height: 1.8; }
+  .qa-a {
+    background: var(--paper);
+    border: 0.5mm solid #E0CBB2;
+    border-radius: 2.5mm;
+    padding: 2.6mm 4mm;
+    line-height: 1.8;
+    margin-left: 4mm;
+  }
   .qa-a b { color: var(--teal); }
+  .burst {
+    position: absolute;
+    right: 0; top: -1mm;
+    width: 20mm; height: 20mm;
+    background: var(--mustard);
+    clip-path: polygon(50% 0%, 59% 33%, 93% 25%, 68% 50%, 93% 75%, 59% 67%, 50% 100%, 41% 67%, 7% 75%, 32% 50%, 7% 25%, 41% 33%);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cherry-deep);
+    font-size: 6.5pt; font-weight: bold; text-align: center; line-height: 1.4;
+    transform: rotate(-8deg);
+  }
 
   /* ---- timeline ---- */
-  .tl { list-style: none; font-size: 10pt; }
-  .tl li { display: flex; gap: 4mm; margin-bottom: 4.2mm; align-items: baseline; }
+  .tl { list-style: none; font-size: 10pt; position: relative; margin-left: 2mm; }
+  .tl::before {
+    content: "";
+    position: absolute; left: 13mm; top: 2mm; bottom: 2mm;
+    border-left: 1mm dashed var(--cream-deep);
+  }
+  .tl li { display: flex; gap: 5mm; margin-bottom: 4.6mm; align-items: baseline; position: relative; }
   .tl .when {
     flex: none; width: 26mm; font-weight: bold; color: #FFF; background: var(--teal);
-    border-radius: 2mm; text-align: center; padding: 1.2mm 0; font-size: 9pt;
+    border: 0.6mm solid #FFF;
+    box-shadow: 0 1mm 0 rgba(0,0,0,.18);
+    border-radius: 2mm; text-align: center; padding: 1.3mm 0; font-size: 9pt;
+    position: relative; z-index: 1;
   }
   .tl li:nth-child(even) .when { background: var(--cherry); }
   .tl .what { line-height: 1.7; }
+  .tl li:last-child .what { font-weight: bold; color: var(--cherry-deep); }
 
   /* ---- menu & program ---- */
+  .menu-board {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 3mm;
+    border: 1.4mm solid var(--mustard);
+    box-shadow: 0 1.8mm 0 rgba(0,0,0,.25);
+    padding: 5mm 6mm 6mm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .board-title {
+    text-align: center;
+    color: var(--mustard);
+    font-size: 13pt; font-weight: bold; letter-spacing: .24em;
+    text-shadow: 0 0 2mm rgba(255,182,39,.7);
+    margin-bottom: 1.5mm;
+  }
+  .board-sub { text-align: center; font-size: 7.5pt; letter-spacing: .3em; opacity: .8; margin-bottom: 4mm; }
   .two-col { display: flex; gap: 7mm; flex: 1; }
   .col { flex: 1; }
   .mini-head {
-    text-align: center; font-size: 13pt; font-weight: bold; color: var(--cherry);
-    letter-spacing: .18em; border-bottom: 0.8mm solid var(--mustard); padding-bottom: 1.5mm; margin-bottom: 4mm;
+    text-align: center; font-size: 11pt; font-weight: bold; color: var(--cream);
+    background: var(--cherry);
+    border-radius: 99mm;
+    letter-spacing: .22em; padding: 1.6mm 0; margin-bottom: 4mm;
+    box-shadow: 0 1mm 0 rgba(0,0,0,.3);
   }
-  .menu-list, .prog-list { list-style: none; font-size: 9.5pt; }
-  .menu-list li, .prog-list li { padding: 2.2mm 0; border-bottom: 0.4mm dashed #D8BFA5; line-height: 1.6; }
-  .prog-list .t { font-weight: bold; color: var(--teal); margin-right: 2mm; }
+  .mini-head.teal { background: var(--teal); }
+  .menu-list, .prog-list { list-style: none; font-size: 9pt; }
+  .menu-list li, .prog-list li {
+    padding: 2.4mm 0; line-height: 1.6;
+    display: flex; align-items: baseline;
+  }
+  .menu-list .dots, .prog-list .dots { flex: 1; border-bottom: 0.5mm dotted rgba(255,246,233,.45); margin: 0 2mm; min-width: 4mm; }
+  .menu-list .icon { margin-right: 2mm; }
+  .prog-list .t { font-weight: bold; color: var(--mustard); margin-right: 2.5mm; white-space: nowrap; }
 
   /* ---- back cover ---- */
   .back .body {
-    background: var(--ink);
+    background:
+      radial-gradient(circle at 20% 15%, rgba(255,182,39,.16), transparent 34%),
+      radial-gradient(circle at 82% 80%, rgba(23,190,187,.16), transparent 30%),
+      var(--ink);
     color: var(--cream);
     text-align: center;
     align-items: center;
     justify-content: center;
-    gap: 6mm;
+    gap: 5mm;
   }
-  .back-thanks { font-size: 26pt; font-weight: bold; color: var(--mustard); letter-spacing: .08em; }
+  .back-neon {
+    display: inline-block;
+    border: 1mm solid rgba(255,246,233,.4);
+    border-radius: 5mm;
+    padding: 5mm 11mm;
+    box-shadow: 0 0 5mm rgba(255,182,39,.5), inset 0 0 5mm rgba(255,182,39,.3);
+  }
+  .back-thanks {
+    font-size: 26pt; font-weight: bold; color: var(--mustard); letter-spacing: .08em;
+    text-shadow: 0 0 2.5mm rgba(255,214,140,.95), 0 0 7mm rgba(255,182,39,.6);
+  }
+  .back-open { font-size: 8pt; font-weight: bold; letter-spacing: .3em; color: var(--teal); margin-top: 2mm; }
   .back-msg { font-size: 10pt; line-height: 2.1; }
+  .back-badge {
+    display: inline-block;
+    background: var(--cherry);
+    color: #FFF; font-size: 8.5pt; font-weight: bold; letter-spacing: .2em;
+    border-radius: 99mm; padding: 2mm 7mm;
+    box-shadow: 0 1.2mm 0 rgba(0,0,0,.4);
+    transform: rotate(-2deg);
+  }
   .back-date { font-size: 9pt; letter-spacing: .3em; opacity: .85; }
 
-  .note-foot { text-align: center; font-size: 7.5pt; color: #B26A4A; margin-top: auto; padding-top: 3mm; }
+  .note-foot { text-align: center; font-size: 7.5pt; color: #B26A4A; margin-top: auto; padding-top: 2.5mm; }
 </style>
 </head>
 <body>
@@ -203,12 +402,24 @@
 <div class="page cover">
   <div class="checker"></div>
   <div class="body">
-    <span class="cover-badge">JUST MARRIED !</span>
-    <div class="cover-title">PROFILE<br>BOOK</div>
-    <img class="cover-photo" src="hero-photo.jpg" alt="">
+    <span class="spark" style="left: 8mm; top: 24mm;"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="right: 10mm; top: 44mm;"><svg width="17" height="17" viewBox="0 0 24 24"><path fill="#FFFFFF" opacity=".9" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="left: 14mm; bottom: 40mm;"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#17BEBB" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="right: 7mm; bottom: 68mm;"><svg width="21" height="21" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+
+    <span class="cover-badge">EST. 2026 — JUST MARRIED !</span>
+    <div class="neon-frame">
+      <div class="cover-title">PROFILE<br>BOOK</div>
+      <div class="cover-sub">WEDDING RECEPTION SPECIAL</div>
+    </div>
+    <div class="cover-photo-wrap">
+      <img class="cover-photo" src="hero-photo.jpg" alt="">
+      <span class="photo-ribbon">WELCOME TO OUR PARTY !</span>
+    </div>
     <div>
       <div class="cover-names">RICHARD <span class="amp">&amp;</span> HAZUKI</div>
       <div class="cover-date">2026.12.13 SUN — OKINAWA</div>
+      <div class="cover-tagline">🍔 GOOD FOOD · GOOD FRIENDS · GOOD TIMES 🍒</div>
     </div>
   </div>
   <div class="checker"></div>
@@ -217,14 +428,20 @@
 <!-- P2: GREETING -->
 <div class="page">
   <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="sec-head"><span class="en">WELCOME</span><div class="jp">ご挨拶</div></div>
-    <div class="greet-text">
-      <p>本日はご多用の中<br>私たちの披露宴にお越しいただき<br>誠にありがとうございます</p>
-      <p>日頃お世話になっている皆さまと<br>楽しいひとときを過ごしたく<br>ささやかながらこの席をご用意しました</p>
-      <p>おいしい料理とともに<br>最後までごゆっくりお楽しみください</p>
+    <span class="spark" style="right: 8mm; top: 4mm;"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="left: 7mm; bottom: 26mm;"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#17BEBB" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <div class="marquee-wrap"><span class="marquee">WELCOME</span><div class="marquee-jp">ご 挨 拶</div></div>
+    <div class="diner-plate">
+      <div class="greet-text">
+        <p>本日はご多用の中<br>私たちの披露宴にお越しいただき<br>誠にありがとうございます</p>
+        <p>日頃お世話になっている皆さまと<br>楽しいひとときを過ごしたく<br>ささやかながらこの席をご用意しました</p>
+        <p>おいしい料理とともに<br>最後までごゆっくりお楽しみください</p>
+      </div>
+      <div class="greet-sign">Richard &amp; Hazuki</div>
+      <div class="greet-icons">🍔🍟🥤🍒🍩</div>
     </div>
-    <div class="greet-sign">Richard &amp; Hazuki</div>
   </div>
   <div class="checker"></div>
 </div>
@@ -232,26 +449,34 @@
 <!-- P3: GROOM -->
 <div class="page">
   <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="sec-head"><span class="en">GROOM</span><div class="jp">新郎</div></div>
-    <div class="prof-top">
-      <div class="prof-photo">【新郎の写真】</div>
-      <div>
-        <div class="prof-name-en">RICHARD</div>
-        <div class="prof-name-jp ph">【お名前（漢字）】</div>
-        <span class="prof-role groom">GROOM</span>
+    <div class="marquee-wrap"><span class="marquee">GROOM</span><div class="marquee-jp">新 郎</div></div>
+    <div class="ticket">
+      <div class="ticket-head">★ GUEST CHECK <span class="no">No.001</span> ★</div>
+      <div class="ticket-inner">
+        <div class="prof-top">
+          <div class="prof-photo">【新郎の写真】</div>
+          <div>
+            <div class="prof-name-en">RICHARD</div>
+            <div class="prof-name-jp ph">【お名前（漢字）】</div>
+            <span class="prof-role" style="background: var(--teal);">THE GROOM 🍔</span>
+          </div>
+        </div>
+        <div class="ticket-perf"></div>
+        <table class="prof">
+          <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
+          <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
+          <tr><th>血液型</th><td class="ph">【X型】</td></tr>
+          <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
+          <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
+          <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
+          <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
+        </table>
+        <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新郎からのひとことメッセージ】</span></div>
       </div>
+      <div class="stamp">100%<br>AWESOME<br>GUY</div>
     </div>
-    <table class="prof">
-      <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
-      <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
-      <tr><th>血液型</th><td class="ph">【X型】</td></tr>
-      <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
-      <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
-      <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
-      <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
-    </table>
-    <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新郎からのひとことメッセージ】</span></div>
     <div class="note-foot">※【 】の部分はあとで差し替えます</div>
   </div>
   <div class="checker"></div>
@@ -260,26 +485,34 @@
 <!-- P4: BRIDE -->
 <div class="page">
   <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="sec-head"><span class="en">BRIDE</span><div class="jp">新婦</div></div>
-    <div class="prof-top">
-      <div class="prof-photo">【新婦の写真】</div>
-      <div>
-        <div class="prof-name-en" style="color: var(--teal);">HAZUKI</div>
-        <div class="prof-name-jp ph">【お名前（漢字）】</div>
-        <span class="prof-role bride">BRIDE</span>
+    <div class="marquee-wrap"><span class="marquee">BRIDE</span><div class="marquee-jp">新 婦</div></div>
+    <div class="ticket">
+      <div class="ticket-head">★ GUEST CHECK <span class="no">No.002</span> ★</div>
+      <div class="ticket-inner">
+        <div class="prof-top">
+          <div class="prof-photo">【新婦の写真】</div>
+          <div>
+            <div class="prof-name-en teal">HAZUKI</div>
+            <div class="prof-name-jp ph">【お名前（漢字）】</div>
+            <span class="prof-role" style="background: var(--cherry);">THE BRIDE 🍒</span>
+          </div>
+        </div>
+        <div class="ticket-perf"></div>
+        <table class="prof">
+          <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
+          <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
+          <tr><th>血液型</th><td class="ph">【X型】</td></tr>
+          <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
+          <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
+          <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
+          <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
+        </table>
+        <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新婦からのひとことメッセージ】</span></div>
       </div>
+      <div class="stamp pink">SWEET AS<br>CHERRY<br>PIE</div>
     </div>
-    <table class="prof">
-      <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
-      <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
-      <tr><th>血液型</th><td class="ph">【X型】</td></tr>
-      <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
-      <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
-      <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
-      <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
-    </table>
-    <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新婦からのひとことメッセージ】</span></div>
     <div class="note-foot">※【 】の部分はあとで差し替えます</div>
   </div>
   <div class="checker"></div>
@@ -288,16 +521,21 @@
 <!-- P5: Q&A -->
 <div class="page">
   <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="sec-head"><span class="en">Q &amp; A</span><div class="jp">ふたりに聞きました</div></div>
+    <div class="marquee-wrap">
+      <span class="marquee">Q &amp; A</span>
+      <div class="marquee-jp">ふたりに聞きました</div>
+    </div>
     <div class="qa">
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q1.</span> ふたりの出会いは？</div>
+        <div class="burst">CHEF'S<br>SPECIAL</div>
         <div class="qa-a ph">【出会いのエピソード】</div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q2.</span> お互いの第一印象は？</div>
-        <div class="qa-a"><b>Richard</b>：<span class="ph">【第一印象】</span>　<b>Hazuki</b>：<span class="ph">【第一印象】</span></div>
+        <div class="qa-a"><b>Richard</b>：<span class="ph">【第一印象】</span><br><b>Hazuki</b>：<span class="ph">【第一印象】</span></div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q3.</span> プロポーズの言葉は？</div>
@@ -305,7 +543,7 @@
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q4.</span> お互いの好きなところは？</div>
-        <div class="qa-a"><b>Richard</b>：<span class="ph">【好きなところ】</span>　<b>Hazuki</b>：<span class="ph">【好きなところ】</span></div>
+        <div class="qa-a"><b>Richard</b>：<span class="ph">【好きなところ】</span><br><b>Hazuki</b>：<span class="ph">【好きなところ】</span></div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q5.</span> どんな家庭にしたい？</div>
@@ -320,8 +558,11 @@
 <!-- P6: HISTORY -->
 <div class="page">
   <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="sec-head"><span class="en">OUR STORY</span><div class="jp">ふたりの歩み</div></div>
+    <span class="spark" style="right: 9mm; top: 30mm;"><svg width="17" height="17" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="right: 16mm; bottom: 30mm;"><svg width="13" height="13" viewBox="0 0 24 24"><path fill="#17BEBB" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <div class="marquee-wrap"><span class="marquee">OUR STORY</span><div class="marquee-jp">ふたりの歩み</div></div>
     <ul class="tl">
       <li><span class="when ph">20XX.XX</span><span class="what ph">【出会い】</span></li>
       <li><span class="when ph">20XX.XX</span><span class="what ph">【初デート】</span></li>
@@ -339,32 +580,37 @@
 <!-- P7: MENU & PROGRAM -->
 <div class="page">
   <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="sec-head"><span class="en">DINER MENU</span><div class="jp">本日のメニューと流れ</div></div>
-    <div class="two-col">
-      <div class="col">
-        <div class="mini-head">MENU</div>
-        <ul class="menu-list">
-          <li class="ph">【前菜】</li>
-          <li class="ph">【スープ】</li>
-          <li class="ph">【魚料理】</li>
-          <li class="ph">【肉料理】</li>
-          <li class="ph">【ご飯もの】</li>
-          <li class="ph">【デザート】</li>
-          <li class="ph">【ドリンク】</li>
-        </ul>
-      </div>
-      <div class="col">
-        <div class="mini-head">PROGRAM</div>
-        <ul class="prog-list">
-          <li><span class="t">16:00</span>受付開始</li>
-          <li><span class="t">16:30</span>開宴・ふたりの入場</li>
-          <li><span class="t ph">--:--</span><span class="ph">【乾杯】</span></li>
-          <li><span class="t ph">--:--</span><span class="ph">【ケーキ入刀など】</span></li>
-          <li><span class="t ph">--:--</span><span class="ph">【余興・スピーチ】</span></li>
-          <li><span class="t">19:30</span>お開き</li>
-          <li><span class="t">その後</span>二次会（会費 3,000円）</li>
-        </ul>
+    <div class="marquee-wrap"><span class="marquee">DINER MENU</span><div class="marquee-jp">本日のメニューと流れ</div></div>
+    <div class="menu-board">
+      <div class="board-title">TODAY'S SPECIALS</div>
+      <div class="board-sub">ALL DISHES MADE WITH LOVE ♥</div>
+      <div class="two-col">
+        <div class="col">
+          <div class="mini-head">MENU</div>
+          <ul class="menu-list">
+            <li><span class="icon">🥗</span><span class="ph">【前菜】</span><span class="dots"></span></li>
+            <li><span class="icon">🍲</span><span class="ph">【スープ】</span><span class="dots"></span></li>
+            <li><span class="icon">🐟</span><span class="ph">【魚料理】</span><span class="dots"></span></li>
+            <li><span class="icon">🥩</span><span class="ph">【肉料理】</span><span class="dots"></span></li>
+            <li><span class="icon">🍚</span><span class="ph">【ご飯もの】</span><span class="dots"></span></li>
+            <li><span class="icon">🍰</span><span class="ph">【デザート】</span><span class="dots"></span></li>
+            <li><span class="icon">🥤</span><span class="ph">【ドリンク】</span><span class="dots"></span></li>
+          </ul>
+        </div>
+        <div class="col">
+          <div class="mini-head teal">PROGRAM</div>
+          <ul class="prog-list">
+            <li><span class="t">16:00</span>受付開始</li>
+            <li><span class="t">16:30</span>開宴・ふたりの入場</li>
+            <li><span class="t ph">--:--</span><span class="ph">【乾杯】</span></li>
+            <li><span class="t ph">--:--</span><span class="ph">【ケーキ入刀など】</span></li>
+            <li><span class="t ph">--:--</span><span class="ph">【余興・スピーチ】</span></li>
+            <li><span class="t">19:30</span>お開き</li>
+            <li><span class="t">その後</span>二次会（会費 3,000円）</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="note-foot">※メニュー・進行は式場と決まり次第差し替えます</div>
@@ -376,12 +622,19 @@
 <div class="page back">
   <div class="checker"></div>
   <div class="body">
-    <div class="back-thanks">Thank You !</div>
+    <span class="spark" style="left: 10mm; top: 26mm;"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="right: 12mm; top: 48mm;"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#17BEBB" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <span class="spark" style="left: 18mm; bottom: 34mm;"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#FFFFFF" opacity=".8" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+    <div class="back-neon">
+      <div class="back-thanks">THANK YOU !</div>
+      <div class="back-open">OPEN FOREVER — 24/7/365</div>
+    </div>
     <div class="back-msg">
       本日は私たちのために<br>
       お集まりいただきありがとうございました<br>
       これからもふたりをよろしくお願いします
     </div>
+    <span class="back-badge">PLEASE COME AGAIN !</span>
     <div class="back-date">RICHARD &amp; HAZUKI — 2026.12.13 SUN</div>
   </div>
   <div class="checker"></div>
