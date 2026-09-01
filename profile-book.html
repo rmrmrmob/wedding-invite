@@ -394,35 +394,79 @@
   .back-date { font-size: 9pt; letter-spacing: .3em; opacity: .85; }
 
   .note-foot { text-align: center; font-size: 7.5pt; color: #B26A4A; margin-top: auto; padding-top: 2.5mm; }
+
+  /* ---- cover v2: user's welcome-board design, diner-fied ---- */
+  .cover2 { background: #F2EDE7; display: block; }
+  .cover2-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .cover2 .checker-abs { position: absolute; left: 0; right: 0; height: 6mm; z-index: 3;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 6mm 6mm; }
+  .cover2 .checker-abs.top { top: 0; }
+  .cover2 .checker-abs.bot { bottom: 0; }
+  .cover2 .awning-abs { position: absolute; left: 0; right: 0; top: 6mm; z-index: 3; }
+  .cover2-mask { position: absolute; left: 6%; top: 9.5%; width: 88%; height: 20.5%; background: #F2EDE7; z-index: 2; }
+  .cover2-sign {
+    position: absolute; left: 50%; top: 19mm; z-index: 4;
+    transform: translateX(-50%) rotate(-2deg);
+    text-align: center; width: 78%;
+  }
+  .cover2-panel {
+    background: var(--cherry-deep);
+    border: 1.4mm solid var(--mustard);
+    border-radius: 4mm;
+    box-shadow: 0 1.8mm 0 rgba(0,0,0,.25), inset 0 0 4mm rgba(255,182,39,.4);
+    padding: 4mm 5mm 4.5mm;
+  }
+  .cover2-title {
+    color: #FFEFC2;
+    font-weight: bold;
+    font-size: 18.5pt;
+    letter-spacing: .07em;
+    line-height: 1.32;
+    text-shadow: 0 0 2mm rgba(255,214,140,.95), 0 0 5.5mm rgba(255,182,39,.6);
+  }
+  .cover2-panel .stars { color: var(--mustard); font-size: 9pt; letter-spacing: .8em; text-indent: .8em; margin-top: 1.5mm; text-shadow: none; }
+  .cover2-date {
+    display: inline-block; margin-top: 3mm;
+    background: var(--cherry); color: #FFF;
+    font-weight: bold; font-size: 10pt; letter-spacing: .1em;
+    border-radius: 99mm; padding: 1.6mm 6mm;
+    box-shadow: 0 1.2mm 0 rgba(0,0,0,.2);
+  }
+  .cover2-ribbon {
+    display: inline-block; margin-top: 2.5mm;
+    background: var(--mustard); color: var(--cherry-deep);
+    font-weight: bold; font-size: 8.5pt; letter-spacing: .26em;
+    padding: 1.4mm 6mm; border-radius: 99mm;
+    transform: rotate(1.5deg);
+    box-shadow: 0 1mm 0 rgba(0,0,0,.18);
+  }
+  .cover2 .spark { z-index: 4; }
+
+  .prof-photo { overflow: hidden; }
+  .prof-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 </style>
 </head>
 <body>
 
-<!-- P1: COVER -->
-<div class="page cover">
-  <div class="checker"></div>
-  <div class="body">
-    <span class="spark" style="left: 8mm; top: 24mm;"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
-    <span class="spark" style="right: 10mm; top: 44mm;"><svg width="17" height="17" viewBox="0 0 24 24"><path fill="#FFFFFF" opacity=".9" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
-    <span class="spark" style="left: 14mm; bottom: 40mm;"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#17BEBB" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
-    <span class="spark" style="right: 7mm; bottom: 68mm;"><svg width="21" height="21" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
-
-    <span class="cover-badge">EST. 2026 — JUST MARRIED !</span>
-    <div class="neon-frame">
-      <div class="cover-title">PROFILE<br>BOOK</div>
-      <div class="cover-sub">WEDDING RECEPTION SPECIAL</div>
+<!-- P1: COVER (user's welcome-board design + diner treatment) -->
+<div class="page cover2">
+  <img class="cover2-img" src="cover-design.jpg" alt="">
+  <div class="cover2-mask"></div>
+  <div class="checker-abs top"></div>
+  <div class="awning awning-abs"><div class="stripes"></div><div class="scallops"></div></div>
+  <div class="cover2-sign">
+    <div class="cover2-panel">
+      <div class="cover2-title">WELCOME TO<br>OUR WEDDING</div>
+      <div class="stars">★ ★ ★</div>
     </div>
-    <div class="cover-photo-wrap">
-      <img class="cover-photo" src="hero-photo.jpg" alt="">
-      <span class="photo-ribbon">WELCOME TO OUR PARTY !</span>
-    </div>
-    <div>
-      <div class="cover-names">RICHARD <span class="amp">&amp;</span> HAZUKI</div>
-      <div class="cover-date">2026.12.13 SUN — OKINAWA</div>
-      <div class="cover-tagline">🍔 GOOD FOOD · GOOD FRIENDS · GOOD TIMES 🍒</div>
-    </div>
+    <div><span class="cover2-date">2026.12.13 SUN — OKINAWA</span></div>
+    <div><span class="cover2-ribbon">PROFILE BOOK</span></div>
   </div>
-  <div class="checker"></div>
+  <span class="spark" style="left: 5%; top: 33%;"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+  <span class="spark" style="right: 5%; top: 31%;"><svg width="17" height="17" viewBox="0 0 24 24"><path fill="#17BEBB" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+  <span class="spark" style="right: 4%; top: 52%;"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+  <span class="spark" style="left: 4%; top: 47%;"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#D7263D" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
+  <div class="checker-abs bot"></div>
 </div>
 
 <!-- P2: GREETING -->
@@ -456,7 +500,7 @@
       <div class="ticket-head">★ GUEST CHECK <span class="no">No.001</span> ★</div>
       <div class="ticket-inner">
         <div class="prof-top">
-          <div class="prof-photo">【新郎の写真】</div>
+          <div class="prof-photo"><img src="groom.jpg" alt="" style="object-position: 50% 62%; transform: scale(2.2); transform-origin: 53% 53%;"></div>
           <div>
             <div class="prof-name-en">RICHARD</div>
             <div class="prof-name-jp ph">【お名前（漢字）】</div>
@@ -492,7 +536,7 @@
       <div class="ticket-head">★ GUEST CHECK <span class="no">No.002</span> ★</div>
       <div class="ticket-inner">
         <div class="prof-top">
-          <div class="prof-photo">【新婦の写真】</div>
+          <div class="prof-photo"><img src="bride.jpg" alt="" style="object-position: 50% 10%; transform: scale(1.6); transform-origin: 50% 41%;"></div>
           <div>
             <div class="prof-name-en teal">HAZUKI</div>
             <div class="prof-name-jp ph">【お名前（漢字）】</div>
