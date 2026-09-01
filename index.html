@@ -510,11 +510,40 @@
     margin-top: 6px;
     opacity: .85;
   }
+
+  /* ---------- language toggle & deadline banner ---------- */
+  .lang-toggle {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 60;
+    font-family: var(--font-slab);
+    font-size: 12px;
+    letter-spacing: .08em;
+    background: var(--ink);
+    color: var(--cream);
+    border: 2px solid var(--cream);
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 rgba(0,0,0,.3);
+  }
+  .lang-toggle:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.3); }
+  .deadline-banner {
+    background: var(--mustard);
+    color: var(--ink);
+    text-align: center;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: .04em;
+    padding: 10px 14px;
+  }
 </style>
 </head>
 <body>
 
 <div class="page">
+  <button type="button" class="lang-toggle" id="lang-toggle">EN</button>
   <div class="checker" aria-hidden="true"></div>
 
   <header class="hero" id="hero">
@@ -549,6 +578,8 @@
     <a href="#events"><span class="en">EVENTS</span><span class="jp">日時・会場</span></a>
     <a href="#rsvp"><span class="en">RSVP</span><span class="jp">ご出欠</span></a>
   </nav>
+
+  <div class="deadline-banner" id="deadline-banner" hidden></div>
 
   <section id="message">
     <div class="sec-head">
@@ -603,14 +634,14 @@
 
     <div class="bus-note">
       <span class="bus-badge">BUS</span>
-      <span>当日は <strong>那覇空港 ⇔ 会場</strong> のシャトルバスを運行予定です<br>
+      <span id="bus-note-text">当日は <strong>那覇空港 ⇔ 会場</strong> のシャトルバスを運行予定です<br>
       発着時刻など詳細は 決まり次第ご案内いたします<br>
       ご利用の希望を下の出欠フォームでお知らせください</span>
     </div>
 
     <div class="bus-note" style="border-color: var(--teal);">
-      <span class="bus-badge" style="background: var(--teal);">2次会</span>
-      <span>披露宴のあとに二次会も予定しています<br>
+      <span class="bus-badge" style="background: var(--teal);" id="party-badge">2次会</span>
+      <span id="party-note-text">披露宴のあとに二次会も予定しています<br>
       あわせて参加のご希望をお聞かせください</span>
     </div>
   </section>
@@ -657,6 +688,21 @@
       </div>
 
       <div class="field">
+        <label for="f-companions">お連れ様のお名前（ご一緒に出席される方）</label>
+        <textarea id="f-companions" name="companions" placeholder="例）山田 花子、山田 一郎"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-children">お子様連れ（人数・年齢）</label>
+        <input type="text" id="f-children" name="children" placeholder="例）2人（5歳・2歳）">
+      </div>
+
+      <div class="field">
+        <label for="f-zip">郵便番号</label>
+        <input type="text" id="f-zip" name="zip" placeholder="例）900-0006" autocomplete="postal-code" inputmode="numeric">
+      </div>
+
+      <div class="field">
         <label for="f-address">ご住所</label>
         <input type="text" id="f-address" name="address" placeholder="例）沖縄県那覇市◯◯1-2-3" autocomplete="street-address">
       </div>
@@ -674,6 +720,11 @@
           <input type="radio" name="bus" id="bus-no" value="利用しない">
           <label class="pill" for="bus-no">利用しない</label>
         </div>
+      </div>
+
+      <div class="field">
+        <label for="f-buscount">バス利用人数</label>
+        <input type="text" id="f-buscount" name="buscount" placeholder="例）2人" inputmode="numeric">
       </div>
 
       <div class="field">
@@ -817,6 +868,10 @@
       name: document.getElementById('f-name').value.trim(),
       kana: document.getElementById('f-kana').value.trim(),
       side: radioValue('side'),
+      companions: document.getElementById('f-companions').value.trim(),
+      children: document.getElementById('f-children').value.trim(),
+      zip: document.getElementById('f-zip').value.trim(),
+      buscount: document.getElementById('f-buscount').value.trim(),
       address: document.getElementById('f-address').value.trim(),
       tel: document.getElementById('f-tel').value.trim(),
       bus: radioValue('bus'),
@@ -833,9 +888,11 @@
       '出欠：' + r.attend,
       'お名前：' + r.name + (r.kana ? '（' + r.kana + '）' : ''),
       '新郎側/新婦側：' + r.side,
-      'ご住所：' + (r.address || '未記入'),
+      'お連れ様：' + (r.companions || 'なし'),
+      'お子様連れ：' + (r.children || 'なし'),
+      'ご住所：' + ((r.zip ? '〒' + r.zip + ' ' : '') + r.address || '未記入'),
       '電話番号：' + (r.tel || '未記入'),
-      '空港シャトルバス：' + (r.bus || '未回答'),
+      '空港シャトルバス：' + (r.bus || '未回答') + (r.buscount ? '（' + r.buscount + '）' : ''),
       '二次会：' + (r.party || '未回答'),
       'アレルギー等：' + (r.allergy || 'なし'),
       'メッセージ：' + (r.message || 'なし')
@@ -880,14 +937,28 @@
     bus: 'entry.1879289786',
     party: 'entry.157965281',
     allergy: 'entry.1974528831',
-    message: 'entry.519764689'
+    message: 'entry.519764689',
+    companions: '',
+    children: '',
+    zip: '',
+    buscount: ''
   };
+  var EXTRA_LABEL = { companions: 'お連れ様', children: 'お子様連れ', zip: '郵便番号', buscount: 'バス利用人数' };
 
   function sendToGoogle(r) {
     var params = new URLSearchParams();
+    var extra = [];
     Object.keys(GOOGLE_ENTRY).forEach(function (k) {
-      params.append(GOOGLE_ENTRY[k], r[k] || '');
+      if (k === 'message') return;
+      if (GOOGLE_ENTRY[k]) {
+        params.append(GOOGLE_ENTRY[k], r[k] || '');
+      } else if (r[k]) {
+        extra.push('【' + (EXTRA_LABEL[k] || k) + '】' + r[k]);
+      }
     });
+    var msg = r.message || '';
+    if (extra.length) msg = (msg ? msg + '\n' : '') + extra.join('\n');
+    params.append(GOOGLE_ENTRY.message, msg);
     return fetch(GOOGLE_FORM, {
       method: 'POST',
       mode: 'no-cors',
@@ -905,7 +976,7 @@
     }
     errorEl.classList.remove('show');
     submitBtn.disabled = true;
-    submitBtn.textContent = '送信中…';
+    submitBtn.textContent = (CUR_LANG === 'en') ? 'Sending…' : '送信中…';
 
     var text = formatText(r);
 
@@ -946,6 +1017,123 @@
       try { document.execCommand('copy'); done(); } catch (e) {}
     }
   });
+
+  /* ---------- language toggle & deadline reminder ---------- */
+  var CUR_LANG = 'ja';
+  var EN_TEXT = [
+    ['.nav a[href="#message"] .jp', 'Greeting'],
+    ['.nav a[href="#events"] .jp', 'Date &amp; Venue'],
+    ['.nav a[href="#rsvp"] .jp', 'Kindly Reply'],
+    ['#message .sec-head .jp', 'Greeting'],
+    ['#events .sec-head .jp', 'Date &amp; Venue'],
+    ['#rsvp .sec-head .jp', 'Kindly Reply'],
+    ['.hero-invite', 'You Are Invited'],
+    ['.hero-place', 'Wedding Hall N.B.C — OKINAWA'],
+    ['.message-body p:nth-of-type(1)', 'Dear family and friends,<br>we are delighted to announce<br>that we are getting married!'],
+    ['.message-body p:nth-of-type(2)', 'With heartfelt thanks for your<br>kindness and support,<br>we are preparing delicious food<br>and a joyful celebration for you.'],
+    ['.message-body p:nth-of-type(3)', 'We would be truly honored<br>if you could join us on our special day.'],
+    ['.ticket dl dd:nth-of-type(2)', 'Doors open 15:30 / Reception 16:00 – 19:30'],
+    ['.ticket dl dd:nth-of-type(3)', 'Wedding Hall N.B.C (Nihon Bridal Center)<br><span class="small">6-12-1 Goya, Okinawa City, Okinawa 904-0021</span><br><span class="small">TEL: <a href="tel:0989330808" style="color:inherit">098-933-0808</a></span>'],
+    ['.ticket .btn.ghost', 'Open Map'],
+    ['#bus-note-text', 'A shuttle bus between <strong>Naha Airport ⇔ the venue</strong> is planned for the day.<br>Details will follow once the schedule is set.<br>Please tell us in the RSVP form below if you would like to ride.'],
+    ['#party-badge', 'PARTY'],
+    ['#party-note-text', 'An after-party is planned right after the reception.<br>Let us know in the form if you would like to join!'],
+    ['.deadline', 'Kindly reply by <span style="color:var(--cherry-deep)">Saturday, October 31, 2026</span>'],
+    ['#lbl-attend', 'Attendance'],
+    ['label[for="attend-yes"]', 'Attending'],
+    ['label[for="attend-no"]', 'Not attending'],
+    ['label[for="f-name"]', 'Name'],
+    ['label[for="f-kana"]', 'Furigana'],
+    ['#lbl-side', 'Guest of'],
+    ['label[for="side-groom"]', 'Groom&rsquo;s side'],
+    ['label[for="side-bride"]', 'Bride&rsquo;s side'],
+    ['label[for="f-companions"]', 'Accompanying guests (attending with you)'],
+    ['label[for="f-children"]', 'Children (number &amp; ages)'],
+    ['label[for="f-zip"]', 'Postal code'],
+    ['label[for="f-buscount"]', 'Shuttle bus riders'],
+    ['label[for="f-address"]', 'Address'],
+    ['label[for="f-tel"]', 'Phone number'],
+    ['#lbl-bus', 'Airport shuttle bus'],
+    ['label[for="bus-yes"]', 'Will ride'],
+    ['label[for="bus-no"]', 'No thanks'],
+    ['#lbl-party', 'After-party'],
+    ['label[for="party-yes"]', 'Joining'],
+    ['label[for="party-no"]', 'Not joining'],
+    ['label[for="f-allergy"]', 'Allergies / dietary needs'],
+    ['label[for="f-msg"]', 'Message to the couple'],
+    ['#submit-btn', 'Send RSVP'],
+    ['#form-error', 'Please fill in the required fields (Attendance / Name / Guest of)'],
+    ['#thanks-ok p:not(.script)', 'Your RSVP has been received.<br>We look forward to celebrating with you!'],
+    ['#thanks-copy p:not(.script)', 'Please copy your answers below and<br>send them to us on <strong>LINE</strong><br>(your reply is complete once sent)'],
+    ['#copy-btn', 'Copy my answers'],
+    ['#copied-note', 'Copied!']
+  ];
+
+  var EN_PLACEHOLDER = {
+    'f-name': 'e.g. Taro Yamada',
+    'f-kana': 'e.g. やまだ たろう',
+    'f-companions': 'e.g. Hanako Yamada, Ichiro Yamada',
+    'f-children': 'e.g. 2 kids (ages 5 and 2)',
+    'f-zip': 'e.g. 900-0006',
+    'f-buscount': 'e.g. 2 people',
+    'f-address': 'e.g. 1-2-3 Omoromachi, Naha, Okinawa',
+    'f-tel': 'e.g. 090-1234-5678',
+    'f-allergy': 'e.g. allergic to shrimp and crab',
+    'f-msg': 'Say hello!'
+  };
+
+  var i18nNodes = [];
+  EN_TEXT.forEach(function (pair) {
+    document.querySelectorAll(pair[0]).forEach(function (el) {
+      i18nNodes.push([el, el.innerHTML, pair[1]]);
+    });
+  });
+  var jaPlaceholder = {};
+  Object.keys(EN_PLACEHOLDER).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) jaPlaceholder[id] = el.placeholder;
+  });
+
+  var banner = document.getElementById('deadline-banner');
+  function bannerText(lang) {
+    var now = new Date();
+    var end = new Date(2026, 10, 1);
+    if (now >= end) return '';
+    var days = Math.floor((end - now) / 86400000);
+    if (lang === 'en') {
+      return days === 0
+        ? '💌 RSVP by <strong>Oct 31 (Sat)</strong> — due today!'
+        : '💌 RSVP by <strong>Oct 31 (Sat)</strong> — ' + days + ' days left';
+    }
+    return days === 0
+      ? '💌 ご出欠のご回答は <strong>本日 10/31（土）</strong>が締切です'
+      : '💌 ご出欠のご回答は <strong>10/31（土）</strong>まで — あと' + days + '日';
+  }
+
+  function applyLang(lang) {
+    CUR_LANG = lang;
+    i18nNodes.forEach(function (row) {
+      row[0].innerHTML = (lang === 'en') ? row[2] : row[1];
+    });
+    Object.keys(EN_PLACEHOLDER).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.placeholder = (lang === 'en') ? EN_PLACEHOLDER[id] : jaPlaceholder[id];
+    });
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'ja';
+    document.getElementById('lang-toggle').textContent = (lang === 'en') ? '日本語' : 'EN';
+    var b = bannerText(lang);
+    banner.hidden = !b;
+    if (b) banner.innerHTML = b;
+    try { localStorage.setItem('invite-lang', lang); } catch (e) {}
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', function () {
+    applyLang(CUR_LANG === 'en' ? 'ja' : 'en');
+  });
+
+  var savedLang = 'ja';
+  try { savedLang = localStorage.getItem('invite-lang') || 'ja'; } catch (e) {}
+  applyLang(savedLang);
 })();
 </script>
 
