@@ -45,6 +45,15 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 - **回答締切カウントダウンバナー**(ナビ下、10/31まで残り日数を表示、締切後は自動非表示)
 - 今後やりたい: 前撮り写真ギャラリー(写真ができたら)
 
+## プロフィールブック(紙の冊子)
+
+- `profile-book.html` = A5縦・8ページの印刷用冊子のソース(表紙/ご挨拶/新郎/新婦/Q&A/歩み/メニュー&プログラム/裏表紙)
+- PDF化は Playwright + `/opt/pw-browsers/chromium` の `page.pdf()`(width 148mm / height 210mm, printBackground: true)
+- フォントはコンテナ内の IPAPGothic を使用(Google Fontsはegressで読めない)
+- 表紙写真は `hero-photo.jpg`(サイトのトップ写真と同じ)
+- 【 】書きの箇所はプレースホルダ。オーナーからプロフィール情報(生年月日・出身地・趣味など)、
+  Q&Aの回答、歩み年表、メニュー・進行をもらって差し替える(2025-09時点で未記入)
+
 ## 環境の注意
 
 - Claude Codeセッションからは egressポリシーで `rmrmrmob.github.io` や `docs.google.com` に
