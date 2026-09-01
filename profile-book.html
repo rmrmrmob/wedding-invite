@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Richard &amp; Hazuki Profile Book</title>
+<style>
+  :root {
+    --cherry: #D7263D;
+    --cherry-deep: #A31621;
+    --cream: #FFF6E9;
+    --cream-deep: #FBE8CC;
+    --mustard: #FFB627;
+    --teal: #17BEBB;
+    --ink: #2B1B12;
+    --paper: #FFFDF7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: 148mm 210mm; margin: 0; }
+  html, body { background: #888; }
+  body { font-family: "IPAPGothic", "Noto Color Emoji", sans-serif; color: var(--ink); }
+
+  .page {
+    width: 148mm;
+    height: 210mm;
+    background: var(--cream);
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .checker {
+    height: 7mm;
+    flex: none;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 7mm 7mm;
+  }
+  .body { flex: 1; padding: 10mm 12mm; display: flex; flex-direction: column; }
+
+  .slab { font-weight: bold; letter-spacing: .12em; }
+  .sec-head { text-align: center; margin-bottom: 7mm; }
+  .sec-head .en {
+    display: inline-block;
+    font-size: 21pt;
+    font-weight: bold;
+    letter-spacing: .18em;
+    color: var(--cherry);
+    border-bottom: 1.2mm solid var(--mustard);
+    padding: 0 4mm 1.5mm;
+  }
+  .sec-head .jp { font-size: 9pt; margin-top: 2mm; color: var(--ink); opacity: .75; letter-spacing: .3em; }
+
+  .ph { color: #B26A4A; }   /* placeholder text color */
+
+  /* ---- cover ---- */
+  .cover .body {
+    background:
+      radial-gradient(circle at 18% 12%, rgba(255,182,39,.35), transparent 34%),
+      radial-gradient(circle at 84% 20%, rgba(23,190,187,.30), transparent 30%),
+      linear-gradient(165deg, #E23A50 0%, var(--cherry) 46%, var(--cherry-deep) 100%);
+    color: #FFF;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14mm;
+    padding-bottom: 12mm;
+  }
+  .cover-badge {
+    display: inline-block;
+    font-size: 9pt;
+    font-weight: bold;
+    letter-spacing: .22em;
+    color: var(--cherry-deep);
+    background: var(--mustard);
+    border-radius: 99mm;
+    padding: 2mm 6mm;
+    transform: rotate(-3deg);
+  }
+  .cover-title {
+    font-size: 34pt;
+    font-weight: bold;
+    letter-spacing: .06em;
+    line-height: 1.2;
+    text-shadow: 0 1.2mm 0 rgba(0,0,0,.25);
+  }
+  .cover-photo {
+    width: 92mm;
+    height: 82mm;
+    object-fit: cover;
+    border: 2.4mm solid #FFF;
+    border-radius: 3mm;
+    box-shadow: 0 2mm 0 rgba(0,0,0,.28);
+    transform: rotate(-1.5deg);
+  }
+  .cover-names { font-size: 17pt; font-weight: bold; letter-spacing: .1em; }
+  .cover-names .amp { color: var(--mustard); }
+  .cover-date {
+    display: inline-block;
+    font-size: 11pt;
+    font-weight: bold;
+    letter-spacing: .12em;
+    background: rgba(0,0,0,.28);
+    border: 0.5mm dashed rgba(255,255,255,.7);
+    border-radius: 2.5mm;
+    padding: 2mm 6mm;
+    margin-top: 3mm;
+  }
+
+  /* ---- greeting ---- */
+  .greet-text { text-align: center; font-size: 10.5pt; line-height: 2.2; }
+  .greet-text p { margin-bottom: 6mm; }
+  .greet-sign { text-align: center; font-size: 14pt; font-weight: bold; color: var(--cherry); margin-top: 8mm; }
+
+  /* ---- profile ---- */
+  .prof-top { display: flex; gap: 6mm; align-items: center; margin-bottom: 6mm; }
+  .prof-photo {
+    width: 44mm; height: 44mm; flex: none;
+    border-radius: 50%;
+    background: var(--cream-deep);
+    border: 1.6mm solid var(--mustard);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9pt; color: #B26A4A; text-align: center; line-height: 1.6;
+  }
+  .prof-name-en { font-size: 19pt; font-weight: bold; color: var(--cherry); letter-spacing: .06em; }
+  .prof-name-jp { font-size: 11pt; margin-top: 2mm; }
+  .prof-role {
+    display: inline-block; font-size: 8.5pt; font-weight: bold; color: #FFF;
+    background: var(--teal); border-radius: 99mm; padding: 1mm 4mm; margin-top: 2.5mm; letter-spacing: .15em;
+  }
+  .prof-role.groom { background: var(--teal); }
+  .prof-role.bride { background: var(--cherry); }
+  table.prof {
+    width: 100%; border-collapse: collapse; font-size: 10pt;
+  }
+  table.prof th, table.prof td {
+    border-bottom: 0.4mm dashed #D8BFA5;
+    padding: 2.6mm 1mm;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.prof th { width: 30mm; color: var(--cherry-deep); font-weight: bold; white-space: nowrap; }
+  .prof-comment {
+    margin-top: 5mm;
+    background: var(--paper);
+    border: 0.6mm solid var(--mustard);
+    border-radius: 2.5mm;
+    padding: 4mm;
+    font-size: 9.5pt;
+    line-height: 1.8;
+  }
+  .prof-comment b { color: var(--cherry); }
+
+  /* ---- Q&A ---- */
+  .qa { font-size: 9.5pt; }
+  .qa-item { margin-bottom: 4.5mm; }
+  .qa-q {
+    font-weight: bold; color: #FFF; background: var(--cherry);
+    border-radius: 2mm; padding: 1.6mm 3mm; display: inline-block; margin-bottom: 1.6mm;
+  }
+  .qa-q .qmark { color: var(--mustard); font-weight: bold; }
+  .qa-a { padding-left: 3mm; line-height: 1.8; }
+  .qa-a b { color: var(--teal); }
+
+  /* ---- timeline ---- */
+  .tl { list-style: none; font-size: 10pt; }
+  .tl li { display: flex; gap: 4mm; margin-bottom: 4.2mm; align-items: baseline; }
+  .tl .when {
+    flex: none; width: 26mm; font-weight: bold; color: #FFF; background: var(--teal);
+    border-radius: 2mm; text-align: center; padding: 1.2mm 0; font-size: 9pt;
+  }
+  .tl li:nth-child(even) .when { background: var(--cherry); }
+  .tl .what { line-height: 1.7; }
+
+  /* ---- menu & program ---- */
+  .two-col { display: flex; gap: 7mm; flex: 1; }
+  .col { flex: 1; }
+  .mini-head {
+    text-align: center; font-size: 13pt; font-weight: bold; color: var(--cherry);
+    letter-spacing: .18em; border-bottom: 0.8mm solid var(--mustard); padding-bottom: 1.5mm; margin-bottom: 4mm;
+  }
+  .menu-list, .prog-list { list-style: none; font-size: 9.5pt; }
+  .menu-list li, .prog-list li { padding: 2.2mm 0; border-bottom: 0.4mm dashed #D8BFA5; line-height: 1.6; }
+  .prog-list .t { font-weight: bold; color: var(--teal); margin-right: 2mm; }
+
+  /* ---- back cover ---- */
+  .back .body {
+    background: var(--ink);
+    color: var(--cream);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 6mm;
+  }
+  .back-thanks { font-size: 26pt; font-weight: bold; color: var(--mustard); letter-spacing: .08em; }
+  .back-msg { font-size: 10pt; line-height: 2.1; }
+  .back-date { font-size: 9pt; letter-spacing: .3em; opacity: .85; }
+
+  .note-foot { text-align: center; font-size: 7.5pt; color: #B26A4A; margin-top: auto; padding-top: 3mm; }
+</style>
+</head>
+<body>
+
+<!-- P1: COVER -->
+<div class="page cover">
+  <div class="checker"></div>
+  <div class="body">
+    <span class="cover-badge">JUST MARRIED !</span>
+    <div class="cover-title">PROFILE<br>BOOK</div>
+    <img class="cover-photo" src="hero-photo.jpg" alt="">
+    <div>
+      <div class="cover-names">RICHARD <span class="amp">&amp;</span> HAZUKI</div>
+      <div class="cover-date">2026.12.13 SUN — OKINAWA</div>
+    </div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P2: GREETING -->
+<div class="page">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="sec-head"><span class="en">WELCOME</span><div class="jp">ご挨拶</div></div>
+    <div class="greet-text">
+      <p>本日はご多用の中<br>私たちの披露宴にお越しいただき<br>誠にありがとうございます</p>
+      <p>日頃お世話になっている皆さまと<br>楽しいひとときを過ごしたく<br>ささやかながらこの席をご用意しました</p>
+      <p>おいしい料理とともに<br>最後までごゆっくりお楽しみください</p>
+    </div>
+    <div class="greet-sign">Richard &amp; Hazuki</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P3: GROOM -->
+<div class="page">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="sec-head"><span class="en">GROOM</span><div class="jp">新郎</div></div>
+    <div class="prof-top">
+      <div class="prof-photo">【新郎の写真】</div>
+      <div>
+        <div class="prof-name-en">RICHARD</div>
+        <div class="prof-name-jp ph">【お名前（漢字）】</div>
+        <span class="prof-role groom">GROOM</span>
+      </div>
+    </div>
+    <table class="prof">
+      <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
+      <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
+      <tr><th>血液型</th><td class="ph">【X型】</td></tr>
+      <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
+      <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
+      <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
+      <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
+    </table>
+    <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新郎からのひとことメッセージ】</span></div>
+    <div class="note-foot">※【 】の部分はあとで差し替えます</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P4: BRIDE -->
+<div class="page">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="sec-head"><span class="en">BRIDE</span><div class="jp">新婦</div></div>
+    <div class="prof-top">
+      <div class="prof-photo">【新婦の写真】</div>
+      <div>
+        <div class="prof-name-en" style="color: var(--teal);">HAZUKI</div>
+        <div class="prof-name-jp ph">【お名前（漢字）】</div>
+        <span class="prof-role bride">BRIDE</span>
+      </div>
+    </div>
+    <table class="prof">
+      <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
+      <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
+      <tr><th>血液型</th><td class="ph">【X型】</td></tr>
+      <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
+      <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
+      <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
+      <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
+    </table>
+    <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新婦からのひとことメッセージ】</span></div>
+    <div class="note-foot">※【 】の部分はあとで差し替えます</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P5: Q&A -->
+<div class="page">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="sec-head"><span class="en">Q &amp; A</span><div class="jp">ふたりに聞きました</div></div>
+    <div class="qa">
+      <div class="qa-item">
+        <div class="qa-q"><span class="qmark">Q1.</span> ふたりの出会いは？</div>
+        <div class="qa-a ph">【出会いのエピソード】</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="qmark">Q2.</span> お互いの第一印象は？</div>
+        <div class="qa-a"><b>Richard</b>：<span class="ph">【第一印象】</span>　<b>Hazuki</b>：<span class="ph">【第一印象】</span></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="qmark">Q3.</span> プロポーズの言葉は？</div>
+        <div class="qa-a ph">【プロポーズのエピソード】</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="qmark">Q4.</span> お互いの好きなところは？</div>
+        <div class="qa-a"><b>Richard</b>：<span class="ph">【好きなところ】</span>　<b>Hazuki</b>：<span class="ph">【好きなところ】</span></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="qmark">Q5.</span> どんな家庭にしたい？</div>
+        <div class="qa-a ph">【これからの抱負】</div>
+      </div>
+    </div>
+    <div class="note-foot">※質問の入れ替え・追加も自由にできます</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P6: HISTORY -->
+<div class="page">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="sec-head"><span class="en">OUR STORY</span><div class="jp">ふたりの歩み</div></div>
+    <ul class="tl">
+      <li><span class="when ph">20XX.XX</span><span class="what ph">【出会い】</span></li>
+      <li><span class="when ph">20XX.XX</span><span class="what ph">【初デート】</span></li>
+      <li><span class="when ph">20XX.XX</span><span class="what ph">【交際スタート】</span></li>
+      <li><span class="when ph">20XX.XX</span><span class="what ph">【思い出のできごと（旅行など）】</span></li>
+      <li><span class="when ph">20XX.XX</span><span class="what ph">【プロポーズ】</span></li>
+      <li><span class="when ph">20XX.XX</span><span class="what ph">【入籍】</span></li>
+      <li><span class="when">2026.12</span><span class="what">結婚式 🎉　そしてこれからもずっと──</span></li>
+    </ul>
+    <div class="note-foot">※行の追加・削除も自由にできます</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P7: MENU & PROGRAM -->
+<div class="page">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="sec-head"><span class="en">DINER MENU</span><div class="jp">本日のメニューと流れ</div></div>
+    <div class="two-col">
+      <div class="col">
+        <div class="mini-head">MENU</div>
+        <ul class="menu-list">
+          <li class="ph">【前菜】</li>
+          <li class="ph">【スープ】</li>
+          <li class="ph">【魚料理】</li>
+          <li class="ph">【肉料理】</li>
+          <li class="ph">【ご飯もの】</li>
+          <li class="ph">【デザート】</li>
+          <li class="ph">【ドリンク】</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="mini-head">PROGRAM</div>
+        <ul class="prog-list">
+          <li><span class="t">16:00</span>受付開始</li>
+          <li><span class="t">16:30</span>開宴・ふたりの入場</li>
+          <li><span class="t ph">--:--</span><span class="ph">【乾杯】</span></li>
+          <li><span class="t ph">--:--</span><span class="ph">【ケーキ入刀など】</span></li>
+          <li><span class="t ph">--:--</span><span class="ph">【余興・スピーチ】</span></li>
+          <li><span class="t">19:30</span>お開き</li>
+          <li><span class="t">その後</span>二次会（会費 3,000円）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note-foot">※メニュー・進行は式場と決まり次第差し替えます</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P8: BACK COVER -->
+<div class="page back">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="back-thanks">Thank You !</div>
+    <div class="back-msg">
+      本日は私たちのために<br>
+      お集まりいただきありがとうございました<br>
+      これからもふたりをよろしくお願いします
+    </div>
+    <div class="back-date">RICHARD &amp; HAZUKI — 2026.12.13 SUN</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+</body>
+</html>
