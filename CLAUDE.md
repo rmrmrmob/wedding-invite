@@ -29,6 +29,10 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 - 送信先: `https://docs.google.com/forms/d/e/1FAIpQLScGOIkMYKBRQ-AE9gyJU7H10WpKAS4TOCMEzk3ktfj_28w7fA/formResponse`
 - entry ID対応表は `index.html` の `GOOGLE_ENTRY`(attend/name/kana/side/address/tel/bus/party/allergy/message の10項目)
 - 送信失敗時のフォールバック: アーティファクト保存 → それも不可ならLINEコピー方式
+- **【未完了】追加項目 companions(お連れ様)/children(お子様連れ)/zip(郵便番号)/buscount(バス利用人数)の
+  entry IDが未設定(空文字)**。空の間はこれらの値はメッセージ欄に【ラベル】付きで合流して送信される。
+  オーナーがGoogleフォーム末尾に記述式の質問4つ(お連れ様→お子様連れ→郵便番号→バス利用人数の順)を追加し、
+  事前入力リンク(その4つに 11,12,13,14 と入力)をもらったら `GOOGLE_ENTRY` に反映すること
 - Googleフォーム側は「公開」済み・「リンクを知っている全員」が回答可・メール収集なしであること
 
 ## デザイン・構成
@@ -37,6 +41,10 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 - 単一ファイル `index.html`(CSS/JS込み)+ `ogp.jpg`(LINEプレビュー用OGP画像、お二人の写真)
 - トップ写真は新郎新婦専用ボタンで設定し `#rsvp-data` のJSON(`heroPhoto`, base64)に保存済み
 - 写真あり時は「披露宴のご招待」見出しを写真下部(名前の上)に表示(顔に被らないように)
+- **EN/日本語切り替えボタン**(右上固定)。英訳は `EN_TEXT`/`EN_PLACEHOLDER` のセレクタ→英語辞書方式、
+  日本語はDOMスナップショットで復元。選択言語はlocalStorageに保存
+- **回答締切カウントダウンバナー**(ナビ下、10/31まで残り日数を表示、締切後は自動非表示)
+- 今後やりたい: 前撮り写真ギャラリー(写真ができたら)
 
 ## 環境の注意
 
