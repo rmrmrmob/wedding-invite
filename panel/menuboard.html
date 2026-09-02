@@ -2,289 +2,277 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>R&H Neon Diner Boards</title>
+<title>R&H Candy Pop Diner Boards</title>
 <style>
   @font-face { font-family: 'Pacifico'; src: url('/home/user/wedding-invite/fonts/Pacifico-Regular.ttf'); }
   @font-face { font-family: 'Lobster'; src: url('/home/user/wedding-invite/fonts/Lobster-Regular.ttf'); }
   @font-face { font-family: 'Alfa Slab One'; src: url('/home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
   @font-face { font-family: 'Bowlby One'; src: url('/home/user/wedding-invite/fonts/BowlbyOne-Regular.ttf'); }
+  @font-face { font-family: 'Titan One'; src: url('/home/user/wedding-invite/fonts/TitanOne-Regular.ttf'); }
+  @font-face { font-family: 'Luckiest Guy'; src: url('/home/user/wedding-invite/fonts/LuckiestGuy-Regular.ttf'); }
+  @font-face { font-family: 'Permanent Marker'; src: url('/home/user/wedding-invite/fonts/PermanentMarker-Regular.ttf'); }
   :root {
-    --bg: #221728;
-    --bg2: #2E1B33;
-    --pinkneon: #FF7BAC;
-    --pinkhot: #FF4F9A;
-    --blueneon: #5FD9EA;
-    --warm: #FFD9A0;
-    --mint: #A8DCD4;
-    --mint-deep: #6FB8AE;
-    --litewhite: #FFF8E6;
-    --ink: #17111C;
+    --hotpink: #F2549C;
+    --pink: #FF8FBE;
+    --candyred: #E23A50;
+    --red: #D7263D;
+    --teal: #3EC8D8;
+    --teal-pale: #A8E6E2;
+    --yellow: #FFD93B;
+    --cream: #FFF7EA;
+    --blue: #5FA8FF;
+    --ink: #1E1A1A;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   @page { size: 2140mm 700mm; margin: 0; }
   html, body { width: 2140mm; height: 700mm; background: transparent; }
-  body { font-family: 'Alfa Slab One', serif, 'IPAPGothic'; display: flex; gap: 20mm; }
+  body { font-family: 'Bowlby One', serif, 'IPAPGothic'; display: flex; gap: 20mm; }
 
   .panel {
     width: 700mm; height: 700mm;
     position: relative;
-    background:
-      radial-gradient(circle at 50% 12%, rgba(255,123,172,.22), transparent 55%),
-      radial-gradient(circle at 12% 85%, rgba(95,217,234,.12), transparent 45%),
-      linear-gradient(180deg, var(--bg2) 0%, var(--bg) 60%, #191019 100%);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 6mm 0 rgba(0,0,0,.4);
+    box-shadow: 0 6mm 0 rgba(0,0,0,.22);
   }
-  /* neon tube frame */
-  .tube {
-    position: absolute;
-    inset: 16mm;
-    border: 2.4mm solid rgba(255,183,212,.95);
-    border-radius: 22mm;
-    box-shadow:
-      0 0 6mm rgba(255,123,172,.9),
-      0 0 18mm rgba(255,79,154,.55),
-      inset 0 0 6mm rgba(255,123,172,.7),
-      inset 0 0 18mm rgba(255,79,154,.3);
-    pointer-events: none;
-    z-index: 4;
+  .p-pink {
+    background:
+      radial-gradient(rgba(255,255,255,.35) 6mm, transparent 7mm) 0 0 / 60mm 60mm,
+      var(--hotpink);
   }
-  .tube.blue {
-    border-color: rgba(190,242,250,.95);
-    box-shadow:
-      0 0 6mm rgba(95,217,234,.9),
-      0 0 18mm rgba(95,217,234,.5),
-      inset 0 0 6mm rgba(95,217,234,.7),
-      inset 0 0 18mm rgba(95,217,234,.3);
+  .p-teal {
+    background:
+      radial-gradient(rgba(255,255,255,.4) 6mm, transparent 7mm) 30mm 30mm / 60mm 60mm,
+      var(--teal-pale);
   }
-  .body { flex: 1; padding: 40mm 44mm 0; position: relative; z-index: 2; display: flex; flex-direction: column; }
-
-  /* backlit letterboard strip */
-  .litebox {
-    background: linear-gradient(180deg, #FFFDF4 0%, var(--litewhite) 55%, #F0E3C8 100%);
-    border: 3mm solid #3A3140;
-    border-radius: 4mm;
-    box-shadow:
-      0 0 10mm rgba(255,248,230,.55),
-      0 0 26mm rgba(255,217,160,.35),
-      0 4mm 0 rgba(0,0,0,.4);
-    padding: 8mm 10mm;
-    text-align: center;
-  }
-  .litebox .big {
-    font-family: 'Alfa Slab One', serif;
-    font-size: 92pt;
-    letter-spacing: .3em;
-    text-indent: .3em;
-    color: #241E22;
-  }
-  .litebox .jp {
-    font-family: 'IPAPGothic', sans-serif;
-    font-weight: bold;
-    font-size: 30pt;
-    letter-spacing: .5em;
-    text-indent: .5em;
-    color: #4A3F45;
-    margin-top: 3mm;
+  .p-swirl {
+    background:
+      repeating-conic-gradient(from 8deg at 50% 42%, var(--hotpink) 0deg 16deg, var(--candyred) 16deg 32deg);
   }
 
-  /* menu item rows: slim backlit bars */
-  ul.items { list-style: none; margin-top: 16mm; display: flex; flex-direction: column; gap: 13mm; }
-  ul.items li {
-    background: linear-gradient(180deg, #FFFDF4 0%, var(--litewhite) 60%, #EFE2C6 100%);
-    border: 2mm solid #3A3140;
-    border-radius: 3mm;
-    box-shadow: 0 0 7mm rgba(255,248,230,.35), 0 3mm 0 rgba(0,0,0,.4);
-    display: flex; align-items: baseline;
-    padding: 9mm 12mm;
-    font-size: 54pt;
+  .checker {
+    height: 22mm; flex: none;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFF 0% 50%) 0 0 / 22mm 22mm;
   }
-  ul.items .ico { font-family: 'Noto Color Emoji'; font-size: 40pt; margin-right: 9mm; }
-  ul.items .nm { font-family: 'Alfa Slab One', serif; color: #241E22; white-space: nowrap; letter-spacing: .04em; }
-  ul.items .kn { font-family: 'IPAPGothic', sans-serif; font-weight: bold; font-size: 24pt; color: #6E5E66; margin-left: 6mm; white-space: nowrap; align-self: center; }
-  ul.items .dots { flex: 1; border-bottom: 2mm dotted #B9A488; margin: 0 8mm; min-width: 8mm; }
-  ul.items .pr { font-family: 'Alfa Slab One', serif; color: var(--pinkhot); white-space: nowrap; }
-  ul.items .pr.free { color: var(--mint-deep); }
+  .awning { flex: none; --awn: var(--red); }
+  .awning .stripes { height: 22mm; background: repeating-linear-gradient(90deg, var(--awn) 0 42mm, #FFF 42mm 84mm); }
+  .awning .scallops {
+    height: 18mm;
+    background:
+      radial-gradient(circle at 21mm 0mm, var(--awn) 18mm, transparent 19mm),
+      radial-gradient(circle at 63mm 0mm, #FFFFFF 18mm, transparent 19mm);
+    background-size: 84mm 20mm;
+    background-repeat: repeat-x;
+    filter: drop-shadow(0 2mm 0 rgba(0,0,0,.14));
+  }
+  .awning.teal { --awn: #2FA9B8; }
+  .gingham {
+    height: 44mm; flex: none; margin-top: auto;
+    background:
+      repeating-linear-gradient(90deg, rgba(215,38,61,.5) 0 22mm, transparent 22mm 44mm),
+      repeating-linear-gradient(0deg, rgba(215,38,61,.5) 0 22mm, transparent 22mm 44mm),
+      #FFF;
+  }
+  .gingham.yellow {
+    background:
+      repeating-linear-gradient(90deg, rgba(255,183,39,.55) 0 22mm, transparent 22mm 44mm),
+      repeating-linear-gradient(0deg, rgba(255,183,39,.55) 0 22mm, transparent 22mm 44mm),
+      #FFF;
+  }
+  .body { flex: 1; padding: 30mm 40mm 0; position: relative; z-index: 2; display: flex; flex-direction: column; }
 
-  /* neon script heading over dark */
-  .neon-head { text-align: center; margin-bottom: 12mm; }
-  .neon-head .script {
+  /* tilted label box (like SUPER) */
+  .label-box {
     display: inline-block;
-    font-family: 'Lobster', cursive;
-    font-size: 150pt;
-    color: #FFE9F2;
+    background: var(--red);
+    border: 3mm solid var(--ink);
+    box-shadow: 5mm 6mm 0 rgba(0,0,0,.28);
+    padding: 6mm 18mm 2mm;
     transform: rotate(-4deg);
-    text-shadow:
-      0 0 3mm #FFF,
-      0 0 8mm var(--pinkneon),
-      0 0 20mm var(--pinkhot),
-      0 0 34mm rgba(255,79,154,.7);
   }
-  .neon-head .script.blue {
-    text-shadow:
-      0 0 3mm #FFF,
-      0 0 8mm var(--blueneon),
-      0 0 20mm rgba(95,217,234,.85),
-      0 0 34mm rgba(95,217,234,.6);
+  .label-box .txt {
+    font-family: 'Luckiest Guy', serif;
+    font-size: 135pt;
+    color: var(--yellow);
+    letter-spacing: .06em;
+    text-shadow: 2mm 2mm 0 rgba(0,0,0,.3);
   }
 
-  /* checker floor strip */
-  .floor {
-    flex: none;
-    height: 60mm;
-    margin-top: auto;
-    background:
-      linear-gradient(180deg, rgba(255,123,172,.16), transparent 30%),
-      repeating-conic-gradient(#100C14 0% 25%, #E9E2D5 0% 50%) 0 0 / 30mm 30mm;
-    transform: skewX(-14deg) scaleX(1.4);
-    transform-origin: bottom;
-    box-shadow: 0 -3mm 12mm rgba(0,0,0,.5);
+  /* bubble lettering (CANDY BOY style) */
+  .bub {
+    font-family: 'Titan One', serif;
+    line-height: 1.05;
+    letter-spacing: .02em;
   }
-  .wainscot {
-    flex: none;
-    height: 26mm;
-    background:
-      repeating-linear-gradient(90deg, var(--mint) 0 34mm, var(--mint-deep) 34mm 36mm);
-    border-top: 3mm solid #C9CDD4;
-    border-bottom: 3mm solid #8F959E;
+  .bub span {
+    display: inline-block;
+    text-shadow:
+      -2.4mm -2.4mm 0 var(--ink), 2.4mm -2.4mm 0 var(--ink),
+      -2.4mm 2.4mm 0 var(--ink), 2.4mm 2.4mm 0 var(--ink),
+      -3.2mm 0 0 var(--ink), 3.2mm 0 0 var(--ink),
+      0 -3.2mm 0 var(--ink), 0 3.2mm 0 var(--ink),
+      5mm 6mm 0 rgba(0,0,0,.28);
   }
+  .bub span:nth-child(4n+1) { color: var(--teal); transform: rotate(-4deg); }
+  .bub span:nth-child(4n+2) { color: var(--yellow); transform: rotate(3deg) translateY(2mm); }
+  .bub span:nth-child(4n+3) { color: var(--pink); transform: rotate(-2deg); }
+  .bub span:nth-child(4n+4) { color: #FFFFFF; transform: rotate(4deg) translateY(-2mm); }
 
-  /* center panel pieces */
-  .arch {
-    position: absolute;
-    left: 50%; top: 66mm;
-    transform: translateX(-50%);
-    width: 560mm; height: 470mm;
-    border: 5mm solid rgba(255,150,190,.9);
-    border-bottom: none;
-    border-radius: 280mm 280mm 0 0;
-    box-shadow:
-      0 0 8mm rgba(255,123,172,.8),
-      0 0 24mm rgba(255,79,154,.5),
-      inset 0 0 8mm rgba(255,123,172,.6),
-      inset 0 0 24mm rgba(255,79,154,.3);
-    z-index: 1;
+  /* marker scribbles */
+  .marker {
+    font-family: 'Permanent Marker', cursive;
+    color: #FFFFFF;
+    text-shadow: 2mm 2mm 0 rgba(0,0,0,.25);
   }
-  .center .body { align-items: center; justify-content: flex-start; padding-top: 60mm; }
-  .center .script-main {
-    font-family: 'Pacifico', cursive;
-    font-size: 150pt;
-    line-height: 1.12;
-    color: #FFE9F2;
+  .marker.red { color: var(--red); text-shadow: 1.5mm 1.5mm 0 rgba(255,255,255,.7); }
+  .marker.ink { color: var(--ink); text-shadow: none; }
+
+  /* sticker item rows */
+  ul.items { list-style: none; margin-top: 14mm; display: flex; flex-direction: column; gap: 17mm; }
+  ul.items li {
+    background: #FFFFFF;
+    border: 2.6mm solid var(--ink);
+    border-radius: 4mm;
+    box-shadow: 4mm 5mm 0 rgba(0,0,0,.25);
+    display: flex; align-items: center;
+    padding: 11mm 14mm;
+    font-size: 66pt;
+  }
+  ul.items li:nth-child(odd) { transform: rotate(-1.4deg); }
+  ul.items li:nth-child(even) { transform: rotate(1.2deg); }
+  ul.items .ico { font-family: 'Noto Color Emoji'; font-size: 54pt; margin-right: 9mm; }
+  ul.items .nm { font-family: 'Bowlby One', serif; color: var(--ink); white-space: nowrap; }
+  ul.items .kn { font-family: 'IPAPGothic', sans-serif; font-weight: bold; font-size: 24pt; color: #8A7574; margin-left: 6mm; white-space: nowrap; }
+  ul.items .dots { flex: 1; border-bottom: 2.4mm dotted #D9B8C4; margin: 0 8mm; min-width: 8mm; }
+  .price-badge {
+    font-family: 'Luckiest Guy', serif;
+    font-size: 46pt;
+    color: #FFF;
+    background: var(--red);
+    border: 2.4mm solid var(--ink);
+    border-radius: 99mm;
+    min-width: 82mm; height: 74mm;
+    display: flex; align-items: center; justify-content: center;
+    padding: 4mm 6mm 0;
+    transform: rotate(6deg);
+    flex: none;
     text-align: center;
+    line-height: 1;
+  }
+  .price-badge.teal { background: var(--teal); }
+  .price-badge.pink { background: var(--hotpink); }
+
+  .doodle { position: absolute; z-index: 3; }
+
+  /* center panel */
+  .center .body { align-items: center; padding-top: 44mm; }
+  .super-tag {
+    background: var(--red);
+    border: 3mm solid var(--ink);
+    box-shadow: 4mm 5mm 0 rgba(0,0,0,.3);
+    padding: 4mm 16mm 0;
+    transform: rotate(-6deg);
+  }
+  .super-tag span {
+    font-family: 'Luckiest Guy', serif;
+    font-size: 64pt;
+    color: var(--yellow);
+    letter-spacing: .12em;
+  }
+  .big-name { text-align: center; margin-top: 14mm; }
+  .big-name .bub { font-size: 150pt; }
+  .script-out {
+    font-family: 'Pacifico', cursive;
+    font-size: 100pt;
+    color: var(--hotpink);
     transform: rotate(-4deg);
+    margin-top: 16mm;
     text-shadow:
-      0 0 3mm #FFF,
-      0 0 9mm var(--pinkneon),
-      0 0 22mm var(--pinkhot),
-      0 0 38mm rgba(255,79,154,.7);
-    margin-top: 26mm;
+      -2.6mm -2.6mm 0 #FFF, 2.6mm -2.6mm 0 #FFF, -2.6mm 2.6mm 0 #FFF, 2.6mm 2.6mm 0 #FFF,
+      -3.6mm 0 0 #FFF, 3.6mm 0 0 #FFF, 0 -3.6mm 0 #FFF, 0 3.6mm 0 #FFF,
+      4mm 6mm 0 rgba(0,0,0,.25);
   }
-  .center .diner-word {
-    font-family: 'Bowlby One', serif;
-    font-size: 76pt;
-    letter-spacing: .38em;
-    text-indent: .38em;
-    color: #E4FBFF;
-    margin-top: 12mm;
-    text-shadow:
-      0 0 3mm #FFF,
-      0 0 9mm var(--blueneon),
-      0 0 24mm rgba(95,217,234,.8);
+  .thanks-tag {
+    margin-top: 22mm;
+    background: var(--pink);
+    border: 2.6mm solid var(--ink);
+    border-radius: 4mm;
+    box-shadow: 4mm 5mm 0 rgba(0,0,0,.28);
+    padding: 8mm 16mm;
+    transform: rotate(2deg);
+    text-align: center;
   }
-  .heart {
-    position: absolute;
-    font-family: 'Noto Color Emoji';
-    font-size: 60pt;
-    filter: drop-shadow(0 0 8mm rgba(255,79,154,.9));
-  }
-  .center .badly {
-    margin-top: 24mm;
-    width: 470mm;
-  }
-  .badly .litebox .big { font-size: 64pt; letter-spacing: .24em; text-indent: .24em; }
-  .est-line {
-    margin-top: 14mm;
-    font-family: 'Bowlby One', serif;
-    font-size: 30pt;
-    letter-spacing: .3em;
-    text-indent: .3em;
-    color: var(--warm);
-    text-shadow: 0 0 8mm rgba(255,217,160,.7);
-  }
+  .thanks-tag .l1 { font-family: 'Luckiest Guy', serif; font-size: 52pt; color: var(--red); text-shadow: 1.5mm 1.5mm 0 #FFF; }
+  .thanks-tag .l2 { font-family: 'Alfa Slab One', serif; font-size: 26pt; letter-spacing: .18em; color: var(--ink); margin-top: 3mm; }
 </style>
 </head>
 <body>
 
-<!-- LEFT: MENU -->
-<div class="panel">
-  <div class="tube"></div>
+<!-- LEFT: MENU (hot pink) -->
+<div class="panel p-pink">
+  <div class="checker"></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
-    <div class="litebox">
-      <div class="big">M E N U</div>
-      <div class="jp">メニュー</div>
-    </div>
-    <div class="neon-head" style="margin-top: 12mm;">
-      <span class="script">Good Food !</span>
-    </div>
-    <ul class="items">
-      <li><span class="ico">🌭</span><span class="nm">Hot Dog</span><span class="kn">ホットドッグ</span><span class="dots"></span><span class="pr">10¢</span></li>
-      <li><span class="ico">🍔</span><span class="nm">Cheeseburger</span><span class="kn">チーズバーガー</span><span class="dots"></span><span class="pr">25¢</span></li>
-      <li><span class="ico">🍟</span><span class="nm">French Fries</span><span class="kn">ポテト</span><span class="dots"></span><span class="pr">15¢</span></li>
-      <li><span class="ico">🥤</span><span class="nm">Milk Shake</span><span class="kn">シェイク</span><span class="dots"></span><span class="pr">25¢</span></li>
-    </ul>
-    <div style="margin-top: auto; padding-bottom: 16mm; text-align: center; font-family: 'Bowlby One', serif; font-size: 40pt; letter-spacing: .26em; text-indent: .26em; color: #FFD9A0; text-shadow: 0 0 3mm #FFF3DC, 0 0 10mm rgba(255,217,160,.85), 0 0 22mm rgba(255,183,100,.5);">EAT ♥ DRINK ♥ BE MARRIED</div>
-  </div>
-  <div class="wainscot"></div>
-  <div class="floor"></div>
-</div>
-
-<!-- CENTER: NEON LOGO -->
-<div class="panel center">
-  <div class="tube blue"></div>
-  <div class="arch"></div>
-  <span class="heart" style="left: 60mm; top: 150mm;">💖</span>
-  <span class="heart" style="right: 56mm; top: 210mm; font-size: 44pt;">💗</span>
-  <div class="body">
-    <div class="script-main">Richard &amp;<br>Hazuki</div>
-    <div class="diner-word">DINER</div>
-    <div class="badly">
-      <div class="litebox">
-        <div class="big">BADLY IN LOVE</div>
-        <div class="jp">ずっと 大好き</div>
+    <div style="display: flex; align-items: flex-start; gap: 14mm;">
+      <span class="label-box"><span class="txt">MENU</span></span>
+      <div class="marker" style="font-size: 64pt; transform: rotate(6deg); margin-top: 6mm;">Yum Yum !!<br>
+        <svg width="240" height="36" viewBox="0 0 240 36"><path d="M4 22 Q24 4 44 20 T84 20 T124 20 T164 20 T204 20 T236 18" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/></svg>
       </div>
     </div>
-    <div style="margin-top: 12mm; font-size: 44pt; letter-spacing: .5em; text-indent: .5em; color: #FFB3CE; text-shadow: 0 0 4mm #FFF, 0 0 12mm #FF7BAC, 0 0 26mm rgba(255,79,154,.7);">♥ ♥ ♥</div>
-    <div class="est-line">EST. 2026.12.13 — OKINAWA</div>
-    <div style="margin-top: auto; padding-bottom: 16mm; text-align: center; font-family: 'Bowlby One', serif; font-size: 40pt; letter-spacing: .26em; text-indent: .26em; color: #E4FBFF; text-shadow: 0 0 3mm #FFF, 0 0 10mm rgba(95,217,234,.9), 0 0 24mm rgba(95,217,234,.55);">WELCOME TO OUR PARTY</div>
+    <ul class="items">
+      <li><span class="ico">🌭</span><span class="nm">Hot Dog</span><span class="kn">ホットドッグ</span><span class="dots"></span><span class="price-badge">10¢</span></li>
+      <li><span class="ico">🍔</span><span class="nm">Cheeseburger</span><span class="kn">チーズバーガー</span><span class="dots"></span><span class="price-badge teal">25¢</span></li>
+      <li><span class="ico">🍟</span><span class="nm">French Fries</span><span class="kn">ポテト</span><span class="dots"></span><span class="price-badge pink">15¢</span></li>
+      <li><span class="ico">🥤</span><span class="nm">Milk Shake</span><span class="kn">シェイク</span><span class="dots"></span><span class="price-badge">25¢</span></li>
+    </ul>
+    <div class="marker" style="margin-top: auto; padding-bottom: 12mm; text-align: center; font-size: 44pt; transform: rotate(-2deg);">eat up, everyone ♡</div>
   </div>
-  <div class="wainscot"></div>
-  <div class="floor"></div>
+  <div class="gingham"></div>
 </div>
 
-<!-- RIGHT: SPECIALS -->
-<div class="panel">
-  <div class="tube blue"></div>
+<!-- CENTER: CANDY SWIRL LOGO -->
+<div class="panel p-swirl center">
+  <div class="checker"></div>
   <div class="body">
-    <div class="litebox">
-      <div class="big">SPECIALS</div>
-      <div class="jp">ほんじつのおすすめ</div>
+    <span class="doodle marker" style="left: 34mm; top: 30mm; font-size: 84pt; transform: rotate(-14deg);">♡</span>
+    <span class="doodle marker" style="right: 38mm; top: 60mm; font-size: 64pt; transform: rotate(12deg);">★</span>
+    <span class="doodle marker" style="left: 44mm; bottom: 150mm; font-size: 64pt; transform: rotate(-8deg);">☆</span>
+    <span class="doodle marker" style="right: 40mm; bottom: 190mm; font-size: 84pt; transform: rotate(10deg);">♡</span>
+    <span class="super-tag"><span>SUPER HAPPY</span></span>
+    <div class="big-name">
+      <div class="bub"><span>R</span><span>I</span><span>C</span><span>H</span><span>A</span><span>R</span><span>D</span></div>
+      <div class="bub" style="font-size: 90pt; margin-top: 2mm;"><span>&amp;</span></div>
+      <div class="bub" style="margin-top: 2mm;"><span>H</span><span>A</span><span>Z</span><span>U</span><span>K</span><span>I</span></div>
     </div>
-    <div class="neon-head" style="margin-top: 12mm;">
-      <span class="script blue">Just Married !</span>
+    <div class="script-out">Wedding Party !</div>
+    <div class="thanks-tag">
+      <div class="l1">THANK YOU SO MUCH ♡</div>
+      <div class="l2">HAVE A GREAT TIME WITH US — 2026.12.13 OKINAWA</div>
+    </div>
+  </div>
+  <div class="checker" style="margin-top: auto;"></div>
+</div>
+
+<!-- RIGHT: SPECIALS (teal) -->
+<div class="panel p-teal">
+  <div class="checker"></div>
+  <div class="awning teal"><div class="stripes"></div><div class="scallops"></div></div>
+  <div class="body">
+    <div style="text-align: left;">
+      <div class="bub" style="font-size: 104pt; transform: rotate(-2deg);"><span>S</span><span>P</span><span>E</span><span>C</span><span>I</span><span>A</span><span>L</span><span>S</span></div>
+      <svg width="560" height="44" viewBox="0 0 560 44" style="margin-top: 2mm;"><path d="M6 34 L46 10 L86 34 L126 10 L166 34 L206 10 L246 34 L286 10 L326 34 L366 10 L406 34 L446 10 L486 34 L526 10 L554 28" fill="none" stroke="#D7263D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="marker red" style="font-size: 46pt; transform: rotate(2deg); margin-top: 4mm;">Just Married Set !!</div>
     </div>
     <ul class="items">
-      <li><span class="ico">🍰</span><span class="nm">Wedding Cake</span><span class="kn">ケーキ</span><span class="dots"></span><span class="pr free">PRICELESS</span></li>
-      <li><span class="ico">🥂</span><span class="nm">Champagne</span><span class="kn">シャンパン</span><span class="dots"></span><span class="pr">∞</span></li>
-      <li><span class="ico">🍨</span><span class="nm">Ice Cream</span><span class="kn">アイス</span><span class="dots"></span><span class="pr">15¢</span></li>
-      <li><span class="ico">❤️</span><span class="nm">Love &amp; Smile</span><span class="kn">あい と えがお</span><span class="dots"></span><span class="pr free">FREE !</span></li>
+      <li><span class="ico">🍰</span><span class="nm">Wedding Cake</span><span class="dots"></span><span class="price-badge pink" style="font-size: 30pt;">PRICELESS</span></li>
+      <li><span class="ico">🥂</span><span class="nm">Champagne</span><span class="dots"></span><span class="price-badge teal">∞</span></li>
+      <li><span class="ico">🍩</span><span class="nm">Donut</span><span class="dots"></span><span class="price-badge">5¢</span></li>
+      <li><span class="ico">❤️</span><span class="nm">Love &amp; Smile</span><span class="dots"></span><span class="price-badge" style="font-size: 38pt;">FREE !</span></li>
     </ul>
-    <div style="margin-top: auto; padding-bottom: 16mm; text-align: center; font-family: 'Bowlby One', serif; font-size: 40pt; letter-spacing: .26em; text-indent: .26em; color: #FFD9A0; text-shadow: 0 0 3mm #FFF3DC, 0 0 10mm rgba(255,217,160,.85), 0 0 22mm rgba(255,183,100,.5);">THANK YOU FOR COMING !</div>
+    <div class="marker ink" style="margin-top: auto; padding-bottom: 12mm; text-align: center; font-size: 44pt; transform: rotate(-2deg);">my favorite people !! →</div>
   </div>
-  <div class="wainscot"></div>
-  <div class="floor"></div>
+  <div class="gingham yellow"></div>
 </div>
 
 </body>
