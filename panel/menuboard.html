@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>R&H Candy Pop Diner Boards</title>
+<title>R&H Classic Diner Boards</title>
 <style>
   @font-face { font-family: 'Pacifico'; src: url('/home/user/wedding-invite/fonts/Pacifico-Regular.ttf'); }
   @font-face { font-family: 'Lobster'; src: url('/home/user/wedding-invite/fonts/Lobster-Regular.ttf'); }
@@ -12,15 +12,16 @@
   @font-face { font-family: 'Luckiest Guy'; src: url('/home/user/wedding-invite/fonts/LuckiestGuy-Regular.ttf'); }
   @font-face { font-family: 'Permanent Marker'; src: url('/home/user/wedding-invite/fonts/PermanentMarker-Regular.ttf'); }
   :root {
-    --hotpink: #F2549C;
-    --pink: #FF8FBE;
-    --candyred: #E23A50;
-    --red: #D7263D;
-    --teal: #3EC8D8;
-    --teal-pale: #A8E6E2;
-    --yellow: #FFD93B;
-    --cream: #FFF7EA;
-    --blue: #5FA8FF;
+    --red: #C8202F;
+    --red-deep: #8E1520;
+    --sky: #87C7E6;
+    --sky-pale: #B8DFF2;
+    --cream: #FFF3DC;
+    --cream2: #FFF9EC;
+    --mustard: #F5B325;
+    --brick: #A8402E;
+    --brick-deep: #8C3021;
+    --mortar: #D9C3AC;
     --ink: #1E1A1A;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,24 +37,37 @@
     flex-direction: column;
     box-shadow: 0 6mm 0 rgba(0,0,0,.22);
   }
-  .p-pink {
+  .p-sky {
     background:
-      radial-gradient(rgba(255,255,255,.35) 6mm, transparent 7mm) 0 0 / 60mm 60mm,
-      var(--hotpink);
+      radial-gradient(rgba(255,255,255,.5) 6mm, transparent 7mm) 0 0 / 60mm 60mm,
+      linear-gradient(180deg, var(--sky-pale) 0%, var(--sky) 100%);
   }
-  .p-teal {
+  .p-red {
     background:
-      radial-gradient(rgba(255,255,255,.4) 6mm, transparent 7mm) 30mm 30mm / 60mm 60mm,
-      var(--teal-pale);
+      radial-gradient(circle at 50% 24%, rgba(255,255,255,.22), transparent 55%),
+      linear-gradient(180deg, #D9293A 0%, var(--red) 55%, var(--red-deep) 100%);
   }
-  .p-swirl {
+  .p-brick {
     background:
-      repeating-conic-gradient(from 8deg at 50% 42%, var(--hotpink) 0deg 16deg, var(--candyred) 16deg 32deg);
+      repeating-linear-gradient(90deg, transparent 0 86mm, rgba(217,195,172,.4) 86mm 89mm),
+      repeating-linear-gradient(0deg, transparent 0 41mm, var(--mortar) 41mm 45mm),
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.06), transparent 50%),
+      var(--brick);
   }
 
   .checker {
     height: 22mm; flex: none;
     background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFF 0% 50%) 0 0 / 22mm 22mm;
+  }
+  .microchecker {
+    height: 10mm; flex: none;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFF 0% 50%) 0 0 / 10mm 10mm;
+  }
+  .chrome {
+    height: 18mm; flex: none;
+    background: linear-gradient(180deg, #FAFBFC 0%, #C9CDD3 30%, #969CA6 52%, #E8EAEE 72%, #AEB4BD 100%);
+    border-top: 1mm solid #7F8791;
+    border-bottom: 1mm solid #7F8791;
   }
   .awning { flex: none; --awn: var(--red); }
   .awning .stripes { height: 22mm; background: repeating-linear-gradient(90deg, var(--awn) 0 42mm, #FFF 42mm 84mm); }
@@ -66,23 +80,19 @@
     background-repeat: repeat-x;
     filter: drop-shadow(0 2mm 0 rgba(0,0,0,.14));
   }
-  .awning.teal { --awn: #2FA9B8; }
   .gingham {
     height: 44mm; flex: none; margin-top: auto;
     background:
-      repeating-linear-gradient(90deg, rgba(215,38,61,.5) 0 22mm, transparent 22mm 44mm),
-      repeating-linear-gradient(0deg, rgba(215,38,61,.5) 0 22mm, transparent 22mm 44mm),
-      #FFF;
-  }
-  .gingham.yellow {
-    background:
-      repeating-linear-gradient(90deg, rgba(255,183,39,.55) 0 22mm, transparent 22mm 44mm),
-      repeating-linear-gradient(0deg, rgba(255,183,39,.55) 0 22mm, transparent 22mm 44mm),
+      repeating-linear-gradient(90deg, rgba(200,32,47,.5) 0 22mm, transparent 22mm 44mm),
+      repeating-linear-gradient(0deg, rgba(200,32,47,.5) 0 22mm, transparent 22mm 44mm),
       #FFF;
   }
   .body { flex: 1; padding: 30mm 40mm 0; position: relative; z-index: 2; display: flex; flex-direction: column; }
 
-  /* tilted label box (like SUPER) */
+  /* hanging pendant lamps */
+  .lamp { position: absolute; top: 0; z-index: 5; }
+
+  /* tilted label box */
   .label-box {
     display: inline-block;
     background: var(--red);
@@ -94,12 +104,12 @@
   .label-box .txt {
     font-family: 'Luckiest Guy', serif;
     font-size: 135pt;
-    color: var(--yellow);
+    color: var(--cream);
     letter-spacing: .06em;
     text-shadow: 2mm 2mm 0 rgba(0,0,0,.3);
   }
 
-  /* bubble lettering (CANDY BOY style) */
+  /* bubble lettering */
   .bub {
     font-family: 'Titan One', serif;
     line-height: 1.05;
@@ -114,9 +124,9 @@
       0 -3.2mm 0 var(--ink), 0 3.2mm 0 var(--ink),
       5mm 6mm 0 rgba(0,0,0,.28);
   }
-  .bub span:nth-child(4n+1) { color: var(--teal); transform: rotate(-4deg); }
-  .bub span:nth-child(4n+2) { color: var(--yellow); transform: rotate(3deg) translateY(2mm); }
-  .bub span:nth-child(4n+3) { color: var(--pink); transform: rotate(-2deg); }
+  .bub span:nth-child(4n+1) { color: var(--cream); transform: rotate(-4deg); }
+  .bub span:nth-child(4n+2) { color: var(--mustard); transform: rotate(3deg) translateY(2mm); }
+  .bub span:nth-child(4n+3) { color: var(--sky); transform: rotate(-2deg); }
   .bub span:nth-child(4n+4) { color: #FFFFFF; transform: rotate(4deg) translateY(-2mm); }
 
   /* marker scribbles */
@@ -131,7 +141,8 @@
   /* sticker item rows */
   ul.items { list-style: none; margin-top: 14mm; display: flex; flex-direction: column; gap: 17mm; }
   ul.items li {
-    background: #FFFFFF;
+    position: relative;
+    background: var(--cream2);
     border: 2.6mm solid var(--ink);
     border-radius: 4mm;
     box-shadow: 4mm 5mm 0 rgba(0,0,0,.25);
@@ -144,7 +155,7 @@
   ul.items .ico { font-family: 'Noto Color Emoji'; font-size: 54pt; margin-right: 9mm; }
   ul.items .nm { font-family: 'Bowlby One', serif; color: var(--ink); white-space: nowrap; }
   ul.items .kn { font-family: 'IPAPGothic', sans-serif; font-weight: bold; font-size: 24pt; color: #8A7574; margin-left: 6mm; white-space: nowrap; }
-  ul.items .dots { flex: 1; border-bottom: 2.4mm dotted #D9B8C4; margin: 0 8mm; min-width: 8mm; }
+  ul.items .dots { flex: 1; border-bottom: 2.4mm dotted #C9A98A; margin: 0 8mm; min-width: 8mm; }
   .price-badge {
     font-family: 'Luckiest Guy', serif;
     font-size: 46pt;
@@ -160,8 +171,8 @@
     text-align: center;
     line-height: 1;
   }
-  .price-badge.teal { background: var(--teal); }
-  .price-badge.pink { background: var(--hotpink); }
+  .price-badge.sky { background: var(--sky); color: var(--ink); }
+  .price-badge.mus { background: var(--mustard); color: var(--ink); }
 
   .doodle { position: absolute; z-index: 3; }
   .sticker-emoji {
@@ -174,58 +185,66 @@
   }
   .mini-burst {
     position: absolute; z-index: 5;
-    background: var(--yellow);
+    background: var(--mustard);
     clip-path: polygon(50% 0%, 59% 33%, 93% 25%, 68% 50%, 93% 75%, 59% 67%, 50% 100%, 41% 67%, 7% 75%, 32% 50%, 7% 25%, 41% 33%);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Luckiest Guy', serif;
-    color: var(--red);
+    color: var(--red-deep);
     text-align: center; line-height: 1.1;
     transform: rotate(-12deg);
   }
-  .mini-burst.pinkb { background: var(--hotpink); color: #FFF; }
-  .mini-burst.tealb { background: var(--teal); color: #FFF; }
-  ul.items li { position: relative; }
+  .mini-burst.redb { background: var(--red); color: var(--cream); }
+  .mini-burst.skyb { background: var(--sky); color: var(--red-deep); }
   .tape {
     position: absolute; top: -10mm; width: 64mm; height: 17mm;
-    background: rgba(255,217,59,.8);
+    background: rgba(245,179,37,.85);
     transform: rotate(-28deg);
     border-left: 1mm dashed rgba(0,0,0,.12);
     border-right: 1mm dashed rgba(0,0,0,.12);
     z-index: 4;
   }
-  .tape.t2 { background: rgba(62,200,216,.7); transform: rotate(24deg); }
+  .tape.t2 { background: rgba(135,199,230,.85); transform: rotate(24deg); }
 
   /* center panel */
-  .center .body { align-items: center; padding-top: 44mm; }
-  .super-tag {
-    background: var(--red);
-    border: 3mm solid var(--ink);
-    box-shadow: 4mm 5mm 0 rgba(0,0,0,.3);
-    padding: 4mm 16mm 0;
-    transform: rotate(-6deg);
+  .center .body { align-items: center; justify-content: center; padding-top: 0; }
+  .wing-sign {
+    position: relative;
+    display: flex; align-items: center;
+    transform: rotate(-2deg);
+    filter: drop-shadow(0 4mm 0 rgba(0,0,0,.3));
   }
-  .super-tag span {
-    font-family: 'Luckiest Guy', serif;
-    font-size: 64pt;
-    color: var(--yellow);
-    letter-spacing: .12em;
+  .wing {
+    width: 90mm; height: 30mm;
+    background:
+      repeating-linear-gradient(0deg, #F2F4F6 0 6mm, #A9B0BA 6mm 10mm);
+    border: 2mm solid #6E7681;
   }
-  .big-name { text-align: center; margin-top: 14mm; }
+  .wing.l { border-radius: 20mm 0 0 20mm; }
+  .wing.r { border-radius: 0 20mm 20mm 0; }
+  .wing-core {
+    background: var(--cream);
+    border: 3.4mm solid var(--red);
+    border-radius: 10mm;
+    padding: 6mm 20mm 4mm;
+    text-align: center;
+  }
+  .wing-core .t1 { font-family: 'Alfa Slab One', serif; font-size: 56pt; color: var(--red); letter-spacing: .1em; }
+  .big-name { text-align: center; margin-top: 16mm; }
   .big-name .bub { font-size: 150pt; }
   .script-out {
     font-family: 'Pacifico', cursive;
-    font-size: 100pt;
-    color: var(--hotpink);
+    font-size: 92pt;
+    color: #FFFFFF;
     transform: rotate(-4deg);
-    margin-top: 16mm;
+    margin-top: 18mm;
     text-shadow:
-      -2.6mm -2.6mm 0 #FFF, 2.6mm -2.6mm 0 #FFF, -2.6mm 2.6mm 0 #FFF, 2.6mm 2.6mm 0 #FFF,
-      -3.6mm 0 0 #FFF, 3.6mm 0 0 #FFF, 0 -3.6mm 0 #FFF, 0 3.6mm 0 #FFF,
-      4mm 6mm 0 rgba(0,0,0,.25);
+      0 0 3mm rgba(255,255,255,.5),
+      3mm 4.5mm 0 var(--red-deep),
+      3mm 4.5mm 0 var(--red-deep);
   }
   .thanks-tag {
     margin-top: 22mm;
-    background: var(--pink);
+    background: var(--cream);
     border: 2.6mm solid var(--ink);
     border-radius: 4mm;
     box-shadow: 4mm 5mm 0 rgba(0,0,0,.28);
@@ -233,17 +252,20 @@
     transform: rotate(2deg);
     text-align: center;
   }
-  .thanks-tag .l1 { font-family: 'Luckiest Guy', serif; font-size: 52pt; color: var(--red); text-shadow: 1.5mm 1.5mm 0 #FFF; }
+  .thanks-tag .l1 { font-family: 'Luckiest Guy', serif; font-size: 52pt; color: var(--red); }
   .thanks-tag .l2 { font-family: 'Alfa Slab One', serif; font-size: 26pt; letter-spacing: .18em; color: var(--ink); margin-top: 3mm; }
 </style>
 </head>
 <body>
 
-<!-- LEFT: MENU (hot pink) -->
-<div class="panel p-pink">
+<!-- LEFT: MENU (sky blue wall) -->
+<div class="panel p-sky">
   <div class="checker"></div>
   <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
+    <span class="lamp" style="right: 60mm; top: -4mm;">
+      <svg width="120" height="170" viewBox="0 0 60 85"><line x1="30" y1="0" x2="30" y2="34" stroke="#3A3A3A" stroke-width="2.6"/><path d="M7 56 A23 23 0 0 1 53 56 L53 59 L7 59 Z" fill="#C8202F" stroke="#7E141F" stroke-width="2"/><circle cx="30" cy="66" r="6" fill="#FFE9A8" stroke="#D8B45C" stroke-width="1.5"/></svg>
+    </span>
     <div style="display: flex; align-items: flex-start; gap: 14mm;">
       <span class="label-box"><span class="txt">MENU</span></span>
       <div class="marker" style="font-size: 64pt; transform: rotate(6deg); margin-top: 6mm;">Yum Yum !!<br>
@@ -251,84 +273,95 @@
       </div>
     </div>
     <span class="sticker-emoji" style="right: 24mm; top: -6mm; font-size: 64pt; transform: rotate(14deg);">🍒</span>
-    <span class="doodle marker" style="right: 150mm; top: 96mm; font-size: 40pt; transform: rotate(-6deg);">☆</span>
+    <div class="mini-burst redb" style="right: 210mm; top: 88mm; width: 96mm; height: 96mm; font-size: 30pt; transform: rotate(10deg);">MUST<br>TRY !</div>
     <span class="doodle marker" style="left: 8mm; top: 200mm; font-size: 44pt; transform: rotate(-12deg);">♡</span>
     <span class="doodle marker" style="right: 12mm; top: 386mm; font-size: 34pt; transform: rotate(8deg);">♡</span>
-    <div class="mini-burst" style="right: 160mm; top: 92mm; width: 96mm; height: 96mm; font-size: 30pt; transform: rotate(10deg);">MUST<br>TRY !</div>
     <span class="sticker-emoji" style="left: 110mm; bottom: 52mm; font-size: 58pt; transform: rotate(-10deg);">🍭</span>
     <span class="doodle marker" style="left: 300mm; bottom: 58mm; font-size: 38pt; transform: rotate(4deg);">xoxo</span>
     <ul class="items">
       <li><span class="tape"></span><span class="ico">🌭</span><span class="nm">Hot Dog</span><span class="kn">ホットドッグ</span><span class="dots"></span><span class="price-badge">10¢</span></li>
-      <li><span class="ico">🍔</span><span class="nm">Cheeseburger</span><span class="kn">チーズバーガー</span><span class="dots"></span><span class="price-badge teal">25¢</span></li>
-      <li><span class="tape t2" style="right: 60mm; left: auto;"></span><span class="ico">🍟</span><span class="nm">French Fries</span><span class="kn">ポテト</span><span class="dots"></span><span class="price-badge pink">15¢</span></li>
+      <li><span class="ico">🍔</span><span class="nm">Cheeseburger</span><span class="kn">チーズバーガー</span><span class="dots"></span><span class="price-badge sky">25¢</span></li>
+      <li><span class="tape t2" style="right: 60mm; left: auto;"></span><span class="ico">🍟</span><span class="nm">French Fries</span><span class="kn">ポテト</span><span class="dots"></span><span class="price-badge mus">15¢</span></li>
       <li><span class="ico">🥤</span><span class="nm">Milk Shake</span><span class="kn">シェイク</span><span class="dots"></span><span class="price-badge">25¢</span></li>
     </ul>
-    <div class="marker" style="margin-top: auto; padding-bottom: 12mm; text-align: center; font-size: 44pt; transform: rotate(-2deg);">eat up, everyone ♡</div>
+    <div class="marker" style="margin-top: auto; padding-bottom: 10mm; text-align: center; font-size: 44pt; transform: rotate(-2deg);">eat up, everyone ♡</div>
   </div>
+  <div class="microchecker"></div>
+  <div class="chrome"></div>
   <div class="gingham"></div>
 </div>
 
-<!-- CENTER: CANDY SWIRL LOGO -->
-<div class="panel p-swirl center">
+<!-- CENTER: RED COUNTER LOGO -->
+<div class="panel p-red center">
   <div class="checker"></div>
   <div class="body">
-    <span class="doodle marker" style="left: 34mm; top: 30mm; font-size: 84pt; transform: rotate(-14deg);">♡</span>
-    <span class="doodle marker" style="right: 38mm; top: 60mm; font-size: 64pt; transform: rotate(12deg);">★</span>
-    <span class="doodle marker" style="left: 44mm; bottom: 150mm; font-size: 64pt; transform: rotate(-8deg);">☆</span>
-    <span class="doodle marker" style="right: 40mm; bottom: 190mm; font-size: 84pt; transform: rotate(10deg);">♡</span>
-    <span class="doodle marker" style="left: 30mm; top: 120mm; font-size: 54pt; transform: rotate(-10deg);">WOW !!</span>
-    <span class="doodle marker" style="right: 30mm; top: 150mm; font-size: 44pt; transform: rotate(8deg);">♪</span>
-    <span class="doodle marker" style="right: 60mm; top: 300mm; font-size: 38pt; transform: rotate(-6deg);">☆</span>
-    <span class="doodle marker" style="left: 40mm; top: 330mm; font-size: 40pt; transform: rotate(6deg);">☺</span>
-    <span class="sticker-emoji" style="left: 26mm; bottom: 90mm; font-size: 66pt; transform: rotate(-14deg);">🎀</span>
-    <span class="sticker-emoji" style="right: 28mm; bottom: 80mm; font-size: 66pt; transform: rotate(10deg);">✌️</span>
-    <span class="sticker-emoji" style="right: 90mm; top: 24mm; font-size: 56pt; transform: rotate(-8deg);">🍔</span>
-    <span class="sticker-emoji" style="left: 90mm; top: 20mm; font-size: 56pt; transform: rotate(10deg);">🍒</span>
-    <div class="mini-burst tealb" style="left: 4mm; top: 416mm; width: 104mm; height: 104mm; font-size: 26pt;">JUST<br>MARRIED</div>
-    <div class="mini-burst pinkb" style="right: 2mm; top: 256mm; width: 96mm; height: 96mm; font-size: 30pt;">LOVE !</div>
-    <span class="super-tag"><span>SUPER HAPPY</span></span>
+    <span class="lamp" style="left: 60mm; top: -8mm;">
+      <svg width="140" height="200" viewBox="0 0 60 85"><line x1="30" y1="0" x2="30" y2="34" stroke="#3A3A3A" stroke-width="2.6"/><path d="M7 56 A23 23 0 0 1 53 56 L53 59 L7 59 Z" fill="#C8202F" stroke="#7E141F" stroke-width="2"/><circle cx="30" cy="66" r="6" fill="#FFE9A8" stroke="#D8B45C" stroke-width="1.5"/></svg>
+    </span>
+    <span class="lamp" style="right: 60mm; top: -8mm;">
+      <svg width="140" height="200" viewBox="0 0 60 85"><line x1="30" y1="0" x2="30" y2="34" stroke="#3A3A3A" stroke-width="2.6"/><path d="M7 56 A23 23 0 0 1 53 56 L53 59 L7 59 Z" fill="#C8202F" stroke="#7E141F" stroke-width="2"/><circle cx="30" cy="66" r="6" fill="#FFE9A8" stroke="#D8B45C" stroke-width="1.5"/></svg>
+    </span>
+    <span class="doodle marker" style="left: 30mm; top: 150mm; font-size: 54pt; transform: rotate(-10deg);">WOW !!</span>
+    <span class="doodle marker" style="right: 34mm; top: 190mm; font-size: 44pt; transform: rotate(8deg);">♪</span>
+    <span class="doodle marker" style="left: 40mm; top: 350mm; font-size: 40pt; transform: rotate(6deg);">☺</span>
+    <span class="doodle marker" style="right: 60mm; top: 330mm; font-size: 38pt; transform: rotate(-6deg);">☆</span>
+    <span class="sticker-emoji" style="left: 26mm; bottom: 100mm; font-size: 66pt; transform: rotate(-14deg);">🎀</span>
+    <span class="sticker-emoji" style="right: 28mm; bottom: 90mm; font-size: 66pt; transform: rotate(10deg);">✌️</span>
+    <div class="mini-burst skyb" style="left: 4mm; top: 430mm; width: 104mm; height: 104mm; font-size: 26pt;">JUST<br>MARRIED</div>
+    <div class="mini-burst" style="right: 2mm; top: 266mm; width: 96mm; height: 96mm; font-size: 30pt;">LOVE !</div>
+
+    <div class="wing-sign">
+      <div class="wing l"></div>
+      <div class="wing-core"><div class="t1">R &amp; H DINER</div></div>
+      <div class="wing r"></div>
+    </div>
     <div class="big-name">
       <div class="bub"><span>R</span><span>I</span><span>C</span><span>H</span><span>A</span><span>R</span><span>D</span></div>
       <div class="bub" style="font-size: 90pt; margin-top: 2mm;"><span>&amp;</span></div>
       <div class="bub" style="margin-top: 2mm;"><span>H</span><span>A</span><span>Z</span><span>U</span><span>K</span><span>I</span></div>
     </div>
-    <div class="script-out">Wedding Party !</div>
-    <div class="marker" style="font-size: 42pt; transform: rotate(-3deg); margin-top: 6mm;">welcome to our party !! ♡
-      <svg width="420" height="30" viewBox="0 0 420 30" style="display:block; margin: 2mm auto 0;"><path d="M6 18 Q26 4 46 16 T86 16 T126 16 T166 16 T206 16 T246 16 T286 16 T326 16 T366 16 T410 14" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/></svg>
-    </div>
+    <div class="script-out">Serving Up the Love !</div>
     <div class="thanks-tag">
       <div class="l1">THANK YOU SO MUCH ♡</div>
       <div class="l2">HAVE A GREAT TIME WITH US — 2026.12.13 OKINAWA</div>
     </div>
+    <div class="marker" style="position: absolute; bottom: 16mm; left: 0; right: 0; text-align: center; font-size: 44pt; transform: rotate(-2deg);">welcome to our diner !! ♡</div>
   </div>
-  <div class="checker" style="margin-top: auto;"></div>
+  <div class="microchecker"></div>
+  <div class="chrome"></div>
+  <div class="checker" style="margin-top: 0;"></div>
 </div>
 
-<!-- RIGHT: SPECIALS (teal) -->
-<div class="panel p-teal">
+<!-- RIGHT: SPECIALS (brick wall) -->
+<div class="panel p-brick">
   <div class="checker"></div>
-  <div class="awning teal"><div class="stripes"></div><div class="scallops"></div></div>
+  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
   <div class="body">
+    <span class="lamp" style="left: 70mm; top: -4mm;">
+      <svg width="120" height="170" viewBox="0 0 60 85"><line x1="30" y1="0" x2="30" y2="34" stroke="#3A3A3A" stroke-width="2.6"/><path d="M7 56 A23 23 0 0 1 53 56 L53 59 L7 59 Z" fill="#C8202F" stroke="#7E141F" stroke-width="2"/><circle cx="30" cy="66" r="6" fill="#FFE9A8" stroke="#D8B45C" stroke-width="1.5"/></svg>
+    </span>
     <div style="text-align: left;">
       <div class="bub" style="font-size: 104pt; transform: rotate(-2deg);"><span>S</span><span>P</span><span>E</span><span>C</span><span>I</span><span>A</span><span>L</span><span>S</span></div>
-      <svg width="560" height="44" viewBox="0 0 560 44" style="margin-top: 2mm;"><path d="M6 34 L46 10 L86 34 L126 10 L166 34 L206 10 L246 34 L286 10 L326 34 L366 10 L406 34 L446 10 L486 34 L526 10 L554 28" fill="none" stroke="#D7263D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div class="marker red" style="font-size: 46pt; transform: rotate(2deg); margin-top: 4mm;">Just Married Set !!</div>
+      <svg width="560" height="44" viewBox="0 0 560 44" style="margin-top: 2mm;"><path d="M6 34 L46 10 L86 34 L126 10 L166 34 L206 10 L246 34 L286 10 L326 34 L366 10 L406 34 L446 10 L486 34 L526 10 L554 28" fill="none" stroke="#FFF3DC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="marker" style="font-size: 46pt; transform: rotate(2deg); margin-top: 4mm;">Just Married Set !!</div>
     </div>
     <span class="sticker-emoji" style="right: 20mm; top: -4mm; font-size: 62pt; transform: rotate(12deg);">🍩</span>
-    <span class="doodle marker red" style="left: 40mm; top: 118mm; font-size: 40pt; transform: rotate(-4deg);">eat me !! →</span>
-    <span class="doodle marker red" style="right: 40mm; top: 250mm; font-size: 38pt; transform: rotate(-10deg);">♡</span>
-    <span class="doodle marker red" style="right: 6mm; bottom: 150mm; font-size: 42pt; transform: rotate(8deg);">☆</span>
-    <span class="doodle marker red" style="left: 30mm; bottom: 66mm; font-size: 40pt; transform: rotate(-4deg);">☺ yay !!</span>
-    <div class="mini-burst pinkb" style="left: 6mm; top: 336mm; width: 92mm; height: 92mm; font-size: 28pt;">YUMMY</div>
+    <span class="doodle marker" style="left: 40mm; top: 118mm; font-size: 40pt; transform: rotate(-4deg);">eat me !! →</span>
+    <span class="doodle marker" style="right: 40mm; top: 250mm; font-size: 38pt; transform: rotate(-10deg);">♡</span>
+    <span class="doodle marker" style="right: 6mm; bottom: 150mm; font-size: 42pt; transform: rotate(8deg);">☆</span>
+    <span class="doodle marker" style="left: 30mm; bottom: 62mm; font-size: 40pt; transform: rotate(-4deg);">☺ yay !!</span>
+    <div class="mini-burst" style="left: 6mm; top: 336mm; width: 92mm; height: 92mm; font-size: 28pt;">YUMMY</div>
     <ul class="items">
-      <li><span class="tape t2"></span><span class="ico">🍰</span><span class="nm">Wedding Cake</span><span class="dots"></span><span class="price-badge pink" style="font-size: 30pt;">PRICELESS</span></li>
-      <li><span class="ico">🥂</span><span class="nm">Champagne</span><span class="dots"></span><span class="price-badge teal">∞</span></li>
+      <li><span class="tape t2"></span><span class="ico">🍰</span><span class="nm">Wedding Cake</span><span class="dots"></span><span class="price-badge sky" style="font-size: 30pt;">PRICELESS</span></li>
+      <li><span class="ico">🥂</span><span class="nm">Champagne</span><span class="dots"></span><span class="price-badge mus">∞</span></li>
       <li><span class="tape" style="left: auto; right: 90mm;"></span><span class="ico">🍩</span><span class="nm">Donut</span><span class="dots"></span><span class="price-badge">5¢</span></li>
       <li><span class="ico">❤️</span><span class="nm">Love &amp; Smile</span><span class="dots"></span><span class="price-badge" style="font-size: 38pt;">FREE !</span></li>
     </ul>
-    <div class="marker ink" style="margin-top: auto; padding-bottom: 12mm; text-align: center; font-size: 44pt; transform: rotate(-2deg);">my favorite people !! →</div>
+    <div class="marker" style="margin-top: auto; padding-bottom: 10mm; text-align: center; font-size: 44pt; transform: rotate(-2deg);">my favorite people !! →</div>
   </div>
-  <div class="gingham yellow"></div>
+  <div class="microchecker"></div>
+  <div class="chrome"></div>
+  <div class="gingham"></div>
 </div>
 
 </body>
