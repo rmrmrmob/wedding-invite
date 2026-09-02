@@ -2,21 +2,23 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>R&H Diner Menu Boards</title>
+<title>R&H Neon Diner Boards</title>
 <style>
   @font-face { font-family: 'Pacifico'; src: url('/home/user/wedding-invite/fonts/Pacifico-Regular.ttf'); }
   @font-face { font-family: 'Lobster'; src: url('/home/user/wedding-invite/fonts/Lobster-Regular.ttf'); }
   @font-face { font-family: 'Alfa Slab One'; src: url('/home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
   @font-face { font-family: 'Bowlby One'; src: url('/home/user/wedding-invite/fonts/BowlbyOne-Regular.ttf'); }
   :root {
-    --cherry: #D7263D;
-    --cherry-deep: #A31621;
-    --mint: #8AD4CB;
-    --mint-pale: #D8F0ED;
-    --mint-deep: #4FA89E;
-    --cream: #FFF9EE;
-    --mustard: #FFB627;
-    --ink: #2B241C;
+    --bg: #221728;
+    --bg2: #2E1B33;
+    --pinkneon: #FF7BAC;
+    --pinkhot: #FF4F9A;
+    --blueneon: #5FD9EA;
+    --warm: #FFD9A0;
+    --mint: #A8DCD4;
+    --mint-deep: #6FB8AE;
+    --litewhite: #FFF8E6;
+    --ink: #17111C;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   @page { size: 2140mm 700mm; margin: 0; }
@@ -26,209 +28,263 @@
   .panel {
     width: 700mm; height: 700mm;
     position: relative;
-    background: var(--cream);
+    background:
+      radial-gradient(circle at 50% 12%, rgba(255,123,172,.22), transparent 55%),
+      radial-gradient(circle at 12% 85%, rgba(95,217,234,.12), transparent 45%),
+      linear-gradient(180deg, var(--bg2) 0%, var(--bg) 60%, #191019 100%);
     overflow: hidden;
-    box-shadow: 0 6mm 0 rgba(0,0,0,.15);
     display: flex;
     flex-direction: column;
+    box-shadow: 0 6mm 0 rgba(0,0,0,.4);
   }
-  .checker {
-    height: 24mm; flex: none;
-    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFF 0% 50%) 0 0 / 24mm 24mm;
+  /* neon tube frame */
+  .tube {
+    position: absolute;
+    inset: 16mm;
+    border: 2.4mm solid rgba(255,183,212,.95);
+    border-radius: 22mm;
+    box-shadow:
+      0 0 6mm rgba(255,123,172,.9),
+      0 0 18mm rgba(255,79,154,.55),
+      inset 0 0 6mm rgba(255,123,172,.7),
+      inset 0 0 18mm rgba(255,79,154,.3);
+    pointer-events: none;
+    z-index: 4;
   }
-  .awning { flex: none; }
-  .awning .stripes {
-    height: 24mm;
-    background: repeating-linear-gradient(90deg, var(--cherry) 0 45mm, #FFF 45mm 90mm);
+  .tube.blue {
+    border-color: rgba(190,242,250,.95);
+    box-shadow:
+      0 0 6mm rgba(95,217,234,.9),
+      0 0 18mm rgba(95,217,234,.5),
+      inset 0 0 6mm rgba(95,217,234,.7),
+      inset 0 0 18mm rgba(95,217,234,.3);
   }
-  .awning .scallops {
-    height: 20mm;
-    background:
-      radial-gradient(circle at 22.5mm 0mm, var(--cherry) 20mm, transparent 21mm),
-      radial-gradient(circle at 67.5mm 0mm, #FFFFFF 20mm, transparent 21mm);
-    background-size: 90mm 22mm;
-    background-repeat: repeat-x;
-    filter: drop-shadow(0 2mm 0 rgba(0,0,0,.12));
-  }
-  .gingham {
-    height: 46mm; flex: none; margin-top: auto;
-    background:
-      repeating-linear-gradient(90deg, rgba(215,38,61,.55) 0 23mm, transparent 23mm 46mm),
-      repeating-linear-gradient(0deg, rgba(215,38,61,.55) 0 23mm, transparent 23mm 46mm),
-      #FFF;
-  }
-  .body { flex: 1; padding: 24mm 40mm 10mm; position: relative; }
+  .body { flex: 1; padding: 40mm 44mm 0; position: relative; z-index: 2; display: flex; flex-direction: column; }
 
-  /* dots wallpaper for side panels */
-  .side .body {
-    background: radial-gradient(rgba(215,38,61,.06) 4mm, transparent 4.6mm) 0 0 / 36mm 36mm;
+  /* backlit letterboard strip */
+  .litebox {
+    background: linear-gradient(180deg, #FFFDF4 0%, var(--litewhite) 55%, #F0E3C8 100%);
+    border: 3mm solid #3A3140;
+    border-radius: 4mm;
+    box-shadow:
+      0 0 10mm rgba(255,248,230,.55),
+      0 0 26mm rgba(255,217,160,.35),
+      0 4mm 0 rgba(0,0,0,.4);
+    padding: 8mm 10mm;
+    text-align: center;
+  }
+  .litebox .big {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 92pt;
+    letter-spacing: .3em;
+    text-indent: .3em;
+    color: #241E22;
+  }
+  .litebox .jp {
+    font-family: 'IPAPGothic', sans-serif;
+    font-weight: bold;
+    font-size: 30pt;
+    letter-spacing: .5em;
+    text-indent: .5em;
+    color: #4A3F45;
+    margin-top: 3mm;
   }
 
-  .head { text-align: center; margin-bottom: 16mm; position: relative; }
-  .head .script {
-    display: inline-block;
-    font-family: 'Lobster', cursive;
-    font-size: 190pt;
-    color: var(--cherry);
-    transform: rotate(-4deg);
-    text-shadow:
-      -4mm -4mm 0 #FFF, 4mm -4mm 0 #FFF, -4mm 4mm 0 #FFF, 4mm 4mm 0 #FFF,
-      -5.5mm 0 0 #FFF, 5.5mm 0 0 #FFF, 0 -5.5mm 0 #FFF, 0 5.5mm 0 #FFF,
-      5mm 7mm 0 rgba(0,0,0,.18);
-  }
-  .head .script.teal { color: var(--mint-deep); }
-  .head .under {
-    font-family: 'Bowlby One', serif;
-    font-size: 34pt;
-    letter-spacing: .32em;
-    text-indent: .32em;
-    color: var(--ink);
-    margin-top: 8mm;
-  }
-
-  ul.items { list-style: none; font-size: 64pt; }
+  /* menu item rows: slim backlit bars */
+  ul.items { list-style: none; margin-top: 16mm; display: flex; flex-direction: column; gap: 13mm; }
   ul.items li {
+    background: linear-gradient(180deg, #FFFDF4 0%, var(--litewhite) 60%, #EFE2C6 100%);
+    border: 2mm solid #3A3140;
+    border-radius: 3mm;
+    box-shadow: 0 0 7mm rgba(255,248,230,.35), 0 3mm 0 rgba(0,0,0,.4);
     display: flex; align-items: baseline;
-    padding: 15mm 0;
+    padding: 9mm 12mm;
+    font-size: 54pt;
   }
-  ul.items .ico { font-family: 'Noto Color Emoji'; font-size: 56pt; margin-right: 10mm; }
-  ul.items .nm { font-family: 'Bowlby One', serif; color: var(--ink); white-space: nowrap; }
-  ul.items .dots { flex: 1; border-bottom: 2.4mm dotted #C9A98A; margin: 0 8mm; min-width: 10mm; }
-  ul.items .pr { font-family: 'Alfa Slab One', serif; color: var(--cherry); white-space: nowrap; }
+  ul.items .ico { font-family: 'Noto Color Emoji'; font-size: 40pt; margin-right: 9mm; }
+  ul.items .nm { font-family: 'Alfa Slab One', serif; color: #241E22; white-space: nowrap; letter-spacing: .04em; }
+  ul.items .kn { font-family: 'IPAPGothic', sans-serif; font-weight: bold; font-size: 24pt; color: #6E5E66; margin-left: 6mm; white-space: nowrap; align-self: center; }
+  ul.items .dots { flex: 1; border-bottom: 2mm dotted #B9A488; margin: 0 8mm; min-width: 8mm; }
+  ul.items .pr { font-family: 'Alfa Slab One', serif; color: var(--pinkhot); white-space: nowrap; }
   ul.items .pr.free { color: var(--mint-deep); }
 
-  .burst {
-    position: absolute;
-    width: 110mm; height: 110mm;
-    background: var(--mustard);
-    clip-path: polygon(50% 0%, 59% 33%, 93% 25%, 68% 50%, 93% 75%, 59% 67%, 50% 100%, 41% 67%, 7% 75%, 32% 50%, 7% 25%, 41% 33%);
-    display: flex; align-items: center; justify-content: center;
-    text-align: center;
-    font-family: 'Alfa Slab One', serif;
-    font-size: 26pt; line-height: 1.35;
-    color: var(--cherry-deep);
-    transform: rotate(-10deg);
-    z-index: 3;
-  }
-
-  /* ---- center logo panel ---- */
-  .center .body {
-    background:
-      repeating-conic-gradient(var(--mint-pale) 0% 25%, #FFFFFF 0% 50%) 0 0 / 90mm 90mm;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 10mm;
-  }
-  .open-badge {
-    font-family: 'Alfa Slab One', serif;
-    font-size: 34pt; letter-spacing: .22em; text-indent: .22em;
-    background: var(--ink); color: var(--mustard);
-    border-radius: 99mm; padding: 7mm 24mm 6mm;
-    box-shadow: 0 4mm 0 rgba(0,0,0,.25);
-    transform: rotate(-2deg);
-  }
-  .logo-ribbon {
-    position: relative;
-    width: 540mm; height: 260mm;
-    filter: drop-shadow(0 6mm 0 rgba(0,0,0,.18));
-  }
-  .logo-ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .logo-text {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transform: rotate(-4deg);
-  }
-  .logo-text .rh {
+  /* neon script heading over dark */
+  .neon-head { text-align: center; margin-bottom: 12mm; }
+  .neon-head .script {
+    display: inline-block;
     font-family: 'Lobster', cursive;
-    font-size: 170pt;
-    color: var(--cherry);
-    line-height: .95;
-    text-shadow: 0 0 6mm rgba(255,120,140,.5), 3mm 5mm 0 rgba(0,0,0,.15);
+    font-size: 150pt;
+    color: #FFE9F2;
+    transform: rotate(-4deg);
+    text-shadow:
+      0 0 3mm #FFF,
+      0 0 8mm var(--pinkneon),
+      0 0 20mm var(--pinkhot),
+      0 0 34mm rgba(255,79,154,.7);
   }
-  .logo-text .dn {
-    font-family: 'Pacifico', cursive;
-    font-size: 72pt;
-    color: var(--mint-deep);
-    margin-top: 2mm;
+  .neon-head .script.blue {
+    text-shadow:
+      0 0 3mm #FFF,
+      0 0 8mm var(--blueneon),
+      0 0 20mm rgba(95,217,234,.85),
+      0 0 34mm rgba(95,217,234,.6);
   }
-  .est {
-    font-family: 'Bowlby One', serif;
-    font-size: 34pt; letter-spacing: .26em; text-indent: .26em;
-    color: var(--ink);
-  }
-  .stars-line { font-size: 44pt; color: var(--cherry); letter-spacing: .6em; text-indent: .6em; }
-  .foods-line { font-family: 'Noto Color Emoji'; font-size: 58pt; letter-spacing: .35em; text-indent: .35em; }
 
-  .spark { position: absolute; z-index: 3; }
+  /* checker floor strip */
+  .floor {
+    flex: none;
+    height: 60mm;
+    margin-top: auto;
+    background:
+      linear-gradient(180deg, rgba(255,123,172,.16), transparent 30%),
+      repeating-conic-gradient(#100C14 0% 25%, #E9E2D5 0% 50%) 0 0 / 30mm 30mm;
+    transform: skewX(-14deg) scaleX(1.4);
+    transform-origin: bottom;
+    box-shadow: 0 -3mm 12mm rgba(0,0,0,.5);
+  }
+  .wainscot {
+    flex: none;
+    height: 26mm;
+    background:
+      repeating-linear-gradient(90deg, var(--mint) 0 34mm, var(--mint-deep) 34mm 36mm);
+    border-top: 3mm solid #C9CDD4;
+    border-bottom: 3mm solid #8F959E;
+  }
+
+  /* center panel pieces */
+  .arch {
+    position: absolute;
+    left: 50%; top: 66mm;
+    transform: translateX(-50%);
+    width: 560mm; height: 470mm;
+    border: 5mm solid rgba(255,150,190,.9);
+    border-bottom: none;
+    border-radius: 280mm 280mm 0 0;
+    box-shadow:
+      0 0 8mm rgba(255,123,172,.8),
+      0 0 24mm rgba(255,79,154,.5),
+      inset 0 0 8mm rgba(255,123,172,.6),
+      inset 0 0 24mm rgba(255,79,154,.3);
+    z-index: 1;
+  }
+  .center .body { align-items: center; justify-content: flex-start; padding-top: 60mm; }
+  .center .script-main {
+    font-family: 'Pacifico', cursive;
+    font-size: 150pt;
+    line-height: 1.12;
+    color: #FFE9F2;
+    text-align: center;
+    transform: rotate(-4deg);
+    text-shadow:
+      0 0 3mm #FFF,
+      0 0 9mm var(--pinkneon),
+      0 0 22mm var(--pinkhot),
+      0 0 38mm rgba(255,79,154,.7);
+    margin-top: 26mm;
+  }
+  .center .diner-word {
+    font-family: 'Bowlby One', serif;
+    font-size: 76pt;
+    letter-spacing: .38em;
+    text-indent: .38em;
+    color: #E4FBFF;
+    margin-top: 12mm;
+    text-shadow:
+      0 0 3mm #FFF,
+      0 0 9mm var(--blueneon),
+      0 0 24mm rgba(95,217,234,.8);
+  }
+  .heart {
+    position: absolute;
+    font-family: 'Noto Color Emoji';
+    font-size: 60pt;
+    filter: drop-shadow(0 0 8mm rgba(255,79,154,.9));
+  }
+  .center .badly {
+    margin-top: 24mm;
+    width: 470mm;
+  }
+  .badly .litebox .big { font-size: 64pt; letter-spacing: .24em; text-indent: .24em; }
+  .est-line {
+    margin-top: 14mm;
+    font-family: 'Bowlby One', serif;
+    font-size: 30pt;
+    letter-spacing: .3em;
+    text-indent: .3em;
+    color: var(--warm);
+    text-shadow: 0 0 8mm rgba(255,217,160,.7);
+  }
 </style>
 </head>
 <body>
 
 <!-- LEFT: MENU -->
-<div class="panel side">
-  <div class="checker"></div>
-  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
+<div class="panel">
+  <div class="tube"></div>
   <div class="body">
-    <div class="burst" style="right: 26mm; top: 2mm;">ALL YOU<br>CAN EAT !</div>
-    <div class="head">
-      <span class="script">Menu</span>
-      <div class="under">FRESH &amp; TASTY</div>
+    <div class="litebox">
+      <div class="big">M E N U</div>
+      <div class="jp">メニュー</div>
+    </div>
+    <div class="neon-head" style="margin-top: 12mm;">
+      <span class="script">Good Food !</span>
     </div>
     <ul class="items">
-      <li><span class="ico">🌭</span><span class="nm">Hot Dog</span><span class="dots"></span><span class="pr">10¢</span></li>
-      <li><span class="ico">🍔</span><span class="nm">Cheeseburger</span><span class="dots"></span><span class="pr">25¢</span></li>
-      <li><span class="ico">🍟</span><span class="nm">French Fries</span><span class="dots"></span><span class="pr">15¢</span></li>
-      <li><span class="ico">🧅</span><span class="nm">Onion Rings</span><span class="dots"></span><span class="pr">20¢</span></li>
-      <li><span class="ico">🥤</span><span class="nm">Milk Shake</span><span class="dots"></span><span class="pr">25¢</span></li>
+      <li><span class="ico">🌭</span><span class="nm">Hot Dog</span><span class="kn">ホットドッグ</span><span class="dots"></span><span class="pr">10¢</span></li>
+      <li><span class="ico">🍔</span><span class="nm">Cheeseburger</span><span class="kn">チーズバーガー</span><span class="dots"></span><span class="pr">25¢</span></li>
+      <li><span class="ico">🍟</span><span class="nm">French Fries</span><span class="kn">ポテト</span><span class="dots"></span><span class="pr">15¢</span></li>
+      <li><span class="ico">🥤</span><span class="nm">Milk Shake</span><span class="kn">シェイク</span><span class="dots"></span><span class="pr">25¢</span></li>
     </ul>
-    <div style="text-align:center; font-family: 'Alfa Slab One', serif; font-size: 30pt; letter-spacing: .2em; color: #B08558; margin-top: 6mm;">— NO SUBSTITUTIONS, JUST LOVE —</div>
+    <div style="margin-top: auto; padding-bottom: 16mm; text-align: center; font-family: 'Bowlby One', serif; font-size: 40pt; letter-spacing: .26em; text-indent: .26em; color: #FFD9A0; text-shadow: 0 0 3mm #FFF3DC, 0 0 10mm rgba(255,217,160,.85), 0 0 22mm rgba(255,183,100,.5);">EAT ♥ DRINK ♥ BE MARRIED</div>
   </div>
-  <div class="gingham"></div>
+  <div class="wainscot"></div>
+  <div class="floor"></div>
 </div>
 
-<!-- CENTER: LOGO -->
+<!-- CENTER: NEON LOGO -->
 <div class="panel center">
-  <div class="checker"></div>
-  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
+  <div class="tube blue"></div>
+  <div class="arch"></div>
+  <span class="heart" style="left: 60mm; top: 150mm;">💖</span>
+  <span class="heart" style="right: 56mm; top: 210mm; font-size: 44pt;">💗</span>
   <div class="body">
-    <span class="spark" style="left: 30mm; top: 40mm;"><svg width="120" height="120" viewBox="0 0 24 24"><path fill="#FFB627" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
-    <span class="spark" style="right: 34mm; bottom: 60mm;"><svg width="90" height="90" viewBox="0 0 24 24"><path fill="#D7263D" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg></span>
-    <div class="open-badge">OPEN 24/7 — FOREVER</div>
-    <div class="logo-ribbon">
-      <svg viewBox="0 0 540 260" preserveAspectRatio="none">
-        <path d="M40 30 L500 10 L520 200 L20 230 Z" fill="#FFFFFF" stroke="#2B241C" stroke-width="5"/>
-      </svg>
-      <div class="logo-text">
-        <div class="rh">Richard &amp; Hazuki's</div>
-        <div class="dn">— diner —</div>
+    <div class="script-main">Richard &amp;<br>Hazuki</div>
+    <div class="diner-word">DINER</div>
+    <div class="badly">
+      <div class="litebox">
+        <div class="big">BADLY IN LOVE</div>
+        <div class="jp">ずっと 大好き</div>
       </div>
     </div>
-    <div class="stars-line">★ ★ ★</div>
-    <div class="est">EST. 2026.12.13 — OKINAWA</div>
-    <div class="foods-line">🍔🍟🥤🍒🍩</div>
+    <div style="margin-top: 12mm; font-size: 44pt; letter-spacing: .5em; text-indent: .5em; color: #FFB3CE; text-shadow: 0 0 4mm #FFF, 0 0 12mm #FF7BAC, 0 0 26mm rgba(255,79,154,.7);">♥ ♥ ♥</div>
+    <div class="est-line">EST. 2026.12.13 — OKINAWA</div>
+    <div style="margin-top: auto; padding-bottom: 16mm; text-align: center; font-family: 'Bowlby One', serif; font-size: 40pt; letter-spacing: .26em; text-indent: .26em; color: #E4FBFF; text-shadow: 0 0 3mm #FFF, 0 0 10mm rgba(95,217,234,.9), 0 0 24mm rgba(95,217,234,.55);">WELCOME TO OUR PARTY</div>
   </div>
-  <div class="gingham"></div>
+  <div class="wainscot"></div>
+  <div class="floor"></div>
 </div>
 
 <!-- RIGHT: SPECIALS -->
-<div class="panel side">
-  <div class="checker"></div>
-  <div class="awning"><div class="stripes"></div><div class="scallops"></div></div>
+<div class="panel">
+  <div class="tube blue"></div>
   <div class="body">
-    <div class="burst" style="right: 24mm; top: 0mm; background: var(--cherry); color: var(--cream); transform: rotate(8deg);">TODAY<br>ONLY !</div>
-    <div class="head">
-      <span class="script teal">Specials</span>
-      <div class="under">JUST MARRIED SET</div>
+    <div class="litebox">
+      <div class="big">SPECIALS</div>
+      <div class="jp">ほんじつのおすすめ</div>
+    </div>
+    <div class="neon-head" style="margin-top: 12mm;">
+      <span class="script blue">Just Married !</span>
     </div>
     <ul class="items">
-      <li><span class="ico">🍰</span><span class="nm">Wedding Cake</span><span class="dots"></span><span class="pr free">PRICELESS</span></li>
-      <li><span class="ico">🥂</span><span class="nm">Champagne</span><span class="dots"></span><span class="pr">∞</span></li>
-      <li><span class="ico">🍩</span><span class="nm">Donut</span><span class="dots"></span><span class="pr">5¢</span></li>
-      <li><span class="ico">🍨</span><span class="nm">Ice Cream</span><span class="dots"></span><span class="pr">15¢</span></li>
-      <li><span class="ico">❤️</span><span class="nm">Love &amp; Smile</span><span class="dots"></span><span class="pr free">FREE !</span></li>
+      <li><span class="ico">🍰</span><span class="nm">Wedding Cake</span><span class="kn">ケーキ</span><span class="dots"></span><span class="pr free">PRICELESS</span></li>
+      <li><span class="ico">🥂</span><span class="nm">Champagne</span><span class="kn">シャンパン</span><span class="dots"></span><span class="pr">∞</span></li>
+      <li><span class="ico">🍨</span><span class="nm">Ice Cream</span><span class="kn">アイス</span><span class="dots"></span><span class="pr">15¢</span></li>
+      <li><span class="ico">❤️</span><span class="nm">Love &amp; Smile</span><span class="kn">あい と えがお</span><span class="dots"></span><span class="pr free">FREE !</span></li>
     </ul>
-    <div style="text-align:center; font-family: 'Alfa Slab One', serif; font-size: 30pt; letter-spacing: .2em; color: #B08558; margin-top: 6mm;">— SERVED WITH EXTRA HAPPINESS —</div>
+    <div style="margin-top: auto; padding-bottom: 16mm; text-align: center; font-family: 'Bowlby One', serif; font-size: 40pt; letter-spacing: .26em; text-indent: .26em; color: #FFD9A0; text-shadow: 0 0 3mm #FFF3DC, 0 0 10mm rgba(255,217,160,.85), 0 0 22mm rgba(255,183,100,.5);">THANK YOU FOR COMING !</div>
   </div>
-  <div class="gingham"></div>
+  <div class="wainscot"></div>
+  <div class="floor"></div>
 </div>
 
 </body>
