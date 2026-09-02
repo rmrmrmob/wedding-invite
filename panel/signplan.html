@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>R&H Sign Build Plan</title>
+<style>
+  @font-face { font-family: 'Pacifico'; src: url('/home/user/wedding-invite/fonts/Pacifico-Regular.ttf'); }
+  @font-face { font-family: 'Alfa Slab One'; src: url('/home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Bowlby One'; src: url('/home/user/wedding-invite/fonts/BowlbyOne-Regular.ttf'); }
+  :root {
+    --mint: #8FD4C8;
+    --mint-deep: #5FB3A6;
+    --red: #C8202F;
+    --cream: #FFF3DC;
+    --yellowneon: #FFE066;
+    --pinkneon: #FFB3CE;
+    --ink: #22282E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1000px; height: 1500px;
+    background: linear-gradient(180deg, #A8CFE8 0%, #CBE3F2 70%, #B9AA9A 70.5%, #A99A8A 100%);
+    font-family: 'IPAPGothic', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .sign { position: absolute; left: 300px; top: 60px; width: 460px; }
+
+  /* poles */
+  .pole {
+    position: absolute; top: 0; bottom: 0; width: 26px;
+    background: linear-gradient(90deg, #9AA2AB, #E8ECF0 40%, #7E868F);
+  }
+  .poles { position: absolute; left: 390px; top: 900px; height: 500px; width: 280px; }
+  .poles .pole.l { left: 30px; }
+  .poles .pole.r { right: 30px; }
+
+  /* 1: mint marquee */
+  .marquee {
+    position: relative;
+    width: 460px; height: 380px;
+    background: var(--mint);
+    border-radius: 40px 40px 16px 16px;
+    border: 10px solid var(--mint-deep);
+    box-shadow: 0 10px 24px rgba(0,0,0,.3);
+  }
+  .neonline {
+    position: absolute; inset: 12px;
+    border: 6px solid var(--yellowneon);
+    border-radius: 30px 30px 10px 10px;
+    box-shadow: 0 0 10px rgba(255,224,102,.95), 0 0 26px rgba(255,200,60,.6), inset 0 0 10px rgba(255,224,102,.7);
+  }
+  .neon-script {
+    position: absolute; left: 0; right: 0; top: 52px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 64px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    transform: rotate(-4deg);
+    text-shadow: 0 0 6px #FFF, 0 0 16px var(--pinkneon), 0 0 30px #FF6FA5;
+  }
+  .neon-amp { font-size: 46px; color: #FFF; text-shadow: 0 0 6px #FFF, 0 0 16px #9BE8FF, 0 0 30px #4FC9EE; }
+
+  /* 2: red box */
+  .redbox {
+    position: relative;
+    margin-top: 18px;
+    width: 460px; height: 120px;
+    background: var(--red);
+    border: 8px solid #8E1520;
+    box-shadow: 0 10px 22px rgba(0,0,0,.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .redbox span {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 74px;
+    letter-spacing: .08em;
+    color: var(--cream);
+    text-shadow: 0 0 6px rgba(255,243,220,.7), 0 4px 0 rgba(0,0,0,.3);
+  }
+
+  /* 3: letterboard */
+  .board {
+    position: relative;
+    margin-top: 18px;
+    width: 460px;
+    background: repeating-linear-gradient(180deg, #FFFFFF 0 16px, #ECECE8 16px 18px);
+    border: 8px solid var(--mint-deep);
+    box-shadow: 0 10px 22px rgba(0,0,0,.3);
+    padding: 14px 8px;
+    text-align: center;
+  }
+  .board .row {
+    font-family: 'Bowlby One', serif;
+    font-size: 30px;
+    letter-spacing: .12em;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .board .row .rd { color: var(--red); }
+
+  /* 4: yellow bottom */
+  .ybox {
+    position: relative;
+    margin-top: 18px;
+    width: 380px; margin-left: 40px;
+    background: #F5C531;
+    border: 6px solid #FFF;
+    box-shadow: 0 8px 18px rgba(0,0,0,.3);
+    padding: 10px 8px 12px;
+    text-align: center;
+  }
+  .ybox .s1 { font-family: 'Pacifico', cursive; font-size: 34px; color: var(--red); }
+
+  /* callout labels */
+  .callout {
+    position: absolute;
+    background: #FFFFFF;
+    border: 3px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 4px 5px 0 rgba(0,0,0,.25);
+    padding: 10px 14px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    max-width: 250px;
+    z-index: 10;
+  }
+  .callout .no {
+    display: inline-block;
+    background: var(--red); color: #FFF;
+    border-radius: 50%;
+    width: 34px; height: 34px;
+    text-align: center; line-height: 34px;
+    margin-right: 6px;
+    font-size: 20px;
+  }
+  .callout .own { color: var(--red); }
+  .callout .make { color: #1D6FA8; }
+  .line { position: absolute; z-index: 9; }
+
+  .title {
+    position: absolute; left: 30px; top: 24px;
+    font-size: 34px; font-weight: bold; color: var(--ink);
+  }
+  .legend {
+    position: absolute; left: 30px; top: 80px;
+    font-size: 20px; font-weight: bold; line-height: 1.8;
+  }
+  .legend .own { color: var(--red); }
+  .legend .make { color: #1D6FA8; }
+</style>
+</head>
+<body>
+  <div class="title">R &amp; H DINER サインタワー 組み立て図</div>
+  <div class="legend">
+    <span class="own">■ 赤 = 持っている材料</span><br>
+    <span class="make">■ 青 = 印刷 or 手作りで追加</span>
+  </div>
+
+  <div class="sign">
+    <div class="marquee">
+      <div class="neonline"></div>
+      <div class="neon-script">Richard<br><span class="neon-amp">&amp;</span> Hazuki</div>
+    </div>
+    <div class="redbox"><span>WEDDING</span></div>
+    <div class="board">
+      <div class="row">HAPPY WEDDING <span class="rd">12.13</span></div>
+      <div class="row">N.B.C — OKINAWA</div>
+    </div>
+    <div class="ybox">
+      <div class="s1">Best Day Ever !</div>
+    </div>
+  </div>
+  <div class="poles"><div class="pole l"></div><div class="pole r"></div></div>
+
+  <div class="callout" style="left: 20px; top: 180px;">
+    <span class="no">1</span><span class="own">ペパーミントのパネル</span><br>
+    いちばん上のメイン看板に。角を落とすとよりレトロ
+  </div>
+  <div class="callout" style="right: 10px; top: 150px;">
+    <span class="no">2</span><span class="own">黄色ネオンライン</span><br>
+    パネルの縁に沿って一周貼る(写真1の電球フチの再現)
+  </div>
+  <div class="callout" style="right: 10px; top: 330px;">
+    <span class="no">3</span><span class="own">RICHARD・&amp;・HAZUKI のネオン管</span><br>
+    ミントパネルの真ん中に3つ並べて固定
+  </div>
+  <div class="callout" style="left: 20px; top: 470px;">
+    <span class="no">4</span><span class="own">赤パネル</span><br>
+    「DRIVE-IN」枠の再現。<span class="make">文字「WEDDING」はクリーム色で印刷 or カッティングシートを貼る</span>
+  </div>
+  <div class="callout" style="right: 10px; top: 560px;">
+    <span class="no">5</span><span class="make">レターボード(印刷パネル)</span><br>
+    写真2の文字入れ替え看板風。日付と会場名を入れて私がデータを作ります
+  </div>
+  <div class="callout" style="left: 20px; top: 700px;">
+    <span class="no">6</span><span class="make">黄色ミニ看板(印刷パネル)</span><br>
+    写真2の一番下の黄色看板の再現
+  </div>
+  <div class="callout" style="right: 30px; top: 900px;">
+    <span class="no">7</span><span class="make">支柱</span><br>
+    2×4材×2本を背面に縦通しして全パネルをビス留め。<br>足元はスタンド金具+重り
+  </div>
+</body>
+</html>
