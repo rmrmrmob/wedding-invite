@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>R&H Diner Sign</title>
+<style>
+  @font-face { font-family: 'Pacifico'; src: url('/home/user/wedding-invite/fonts/Pacifico-Regular.ttf'); }
+  @font-face { font-family: 'Lobster'; src: url('/home/user/wedding-invite/fonts/Lobster-Regular.ttf'); }
+  @font-face { font-family: 'Alfa Slab One'; src: url('/home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Bowlby One'; src: url('/home/user/wedding-invite/fonts/BowlbyOne-Regular.ttf'); }
+  :root {
+    --mint: #7ECCC3;
+    --mint-deep: #5BB3A9;
+    --pink: #F5A3B7;
+    --pink-deep: #E27691;
+    --yellow: #F4C542;
+    --yellow-deep: #C89A1F;
+    --red: #D7263D;
+    --cream: #FFF9EE;
+    --ink: #23303A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: 800mm 1200mm; margin: 0; }
+  html, body { width: 800mm; height: 1200mm; background: transparent; }
+  body { font-family: 'Alfa Slab One', serif; }
+
+  .sign { position: absolute; left: 0; top: 0; width: 800mm; }
+
+  /* ---- main marquee panel with bulb border ---- */
+  .main {
+    position: relative;
+    margin: 10mm 20mm 0;
+    width: 760mm;
+    height: 560mm;
+    background: var(--yellow);
+    border-radius: 60mm 60mm 24mm 24mm;
+    box-shadow: 0 8mm 0 rgba(0,0,0,.18), inset 0 -6mm 0 var(--yellow-deep);
+  }
+  .main-inner {
+    position: absolute;
+    inset: 42mm;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 6mm, transparent 6mm 12mm),
+      linear-gradient(180deg, var(--mint) 0%, var(--mint-deep) 100%);
+    border-radius: 30mm 30mm 12mm 12mm;
+    box-shadow: inset 0 4mm 14mm rgba(0,0,0,.25);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8mm;
+  }
+  /* bulbs along the yellow border: 4 dot strips */
+  .bulb-row {
+    position: absolute;
+    z-index: 2;
+    background-image: radial-gradient(circle 8mm at center, #FFFDF2 55%, #E3C97E 75%, transparent 85%);
+  }
+  .bulb-row.top    { left: 60mm; right: 60mm; top: 9mm;    height: 26mm; background-size: 40mm 26mm; background-repeat: repeat-x; }
+  .bulb-row.bottom { left: 60mm; right: 60mm; bottom: 9mm; height: 26mm; background-size: 40mm 26mm; background-repeat: repeat-x; }
+  .bulb-row.left   { top: 60mm; bottom: 60mm; left: 9mm;   width: 26mm;  background-size: 26mm 40mm; background-repeat: repeat-y; }
+  .bulb-row.right  { top: 60mm; bottom: 60mm; right: 9mm;  width: 26mm;  background-size: 26mm 40mm; background-repeat: repeat-y; }
+  .neon-script {
+    font-family: 'Pacifico', cursive;
+    font-size: 200pt;
+    line-height: 1.05;
+    color: #FFFFFF;
+    transform: rotate(-5deg);
+    text-shadow:
+      0 0 4mm rgba(255,255,255,.9),
+      0 0 14mm rgba(180,255,246,.85),
+      0 4mm 0 rgba(0,0,0,.18);
+  }
+  .diner {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 230pt;
+    letter-spacing: .1em;
+    text-indent: .1em;
+    color: var(--pink);
+    text-shadow:
+      -2.5mm -2.5mm 0 #FFF, 2.5mm -2.5mm 0 #FFF, -2.5mm 2.5mm 0 #FFF, 2.5mm 2.5mm 0 #FFF,
+      0 0 12mm rgba(255,200,215,.85),
+      6mm 8mm 0 var(--pink-deep);
+  }
+
+  /* ---- arrow ---- */
+  .arrow {
+    position: absolute;
+    left: -22mm;
+    top: -44mm;
+    width: 360mm;
+    height: 132mm;
+    transform: rotate(-8deg);
+    z-index: 3;
+    filter: drop-shadow(0 5mm 0 rgba(0,0,0,.2));
+  }
+
+  /* ---- sub bar: WEDDING PARTY ---- */
+  .subbar {
+    position: relative;
+    margin: 14mm 0 0;
+    width: 800mm;
+    height: 120mm;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EFE9DC 100%);
+    box-shadow: 0 7mm 0 rgba(0,0,0,.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .subbar span {
+    font-family: 'Bowlby One', serif;
+    font-size: 104pt;
+    letter-spacing: .06em;
+    color: #FFF;
+    -webkit-text-stroke: 2.2mm var(--mint-deep);
+    text-shadow: 0 0 7mm rgba(91,179,169,.95), 0 3mm 0 rgba(0,0,0,.14);
+  }
+
+  /* ---- letterboard ---- */
+  .board {
+    position: relative;
+    margin: 14mm 30mm 0;
+    width: 740mm;
+    background:
+      repeating-linear-gradient(180deg, #FFFFFF 0 14mm, #EDEDEA 14mm 15mm),
+      #FFFFFF;
+    border: 8mm solid var(--mint-deep);
+    box-shadow: 0 7mm 0 rgba(0,0,0,.18);
+    padding: 12mm 8mm;
+    text-align: center;
+  }
+  .board .row {
+    font-family: 'Bowlby One', serif;
+    font-size: 62pt;
+    letter-spacing: .14em;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .board .row .rd { color: var(--red); }
+  .board .row .heart { color: var(--red); }
+
+  /* ---- bottom yellow board ---- */
+  .bottom {
+    position: relative;
+    margin: 14mm 60mm 0;
+    width: 680mm;
+    background: var(--yellow);
+    border: 5mm solid #FFF;
+    box-shadow: 0 6mm 0 rgba(0,0,0,.18);
+    padding: 10mm 8mm 12mm;
+    text-align: center;
+  }
+  .bottom .script {
+    font-family: 'Lobster', cursive;
+    font-size: 84pt;
+    color: var(--red);
+  }
+  .bottom .small {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 30pt;
+    letter-spacing: .18em;
+    color: var(--ink);
+    margin-top: 4mm;
+  }
+</style>
+</head>
+<body>
+<div class="sign">
+  <div class="main">
+    <div class="bulb-row top"></div>
+    <div class="bulb-row bottom"></div>
+    <div class="bulb-row left"></div>
+    <div class="bulb-row right"></div>
+    <svg class="arrow" viewBox="0 0 300 110">
+      <path d="M298 30 H90 V4 L4 55 90 106 V80 H298 Z" fill="#F4C542" stroke="#C89A1F" stroke-width="4"/>
+      <g fill="#FFFDF2" stroke="#E8D089" stroke-width="1.6">
+        <circle cx="40" cy="55" r="7"/>
+        <circle cx="78" cy="34" r="7"/><circle cx="78" cy="76" r="7"/>
+        <circle cx="116" cy="55" r="7"/><circle cx="152" cy="55" r="7"/>
+        <circle cx="188" cy="55" r="7"/><circle cx="224" cy="55" r="7"/>
+        <circle cx="260" cy="55" r="7"/>
+      </g>
+    </svg>
+    <div class="main-inner">
+      <div class="neon-script">Richard &amp; Hazuki</div>
+      <div class="diner">DINER</div>
+    </div>
+  </div>
+
+  <div class="subbar"><span>WEDDING PARTY</span></div>
+
+  <div class="board">
+    <div class="row">HAPPY WEDDING <span class="rd">12.13</span></div>
+    <div class="row">RICHARD <span class="heart">♥</span> HAZUKI</div>
+    <div class="row">N.B.C — OKINAWA</div>
+  </div>
+
+  <div class="bottom">
+    <div class="script">Best Day Ever !</div>
+    <div class="small">GOOD FOOD · GOOD FRIENDS · GOOD TIMES</div>
+  </div>
+</div>
+</body>
+</html>
