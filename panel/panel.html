@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Hazuki Life-size Panel</title>
+<style>
+  @font-face { font-family: 'Pacifico'; src: url('/home/user/wedding-invite/fonts/Pacifico-Regular.ttf'); }
+  @font-face { font-family: 'Alfa Slab One'; src: url('/home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: 820mm 1500mm; margin: 0; }
+  html, body { width: 820mm; height: 1500mm; background: transparent; }
+  .figure {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20mm;
+    width: 730mm;
+    z-index: 2;
+  }
+  .figure img { width: 100%; display: block; }
+  .base {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 200mm;
+    z-index: 3;
+  }
+  .base .checker {
+    height: 28mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 28mm 28mm;
+    border-top: 3mm solid #D7263D;
+  }
+  .base .panel {
+    height: 172mm;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,.05), transparent 40%),
+      linear-gradient(180deg, #24425F 0%, #16293C 100%);
+    text-align: center;
+    position: relative;
+    padding-top: 14mm;
+  }
+  .hw {
+    font-family: 'Pacifico', cursive;
+    font-size: 210pt;
+    line-height: 1;
+    color: #F0C25C;
+    text-shadow:
+      0 3mm 0 #8A6215,
+      0 0 8mm rgba(240,194,92,.55);
+    transform: rotate(-1.5deg);
+    display: inline-block;
+  }
+  .date {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 58pt;
+    letter-spacing: .3em;
+    text-indent: .3em;
+    color: #FFF6E9;
+    margin-top: 10mm;
+  }
+  .spark { position: absolute; color: #F0C25C; font-size: 70pt; }
+</style>
+</head>
+<body>
+  <div class="figure"><img src="panel_figure_hd.png"></div>
+  <div class="base">
+    <div class="checker"></div>
+    <div class="panel">
+      <span class="spark" style="left: 40mm; top: 58mm;">✦</span>
+      <span class="spark" style="right: 40mm; top: 58mm;">✦</span>
+      <div class="hw">Happy Wedding</div>
+      <div class="date">2026.12.13</div>
+    </div>
+  </div>
+</body>
+</html>
