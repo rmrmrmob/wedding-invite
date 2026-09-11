@@ -676,6 +676,16 @@
       </div>
 
       <div class="field">
+        <span class="flabel req" id="lbl-invite">ご出席の内容</span>
+        <div class="pillset" role="radiogroup" aria-labelledby="lbl-invite">
+          <input type="radio" name="invite" id="invite-both" value="挙式・披露宴">
+          <label class="pill" for="invite-both">挙式・披露宴</label>
+          <input type="radio" name="invite" id="invite-party" value="披露宴のみ">
+          <label class="pill" for="invite-party">披露宴のみ</label>
+        </div>
+      </div>
+
+      <div class="field">
         <label for="f-name" class="req">お名前</label>
         <input type="text" id="f-name" name="name" placeholder="例）山田 太郎" autocomplete="name">
       </div>
@@ -757,7 +767,7 @@
 
       <div class="submit-wrap">
         <button type="submit" class="btn btn-submit" id="submit-btn">回答を送信する</button>
-        <p class="form-error" id="form-error">必須項目（ご出欠・お名前・新郎側/新婦側）をご入力ください</p>
+        <p class="form-error" id="form-error">必須項目（ご出欠・ご出席の内容・お名前・新郎側/新婦側）をご入力ください</p>
       </div>
     </form>
 
@@ -872,7 +882,7 @@
 
   function collect() {
     return {
-      invite: '挙式・披露宴',
+      invite: radioValue('invite'),
       attend: radioValue('attend'),
       name: document.getElementById('f-name').value.trim(),
       kana: document.getElementById('f-kana').value.trim(),
@@ -895,6 +905,7 @@
     return [
       '【Richard & Hazuki 挙式・披露宴 出欠回答】',
       '出欠：' + r.attend,
+      'ご出席の内容：' + (r.invite || '未回答'),
       'お名前：' + r.name + (r.kana ? '（' + r.kana + '）' : ''),
       '新郎側/新婦側：' + r.side,
       'お連れ様：' + (r.companions || 'なし'),
@@ -953,7 +964,7 @@
     zip: 'entry.461944059',
     buscount: 'entry.1502347447'
   };
-  var EXTRA_LABEL = { companions: 'お連れ様', children: 'お子様連れ', zip: '郵便番号', buscount: 'バス利用人数', invite: 'ご招待' };
+  var EXTRA_LABEL = { companions: 'お連れ様', children: 'お子様連れ', zip: '郵便番号', buscount: 'バス利用人数', invite: 'ご出席の内容' };
 
   function sendToGoogle(r) {
     var params = new URLSearchParams();
@@ -980,7 +991,7 @@
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     var r = collect();
-    if (!r.attend || !r.name || !r.side) {
+    if (!r.attend || !r.name || !r.side || (r.attend === 'ご出席' && !r.invite)) {
       errorEl.classList.add('show');
       return;
     }
@@ -1053,6 +1064,9 @@
     ['#lbl-attend', 'Attendance'],
     ['label[for="attend-yes"]', 'Attending'],
     ['label[for="attend-no"]', 'Not attending'],
+    ['#lbl-invite', 'Attending which parts?'],
+    ['label[for="invite-both"]', 'Ceremony &amp; Reception'],
+    ['label[for="invite-party"]', 'Reception only'],
     ['label[for="f-name"]', 'Name'],
     ['label[for="f-kana"]', 'Furigana'],
     ['#lbl-side', 'Guest of'],
@@ -1073,7 +1087,7 @@
     ['label[for="f-allergy"]', 'Allergies / dietary needs'],
     ['label[for="f-msg"]', 'Message to the couple'],
     ['#submit-btn', 'Send RSVP'],
-    ['#form-error', 'Please fill in the required fields (Attendance / Name / Guest of)'],
+    ['#form-error', 'Please fill in the required fields (Attendance / Which parts / Name / Guest of)'],
     ['#thanks-ok p:not(.script)', 'Your RSVP has been received.<br>We look forward to celebrating with you!'],
     ['#thanks-copy p:not(.script)', 'Please copy your answers below and<br>send them to us on <strong>LINE</strong><br>(your reply is complete once sent)'],
     ['#copy-btn', 'Copy my answers'],
