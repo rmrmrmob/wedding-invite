@@ -29,8 +29,9 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
   挨拶文3段落目(挙式列席のお願い)/チケットラベル `WEDDING CEREMONY & RECEPTION` /
   TIME・VENUE欄に挙式(12:00、北谷)を追記/MAPボタン2つ(#map-ceremony, #map-reception)/
   BUS欄がゲスト種別ごとの案内/RSVPに**「ご出席の内容」ラジオ(name=invite、挙式・披露宴/披露宴のみ、
-  ご出席時は必須)**があり、`GOOGLE_ENTRY.invite=''`+`EXTRA_LABEL.invite='ご出席の内容'` で
-  メッセージ欄に【ご出席の内容】として合流(= フォーム側は無変更。このタグが無い回答は披露宴専用ページから)
+  ご出席時は必須)**があり、`GOOGLE_ENTRY.invite='entry.1723965543'` でフォームの専用列
+  「出席の内容」に入る(この列が空欄の回答は披露宴専用ページから。ラジオの選択肢文字列は
+  フォーム側と一字一句一致が必要)
 - **共通の修正(会場・フォーム項目など)は両ページに適用すること**。ただしバス案内の文面と
   出欠フォームの「ご出席の内容」は挙式ページ専用(披露宴ページは変えない、とオーナー確認済み)
 - TIME欄のddは1個のまま`<br>`で2行にしてある(`EN_TEXT` が `dd:nth-of-type(n)` 依存のため、dd数を変えない)
@@ -53,6 +54,7 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 - entry ID対応表は `index.html` の `GOOGLE_ENTRY`(全14項目、すべて接続済み)。
   Googleフォームの質問順はサイトの項目順と同じ(attend/name/kana/side/companions/children/zip/
   address/tel/bus/buscount/party/allergy/message)
+- `ceremony/index.html` はさらに `invite: 'entry.1723965543'`(出席の内容、ラジオ・必須OFF)を持つ(計15項目)
 - 送信失敗時のフォールバック: アーティファクト保存 → それも不可ならLINEコピー方式。
   entry IDが空の項目があれば、その値は【ラベル】付きでメッセージ欄に合流する仕組みが入っている
 - Googleフォーム側は「公開」済み・「リンクを知っている全員」が回答可・メール収集なしであること
