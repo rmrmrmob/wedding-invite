@@ -622,21 +622,24 @@
         <dt>DATE</dt>
         <dd><span class="big-date">2026.12.13<span class="sun">SUN</span></span></dd>
         <dt>TIME</dt>
-        <dd>挙式：時間は確定次第ご案内します<br>披露宴：16:00 受付開始 / 16:30 開宴 〜 19:30</dd>
+        <dd>挙式：12:00 〜<br>披露宴：16:00 受付開始 / 16:30 開宴 〜 19:30</dd>
         <dt>VENUE</dt>
-        <dd>結婚式場 N.B.C（日本ブライダルセンター）<br>
+        <dd><strong>挙式</strong>｜ヴォヤージュ ドゥ ルミエール 北谷リゾート<br>
+          <span class="small">〒904-0115 沖縄県中頭郡北谷町美浜9-22（アメリカンビレッジそば）</span><br>
+          <strong>披露宴</strong>｜結婚式場 N.B.C（日本ブライダルセンター）<br>
           <span class="small">〒904-0021 沖縄県沖縄市胡屋6-12-1</span><br>
           <span class="small">TEL：<a href="tel:0989330808" style="color:inherit">098-933-0808</a></span>
         </dd>
       </dl>
-      <p style="text-align:center; margin:20px 0 0;">
-        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%B5%90%E5%A9%9A%E5%BC%8F%E5%A0%B4N.B.C+%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B2%96%E7%B8%84%E5%B8%82%E8%83%A1%E5%B1%8B6-12-1" target="_blank" rel="noopener">MAPを開く</a>
+      <p style="text-align:center; margin:20px 0 0; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn ghost" id="map-ceremony" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%B4%E3%82%A9%E3%83%A4%E3%83%BC%E3%82%B8%E3%83%A5%20%E3%83%89%E3%82%A5%20%E3%83%AB%E3%83%9F%E3%82%A8%E3%83%BC%E3%83%AB%E5%8C%97%E8%B0%B7%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E7%BE%8E%E6%B5%9C9-22" target="_blank" rel="noopener">挙式会場MAP</a>
+        <a class="btn ghost" id="map-reception" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%B5%90%E5%A9%9A%E5%BC%8F%E5%A0%B4N.B.C+%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B2%96%E7%B8%84%E5%B8%82%E8%83%A1%E5%B1%8B6-12-1" target="_blank" rel="noopener">披露宴会場MAP</a>
       </p>
     </div>
 
     <div class="bus-note">
       <span class="bus-badge">BUS</span>
-      <span id="bus-note-text">当日は <strong>那覇空港 ⇔ 会場</strong> のシャトルバスを運行します<br>
+      <span id="bus-note-text">当日は <strong>那覇空港 ⇔ 披露宴会場（N.B.C）</strong> のシャトルバスを運行します<br>
       往路：<strong>那覇空港 15:00 発</strong> / 復路：<strong>披露宴が終わり次第 会場発</strong><br>
       ご利用の希望と人数を下の出欠フォームでお知らせください</span>
     </div>
@@ -1036,10 +1039,11 @@
     ['.message-body p:nth-of-type(1)', 'Dear family and friends,<br>we are delighted to announce<br>that we are getting married!'],
     ['.message-body p:nth-of-type(2)', 'With heartfelt thanks for your<br>kindness and support,<br>we are preparing delicious food<br>and a joyful celebration for you.'],
     ['.message-body p:nth-of-type(3)', 'We would be truly honored<br>if you could also join us at the ceremony<br>and witness the start of our new life together.'],
-    ['.ticket dl dd:nth-of-type(2)', 'Ceremony: time to be announced<br>Reception: doors open 16:00 / 16:30 – 19:30'],
-    ['.ticket dl dd:nth-of-type(3)', 'Wedding Hall N.B.C (Nihon Bridal Center)<br><span class="small">6-12-1 Goya, Okinawa City, Okinawa 904-0021</span><br><span class="small">TEL: <a href="tel:0989330808" style="color:inherit">098-933-0808</a></span>'],
-    ['.ticket .btn.ghost', 'Open Map'],
-    ['#bus-note-text', 'A shuttle bus between <strong>Naha Airport ⇔ the venue</strong> will run on the day.<br>To the venue: departs <strong>Naha Airport at 15:00</strong> / Return: departs <strong>right after the reception</strong>.<br>Please tell us in the RSVP form below if you would like to ride, and how many.'],
+    ['.ticket dl dd:nth-of-type(2)', 'Ceremony: from 12:00<br>Reception: doors open 16:00 / 16:30 – 19:30'],
+    ['.ticket dl dd:nth-of-type(3)', '<strong>Ceremony</strong> | Voyage de Lumi&egrave;re Chatan Resort<br><span class="small">9-22 Mihama, Chatan, Okinawa 904-0115 (near American Village)</span><br><strong>Reception</strong> | Wedding Hall N.B.C (Nihon Bridal Center)<br><span class="small">6-12-1 Goya, Okinawa City, Okinawa 904-0021</span><br><span class="small">TEL: <a href="tel:0989330808" style="color:inherit">098-933-0808</a></span>'],
+    ['#map-ceremony', 'Ceremony Map'],
+    ['#map-reception', 'Reception Map'],
+    ['#bus-note-text', 'A shuttle bus between <strong>Naha Airport ⇔ the reception venue (N.B.C)</strong> will run on the day.<br>To the venue: departs <strong>Naha Airport at 15:00</strong> / Return: departs <strong>right after the reception</strong>.<br>Please tell us in the RSVP form below if you would like to ride, and how many.'],
     ['#party-badge', 'PARTY'],
     ['#party-note-text', 'An after-party is planned right after the reception (fee: &yen;3,000).<br>Let us know in the form if you would like to join!'],
     ['.deadline', 'Kindly reply by <span style="color:var(--cherry-deep)">Saturday, October 31, 2026</span>'],
