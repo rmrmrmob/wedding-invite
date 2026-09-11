@@ -11,15 +11,31 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 - 那覇空港⇔会場のシャトルバス: 往路 那覇空港15:00発、復路は披露宴終了後に会場発(利用希望・人数をフォームで収集)
 - 披露宴後に二次会あり、会費3,000円(参加希望もフォームで収集)
 - 出欠回答の締切: **2026年10月31日(土)**
+- 挙式の時間は未確定(確定したら `ceremony/index.html` のTIME欄と `EN_TEXT` の該当行を更新)
 
-## 公開場所(2つを常に同期させること)
+## 招待状は2種類ある
 
-1. **本番(ゲスト配布用)**: https://rmrmrmob.github.io/wedding-invite/
+| ページ | URL | 対象ゲスト |
+| --- | --- | --- |
+| `index.html` | https://rmrmrmob.github.io/wedding-invite/ | 披露宴のみ招待 |
+| `ceremony/index.html` | https://rmrmrmob.github.io/wedding-invite/ceremony/ | 挙式+披露宴に招待 |
+
+- `ceremony/` は `index.html` のコピーに次の差分: og:description/ヒーロー見出し「挙式・披露宴のご招待」/
+  挨拶文3段落目(挙式列席のお願い)/チケットラベル `WEDDING CEREMONY & RECEPTION` /
+  TIME欄に挙式行(時間は未定プレースホルダ)/`collect()` に `invite:'挙式・披露宴'` を追加し
+  `GOOGLE_ENTRY.invite=''`+`EXTRA_LABEL.invite='ご招待'` でメッセージ欄に【ご招待】として合流
+  (= フォーム側は無変更。メッセージ欄が空欄なら披露宴のみゲストの回答)
+- **共通の修正(バス時刻・会場・フォーム項目など)は必ず両ページに適用すること**
+- TIME欄のddは1個のまま`<br>`で2行にしてある(`EN_TEXT` が `dd:nth-of-type(n)` 依存のため、dd数を変えない)
+
+## 公開場所(常に同期させること)
+
+1. **本番(ゲスト配布用)**: 上記2 URL
    - このリポジトリの `main` にpushすると GitHub Actions (`.github/workflows/deploy.yml`) が自動デプロイ
    - GitHub Pagesのキャッシュは最大10分程度
 2. **プレビュー(claude.aiアーティファクト)**: https://claude.ai/code/artifact/bf01c780-1bb5-4bad-8367-9a60bb964160
    - `index.html` を編集したら、同じ変更をアーティファクトにも適用して再公開する
-   - 過去に片方だけ更新して「直ってない」と混乱が起きた。**必ず両方更新**
+   - 過去に片方だけ更新して「直ってない」と混乱が起きた。**必ず両方更新**(アーティファクトは披露宴版のみでよい)
 
 ## 出欠回答(RSVP)の仕組み
 
