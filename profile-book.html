@@ -400,6 +400,14 @@
   }
   .tl li:nth-child(even) .when { background: var(--pink); }
   .tl .what { line-height: 1.7; }
+  .tl-photos { display: flex; gap: 3mm; margin-top: 2.4mm; }
+  .tl-photo {
+    width: 24mm; height: 18mm; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    border: 0.6mm dashed rgba(255,246,233,.65); border-radius: 2mm;
+    font-size: 11pt; color: rgba(255,246,233,.65);
+    background: rgba(255,255,255,.06);
+  }
   .tl .what.ph { color: #F5D9A8; }
   .tl li:last-child .when { background: var(--cherry); color: #FFF; }
   .tl li:last-child .what { font-weight: bold; color: var(--mustard); }
@@ -604,19 +612,19 @@
           <div class="prof-photo"><img src="groom.jpg" alt="" style="object-position: 50% 62%; transform: scale(2.2); transform-origin: 53% 53%;"></div>
           <div>
             <div class="prof-name-en">Richard</div>
-            <div class="prof-name-jp ph">【お名前（漢字）】</div>
+            <div class="prof-name-jp">砂川 リチャード</div>
             <span class="prof-role" style="background: var(--teal);">THE GROOM 🍔</span>
           </div>
         </div>
         <div class="ticket-perf"></div>
         <table class="prof">
-          <tr><th>生年月日</th><td class="ph">【19XX年X月X日】</td></tr>
-          <tr><th>出身地</th><td class="ph">【出身地】</td></tr>
-          <tr><th>血液型</th><td class="ph">【X型】</td></tr>
-          <tr><th>職業</th><td class="ph">【お仕事】</td></tr>
-          <tr><th>趣味</th><td class="ph">【趣味】</td></tr>
+          <tr><th>生年月日</th><td>1999年6月18日</td></tr>
+          <tr><th>出身地</th><td>沖縄県</td></tr>
+          <tr><th>血液型</th><td>O型</td></tr>
+          <tr><th>職業</th><td>プロ野球選手</td></tr>
+          <tr><th>趣味</th><td>ゲーム</td></tr>
           <tr><th>好きな食べ物</th><td class="ph">【好きな食べ物】</td></tr>
-          <tr><th>マイブーム</th><td class="ph">【マイブーム】</td></tr>
+          <tr><th>マイブーム</th><td>レザークラフト</td></tr>
         </table>
         <div class="prof-comment"><b>ゲストのみなさまへ</b><br><span class="ph">【新郎からのひとことメッセージ】</span></div>
       </div>
@@ -679,23 +687,23 @@
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q1.</span> ふたりの出会いは？</div>
         <div class="burst">CHEF'S<br>SPECIAL</div>
-        <div class="qa-a ph">【出会いのエピソード】</div>
+        <div class="qa-a">友人の結婚式!おめでたい席が ふたりの始まりでした</div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q2.</span> お互いの第一印象は？</div>
-        <div class="qa-a"><b>Richard</b>：<span class="ph">【第一印象】</span><br><b>Hazuki</b>：<span class="ph">【第一印象】</span></div>
+        <div class="qa-a"><b>Richard</b>：<span class="ph">【第一印象】</span><br><b>Hazuki</b>：でかい</div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q3.</span> プロポーズの言葉は？</div>
-        <div class="qa-a ph">【プロポーズのエピソード】</div>
+        <div class="qa-a">「結婚してください」── 場所は 告白してくれた思い出の福岡の夜景スポットで</div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q4.</span> お互いの好きなところは？</div>
-        <div class="qa-a"><b>Richard</b>：<span class="ph">【好きなところ】</span><br><b>Hazuki</b>：<span class="ph">【好きなところ】</span></div>
+        <div class="qa-a"><b>Richard</b>：<span class="ph">【好きなところ】</span><br><b>Hazuki</b>：変すぎて一周回っておもろかわいいところ</div>
       </div>
       <div class="qa-item">
         <div class="qa-q"><span class="qmark">Q5.</span> どんな家庭にしたい？</div>
-        <div class="qa-a ph">【これからの抱負】</div>
+        <div class="qa-a">ずっと私たちのペースで 仲良く歩んでいきます</div>
       </div>
     </div>
     <div class="note-foot">※質問の入れ替え・追加も自由にできます</div>
@@ -715,13 +723,17 @@
       <div class="hand">how it all began...</div>
     </div>
     <ul class="tl">
-      <li><span class="when ph" style="color:#8A5A00;">20XX.XX</span><span class="what ph">【出会い】</span></li>
-      <li><span class="when ph" style="color:#A4505F;">20XX.XX</span><span class="what ph">【初デート】</span></li>
-      <li><span class="when ph" style="color:#8A5A00;">20XX.XX</span><span class="what ph">【交際スタート】</span></li>
-      <li><span class="when ph" style="color:#A4505F;">20XX.XX</span><span class="what ph">【思い出のできごと（旅行など）】</span></li>
-      <li><span class="when ph" style="color:#8A5A00;">20XX.XX</span><span class="what ph">【プロポーズ】</span></li>
-      <li><span class="when ph" style="color:#A4505F;">20XX.XX</span><span class="what ph">【入籍】</span></li>
-      <li><span class="when">2026.12</span><span class="what">結婚式 🎉　そしてこれからもずっと──</span></li>
+      <li><span class="when">出会い</span><span class="what">友人の結婚式で出会う💒</span></li>
+      <li><span class="when">初デート</span><span class="what">夜景デート🌃</span></li>
+      <li><span class="when">デート</span><span class="what">水族館に動物園 高校生みたいなデートを重ねる🐧
+        <span class="tl-photos">
+          <span class="tl-photo">📷</span>
+          <span class="tl-photo">📷</span>
+        </span>
+      </span></li>
+      <li><span class="when">プロポーズ</span><span class="what">「写真撮ろう」と言われてパシャリ📸 あとで見返したら 後ろで指輪持ってた！意外と粋な演出（笑）</span></li>
+      <li><span class="when">入籍</span><span class="what">福岡の婚姻届を沖縄で出すという謎ムーブをかましつつ 無事に入籍しました✍️</span></li>
+      <li><span class="when">結婚式</span><span class="what">2026.12.13 そして今日この日🎉　これからもずっと──</span></li>
     </ul>
     <div style="display: flex; justify-content: flex-end; align-items: center; gap: 5mm; margin-top: auto; padding-right: 4mm;">
       <div style="text-align: right;">
@@ -742,26 +754,14 @@
   <div class="checker"></div>
   <div class="body">
     <div class="menu-script-head">
-      <span class="en">Diner Menu</span>
-      <div><span class="jp">本日のメニューと流れ</span></div>
+      <span class="en">Today's Program</span>
+      <div><span class="jp">本日の流れ</span></div>
     </div>
     <div class="menu-board">
-      <div class="board-title">TODAY'S SPECIALS</div>
-      <div class="board-sub">all dishes made with love</div>
-      <div class="two-col">
-        <div class="col">
-          <div class="mini-head">MENU</div>
-          <ul class="menu-list">
-            <li><span class="icon">🥗</span><span class="ph">【前菜】</span><span class="dots"></span></li>
-            <li><span class="icon">🍲</span><span class="ph">【スープ】</span><span class="dots"></span></li>
-            <li><span class="icon">🐟</span><span class="ph">【魚料理】</span><span class="dots"></span></li>
-            <li><span class="icon">🥩</span><span class="ph">【肉料理】</span><span class="dots"></span></li>
-            <li><span class="icon">🍚</span><span class="ph">【ご飯もの】</span><span class="dots"></span></li>
-            <li><span class="icon">🍰</span><span class="ph">【デザート】</span><span class="dots"></span></li>
-            <li><span class="icon">🥤</span><span class="ph">【ドリンク】</span><span class="dots"></span></li>
-          </ul>
-        </div>
-        <div class="col">
+      <div class="board-title">TODAY'S PROGRAM</div>
+      <div class="board-sub">enjoy the ride with us</div>
+      <div class="two-col" style="justify-content: center;">
+        <div class="col" style="max-width: 86mm;">
           <div class="mini-head teal">PROGRAM</div>
           <ul class="prog-list">
             <li><span class="t">16:00</span>受付開始</li>
@@ -771,6 +771,10 @@
             <li><span class="t ph">--:--</span><span class="ph">【余興・スピーチ】</span></li>
             <li><span class="t">19:30</span>お開き</li>
           </ul>
+          <div class="mini-head" style="margin-top: 6mm;">MENU</div>
+          <div style="color: #EDEAE0; font-size: 10pt; line-height: 1.8; padding: 2mm 1mm;">
+            お料理のメニューは お手元の<br>メニュー表をご覧ください 🍽️
+          </div>
         </div>
       </div>
       <div class="arrow-note">
@@ -780,7 +784,7 @@
         </svg>
       </div>
     </div>
-    <div class="note-foot">※メニュー・進行は式場と決まり次第差し替えます　※二次会 会費3,000円</div>
+    <div class="note-foot">※進行は式場と決まり次第差し替えます　※メニューは別紙で作成予定　※二次会 会費3,000円</div>
   </div>
   <div class="checker"></div>
 </div>
