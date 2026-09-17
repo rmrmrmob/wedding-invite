@@ -86,7 +86,8 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 - `profile-book.html` = A5縦・8ページの印刷用冊子のソース(表紙/ご挨拶/新郎/新婦/Q&A/歩み/メニュー&プログラム/裏表紙)
 - PDF化は Playwright + `/opt/pw-browsers/chromium` の `page.pdf()`(width 148mm / height 210mm, printBackground: true)
 - フォントはコンテナ内の IPAPGothic を使用(Google Fontsはegressで読めない)
-- 表紙写真は `hero-photo.jpg`(サイトのトップ写真と同じ)
+- 表紙は `cover-book.jpg`(オーナー支給のヴィンテージ広告風イラストポスター、Photo Boxのcover_design由来)を
+  全面配置+左上に「PROFILE BOOK」バッジ。旧コラージュ表紙(cutout-*.png)は撤去済み
 - 【 】書きの箇所はプレースホルダ。**2026-09時点の記入状況**:
   - 新婦P4: 記入済み / 新郎P3: 記入済み(**残り: 好きな食べ物・ひとことメッセージ**)
   - Q&A P5: 記入済み(**残り: Richardの第一印象・好きなところ**)
