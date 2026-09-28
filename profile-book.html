@@ -414,6 +414,49 @@
   .tl li:last-child .when { background: var(--cherry); color: #FFF; }
   .tl li:last-child .what { font-weight: bold; color: var(--mustard); }
 
+
+  /* ---------- gallery ---------- */
+  .gal { position: relative; height: 150mm; }
+  .gal .ph {
+    position: absolute; background: #FFFDF7; padding: 2mm 2mm 7mm;
+    box-shadow: 0 1.6mm 0 rgba(0,0,0,.25);
+  }
+  .gal .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gal .ph .cap { text-align: center; font-size: 8pt; color: #7A5C42; margin-top: 1.6mm; font-family: var(--font-hand); }
+  .gal .empty {
+    display: flex; align-items: center; justify-content: center;
+    border: 0.7mm dashed #C9B394; color: #C9B394; font-size: 16pt; background: var(--cream-deep);
+  }
+  /* ---------- quiz ---------- */
+  .quiz-item { background: var(--paper); border-radius: 4mm; padding: 4mm 5mm; margin-bottom: 4.6mm; box-shadow: 0 1.6mm 0 rgba(0,0,0,.28); }
+  .quiz-q { font-weight: bold; font-size: 11.5pt; }
+  .quiz-q .qn { display: inline-block; background: var(--cherry); color: #FFF; border-radius: 999px; padding: 0.4mm 3mm; margin-right: 2mm; font-family: var(--font-slab); font-size: 9.5pt; }
+  .quiz-a { display: flex; gap: 3mm; margin-top: 2.6mm; font-size: 10pt; }
+  .quiz-a span { flex: 1; border: 0.5mm solid var(--cherry); border-radius: 999px; text-align: center; padding: 1.2mm 1mm; }
+  /* ---------- stats ---------- */
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .stat {
+    background: var(--paper); border-radius: 4mm; text-align: center;
+    padding: 5mm 3mm 4.4mm; box-shadow: 0 1.6mm 0 rgba(0,0,0,.28);
+  }
+  .stat .ico { font-size: 17pt; }
+  .stat .lbl { font-size: 9pt; font-weight: bold; color: #5C6B54; margin-top: 1.6mm; }
+  .stat .val { font-family: var(--font-fat); font-size: 19pt; color: var(--cherry); margin-top: 1mm; }
+  .stat .val small { font-size: 10pt; font-family: var(--font-jp); color: var(--ink); }
+  .stat .val.ph2 { color: #B4A27E; font-size: 13pt; }
+  /* ---------- info ---------- */
+  .info-card { background: var(--paper); border-radius: 4mm; padding: 5mm 6mm; margin-bottom: 5.5mm; box-shadow: 0 1.6mm 0 rgba(0,0,0,.28); }
+  .info-card h3 { font-family: var(--font-slab); font-size: 11pt; color: var(--cherry); letter-spacing: .06em; }
+  .info-card p { font-size: 9.6pt; line-height: 1.8; margin-top: 1.6mm; }
+  .qr-row { display: flex; gap: 6mm; align-items: center; margin-top: 3mm; }
+  .qr-box {
+    width: 34mm; height: 34mm; flex: none;
+    border: 0.8mm dashed #C9B394; border-radius: 3mm;
+    display: flex; align-items: center; justify-content: center;
+    color: #C9B394; font-family: var(--font-slab); font-size: 12pt; background: #FFF;
+  }
+  .qr-box img { width: 100%; height: 100%; }
+
   /* ---------- menu & program (cherry page + ink board) ---------- */
   .menu-script-head { text-align: center; margin-bottom: 5mm; position: relative; z-index: 2; }
   .menu-script-head .en {
@@ -643,43 +686,145 @@
   <div class="bigchecker"></div>
 </div>
 
-<!-- P7: MENU & PROGRAM (cherry + chalkboard) -->
+<!-- P7: PHOTO GALLERY (cream) -->
+<div class="page pg-cream">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="script-head">
+      <span class="en">Photo Gallery</span>
+      <div><span class="jp">前 撮 り</span></div>
+    </div>
+    <div class="gal">
+      <div class="ph" style="left: 2mm; top: 2mm; width: 62mm; height: 52mm; transform: rotate(-3deg);">
+        <img src="piggyback.jpg" alt="" style="height: 45mm;">
+        <div class="cap">okinawa 2026</div>
+      </div>
+      <div class="ph empty" style="right: 2mm; top: 12mm; width: 56mm; height: 50mm; transform: rotate(2.5deg);">&#128247;</div>
+      <div class="ph empty" style="left: 6mm; top: 66mm; width: 56mm; height: 50mm; transform: rotate(2deg);">&#128247;</div>
+      <div class="ph empty" style="right: 4mm; top: 74mm; width: 62mm; height: 54mm; transform: rotate(-2.5deg);">&#128247;</div>
+    </div>
+    <div class="note-foot">&#8251;&#128247;&#12398;&#26543;&#12399;&#20889;&#30495;&#12364;&#23626;&#12365;&#27425;&#31532;&#24046;&#12375;&#26367;&#12360;&#12414;&#12377;</div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P8: BAZZ (mustard guest check) -->
+<div class="page pg-mustard">
+  <div class="checker"></div>
+  <div class="body">
+    <div class="script-head">
+      <span class="en">Our Dog</span>
+      <div><span class="jp">&#12363; &#12382; &#12367;</span></div>
+    </div>
+    <div class="ticket">
+      <div class="ticket-head">&#9733; GUEST CHECK No.003 &#9733;</div>
+      <div class="ticket-inner">
+        <div class="prof-top">
+          <div class="prof-photo"><img src="bazz.jpg" alt="" style="object-position: 62% 30%; transform: scale(1.5); transform-origin: 62% 30%;"></div>
+          <div>
+            <div class="prof-name-en">BAZZ</div>
+            <div class="prof-name-jp">&#12496;&#12483;&#12474;</div>
+            <span class="prof-role" style="background: var(--mustard); color: var(--ink);">GOOD BOY &#128054;</span>
+          </div>
+        </div>
+        <div class="ticket-perf"></div>
+        <table class="prof">
+          <tr><th>&#29356;&#31278;</th><td>&#12468;&#12540;&#12523;&#12487;&#12531;&#12524;&#12488;&#12522;&#12496;&#12540;</td></tr>
+          <tr><th>&#12358;&#12414;&#12428;&#12383;&#12392;&#12375;</th><td>2023&#24180;</td></tr>
+          <tr><th>&#12377;&#12365;&#12394;&#12418;&#12398;</th><td class="ph">&#12304;&#12377;&#12365;&#12394;&#12418;&#12398;&#12305;</td></tr>
+          <tr><th>&#12392;&#12367;&#12366;</th><td class="ph">&#12304;&#12392;&#12367;&#12366;&#12305;</td></tr>
+          <tr><th>&#12417;&#12356;&#12431;&#12367;</th><td class="ph">&#12304;&#12417;&#12356;&#12431;&#12367;&#12305;</td></tr>
+        </table>
+        <div class="prof-comment"><b>BAZZ&#12363;&#12425;&#12402;&#12392;&#12371;&#12392;</b><br><span class="ph">&#12304;&#12402;&#12392;&#12371;&#12392;&#65288;&#39154;&#12356;&#20027;&#20195;&#31558;&#65289;&#12305;</span></div>
+      </div>
+      <div class="stamp">100%<br>GOOD<br>BOY</div>
+    </div>
+  </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P9: QUIZ (cherry) -->
 <div class="page pg-cherry">
   <div class="checker"></div>
   <div class="body">
     <div class="menu-script-head">
-      <span class="en">Today's Program</span>
-      <div><span class="jp">本日の流れ</span></div>
+      <span class="en">R &amp; H Quiz</span>
+      <div><span class="jp">&#12405;&#12383;&#12426;&#12463;&#12452;&#12474;</span></div>
     </div>
-    <div class="menu-board">
-      <div class="board-title">TODAY'S PROGRAM</div>
-      <div class="board-sub">enjoy the ride with us</div>
-      <div class="two-col" style="justify-content: center;">
-        <div class="col" style="max-width: 86mm;">
-          <div class="mini-head teal">PROGRAM</div>
-          <ul class="prog-list">
-            <li><span class="t">16:00</span>受付開始</li>
-            <li><span class="t">16:30</span>開宴・ふたりの入場</li>
-            <li><span class="t ph">--:--</span><span class="ph">【乾杯】</span></li>
-            <li><span class="t ph">--:--</span><span class="ph">【ケーキ入刀など】</span></li>
-            <li><span class="t ph">--:--</span><span class="ph">【余興・スピーチ】</span></li>
-            <li><span class="t">19:30</span>お開き</li>
-          </ul>
-          <div class="mini-head" style="margin-top: 6mm;">MENU</div>
-          <div style="color: #EDEAE0; font-size: 10pt; line-height: 1.8; padding: 2mm 1mm;">
-            お料理のメニューは お手元の<br>メニュー表をご覧ください 🍽️
-          </div>
-        </div>
-      </div>
-      <div class="arrow-note">
-        <svg width="200" height="72" viewBox="0 0 220 80" aria-hidden="false" role="img">
-          <path d="M8 26 H140 V6 L212 40 140 74 V54 H8 Z" fill="#F9C4CF" stroke="#1A1A1A" stroke-width="4" stroke-dasharray="0.5 9" stroke-linecap="round"/>
-          <text x="18" y="47" font-family="IPAPGothic" font-size="19" font-weight="bold" fill="#A31621">二次会もきてね！</text>
-        </svg>
-      </div>
+    <div class="quiz-item">
+      <div class="quiz-q"><span class="qn">Q1</span>&#12405;&#12383;&#12426;&#12398;&#20986;&#20250;&#12356;&#12399;&#65311;</div>
+      <div class="quiz-a"><span>A. &#21512;&#12467;&#12531;</span><span>B. &#21451;&#20154;&#12398;&#32080;&#23130;&#24335;</span><span>C. &#32887;&#22580;</span></div>
     </div>
-    <div class="note-foot">※進行は式場と決まり次第差し替えます　※メニューは別紙で作成予定　※二次会 会費3,000円</div>
+    <div class="quiz-item">
+      <div class="quiz-q"><span class="qn">Q2</span>&#12503;&#12525;&#12509;&#12540;&#12474;&#12398;&#22580;&#25152;&#12399;&#65311;</div>
+      <div class="quiz-a"><span>A. &#28023;&#36794;</span><span>B. &#26481;&#20140;&#12479;&#12527;&#12540;</span><span>C. &#31119;&#23713;&#12398;&#22812;&#26223;</span></div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q"><span class="qn">Q3</span>Richard&#12398;&#22909;&#12365;&#12394;&#39135;&#12409;&#29289;&#12399;&#65311;</div>
+      <div class="quiz-a"><span>A. &#12495;&#12531;&#12496;&#12540;&#12464;</span><span>B. &#12358;&#12393;&#12435;</span><span>C. &#23551;&#21496;</span></div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q"><span class="qn">Q4</span>Hazuki&#12398;Richard&#12398;&#31532;&#19968;&#21360;&#35937;&#12399;&#65311;</div>
+      <div class="quiz-a"><span>A. &#12363;&#12387;&#12371;&#12356;&#12356;</span><span>B. &#12391;&#12363;&#12356;</span><span>C. &#12420;&#12373;&#12375;&#12381;&#12358;</span></div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q"><span class="qn">Q5</span>&#23130;&#23020;&#23626;&#12434;&#20986;&#12375;&#12383;&#22580;&#25152;&#12399;&#65311;</div>
+      <div class="quiz-a"><span>A. &#31119;&#23713;</span><span>B. &#26481;&#20140;</span><span>C. &#27798;&#32260;</span></div>
+    </div>
+    <div class="note-foot">&#12371;&#12383;&#12360;&#12399;&#35023;&#34920;&#32025;&#12395;&#65281;&#12362;&#38549;&#12398;&#26041;&#12392;&#30456;&#35527;&#12375;&#12390;&#12415;&#12390;&#12397;&#127860;</div>
   </div>
+  <div class="checker"></div>
+</div>
+
+<!-- P10: BY THE NUMBERS (green) -->
+<div class="page pg-green">
+  <div class="bigchecker"></div>
+  <div class="body">
+    <div class="story-head">
+      <div class="en">BY THE NUMBERS</div>
+      <div class="hand">two of us, in numbers...</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="ico">&#128197;</div><div class="lbl">&#20986;&#20250;&#12387;&#12390;&#12363;&#12425;</div><div class="val ph2">&#12304;&#8195;&#12305;<small>&#26085;</small></div></div>
+      <div class="stat"><div class="ico">&#128207;</div><div class="lbl">&#36523;&#38263;&#24046;</div><div class="val ph2">&#12304;&#8195;&#12305;<small>cm</small></div></div>
+      <div class="stat"><div class="ico">&#127860;</div><div class="lbl">&#12405;&#12383;&#12426;&#12398;&#22806;&#39135;&#29575;</div><div class="val ph2">&#12304;&#8195;&#12305;<small>%</small></div></div>
+      <div class="stat"><div class="ico">&#128054;</div><div class="lbl">BAZZ&#12398;&#25955;&#27497;</div><div class="val ph2">&#12304;&#8195;&#12305;<small>&#22238;/&#26085;</small></div></div>
+      <div class="stat"><div class="ico">&#9992;&#65039;</div><div class="lbl">&#12405;&#12383;&#12426;&#26053;&#34892;</div><div class="val ph2">&#12304;&#8195;&#12305;<small>&#22238;</small></div></div>
+      <div class="stat"><div class="ico">&#128149;</div><div class="lbl">&#12371;&#12428;&#12363;&#12425;</div><div class="val" style="font-size: 13pt;">&#8734; <small>&#12378;&#12387;&#12392;</small></div></div>
+    </div>
+    <div class="note-foot">&#8251;&#12304;&#8195;&#12305;&#12398;&#25968;&#23383;&#12399;&#12354;&#12392;&#12391;&#22475;&#12417;&#12414;&#12377;</div>
+  </div>
+  <div class="bigchecker"></div>
+</div>
+
+<!-- P11: INFORMATION + QR (teal) -->
+<div class="page pg-teal">
+  <div class="checker"></div>
+  <div class="redline"></div>
+  <div class="body">
+    <div class="script-head">
+      <div class="stars-row">&#9733; &#9733; &#9733;</div>
+      <span class="en">Information</span>
+      <div><span class="jp">&#12372; &#26696; &#20869;</span></div>
+    </div>
+    <div class="info-card">
+      <h3>&#128247; PHOTO SHARE</h3>
+      <p>&#26412;&#26085;&#25774;&#12387;&#12383;&#20889;&#30495;&#12539;&#21205;&#30011;&#12399;&#12371;&#12385;&#12425;&#12395;&#12450;&#12483;&#12503;&#12375;&#12390;&#12418;&#12425;&#12360;&#12427;&#12392;&#12358;&#12428;&#12375;&#12356;&#12391;&#12377;&#65281;<br>&#12354;&#12392;&#12391;&#12405;&#12383;&#12426;&#12363;&#12425;&#12418;&#20849;&#26377;&#12375;&#12414;&#12377;&#127881;</p>
+      <div class="qr-row">
+        <div class="qr-box" id="qr-share">QR</div>
+        <p style="font-size: 9pt; color: #7A5C42;">&#8251;QR&#12467;&#12540;&#12489;&#12399;&#20849;&#26377;&#12450;&#12523;&#12496;&#12512;&#12398;URL&#12364;&#27770;&#12414;&#12426;&#27425;&#31532;&#12371;&#12371;&#12395;&#20837;&#12426;&#12414;&#12377;</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <h3>&#127866; AFTER PARTY</h3>
+      <p>&#25259;&#38706;&#23476;&#12398;&#12354;&#12392;&#12395;&#20108;&#27425;&#20250;&#12434;&#38283;&#20652;&#12375;&#12414;&#12377;&#65288;&#20250;&#36027; 3,000&#20870;&#65289;<br>&#12362;&#26178;&#38291;&#12398;&#35377;&#12377;&#26041;&#12399;&#12374;&#12402;&#12372;&#21442;&#21152;&#12367;&#12384;&#12373;&#12356;&#65281;</p>
+    </div>
+    <div class="info-card">
+      <h3>&#128652; SHUTTLE BUS</h3>
+      <p>&#24112;&#12426;&#12398;&#12496;&#12473;&#12399;&#25259;&#38706;&#23476;&#32066;&#20102;&#24460;&#12395;&#20250;&#22580;&#30330;&#12391;&#12377;<br>&#12372;&#21033;&#29992;&#12398;&#26041;&#12399;&#12362;&#24525;&#12428;&#12394;&#12367;&#12469;&#12540;&#12499;&#12473;&#12459;&#12454;&#12531;&#12479;&#12540;&#12408;</p>
+    </div>
+  </div>
+  <div class="redline"></div>
   <div class="checker"></div>
 </div>
 
@@ -698,7 +843,8 @@
       これからもふたりをよろしくお願いします
     </div>
     <span class="back-badge">PLEASE COME AGAIN !</span>
-    <div class="back-date">RICHARD &amp; HAZUKI — 2026.12.13 SUN</div>
+    <div style="font-size: 8pt; color: #8B96A5; margin-top: 4mm;">&#12463;&#12452;&#12474;&#12398;&#12371;&#12383;&#12360;&#65306;Q1-B&#12539;Q2-C&#12539;Q3-A&#12539;Q4-B&#12539;Q5-C</div>
+    <div class="back-date">RICHARD &amp; HAZUKI &#8212; 2026.12.13 SUN</div>
   </div>
   <div class="checker"></div>
 </div>

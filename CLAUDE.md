@@ -82,7 +82,12 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
 
 ## プロフィールブック(紙の冊子)
 
-- `profile-book.html` = A5縦・8ページの印刷用冊子のソース(表紙/ご挨拶/新郎/新婦/Q&A/歩み/メニュー&プログラム/裏表紙)
+- `profile-book.html` = A5縦・**12ページ**の印刷用冊子のソース(表紙/ご挨拶/新郎/新婦/Q&A/歩み/
+  前撮りギャラリー/BAZZ/ふたりクイズ/BY THE NUMBERS/ご案内QR/裏表紙)。
+  「本日の流れ」ページは削除済み(2026-09-28オーナー指示)。中綴じ印刷向けに4の倍数
+- 追加5ページの未記入: ギャラリー写真3枠 / BAZZのすきなもの・とくぎ・めいわく・ひとこと /
+  BY THE NUMBERSの数字 / 写真共有アルバムURL(来たらQRコード生成して差し込み) / クイズの正解確認
+  (裏表紙の想定こたえ: Q1-B, Q2-C(福岡の夜景), Q3-A(ハンバーグ), Q4-B(でかい), Q5-C(沖縄))
 - PDF化は Playwright + `/opt/pw-browsers/chromium` の `page.pdf()`(width 148mm / height 210mm, printBackground: true)
 - フォントはコンテナ内の IPAPGothic を使用(Google Fontsはegressで読めない)
 - 表紙は `cover-book.jpg`(オーナー支給のヴィンテージ広告風イラストポスター、Photo Boxのcover_design由来)を
