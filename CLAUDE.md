@@ -87,7 +87,9 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
   ギャラリー・BY THE NUMBERSは2026-09-28に生い立ち2ページへ差し替え。
   生い立ち画像はオーナーが自作(Photo Boxの story_richard 👶 / story_hazuki 🍼 スロットへ)。
   「本日の流れ」ページは削除済み(2026-09-28オーナー指示)。中綴じ印刷向けに4の倍数
-- 追加ページの未記入: 生い立ち画像2枚 / BAZZのすきなもの・とくぎ・めいわく・ひとこと /
+- Q&A・OUR STORY・BAZZはオーナー支給の全面画像に差し替え済み(qa-page.jpg / story-page.jpg / bazz-page.jpg)。
+  HTML製ページで残るのは表紙まわり以外: ご挨拶P2 / クイズP10 / ご案内P11 / 裏表紙P12
+- 未記入: 生い立ち画像2枚 / Q&A画像内のRichard「[好きなところ]」(画像再生成が必要) /
   写真共有アルバムURL(来たらQRコード生成して差し込み) / クイズの正解確認
   (裏表紙の想定こたえ: Q1-B, Q2-C(福岡の夜景), Q3-A(ハンバーグ), Q4-B(でかい), Q5-C(沖縄))
 - PDF化は Playwright + `/opt/pw-browsers/chromium` の `page.pdf()`(width 148mm / height 210mm, printBackground: true)
