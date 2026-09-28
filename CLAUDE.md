@@ -92,8 +92,12 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
   「本日の流れ」ページは削除済み(2026-09-28オーナー指示)。中綴じ印刷向けに4の倍数
 - Q&A・OUR STORY・BAZZはオーナー支給の全面画像に差し替え済み(qa-page.jpg / story-page.jpg / bazz-page.jpg)。
   HTML製ページで残るのは表紙まわり以外: ご挨拶P2 / クイズP10 / ご案内P11 / 裏表紙P12
+- 写真共有は **Scene(scenedisposable.com、使い捨てカメラアプリ)採用に決定**(2026-09-28)。
+  オーナーがSceneでカメラを作成→発行されたQR(またはリンク)をもらったらP11ご案内の
+  `#qr-share` 枠に差し込む。P11の文言はScene仕様(QRでカメラ起動・後日一斉公開)に変更済み。
+  無料は5名までなので100名規模の有料プラン(999円〜)が必要な旨は案内済み
 - 未記入: 生い立ち画像2枚 / Q&A画像内のRichard「[好きなところ]」(画像再生成が必要) /
-  写真共有アルバムURL(来たらQRコード生成して差し込み) / クイズの正解確認
+  SceneのQRコード(発行待ち) / クイズの正解確認
   (裏表紙の想定こたえ: Q1-B, Q2-C(福岡の夜景), Q3-A(ハンバーグ), Q4-B(でかい), Q5-C(沖縄))
 - PDF化は Playwright + `/opt/pw-browsers/chromium` の `page.pdf()`(width 148mm / height 210mm, printBackground: true)
 - フォントはコンテナ内の IPAPGothic を使用(Google Fontsはegressで読めない)
