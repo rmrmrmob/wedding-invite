@@ -400,14 +400,16 @@
   }
   .tl li:nth-child(even) .when { background: var(--pink); }
   .tl .what { line-height: 1.7; }
-  .tl-photos { display: flex; gap: 3mm; margin-top: 2.4mm; }
+  .tl-photos { display: flex; gap: 4mm; margin-top: 2.6mm; }
   .tl-photo {
-    width: 24mm; height: 18mm; flex: none;
-    display: flex; align-items: center; justify-content: center;
-    border: 0.6mm dashed rgba(255,246,233,.65); border-radius: 2mm;
-    font-size: 11pt; color: rgba(255,246,233,.65);
-    background: rgba(255,255,255,.06);
+    width: 30mm; height: 22mm; flex: none;
+    background: #FFFDF7; padding: 1.2mm 1.2mm 3mm;
+    box-shadow: 0 1.2mm 0 rgba(0,0,0,.3);
+    box-sizing: content-box;
   }
+  .tl-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tl-photo.r1 { transform: rotate(-2.5deg); }
+  .tl-photo.r2 { transform: rotate(2deg); }
   .tl .what.ph { color: #F5D9A8; }
   .tl li:last-child .when { background: var(--cherry); color: #FFF; }
   .tl li:last-child .what { font-weight: bold; color: var(--mustard); }
@@ -619,8 +621,8 @@
       <li><span class="when">初デート</span><span class="what">夜景デート🌃</span></li>
       <li><span class="when">デート</span><span class="what">水族館に動物園 高校生みたいなデートを重ねる🐧
         <span class="tl-photos">
-          <span class="tl-photo">📷</span>
-          <span class="tl-photo">📷</span>
+          <span class="tl-photo r1"><img src="date-yakei.jpg" alt="" style="object-position: 50% 40%;"></span>
+          <span class="tl-photo r2"><img src="date-aquarium.jpg" alt="" style="object-position: 50% 62%;"></span>
         </span>
       </span></li>
       <li><span class="when">プロポーズ</span><span class="what">「写真撮ろう」と言われてパシャリ📸 あとで見返したら 後ろで指輪持ってた！意外と粋な演出（笑）</span></li>
