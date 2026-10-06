@@ -8,6 +8,8 @@
   @font-face { font-family: 'Yellowtail'; src: url('file:///home/user/wedding-invite/fonts/Yellowtail-Regular.ttf'); }
   @font-face { font-family: 'Yusei';
     src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/yuseimagic/YuseiMagic-Regular.ttf'); }
+  @font-face { font-family: 'KleeSB';
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/kleeone/KleeOne-SemiBold.ttf'); }
   @font-face { font-family: 'Rounded'; font-weight: 700;
     src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Bold.ttf'); }
 
@@ -77,12 +79,20 @@
     padding-left: 3.4mm;
   }
   .row {
-    height: 6.75mm; line-height: 6.75mm;
+    height: 6.5mm; line-height: 6.5mm;
     border-bottom: 0.2mm solid var(--line);
-    font-family: 'Yusei'; font-size: 11pt; color: #222A38;
+    font-family: 'KleeSB'; font-size: 11pt; color: #222A38;
     letter-spacing: 0.01em; white-space: nowrap;
   }
+  .row b {
+    font-weight: normal; display: inline-block;
+    transform: skewX(-6deg) rotate(-0.5deg); transform-origin: left bottom;
+  }
   .row.c2 { padding-left: 6mm; }
+  .drink {
+    text-align: center; font-family: 'KleeSB'; color: var(--navy);
+    font-size: 9pt; margin-top: 1.6mm;
+  }
 
   /* ---- bottom ---- */
   .totals { margin-top: 1.4mm; }
@@ -124,33 +134,34 @@
       <td style="width: 19mm;"><span class="lbl">Open</span><span class="val">16:30</span></td>
       <td style="width: 15mm;"><span class="lbl">Guests</span><span class="val"></span></td>
       <td><span class="lbl">Server</span><span class="val"></span></td>
-      <td class="num">082205</td>
+      <td class="num">121326</td>
     </tr>
   </table>
   <div class="cats">APPT&#8211;SOUP&#8211;SAL&#8211;ENTREE&#8211;VEG&#8211;POT&#8211;DESSERT&#8211;BEV</div>
 
   <div class="sheet">
-    <div class="row">清涼青菜と木の子のあっさり和え</div>
+    <div class="row"><b>清涼青菜と木の子のあっさり和え</b></div>
     <div class="row"></div>
-    <div class="row">祝宴酒菜盛り合わせ</div>
+    <div class="row"><b>祝宴酒菜盛り合わせ</b></div>
     <div class="row"></div>
-    <div class="row">南国のトロピカルフルーティーサラダ</div>
+    <div class="row"><b>南国のトロピカルフルーティーサラダ</b></div>
     <div class="row"></div>
-    <div class="row">海老のチリソース</div>
-    <div class="row c2">シャキシャキサラダとともに</div>
+    <div class="row"><b>海老のチリソース</b></div>
+    <div class="row c2"><b>シャキシャキサラダとともに</b></div>
     <div class="row"></div>
-    <div class="row">アンガス牛のオリジナルソース添え</div>
+    <div class="row"><b>アンガス牛のオリジナルソース添え</b></div>
     <div class="row"></div>
-    <div class="row">自家製アグー豚炒飯</div>
+    <div class="row"><b>自家製アグー豚炒飯</b></div>
     <div class="row"></div>
-    <div class="row">ごろごろつみれ団子と</div>
-    <div class="row c2">若布と白葱のスープ</div>
+    <div class="row"><b>ごろごろつみれ団子と</b></div>
+    <div class="row c2"><b>若布と白葱のスープ</b></div>
     <div class="row"></div>
-    <div class="row">スイーツとフルーツアソートの</div>
-    <div class="row c2">アフタヌーンパーティースタンド</div>
+    <div class="row"><b>スイーツとフルーツアソートの</b></div>
+    <div class="row c2"><b>アフタヌーンパーティースタンド</b></div>
     <svg class="pink-heart" viewBox="0 0 40 36"><path d="M20 34 C 4 22 0 12 6 6 C 11 1 18 4 20 10 C 22 4 29 1 34 6 C 40 12 36 22 20 34 Z" fill="none" stroke="#E8559A" stroke-width="3.5" stroke-linejoin="round"/></svg>
     <div class="pink-note">おいしく<br>めしあがれ&#9825;</div>
   </div>
+  <div class="drink">&#127865; お飲み物は お近くのスタッフまで お気軽にどうぞ</div>
 
   <div class="totals">
     <div class="row2"><span class="fill"></span><span class="w">Tax</span><span class="v">Smiles</span></div>
