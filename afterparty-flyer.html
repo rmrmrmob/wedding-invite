@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>After Party Flyer</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('file:///home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Luckiest'; src: url('file:///home/user/wedding-invite/fonts/LuckiestGuy-Regular.ttf'); }
+  @font-face { font-family: 'Titan'; src: url('file:///home/user/wedding-invite/fonts/TitanOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('file:///home/user/wedding-invite/fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Black.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Bold.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 500;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Medium.ttf'); }
+
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 148mm 210mm; margin: 0; }
+  html, body { width: 148mm; height: 210mm; }
+  body {
+    background: #CDE4E6;
+    color: #101010;
+    font-family: 'Rounded', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .frame {
+    position: absolute; inset: 4mm;
+    border: 1.1mm solid #101010;
+    border-radius: 2mm;
+  }
+  .frame::before {
+    content: ''; position: absolute; inset: 1.2mm;
+    border: 0.45mm solid #101010; border-radius: 1.4mm;
+  }
+  .inner { position: absolute; inset: 7mm 8mm; }
+
+  /* ---------- top banner ---------- */
+  .script-top {
+    font-family: 'Yellowtail'; font-size: 34pt; text-align: center;
+    margin-top: 2mm; letter-spacing: 0.02em;
+  }
+  .chips { text-align: center; margin-top: 2.5mm; }
+  .chips span {
+    display: inline-block; background: #101010; color: #CDE4E6;
+    font-family: 'Alfa'; font-size: 15.5pt; padding: 1.6mm 2.6mm 1.2mm;
+    border-radius: 1.6mm; margin: 0 0.7mm; letter-spacing: 0.04em;
+  }
+  .only {
+    text-align: center; font-family: 'Alfa'; font-size: 13pt;
+    margin-top: 3.2mm; letter-spacing: 0.06em;
+  }
+
+  /* ---------- middle: cat + info ---------- */
+  .mid { display: flex; margin-top: 2mm; align-items: flex-start; }
+  .cat { flex: none; width: 41mm; margin-left: -1.5mm; }
+  .info { flex: 1; text-align: center; padding-top: 1mm; }
+
+  .bingo {
+    font-family: 'Titan'; font-size: 42pt; letter-spacing: 0.03em;
+    text-shadow: 0.9mm 0.9mm 0 rgba(16,16,16,0.18);
+    margin-top: 1mm;
+  }
+  .bingo-sub {
+    font-weight: 700; font-size: 10.5pt; margin-top: 1mm; letter-spacing: 0.08em;
+  }
+  .move {
+    margin-top: 4mm; font-weight: 900; font-size: 13.5pt; line-height: 1.5;
+  }
+  .move .big { font-family: 'Luckiest'; font-size: 21pt; letter-spacing: 0.04em; display: block; margin-top: 1mm; }
+  .fee {
+    margin-top: 4.5mm; font-family: 'Alfa'; font-size: 20pt;
+  }
+  .fee small { font-family: 'Rounded'; font-weight: 700; font-size: 10pt; display: block; margin-top: 1mm; }
+
+  /* ---------- black notice box ---------- */
+  .notice {
+    margin-top: 4mm; background: #101010; color: #CDE4E6;
+    border-radius: 4mm; padding: 4mm 5mm 4.2mm; text-align: center;
+  }
+  .notice .l1 { font-weight: 700; font-size: 10.5pt; letter-spacing: 0.04em; }
+  .notice .l2 { font-weight: 900; font-size: 15.5pt; margin-top: 1.2mm; letter-spacing: 0.06em; }
+  .notice .l3 { font-weight: 500; font-size: 8.6pt; margin-top: 1.4mm; opacity: 0.92; }
+
+  /* ---------- bottom ---------- */
+  .talk {
+    margin-top: 3.6mm; text-align: center; font-weight: 700; font-size: 10.5pt; line-height: 1.7;
+  }
+  .sign {
+    text-align: center; font-family: 'Alfa'; font-size: 13.5pt; margin-top: 2.6mm; letter-spacing: 0.03em;
+  }
+  .sign .script { font-family: 'Yellowtail'; font-size: 19pt; margin-right: 2mm; }
+</style>
+</head>
+<body>
+<div class="frame"></div>
+<div class="inner">
+  <div class="script-top">After Party !</div>
+  <div class="chips"><span>12.13</span><span>SUN</span><span>NIGHT</span></div>
+  <div class="only">&#10033; RICHARD &amp; HAZUKI &#10033;</div>
+
+  <div class="mid">
+    <!-- Kit-Cat style clock (original SVG homage) -->
+    <svg class="cat" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+      <!-- tail -->
+      <g>
+        <path d="M100 330 C 96 360 104 374 100 398 C 97 412 88 416 84 412" fill="none" stroke="#101010" stroke-width="22" stroke-linecap="round"/>
+        <g stroke="#CDE4E6" stroke-width="4" opacity="0.85">
+          <line x1="88" y1="352" x2="110" y2="348"/>
+          <line x1="90" y1="368" x2="112" y2="366"/>
+          <line x1="88" y1="384" x2="110" y2="384"/>
+          <line x1="84" y1="398" x2="104" y2="400"/>
+        </g>
+      </g>
+      <!-- ears -->
+      <path d="M52 48 L70 8 L92 40 Z" fill="#101010"/>
+      <path d="M148 48 L130 8 L108 40 Z" fill="#101010"/>
+      <!-- head -->
+      <ellipse cx="100" cy="78" rx="62" ry="54" fill="#101010"/>
+      <!-- eyes -->
+      <ellipse cx="74" cy="72" rx="20" ry="26" fill="#FFFFFF"/>
+      <ellipse cx="126" cy="72" rx="20" ry="26" fill="#FFFFFF"/>
+      <ellipse cx="80" cy="76" rx="8" ry="13" fill="#101010"/>
+      <ellipse cx="132" cy="76" rx="8" ry="13" fill="#101010"/>
+      <!-- nose + mouth -->
+      <ellipse cx="100" cy="98" rx="6" ry="4.5" fill="#FFFFFF"/>
+      <path d="M78 108 Q 100 124 122 108" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+      <!-- whiskers -->
+      <g stroke="#FFFFFF" stroke-width="3" stroke-linecap="round">
+        <line x1="40" y1="96" x2="14" y2="90"/>
+        <line x1="42" y1="106" x2="16" y2="108"/>
+        <line x1="160" y1="96" x2="186" y2="90"/>
+        <line x1="158" y1="106" x2="184" y2="108"/>
+      </g>
+      <!-- body -->
+      <rect x="54" y="142" width="92" height="192" rx="44" fill="#101010"/>
+      <!-- bow tie -->
+      <path d="M100 138 L64 122 L64 152 Z" fill="#FFFFFF"/>
+      <path d="M100 138 L136 122 L136 152 Z" fill="#FFFFFF"/>
+      <circle cx="100" cy="138" r="7" fill="#101010" stroke="#FFFFFF" stroke-width="3"/>
+      <!-- paws dots -->
+      <g fill="#CDE4E6">
+        <circle cx="66" cy="160" r="4"/><circle cx="76" cy="152" r="4"/>
+        <circle cx="134" cy="160" r="4"/><circle cx="124" cy="152" r="4"/>
+        <circle cx="66" cy="316" r="4"/><circle cx="78" cy="322" r="4"/>
+        <circle cx="134" cy="316" r="4"/><circle cx="122" cy="322" r="4"/>
+      </g>
+      <!-- clock belly -->
+      <ellipse cx="100" cy="238" rx="38" ry="52" fill="#FFFFFF"/>
+      <g fill="#101010" font-family="Rounded" font-weight="900" font-size="12" text-anchor="middle">
+        <text x="100" y="203">12</text>
+        <text x="119" y="211">1</text>
+        <text x="130" y="228">2</text>
+        <text x="133" y="244">3</text>
+        <text x="130" y="261">4</text>
+        <text x="119" y="277">5</text>
+        <text x="100" y="284">6</text>
+        <text x="81" y="277">7</text>
+        <text x="70" y="261">8</text>
+        <text x="67" y="244">9</text>
+        <text x="70" y="228">10</text>
+        <text x="81" y="211">11</text>
+      </g>
+      <!-- hands: 8:00 -->
+      <line x1="100" y1="240" x2="100" y2="206" stroke="#101010" stroke-width="5" stroke-linecap="round"/>
+      <line x1="100" y1="240" x2="74" y2="252" stroke="#101010" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="100" cy="240" r="5" fill="#101010"/>
+    </svg>
+
+    <div class="info">
+      <div class="bingo">BINGO</div>
+      <div class="bingo-sub">ビンゴ大会 やります&#127919;</div>
+      <div class="move">披露宴が終わり次第<span class="big">&#9654; MOVE TO 4F &#9664;</span>4階へ移動して開催！</div>
+      <div class="fee">&yen;3,000<small>会費は受付でお渡しください</small></div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <div class="l1">急遽 参加できる！という方も　参加できなくなった方も</div>
+    <div class="l2">スタッフにお申し付けください</div>
+    <div class="l3">当日の変更もお気軽にどうぞ</div>
+  </div>
+
+  <div class="talk">披露宴でゆっくりお話しできなかった方も<br>二次会でたくさん話しましょう！</div>
+  <div class="sign"><span class="script">Richard &amp; Hazuki</span>AFTER PARTY</div>
+</div>
+</body>
+</html>
