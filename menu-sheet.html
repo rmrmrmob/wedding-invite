@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Menu Guest Check</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('file:///home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('file:///home/user/wedding-invite/fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Yusei';
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/yuseimagic/YuseiMagic-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Bold.ttf'); }
+
+  :root {
+    --navy: #22386B;
+    --red: #C8372D;
+    --line: #9FB8AE;
+    --ink: #3A3F4A;
+    --pink: #E8559A;
+    --paper: #FCFAF2;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 100mm 210mm; margin: 0; }
+  html, body { width: 100mm; height: 210mm; }
+  body {
+    background: var(--paper);
+    font-family: 'Rounded', sans-serif;
+    color: var(--ink);
+    overflow: hidden; position: relative;
+    padding: 5mm 6mm;
+  }
+
+  .join { font-family: 'Yellowtail'; font-size: 13pt; color: var(--navy); }
+  .diner-wrap { text-align: center; position: relative; margin-top: 0.5mm; }
+  .diner {
+    font-family: 'Yellowtail'; font-size: 21pt; color: var(--navy);
+    display: inline-block; padding: 0 5mm;
+  }
+  .diner-oval {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 62mm; height: 12mm; pointer-events: none;
+  }
+  .celebrate {
+    text-align: right; font-family: 'Yellowtail'; font-size: 11.5pt; color: var(--navy);
+    margin-top: 0.4mm;
+  }
+  .gc {
+    text-align: center; font-family: 'Alfa'; color: var(--navy);
+    font-size: 23pt; letter-spacing: 0.01em; margin-top: 1mm;
+  }
+  .gc .tm { font-size: 6pt; vertical-align: super; }
+
+  /* ---- info boxes ---- */
+  table.head {
+    width: 100%; border-collapse: collapse; margin-top: 2mm;
+    font-family: 'Rounded';
+  }
+  table.head td {
+    border: 0.45mm solid var(--navy); padding: 0.8mm 1.4mm; vertical-align: top;
+  }
+  table.head .lbl { font-size: 5.6pt; font-weight: 700; color: var(--navy); display: block; }
+  table.head .val { font-family: 'Yusei'; font-size: 10.5pt; }
+  td.num {
+    border: none !important; text-align: right;
+    font-family: 'Alfa'; color: var(--red); font-size: 16pt; padding-left: 3mm !important;
+  }
+  .cats {
+    border-top: 0.45mm solid var(--navy); border-bottom: 0.45mm solid var(--navy);
+    font-size: 6.4pt; font-weight: 700; color: var(--navy);
+    text-align: center; letter-spacing: 0.08em; padding: 0.9mm 0; margin-top: 1.2mm;
+  }
+
+  /* ---- ruled menu area ---- */
+  .sheet {
+    position: relative; margin-top: 2mm;
+    border-left: 0.5mm solid #E5A9A4;
+    padding-left: 3.4mm;
+  }
+  .row {
+    height: 6.75mm; line-height: 6.75mm;
+    border-bottom: 0.2mm solid var(--line);
+    font-family: 'Yusei'; font-size: 11pt; color: #222A38;
+    letter-spacing: 0.01em; white-space: nowrap;
+  }
+  .row.c2 { padding-left: 6mm; }
+
+  /* ---- bottom ---- */
+  .totals { margin-top: 1.4mm; }
+  .totals .row2 {
+    display: flex; justify-content: flex-end; align-items: baseline;
+    border-bottom: 0.3mm solid var(--line); padding: 0.7mm 0 0.5mm; gap: 3mm;
+  }
+  .totals .row2 .w { font-size: 6.5pt; font-weight: 700; color: var(--navy); }
+  .totals .row2 .fill { flex: 1; border-bottom: none; }
+  .totals .row2 .v { font-family: 'Yusei'; font-size: 9pt; color: var(--ink); width: 24mm; text-align: center; }
+  .thanks {
+    margin-top: 1.6mm; border-top: 0.6mm solid var(--navy);
+    text-align: center; font-family: 'Alfa'; color: var(--navy);
+    font-size: 9pt; padding-top: 1.4mm; letter-spacing: 0.04em;
+  }
+  .credit { text-align: center; font-size: 5.4pt; font-weight: 700; color: #9A9484; margin-top: 1mm; letter-spacing: 0.06em; white-space: nowrap; }
+
+  /* ---- pink marker accents ---- */
+  .pink-note {
+    position: absolute; right: 7mm; bottom: 24mm;
+    font-family: 'Yusei'; color: var(--pink); font-size: 13pt;
+    transform: rotate(-8deg); opacity: 0.9; text-align: center; line-height: 1.3;
+  }
+  .pink-heart { position: absolute; right: 8mm; bottom: 36mm; width: 10mm; opacity: 0.85; transform: rotate(10deg); }
+</style>
+</head>
+<body>
+  <div class="join">Please Join Us at</div>
+  <div class="diner-wrap">
+    <svg class="diner-oval" viewBox="0 0 248 48"><ellipse cx="124" cy="24" rx="120" ry="20" fill="none" stroke="#F2A7C3" stroke-width="4" opacity="0.85" transform="rotate(-1.5 124 24)"/></svg>
+    <span class="diner">Richard &amp; Hazuki's Diner</span>
+  </div>
+  <div class="celebrate">Celebrating &#8220;Just Married&#8221;</div>
+  <div class="gc">GUEST CHECK<span class="tm">TM</span></div>
+
+  <table class="head">
+    <tr>
+      <td style="width: 19mm;"><span class="lbl">Date</span><span class="val">Dec 13</span></td>
+      <td style="width: 19mm;"><span class="lbl">Open</span><span class="val">16:30</span></td>
+      <td style="width: 15mm;"><span class="lbl">Guests</span><span class="val"></span></td>
+      <td><span class="lbl">Server</span><span class="val"></span></td>
+      <td class="num">082205</td>
+    </tr>
+  </table>
+  <div class="cats">APPT&#8211;SOUP&#8211;SAL&#8211;ENTREE&#8211;VEG&#8211;POT&#8211;DESSERT&#8211;BEV</div>
+
+  <div class="sheet">
+    <div class="row">清涼青菜と木の子のあっさり和え</div>
+    <div class="row"></div>
+    <div class="row">祝宴酒菜盛り合わせ</div>
+    <div class="row"></div>
+    <div class="row">南国のトロピカルフルーティーサラダ</div>
+    <div class="row"></div>
+    <div class="row">海老のチリソース</div>
+    <div class="row c2">シャキシャキサラダとともに</div>
+    <div class="row"></div>
+    <div class="row">アンガス牛のオリジナルソース添え</div>
+    <div class="row"></div>
+    <div class="row">自家製アグー豚炒飯</div>
+    <div class="row"></div>
+    <div class="row">ごろごろつみれ団子と</div>
+    <div class="row c2">若布と白葱のスープ</div>
+    <div class="row"></div>
+    <div class="row">スイーツとフルーツアソートの</div>
+    <div class="row c2">アフタヌーンパーティースタンド</div>
+    <svg class="pink-heart" viewBox="0 0 40 36"><path d="M20 34 C 4 22 0 12 6 6 C 11 1 18 4 20 10 C 22 4 29 1 34 6 C 40 12 36 22 20 34 Z" fill="none" stroke="#E8559A" stroke-width="3.5" stroke-linejoin="round"/></svg>
+    <div class="pink-note">おいしく<br>めしあがれ&#9825;</div>
+  </div>
+
+  <div class="totals">
+    <div class="row2"><span class="fill"></span><span class="w">Tax</span><span class="v">Smiles</span></div>
+    <div class="row2"><span class="fill"></span><span class="w">Total</span><span class="v">Happiness!</span></div>
+  </div>
+  <div class="thanks">Thank You &#8212; Please Come Again</div>
+  <div class="credit">RICHARD &amp; HAZUKI &#9679; 2026.12.13 SUN &#9679; N.B.C OKINAWA</div>
+</body>
+</html>
