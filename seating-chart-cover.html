@@ -37,10 +37,9 @@
   .flap-title { font-weight: 900; font-size: 13pt; letter-spacing: 0.3em; text-indent: 0.3em; margin-top: 3mm; color: var(--cherry-deep); }
   .flap-msg { margin-top: 9mm; font-weight: 500; font-size: 11.5pt; line-height: 2.4; }
   .flap-msg b { font-weight: 900; }
-  .flap-deco { margin-top: 10mm; display: flex; justify-content: center; gap: 7mm; }
-  .mini { width: 22mm; height: 22mm; border-radius: 50%; overflow: hidden;
-    border: 1mm solid var(--ink); box-shadow: 0 1.4mm 0 rgba(43,27,18,.75); }
-  .mini img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; }
+  .flap-deco { margin-top: 11mm; display: flex; justify-content: center; }
+  .couple { width: 92mm; display: block; filter: drop-shadow(0 1.5mm 0 rgba(43,27,18,.18)); }
+  .bazz { width: 58mm; display: block; margin: 10mm auto 0; filter: drop-shadow(0 1.5mm 0 rgba(43,27,18,.18)); }
 
   /* ========== PANEL 2 (middle): back cover ========== */
   .p-back { display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -55,19 +54,16 @@
     background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 8mm 8mm; }
   .fc-top { top: 0; }
   .fc-bottom { bottom: 0; }
-  .fc-script { margin-top: 58mm; font-family: 'Yellowtail'; font-size: 30pt; color: var(--cherry); }
-  .fc-h1 { font-family: 'Alfa'; font-size: 44pt; color: var(--cherry); line-height: 1.08;
-    text-shadow: 2.4mm 2.4mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 7mm; text-align: center; }
-  .fc-circ { width: 90mm; height: 90mm; border-radius: 50%; overflow: hidden; margin-top: 20mm;
-    border: 1.8mm solid var(--ink); box-shadow: 0 3mm 0 rgba(43,27,18,.75); position: relative; }
-  .fc-circ img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; }
-  .fc-open { margin-top: -7mm; position: relative; z-index: 2;
+  .fc-script { margin-top: 92mm; font-family: 'Yellowtail'; font-size: 34pt; color: var(--cherry); }
+  .fc-h1 { font-family: 'Alfa'; font-size: 52pt; color: var(--cherry); line-height: 1.1;
+    text-shadow: 2.8mm 2.8mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 9mm; text-align: center; }
+  .fc-open { margin-top: 27mm; position: relative; z-index: 2;
     font-family: 'Alfa'; font-size: 11pt; color: #FFF; background: var(--teal);
     border: 0.9mm solid var(--ink); border-radius: 999px; padding: 1.6mm 7mm;
     box-shadow: 0 1.6mm 0 var(--ink); letter-spacing: 0.18em; transform: rotate(-3deg); }
-  .fc-names { margin-top: 20mm; font-family: 'Alfa'; font-size: 17pt; color: var(--ink); letter-spacing: 0.05em; }
+  .fc-names { margin-top: 42mm; font-family: 'Alfa'; font-size: 17pt; color: var(--ink); letter-spacing: 0.05em; }
   .fc-names .amp { font-family: 'Yellowtail'; color: var(--cherry); font-size: 19pt; padding: 0 2mm; }
-  .fc-date { margin-top: 5mm; display: inline-block; font-weight: 900; font-size: 11.5pt;
+  .fc-date { margin-top: 5mm;  display: inline-block; font-weight: 900; font-size: 11.5pt;
     background: var(--ink); color: var(--cream); border-radius: 999px; padding: 1.6mm 8mm; letter-spacing: 0.16em; }
   .fc-star { position: absolute; font-size: 14pt; color: var(--mustard); text-shadow: 0.5mm 0.5mm 0 var(--ink); }
 </style>
@@ -88,11 +84,7 @@
         おもてなしさせていただきます<br><br>
         <b>どうぞごゆっくりお楽しみください</b>
       </div>
-      <div class="flap-deco">
-        <div class="mini"><img src="tiles/tile_01.png"></div>
-        <div class="mini"><img src="tiles/tile_21.png"></div>
-        <div class="mini"><img src="tiles/tile_35.png"></div>
-      </div>
+      <div class="flap-deco"><img class="couple" src="cover-couple.webp"></div>
     </div>
   </div>
 
@@ -100,7 +92,7 @@
   <div class="panel p-back">
     <div class="back-box">
       <div class="back-script">See you at the party!</div>
-      <div class="mini back-mini" style="width: 30mm; height: 30mm;"><img src="tiles/tile_16.png"></div>
+      <img class="bazz" src="cover-bazz.webp">
       <div class="back-foot">RICHARD &amp; HAZUKI WEDDING<br>2026.12.13</div>
     </div>
   </div>
@@ -110,7 +102,6 @@
     <div class="fc-checker fc-top"></div>
     <div class="fc-script">Welcome to our Diner!</div>
     <div class="fc-h1">SEATING<br>CHART</div>
-    <div class="fc-circ"><img src="tiles/tile_14.png"></div>
     <div class="fc-open">OPEN ME!</div>
     <div class="fc-names">RICHARD<span class="amp">&amp;</span>HAZUKI</div>
     <div class="fc-date">2026.12.13 SUN</div>
