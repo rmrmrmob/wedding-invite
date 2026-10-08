@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Seating Chart Cover</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('fonts/MPLUSRounded1c-Bold.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 500;
+    src: url('fonts/MPLUSRounded1c-Medium.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('fonts/MPLUSRounded1c-Black.ttf'); }
+
+  :root {
+    --cherry: #D7263D;
+    --cherry-deep: #A31621;
+    --cream: #FFF6E9;
+    --mustard: #FFB627;
+    --teal: #17BEBB;
+    --ink: #2B1B12;
+    --paper: #FFFDF7;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 594mm 420mm; margin: 0; }
+  html, body { width: 594mm; height: 420mm; }
+  body { background: var(--cream); font-family: 'Rounded', sans-serif; color: var(--ink);
+    overflow: hidden; position: relative; display: flex; }
+
+  .panel { width: 198mm; height: 420mm; position: relative; overflow: hidden; flex: none; }
+
+  /* ========== PANEL 1 (left, folds inside): greeting ========== */
+  .p-flap { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .flap-box { width: 150mm; text-align: center; }
+  .flap-script { font-family: 'Yellowtail'; font-size: 24pt; color: var(--cherry); }
+  .flap-title { font-weight: 900; font-size: 13pt; letter-spacing: 0.3em; text-indent: 0.3em; margin-top: 3mm; color: var(--cherry-deep); }
+  .flap-msg { margin-top: 9mm; font-weight: 500; font-size: 11.5pt; line-height: 2.4; }
+  .flap-msg b { font-weight: 900; }
+  .flap-deco { margin-top: 10mm; display: flex; justify-content: center; gap: 7mm; }
+  .mini { width: 22mm; height: 22mm; border-radius: 50%; overflow: hidden;
+    border: 1mm solid var(--ink); box-shadow: 0 1.4mm 0 rgba(43,27,18,.75); }
+  .mini img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; }
+
+  /* ========== PANEL 2 (middle): back cover ========== */
+  .p-back { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .back-box { text-align: center; }
+  .back-script { font-family: 'Yellowtail'; font-size: 26pt; color: var(--cherry); }
+  .back-mini { margin: 10mm auto 0; }
+  .back-foot { margin-top: 10mm; font-family: 'Alfa'; font-size: 9pt; color: #B49A80; letter-spacing: 0.22em; }
+
+  /* ========== PANEL 3 (right): front cover ========== */
+  .p-front { display: flex; flex-direction: column; align-items: center; }
+  .fc-checker { position: absolute; left: 0; right: 0; height: 8mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 8mm 8mm; }
+  .fc-top { top: 0; }
+  .fc-bottom { bottom: 0; }
+  .fc-script { margin-top: 58mm; font-family: 'Yellowtail'; font-size: 30pt; color: var(--cherry); }
+  .fc-h1 { font-family: 'Alfa'; font-size: 44pt; color: var(--cherry); line-height: 1.08;
+    text-shadow: 2.4mm 2.4mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 7mm; text-align: center; }
+  .fc-circ { width: 90mm; height: 90mm; border-radius: 50%; overflow: hidden; margin-top: 20mm;
+    border: 1.8mm solid var(--ink); box-shadow: 0 3mm 0 rgba(43,27,18,.75); position: relative; }
+  .fc-circ img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; }
+  .fc-open { margin-top: -7mm; position: relative; z-index: 2;
+    font-family: 'Alfa'; font-size: 11pt; color: #FFF; background: var(--teal);
+    border: 0.9mm solid var(--ink); border-radius: 999px; padding: 1.6mm 7mm;
+    box-shadow: 0 1.6mm 0 var(--ink); letter-spacing: 0.18em; transform: rotate(-3deg); }
+  .fc-names { margin-top: 20mm; font-family: 'Alfa'; font-size: 17pt; color: var(--ink); letter-spacing: 0.05em; }
+  .fc-names .amp { font-family: 'Yellowtail'; color: var(--cherry); font-size: 19pt; padding: 0 2mm; }
+  .fc-date { margin-top: 5mm; display: inline-block; font-weight: 900; font-size: 11.5pt;
+    background: var(--ink); color: var(--cream); border-radius: 999px; padding: 1.6mm 8mm; letter-spacing: 0.16em; }
+  .fc-star { position: absolute; font-size: 14pt; color: var(--mustard); text-shadow: 0.5mm 0.5mm 0 var(--ink); }
+</style>
+</head>
+<body>
+
+  <!-- PANEL 1: greeting flap -->
+  <div class="panel p-flap">
+    <div class="flap-box">
+      <div class="flap-script">Thank you for coming!</div>
+      <div class="flap-title">ご　挨　拶</div>
+      <div class="flap-msg">
+        本日はご多用のなか<br>
+        私たちの披露宴にお越しいただき<br>
+        誠にありがとうございます<br><br>
+        ささやかではございますが<br>
+        感謝の気持ちを込めて<br>
+        おもてなしさせていただきます<br><br>
+        <b>どうぞごゆっくりお楽しみください</b>
+      </div>
+      <div class="flap-deco">
+        <div class="mini"><img src="tiles/tile_01.png"></div>
+        <div class="mini"><img src="tiles/tile_21.png"></div>
+        <div class="mini"><img src="tiles/tile_35.png"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 2: back cover -->
+  <div class="panel p-back">
+    <div class="back-box">
+      <div class="back-script">See you at the party!</div>
+      <div class="mini back-mini" style="width: 30mm; height: 30mm;"><img src="tiles/tile_16.png"></div>
+      <div class="back-foot">RICHARD &amp; HAZUKI WEDDING<br>2026.12.13</div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: front cover -->
+  <div class="panel p-front">
+    <div class="fc-checker fc-top"></div>
+    <div class="fc-script">Welcome to our Diner!</div>
+    <div class="fc-h1">SEATING<br>CHART</div>
+    <div class="fc-circ"><img src="tiles/tile_14.png"></div>
+    <div class="fc-open">OPEN ME!</div>
+    <div class="fc-names">RICHARD<span class="amp">&amp;</span>HAZUKI</div>
+    <div class="fc-date">2026.12.13 SUN</div>
+    <span class="fc-star" style="top: 48mm; left: 24mm; transform: rotate(-14deg);">&#9733;</span>
+    <span class="fc-star" style="top: 60mm; right: 22mm; transform: rotate(12deg);">&#9733;</span>
+    <span class="fc-star" style="top: 330mm; left: 20mm; transform: rotate(10deg);">&#9733;</span>
+    <span class="fc-star" style="top: 344mm; right: 24mm; transform: rotate(-12deg);">&#9733;</span>
+    <div class="fc-checker fc-bottom"></div>
+  </div>
+
+</body>
+</html>
