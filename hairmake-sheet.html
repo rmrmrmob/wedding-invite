@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ヘアメイク指示書</title>
+<style>
+  @font-face { font-family: 'Mincho'; font-weight: 400;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/shipporimincho/ShipporiMincho-Regular.ttf'); }
+  @font-face { font-family: 'Mincho'; font-weight: 500;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/shipporimincho/ShipporiMincho-Medium.ttf'); }
+  @font-face { font-family: 'Mincho'; font-weight: 700;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/shipporimincho/ShipporiMincho-Bold.ttf'); }
+  @font-face { font-family: 'Script'; src: url('file:///home/user/wedding-invite/fonts/Yellowtail-Regular.ttf'); }
+
+  :root {
+    --rose: #B76E79;
+    --rose-deep: #96505C;
+    --beige: #F6EFE9;
+    --line: #D9C8C3;
+    --ink: #4A3A3C;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 210mm 297mm; margin: 0; }
+  body { font-family: 'Mincho', serif; color: var(--ink); background: #FFFDFB; }
+  .page {
+    width: 210mm; height: 297mm; position: relative;
+    padding: 13mm 16mm 10mm; overflow: hidden;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  .frame { position: absolute; inset: 7mm; border: 0.3mm solid var(--line); pointer-events: none; }
+  .frame::after { content: ''; position: absolute; inset: 1.2mm; border: 0.6mm solid var(--rose); opacity: 0.35; }
+
+  .script { text-align: center; font-family: 'Script'; font-size: 21pt; color: var(--rose); margin-top: 1mm; }
+  h1 {
+    text-align: center; font-size: 16pt; font-weight: 700; letter-spacing: 0.32em; text-indent: 0.32em;
+    color: var(--rose-deep); margin-top: 1mm;
+  }
+  .part {
+    text-align: center; margin-top: 2.6mm;
+  }
+  .part span {
+    display: inline-block; background: var(--rose); color: #FFF; font-size: 11pt; font-weight: 500;
+    letter-spacing: 0.3em; text-indent: 0.3em; padding: 1.4mm 8mm; border-radius: 999px;
+  }
+
+  table.base { width: 100%; border-collapse: collapse; margin-top: 4mm; font-size: 9.5pt; }
+  table.base th, table.base td { border: 0.3mm solid var(--line); padding: 1.8mm 3mm; text-align: left; }
+  table.base th { width: 26mm; background: var(--beige); font-weight: 700; color: var(--rose-deep); }
+
+  .cols { display: flex; gap: 5mm; margin-top: 4.5mm; }
+  .col { flex: 1; }
+
+  h2 {
+    font-size: 11pt; font-weight: 700; color: var(--rose-deep); letter-spacing: 0.14em;
+    border-left: 1.4mm solid var(--rose); padding-left: 2.6mm; margin-bottom: 2.2mm;
+  }
+  h2 small { font-weight: 400; font-size: 8pt; color: #9A8084; margin-left: 2mm; letter-spacing: 0.05em; }
+
+  .photo {
+    border: 0.4mm dashed var(--rose); border-radius: 2mm; background: #FBF6F3;
+    height: 58mm; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #C49AA2; font-size: 9pt; letter-spacing: 0.12em; gap: 1.5mm;
+  }
+  .photo .cam { font-size: 16pt; }
+
+  .fields { margin-top: 3mm; }
+  .field { margin-bottom: 2.8mm; }
+  .field .lbl { font-size: 9pt; font-weight: 700; color: var(--rose-deep); margin-bottom: 1mm; }
+  .wline { border-bottom: 0.25mm solid var(--line); height: 6.4mm; }
+  .wline + .wline { margin-top: 0; }
+
+  .memo {
+    margin-top: 3.5mm; border: 0.3mm solid var(--line); border-radius: 2mm; background: #FDFAF8;
+    padding: 2.6mm 3.5mm 3mm; font-size: 9pt;
+  }
+  .memo .t { font-weight: 700; color: var(--rose-deep); margin-bottom: 1.6mm; letter-spacing: 0.1em; }
+  .memo .wline { height: 6.6mm; }
+
+  .foot {
+    position: absolute; bottom: 10mm; left: 0; right: 0; text-align: center;
+    font-size: 8pt; color: #B09296; letter-spacing: 0.22em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 : 挙式 ============ -->
+<div class="page">
+  <div class="frame"></div>
+  <div class="script">Hair &amp; Make-up</div>
+  <h1>ヘアメイク指示書</h1>
+  <div class="part"><span>挙式の部</span></div>
+
+  <table class="base">
+    <tr>
+      <th>お名前</th><td>砂川 葉月</td>
+      <th>挙式開始</th><td>12:00</td>
+    </tr>
+    <tr>
+      <th>会場</th><td colspan="3">ヴォヤージュ ドゥ ルミエール 北谷リゾート</td>
+    </tr>
+    <tr>
+      <th>衣装</th><td colspan="3">　</td>
+    </tr>
+  </table>
+
+  <div class="cols">
+    <div class="col">
+      <h2>ヘアスタイル<small>HAIR</small></h2>
+      <div class="photo"><span class="cam">&#128247;</span><span>参考写真を貼付</span></div>
+      <div class="fields">
+        <div class="field"><div class="lbl">なりたい雰囲気・スタイルの希望</div>
+          <div class="wline"></div><div class="wline"></div><div class="wline"></div>
+        </div>
+        <div class="field"><div class="lbl">ヘアアクセサリー(ベール・ティアラ・生花など)</div>
+          <div class="wline"></div><div class="wline"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h2>メイク<small>MAKE-UP</small></h2>
+      <div class="photo"><span class="cam">&#128247;</span><span>参考写真を貼付</span></div>
+      <div class="fields">
+        <div class="field"><div class="lbl">ベース・眉・チークの希望</div>
+          <div class="wline"></div><div class="wline"></div>
+        </div>
+        <div class="field"><div class="lbl">アイメイク・リップの色味</div>
+          <div class="wline"></div><div class="wline"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="memo">
+    <div class="t">NG・注意事項(苦手な色味/肌質/アレルギー/コンタクトの有無 など)</div>
+    <div class="wline"></div><div class="wline"></div>
+  </div>
+  <div class="memo">
+    <div class="t">その他 こだわりポイント</div>
+    <div class="wline"></div><div class="wline"></div>
+  </div>
+
+  <div class="foot">RICHARD &amp; HAZUKI WEDDING &#9825; 2026.12.13</div>
+</div>
+
+<!-- ============ PAGE 2 : 披露宴 ============ -->
+<div class="page">
+  <div class="frame"></div>
+  <div class="script">Hair &amp; Make-up</div>
+  <h1>ヘアメイク指示書</h1>
+  <div class="part"><span>披露宴の部</span></div>
+
+  <table class="base">
+    <tr>
+      <th>お名前</th><td>砂川 葉月</td>
+      <th>開宴</th><td>16:30(受付 16:00)</td>
+    </tr>
+    <tr>
+      <th>会場</th><td colspan="3">結婚式場 N.B.C(日本ブライダルセンター)</td>
+    </tr>
+    <tr>
+      <th>衣装</th><td colspan="3">　</td>
+    </tr>
+  </table>
+
+  <div class="cols">
+    <div class="col">
+      <h2>ヘアスタイル<small>HAIR</small></h2>
+      <div class="photo"><span class="cam">&#128247;</span><span>参考写真を貼付</span></div>
+      <div class="fields">
+        <div class="field"><div class="lbl">なりたい雰囲気・スタイルの希望(挙式からのチェンジ内容)</div>
+          <div class="wline"></div><div class="wline"></div><div class="wline"></div>
+        </div>
+        <div class="field"><div class="lbl">ヘアアクセサリー</div>
+          <div class="wline"></div><div class="wline"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h2>メイク<small>MAKE-UP</small></h2>
+      <div class="photo"><span class="cam">&#128247;</span><span>参考写真を貼付</span></div>
+      <div class="fields">
+        <div class="field"><div class="lbl">メイクチェンジの希望(雰囲気の変化など)</div>
+          <div class="wline"></div><div class="wline"></div>
+        </div>
+        <div class="field"><div class="lbl">アイメイク・リップの色味</div>
+          <div class="wline"></div><div class="wline"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="memo">
+    <div class="t">お色直し・チェンジのタイミングについて</div>
+    <div class="wline"></div><div class="wline"></div>
+  </div>
+  <div class="memo">
+    <div class="t">その他 こだわりポイント</div>
+    <div class="wline"></div><div class="wline"></div>
+  </div>
+
+  <div class="foot">RICHARD &amp; HAZUKI WEDDING &#9825; 2026.12.13</div>
+</div>
+
+</body>
+</html>
