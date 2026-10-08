@@ -73,7 +73,10 @@
     padding: 0 12mm; margin-top: 3mm;
   }
   .cell { display: flex; align-items: center; justify-content: center; height: 41mm; }
-  .nz { flex: 1; height: 100%; }
+  .nz { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 1.1mm; }
+  .nzL { align-items: flex-end; padding-right: 2.6mm; }
+  .nzR { align-items: flex-start; padding-left: 2.6mm; }
+  .gname { font-weight: 700; font-size: 8.6pt; letter-spacing: 0.06em; white-space: nowrap; }
   .tbl { position: relative; width: 30mm; flex: none; text-align: center; }
   .circ {
     width: 30mm; height: 30mm; border-radius: 50%; overflow: hidden;
@@ -513,13 +516,13 @@
       <div class="nz nzR"></div>
     </div>
     <div class="cell">
-      <div class="nz nzL"></div>
+      <div class="nz nzL"><div class="gname">工藤 薫 様</div><div class="gname">舟本 誠治 様</div><div class="gname">山尾 英一 様</div><div class="gname">山尾 郁子 様</div></div>
       <div class="tbl">
         <div class="circ"><img src="tiles/tile_42.png"></div>
         <div class="numbadge">42</div>
         <div class="mlabel">PINBALL</div>
       </div>
-      <div class="nz nzR"></div>
+      <div class="nz nzR"><div class="gname">外薗 遥 様</div><div class="gname">外薗 薫 様</div><div class="gname">藤田 晶枝 様</div></div>
     </div>
   </div>
 
