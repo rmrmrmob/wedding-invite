@@ -21,89 +21,95 @@
     --paper: #FFFDF7;
   }
   * { box-sizing: border-box; margin: 0; }
-  @page { size: 297mm 420mm; margin: 0; }
-  html, body { width: 297mm; height: 420mm; }
+  @page { size: 594mm 420mm; margin: 0; }
+  html, body { width: 594mm; height: 420mm; }
   body { background: var(--cream); font-family: 'Rounded', sans-serif; color: var(--ink); overflow: hidden; position: relative; }
 
   .checker-top, .checker-bottom {
-    position: absolute; left: 0; right: 0; height: 7mm;
-    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 7mm 7mm;
+    position: absolute; left: 0; right: 0; height: 6mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 6mm 6mm;
   }
   .checker-top { top: 0; }
   .checker-bottom { bottom: 0; }
 
-  .head { text-align: center; padding-top: 12mm; }
-  .head .script { font-family: 'Yellowtail'; font-size: 21pt; color: var(--cherry); line-height: 1.25; }
+  .head { text-align: center; padding-top: 9mm; }
+  .head .script { font-family: 'Yellowtail'; font-size: 17pt; color: var(--cherry); line-height: 1.25; }
   .head h1 {
-    font-family: 'Alfa'; font-size: 38pt; color: var(--cherry);
-    text-shadow: 2.2mm 2.2mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 4mm;
+    font-family: 'Alfa'; font-size: 29pt; color: var(--cherry);
+    text-shadow: 1.7mm 1.7mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 2.2mm;
   }
   .head .sub {
-    display: inline-block; margin-top: 2.6mm; font-weight: 900; font-size: 12pt;
-    background: var(--ink); color: var(--cream); border-radius: 999px; padding: 1.6mm 8mm; letter-spacing: 0.16em;
+    display: inline-block; margin-top: 2.4mm; font-weight: 900; font-size: 10.5pt;
+    background: var(--ink); color: var(--cream); border-radius: 999px; padding: 1.3mm 7mm; letter-spacing: 0.16em;
   }
 
-  /* ---- head table zone ---- */
-  .hina-zone { display: flex; align-items: center; justify-content: center; gap: 6mm; margin-top: 7mm; }
+  .hina-zone { display: flex; align-items: center; justify-content: center; gap: 6mm; margin-top: 4.5mm; }
   .hina {
-    width: 120mm; height: 17mm; background: var(--cherry);
-    border: 1.2mm solid var(--ink); border-radius: 999px;
+    width: 120mm; height: 15mm; background: var(--cherry);
+    border: 1.1mm solid var(--ink); border-radius: 999px;
     display: flex; align-items: center; justify-content: center; gap: 4mm;
-    box-shadow: 0 2mm 0 var(--ink); color: #FFF;
+    box-shadow: 0 1.8mm 0 var(--ink); color: #FFF;
   }
-  .hina .names { font-family: 'Alfa'; font-size: 15pt; letter-spacing: 0.05em; }
-  .hina .star { color: var(--mustard); font-size: 13pt; }
-  .side-item { text-align: center; font-weight: 900; font-size: 8.5pt; color: #8A6F5A; }
-  .side-item .circ {
-    width: 15mm; height: 15mm; border-radius: 50%; background: var(--paper);
-    border: 1mm solid var(--ink); margin: 0 auto 1mm;
-    display: flex; align-items: center; justify-content: center; font-size: 13pt;
+  .hina .names { font-family: 'Alfa'; font-size: 13.5pt; letter-spacing: 0.05em; }
+  .hina .star { color: var(--mustard); font-size: 12pt; }
+  .side-item { text-align: center; font-weight: 900; font-size: 8pt; color: #8A6F5A; }
+  .side-item .circ2 {
+    width: 13mm; height: 13mm; border-radius: 50%; background: var(--paper);
+    border: 0.9mm solid var(--ink); margin: 0 auto 0.8mm;
+    display: flex; align-items: center; justify-content: center; font-size: 11pt;
   }
 
-  /* ---- side labels ---- */
-  .sides { display: flex; justify-content: space-between; padding: 0 16mm; margin-top: 5mm; }
+  .sides { display: flex; justify-content: space-between; padding: 0 14mm; margin-top: 2.5mm; }
   .side-tag {
-    font-weight: 900; font-size: 11.5pt; letter-spacing: 0.1em;
-    padding: 1.4mm 6mm; border-radius: 999px; border: 0.8mm solid var(--ink);
-    background: var(--paper); box-shadow: 0 1.4mm 0 var(--ink);
+    font-weight: 900; font-size: 11pt; letter-spacing: 0.1em;
+    padding: 1.3mm 6mm; border-radius: 999px; border: 0.7mm solid var(--ink);
+    background: var(--paper); box-shadow: 0 1.3mm 0 var(--ink);
   }
   .side-tag.groom { color: #0E8683; }
   .side-tag.bride { color: var(--cherry-deep); }
 
-  /* ---- table grid ---- */
   .grid {
-    display: grid; grid-template-columns: repeat(6, 1fr); row-gap: 8mm;
-    padding: 0 16mm; margin-top: 6mm; justify-items: center;
+    display: grid; grid-template-columns: repeat(6, 1fr); row-gap: 5mm;
+    padding: 0 12mm; margin-top: 3mm;
   }
-  .table {
-    width: 34mm; height: 34mm; border-radius: 50%;
-    background: var(--paper);
-    border: 1.1mm solid var(--ink);
-    box-shadow: 0 1.8mm 0 rgba(43,27,18,.8), inset 0 0 0 1.6mm var(--cream);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    position: relative;
+  .cell { display: flex; align-items: center; justify-content: center; height: 41mm; }
+  .nz { flex: 1; height: 100%; }
+  .tbl { position: relative; width: 30mm; flex: none; text-align: center; }
+  .circ {
+    width: 30mm; height: 30mm; border-radius: 50%; overflow: hidden;
+    border: 1.1mm solid var(--ink); background: var(--paper);
+    box-shadow: 0 1.6mm 0 rgba(43,27,18,.75);
   }
-  .table .no { font-family: 'Alfa'; font-size: 17pt; color: var(--cherry); line-height: 1; }
-  .table .tlabel { font-family: 'Alfa'; font-size: 6pt; color: #B49A80; letter-spacing: 0.18em; margin-top: 1.2mm; }
+  .circ img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; }
+  .numbadge {
+    position: absolute; top: -2.5mm; left: -3mm;
+    width: 9mm; height: 9mm; border-radius: 50%;
+    background: var(--cherry); color: #FFF; border: 0.7mm solid var(--ink);
+    font-family: 'Alfa'; font-size: 10pt; line-height: 7.6mm;
+    box-shadow: 0 1mm 0 var(--ink);
+  }
+  .mlabel {
+    display: inline-block; margin-top: 1.4mm; font-family: 'Alfa'; font-size: 5.4pt;
+    background: var(--ink); color: var(--cream); border-radius: 999px;
+    padding: 0.7mm 2.6mm; letter-spacing: 0.08em; white-space: nowrap;
+  }
 
-  /* ---- entrances (right edge) ---- */
   .door {
-    position: absolute; right: 4mm; width: 9mm; text-align: center;
+    position: absolute; right: 3mm; width: 9mm; text-align: center;
     font-weight: 900; font-size: 6.5pt; color: #8A6F5A; line-height: 1.3;
   }
-  .door .bar { width: 1.6mm; height: 16mm; background: var(--teal); border-radius: 1mm; margin: 0 auto 1mm; }
+  .door .bar { width: 1.6mm; height: 15mm; background: var(--teal); border-radius: 1mm; margin: 0 auto 1mm; }
 
-  /* ---- stage ---- */
   .stage {
-    position: absolute; left: 16mm; right: 16mm; bottom: 13mm; height: 16mm;
-    background: var(--ink); border-radius: 3mm;
+    position: absolute; left: 14mm; right: 14mm; bottom: 10mm; height: 13mm;
+    background: var(--ink); border-radius: 2.5mm;
     display: flex; align-items: center; justify-content: center; gap: 5mm;
     color: var(--cream);
   }
-  .stage .en { font-family: 'Alfa'; font-size: 13pt; letter-spacing: 0.3em; color: var(--mustard); }
-  .stage .jp { font-weight: 900; font-size: 11pt; letter-spacing: 0.4em; }
+  .stage .en { font-family: 'Alfa'; font-size: 11.5pt; letter-spacing: 0.3em; color: var(--mustard); }
+  .stage .jp { font-weight: 900; font-size: 10pt; letter-spacing: 0.4em; }
   .mc {
-    position: absolute; left: 16mm; top: 62mm;
+    position: absolute; left: 14mm; top: 44mm;
     font-family: 'Alfa'; font-size: 8pt; color: #FFF; background: var(--teal);
     border: 0.7mm solid var(--ink); border-radius: 2mm; padding: 1mm 3.4mm;
     box-shadow: 0 1.2mm 0 var(--ink); transform: rotate(-4deg);
@@ -122,13 +128,13 @@
   <div class="mc">MC</div>
 
   <div class="hina-zone">
-    <div class="side-item"><div class="circ">&#128367;&#65039;</div>メインキャンドル</div>
+    <div class="side-item"><div class="circ2">&#128367;&#65039;</div>メインキャンドル</div>
     <div class="hina">
       <span class="star">&#9733;</span>
       <span class="names">RICHARD &amp; HAZUKI</span>
       <span class="star">&#9733;</span>
     </div>
-    <div class="side-item"><div class="circ">&#127874;</div>ウェディングケーキ</div>
+    <div class="side-item"><div class="circ2">&#127874;</div>ウェディングケーキ</div>
   </div>
 
   <div class="sides">
@@ -136,10 +142,389 @@
     <span class="side-tag bride">新婦側 BRIDE &#8594;</span>
   </div>
 
-  <div class="grid" id="grid"></div>
+  <div class="grid">
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_01.png"></div>
+        <div class="numbadge">1</div>
+        <div class="mlabel">HAMBURGER</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_02.png"></div>
+        <div class="numbadge">2</div>
+        <div class="mlabel">HOT DOG</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_03.png"></div>
+        <div class="numbadge">3</div>
+        <div class="mlabel">PIZZA</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_04.png"></div>
+        <div class="numbadge">4</div>
+        <div class="mlabel">FRENCH FRIES</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_05.png"></div>
+        <div class="numbadge">5</div>
+        <div class="mlabel">COLA</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_06.png"></div>
+        <div class="numbadge">6</div>
+        <div class="mlabel">HASH BROWNS</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_07.png"></div>
+        <div class="numbadge">7</div>
+        <div class="mlabel">MILKSHAKE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_08.png"></div>
+        <div class="numbadge">8</div>
+        <div class="mlabel">CANDY</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_09.png"></div>
+        <div class="numbadge">9</div>
+        <div class="mlabel">SHORTCAKE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_10.png"></div>
+        <div class="numbadge">10</div>
+        <div class="mlabel">CHOCOLATE CAKE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_11.png"></div>
+        <div class="numbadge">11</div>
+        <div class="mlabel">MACARON</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_12.png"></div>
+        <div class="numbadge">12</div>
+        <div class="mlabel">COOKIE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_13.png"></div>
+        <div class="numbadge">13</div>
+        <div class="mlabel">BANANA SPLIT</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_14.png"></div>
+        <div class="numbadge">14</div>
+        <div class="mlabel">DINER</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_15.png"></div>
+        <div class="numbadge">15</div>
+        <div class="mlabel">RECORD</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_16.png"></div>
+        <div class="numbadge">16</div>
+        <div class="mlabel">JUKEBOX</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_17.png"></div>
+        <div class="numbadge">17</div>
+        <div class="mlabel">GUMBALL MACHINE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_18.png"></div>
+        <div class="numbadge">18</div>
+        <div class="mlabel">CADILLAC</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_19.png"></div>
+        <div class="numbadge">19</div>
+        <div class="mlabel">POODLE SKIRT</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_20.png"></div>
+        <div class="numbadge">20</div>
+        <div class="mlabel">MUSIC NOTES</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_21.png"></div>
+        <div class="numbadge">21</div>
+        <div class="mlabel">CREAM SODA</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_22.png"></div>
+        <div class="numbadge">22</div>
+        <div class="mlabel">DICE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_23.png"></div>
+        <div class="numbadge">23</div>
+        <div class="mlabel">BOWLING</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_24.png"></div>
+        <div class="numbadge">24</div>
+        <div class="mlabel">FLAMINGO</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_25.png"></div>
+        <div class="numbadge">25</div>
+        <div class="mlabel">DONUT</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_26.png"></div>
+        <div class="numbadge">26</div>
+        <div class="mlabel">PANCAKES</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_27.png"></div>
+        <div class="numbadge">27</div>
+        <div class="mlabel">SOFT SERVE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_28.png"></div>
+        <div class="numbadge">28</div>
+        <div class="mlabel">APPLE PIE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_29.png"></div>
+        <div class="numbadge">29</div>
+        <div class="mlabel">POPCORN</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_30.png"></div>
+        <div class="numbadge">30</div>
+        <div class="mlabel">ONION RINGS</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_31.png"></div>
+        <div class="numbadge">31</div>
+        <div class="mlabel">BLT SANDWICH</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_32.png"></div>
+        <div class="numbadge">32</div>
+        <div class="mlabel">KETCHUP &amp; MUSTARD</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_33.png"></div>
+        <div class="numbadge">33</div>
+        <div class="mlabel">COFFEE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_34.png"></div>
+        <div class="numbadge">34</div>
+        <div class="mlabel">ROOT BEER FLOAT</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_35.png"></div>
+        <div class="numbadge">35</div>
+        <div class="mlabel">CHERRY</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_36.png"></div>
+        <div class="numbadge">36</div>
+        <div class="mlabel">ROLLER SKATES</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_37.png"></div>
+        <div class="numbadge">37</div>
+        <div class="mlabel">NEON SIGN</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_38.png"></div>
+        <div class="numbadge">38</div>
+        <div class="mlabel">RETRO PHONE</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_39.png"></div>
+        <div class="numbadge">39</div>
+        <div class="mlabel">RETRO RADIO</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_40.png"></div>
+        <div class="numbadge">40</div>
+        <div class="mlabel">GAS PUMP</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_41.png"></div>
+        <div class="numbadge">41</div>
+        <div class="mlabel">ROUTE 66</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_42.png"></div>
+        <div class="numbadge">42</div>
+        <div class="mlabel">PINBALL</div>
+      </div>
+      <div class="nz nzR"></div>
+    </div>
+  </div>
 
-  <div class="door" style="top: 148mm;"><div class="bar"></div>出入口A</div>
-  <div class="door" style="top: 212mm;"><div class="bar"></div>出入口B</div>
+  <div class="door" style="top: 120mm;"><div class="bar"></div>出入口A</div>
+  <div class="door" style="top: 196mm;"><div class="bar"></div>出入口B</div>
   <div class="door" style="top: 330mm;"><div class="bar"></div>入退場<br>出入口</div>
 
   <div class="stage">
@@ -149,15 +534,5 @@
   </div>
 
   <div class="checker-bottom"></div>
-
-  <script>
-    const g = document.getElementById('grid');
-    for (let i = 1; i <= 42; i++) {
-      const d = document.createElement('div');
-      d.className = 'table';
-      d.innerHTML = `<div class="no">${i}</div><div class="tlabel">TABLE</div>`;
-      g.appendChild(d);
-    }
-  </script>
 </body>
 </html>
