@@ -49,23 +49,19 @@
   .back-foot { margin-top: 10mm; font-family: 'Alfa'; font-size: 9pt; color: #B49A80; letter-spacing: 0.22em; }
 
   /* ========== PANEL 3 (right): front cover ========== */
-  .p-front { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .fc-checker { position: absolute; left: 0; right: 0; height: 8mm;
-    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 8mm 8mm; }
-  .fc-top { top: 0; }
-  .fc-bottom { bottom: 0; }
-  .fc-script { font-family: 'Yellowtail'; font-size: 34pt; color: var(--cherry); }
-  .fc-h1 { font-family: 'Alfa'; font-size: 52pt; color: var(--cherry); line-height: 1.1;
-    text-shadow: 2.8mm 2.8mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 9mm; text-align: center; }
-  .fc-open { margin-top: 27mm; position: relative; z-index: 2;
-    font-family: 'Alfa'; font-size: 11pt; color: #FFF; background: var(--teal);
-    border: 0.9mm solid var(--ink); border-radius: 999px; padding: 1.6mm 7mm;
-    box-shadow: 0 1.6mm 0 var(--ink); letter-spacing: 0.18em; transform: rotate(-3deg); }
-  .fc-names { margin-top: 30mm; font-family: 'Alfa'; font-size: 17pt; color: var(--ink); letter-spacing: 0.05em; }
-  .fc-names .amp { font-family: 'Yellowtail'; color: var(--cherry); font-size: 19pt; padding: 0 2mm; }
-  .fc-date { margin-top: 5mm;  display: inline-block; font-weight: 900; font-size: 11.5pt;
-    background: var(--ink); color: var(--cream); border-radius: 999px; padding: 1.6mm 8mm; letter-spacing: 0.16em; }
-  .fc-star { position: absolute; font-size: 14pt; color: var(--mustard); text-shadow: 0.5mm 0.5mm 0 var(--ink); }
+  .p-front { background: var(--cherry); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .fc-frame { position: absolute; inset: 9mm; border: 0.7mm solid var(--cream); border-radius: 4mm; }
+  .fc-frame2 { position: absolute; inset: 11.5mm; border: 0.35mm solid var(--cream); border-radius: 3mm; opacity: .75; }
+  .fc-star { font-size: 15pt; color: var(--mustard); letter-spacing: 1.2em; text-indent: 1.2em; }
+  .fc-script { margin-top: 7mm; font-family: 'Yellowtail'; font-size: 27pt; color: var(--mustard); }
+  .fc-h1 { font-family: 'Alfa'; font-size: 52pt; color: var(--cream); line-height: 1.12;
+    text-shadow: 2.2mm 2.2mm 0 var(--ink); letter-spacing: 0.05em; margin-top: 10mm; text-align: center; }
+  .fc-rule { width: 58mm; display: flex; align-items: center; gap: 3mm; margin-top: 13mm; }
+  .fc-rule::before, .fc-rule::after { content: ''; flex: 1; height: 0.5mm; background: var(--cream); opacity: .8; }
+  .fc-rule span { color: var(--mustard); font-size: 11pt; }
+  .fc-names { margin-top: 12mm; font-family: 'Alfa'; font-size: 16.5pt; color: var(--cream); letter-spacing: 0.06em; }
+  .fc-names .amp { font-family: 'Yellowtail'; color: var(--mustard); font-size: 19pt; padding: 0 2.2mm; }
+  .fc-date { margin-top: 6mm; font-weight: 900; font-size: 11.5pt; color: var(--cream); letter-spacing: 0.3em; text-indent: 0.3em; }
 </style>
 </head>
 <body>
@@ -99,17 +95,14 @@
 
   <!-- PANEL 3: front cover -->
   <div class="panel p-front">
-    <div class="fc-checker fc-top"></div>
+    <div class="fc-frame"></div>
+    <div class="fc-frame2"></div>
+    <div class="fc-star">&#9733;&#9733;&#9733;</div>
     <div class="fc-script">Welcome to our Diner!</div>
     <div class="fc-h1">SEATING<br>CHART</div>
-    <div class="fc-open">OPEN ME!</div>
+    <div class="fc-rule"><span>&#9670;</span></div>
     <div class="fc-names">RICHARD<span class="amp">&amp;</span>HAZUKI</div>
     <div class="fc-date">2026.12.13 SUN</div>
-    <span class="fc-star" style="top: 48mm; left: 24mm; transform: rotate(-14deg);">&#9733;</span>
-    <span class="fc-star" style="top: 60mm; right: 22mm; transform: rotate(12deg);">&#9733;</span>
-    <span class="fc-star" style="top: 330mm; left: 20mm; transform: rotate(10deg);">&#9733;</span>
-    <span class="fc-star" style="top: 344mm; right: 24mm; transform: rotate(-12deg);">&#9733;</span>
-    <div class="fc-checker fc-bottom"></div>
   </div>
 
 </body>
