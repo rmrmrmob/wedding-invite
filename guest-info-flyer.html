@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Guest Information</title>
+<style>
+  @font-face { font-family: 'Titan'; src: url('file:///home/user/wedding-invite/fonts/TitanOne-Regular.ttf'); }
+  @font-face { font-family: 'Maru';
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/hachimarupop/HachiMaruPop-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Black.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Bold.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 500;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Medium.ttf'); }
+
+  :root {
+    --pink: #E0507E;
+    --pink-deep: #C22B59;
+    --cream: #FFF8EE;
+    --ink: #58313F;
+    --mint: #5BC8B4;
+    --mint-deep: #2E9A88;
+    --yellow: #FFC93D;
+    --purple: #A07BD8;
+    --red: #E8554D;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 148mm 210mm; margin: 0; }
+  html, body { width: 148mm; height: 210mm; }
+  body {
+    font-family: 'Rounded', sans-serif;
+    color: var(--ink);
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 10px 10px, rgba(255,255,255,.5) 1.6px, transparent 2.3px) 0 0 / 24px 24px,
+      linear-gradient(175deg, #E0507E 0%, #D23E6C 55%, #C22B59 100%);
+  }
+
+  /* ---------- header ---------- */
+  .head { text-align: center; color: #FFF; padding: 4mm 6mm 2.6mm; position: relative; }
+  .head .mini { font-family: 'Maru'; font-size: 10.5pt; letter-spacing: 0.1em; }
+  .head .en {
+    font-family: 'Titan'; font-size: 20pt; line-height: 1.05; margin-top: 1.2mm;
+    text-shadow: 0 1.6mm 0 rgba(122,16,53,.55);
+    letter-spacing: 0.015em;
+  }
+  .head .sub {
+    display: inline-block; margin-top: 2mm;
+    font-weight: 900; font-size: 9.5pt; background: rgba(255,255,255,.18);
+    border: 0.45mm dashed rgba(255,255,255,.75); border-radius: 999px;
+    padding: 1.1mm 5mm;
+  }
+
+  /* ---------- candy stripe tape ---------- */
+  .tape {
+    height: 4.2mm;
+    background: repeating-linear-gradient(-45deg,
+      #FFFFFF 0 3.2mm, var(--red) 3.2mm 6.4mm);
+    box-shadow: 0 0.6mm 0 rgba(122,16,53,.35);
+  }
+  .tape.dots {
+    background:
+      radial-gradient(circle at 5px 5px, #FFF 1.5px, transparent 2.2px) 0 0 / 10px 10px,
+      var(--mint);
+  }
+
+  /* ---------- shelf cards ---------- */
+  .shelf { padding: 3mm 6mm 0; }
+  .card {
+    background: var(--cream);
+    border-radius: 4.5mm;
+    box-shadow: 0 1.6mm 0 rgba(122,16,53,.4);
+    padding: 2.8mm 4.6mm 3mm;
+    position: relative;
+  }
+  .card h2 {
+    font-family: 'Maru'; font-size: 13pt; text-align: center;
+    color: var(--pink-deep); letter-spacing: 0.06em;
+  }
+  .card h2 .enlbl {
+    display: block; font-family: 'Titan'; font-size: 7pt; color: var(--mint-deep);
+    letter-spacing: 0.22em; margin-bottom: 0.6mm;
+  }
+
+  .leg { margin-top: 1.7mm; }
+  .leg-title {
+    display: inline-block; font-weight: 900; font-size: 8.4pt; color: #FFF;
+    background: var(--mint); border-radius: 999px; padding: 0.7mm 3.4mm;
+    margin-bottom: 1mm;
+  }
+  .leg-title.y { background: var(--yellow); color: #7A4A00; }
+  .leg-title.p { background: var(--purple); }
+  .row {
+    display: flex; align-items: center; gap: 2.6mm;
+    font-weight: 700; font-size: 9.2pt; line-height: 1.45;
+    margin: 0 0 0.9mm 1mm;
+  }
+  .row .time {
+    flex: none; font-family: 'Titan'; font-size: 9.5pt; color: var(--pink-deep);
+    background: #FFE3EE; border-radius: 2.2mm; padding: 0.6mm 2mm; min-width: 14mm; text-align: center;
+  }
+  .row .who { flex: none; font-weight: 900; }
+  .note {
+    font-weight: 500; font-size: 7.9pt; color: #8A5F6E; margin: 0.4mm 0 0 1mm; line-height: 1.55;
+  }
+
+  /* ---------- party card ---------- */
+  .floor {
+    display: flex; align-items: center; justify-content: center; gap: 4mm;
+    margin-top: 1.6mm;
+  }
+  .fbox {
+    text-align: center; font-weight: 900; font-size: 9.6pt;
+    background: #FFE3EE; border-radius: 3mm; padding: 1.4mm 4mm;
+  }
+  .fbox .big { font-family: 'Titan'; font-size: 13pt; color: var(--pink-deep); display: block; }
+  .arrow { font-family: 'Titan'; font-size: 15pt; color: var(--mint-deep); }
+  .party-msg {
+    text-align: center; font-family: 'Maru'; font-size: 10pt; color: var(--pink-deep);
+    margin-top: 1.6mm; line-height: 1.5;
+  }
+
+  /* ---------- candy jars footer ---------- */
+  .jars { text-align: center; margin-top: 0; line-height: 0; }
+  .credit {
+    text-align: center; color: #FFF; font-family: 'Titan';
+    font-size: 7.5pt; letter-spacing: 0.14em; opacity: 0.95; margin-top: 0.2mm;
+  }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="mini">&#127852; ゲストのみなさまへ &#127852;</div>
+    <div class="en">GUEST<br>INFORMATION</div>
+    <div class="sub">RICHARD &amp; HAZUKI &#9825; 2026.12.13 SUN</div>
+  </div>
+
+  <div class="tape"></div>
+
+  <div class="shelf">
+    <div class="card">
+      <h2><span class="enlbl">SHUTTLE BUS</span>&#128652; バスのご案内</h2>
+
+      <div class="leg">
+        <span class="leg-title">ゆき(那覇空港から)</span>
+        <div class="row"><span class="time">10:30</span><span class="who">挙式からご出席の方</span><span>那覇空港 発</span></div>
+        <div class="row"><span class="time">15:00</span><span class="who">披露宴からご出席の方</span><span>那覇空港 発</span></div>
+      </div>
+
+      <div class="leg">
+        <span class="leg-title y">挙式 &#8594; 披露宴</span>
+        <div class="row"><span class="time">15:00</span><span>挙式会場 発 &#8594; 披露宴会場(N.B.C)へ</span></div>
+        <div class="note">挙式後は アメリカンビレッジ周辺などで ご自由にお過ごしください</div>
+      </div>
+
+      <div class="leg">
+        <span class="leg-title p">かえり(アメリカンビレッジ・国際通りに停車)</span>
+        <div class="row"><span class="time">19:30頃</span><span class="who">披露宴まで参加の方</span><span>披露宴終了後 会場発</span></div>
+        <div class="row"><span class="time">21:00頃</span><span class="who">二次会まで参加の方</span><span>二次会終了後 会場発</span></div>
+        <div class="note">どちらの便も アメリカンビレッジ・国際通りに停車します お好きな場所でどうぞ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tape dots" style="margin-top: 3mm;"></div>
+
+  <div class="shelf">
+    <div class="card">
+      <h2><span class="enlbl">AFTER PARTY</span>&#127881; 二次会のご案内</h2>
+      <div class="floor">
+        <div class="fbox"><span class="big">5F</span>披露宴会場</div>
+        <div class="arrow">&#8595;&#8595;</div>
+        <div class="fbox"><span class="big">4F</span>二次会会場</div>
+      </div>
+      <div class="note" style="text-align: center; margin-top: 1.6mm;">披露宴会場が5階なので そのまま下がって4階へ！</div>
+      <div class="party-msg">お時間の許すかぎり<br>最後までいっしょに楽しみましょう &#127853;</div>
+    </div>
+  </div>
+
+  <div class="jars">
+    <svg width="270" height="50" viewBox="0 0 330 62">
+      <!-- shelf board -->
+      <rect x="0" y="54" width="330" height="8" rx="2" fill="#8E1F44"/>
+      <!-- jar helper shapes drawn inline -->
+      <!-- jar 1 -->
+      <g>
+        <rect x="18" y="10" width="44" height="44" rx="7" fill="rgba(255,255,255,0.32)" stroke="#FFF" stroke-width="2"/>
+        <rect x="26" y="4" width="28" height="8" rx="3" fill="#FFF"/>
+        <circle cx="30" cy="42" r="5" fill="#FFC93D"/><circle cx="41" cy="45" r="5" fill="#5BC8B4"/>
+        <circle cx="52" cy="42" r="5" fill="#E8554D"/><circle cx="35" cy="33" r="5" fill="#A07BD8"/>
+        <circle cx="47" cy="32" r="5" fill="#FF8FB5"/>
+      </g>
+      <!-- jar 2 -->
+      <g>
+        <rect x="78" y="16" width="38" height="38" rx="6" fill="rgba(255,255,255,0.32)" stroke="#FFF" stroke-width="2"/>
+        <rect x="85" y="10" width="24" height="8" rx="3" fill="#FFF"/>
+        <rect x="84" y="40" width="26" height="9" rx="4" fill="#5BC8B4"/>
+        <rect x="84" y="30" width="26" height="9" rx="4" fill="#FFC93D"/>
+        <rect x="84" y="20" width="26" height="9" rx="4" fill="#FF8FB5"/>
+      </g>
+      <!-- lollipop -->
+      <g>
+        <rect x="139" y="26" width="3.6" height="28" rx="1.8" fill="#FFF"/>
+        <circle cx="141" cy="18" r="12" fill="#FF8FB5"/>
+        <path d="M141 18 m-12 0 a12 12 0 0 1 24 0" fill="#E8554D" opacity="0.7"/>
+        <circle cx="141" cy="18" r="5" fill="#FFF" opacity="0.85"/>
+      </g>
+      <!-- jar 3 -->
+      <g>
+        <rect x="168" y="12" width="42" height="42" rx="7" fill="rgba(255,255,255,0.32)" stroke="#FFF" stroke-width="2"/>
+        <rect x="176" y="6" width="26" height="8" rx="3" fill="#FFF"/>
+        <circle cx="180" cy="44" r="4.5" fill="#5BC8B4"/><circle cx="190" cy="46" r="4.5" fill="#E8554D"/>
+        <circle cx="199" cy="43" r="4.5" fill="#FFC93D"/><circle cx="184" cy="35" r="4.5" fill="#FF8FB5"/>
+        <circle cx="195" cy="34" r="4.5" fill="#A07BD8"/><circle cx="189" cy="26" r="4.5" fill="#FFC93D"/>
+      </g>
+      <!-- candy cane -->
+      <g transform="rotate(8 232 36)">
+        <path d="M226 54 L226 24 a8 8 0 0 1 16 0 l0 4" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round"/>
+        <path d="M226 54 L226 24 a8 8 0 0 1 16 0 l0 4" fill="none" stroke="#E8554D" stroke-width="7" stroke-linecap="round" stroke-dasharray="6 6"/>
+      </g>
+      <!-- jar 4 -->
+      <g>
+        <rect x="262" y="18" width="36" height="36" rx="6" fill="rgba(255,255,255,0.32)" stroke="#FFF" stroke-width="2"/>
+        <rect x="269" y="12" width="22" height="8" rx="3" fill="#FFF"/>
+        <circle cx="272" cy="45" r="4" fill="#FF8FB5"/><circle cx="281" cy="47" r="4" fill="#FFC93D"/>
+        <circle cx="290" cy="44" r="4" fill="#5BC8B4"/><circle cx="276" cy="37" r="4" fill="#A07BD8"/>
+        <circle cx="286" cy="36" r="4" fill="#E8554D"/>
+      </g>
+    </svg>
+  </div>
+  <div class="credit">SWEET DAY &#9679; 2026.12.13 &#9679; OKINAWA</div>
+</body>
+</html>
