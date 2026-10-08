@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>送迎バス運行内容のご案内</title>
+<style>
+  @font-face { font-family: 'Mincho'; font-weight: 400;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/shipporimincho/ShipporiMincho-Regular.ttf'); }
+  @font-face { font-family: 'Mincho'; font-weight: 500;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/shipporimincho/ShipporiMincho-Medium.ttf'); }
+  @font-face { font-family: 'Mincho'; font-weight: 700;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/shipporimincho/ShipporiMincho-Bold.ttf'); }
+
+  :root {
+    --navy: #243B55;
+    --gold: #A8894E;
+    --line: #C9C2B4;
+    --ink: #2B2B2B;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 210mm 297mm; margin: 0; }
+  html, body { width: 210mm; height: 297mm; }
+  body {
+    font-family: 'Mincho', serif;
+    color: var(--ink);
+    background: #FDFCF8;
+    padding: 10mm 18mm 8mm;
+    position: relative;
+  }
+  .topline { position: absolute; top: 6mm; left: 18mm; right: 18mm; height: 0.9mm; background: var(--navy); }
+  .topline::after {
+    content: ''; position: absolute; top: 1.6mm; left: 0; right: 0; height: 0.25mm; background: var(--gold);
+  }
+
+  .date { text-align: right; font-size: 9pt; margin-top: 0; }
+  .to { font-size: 11.5pt; font-weight: 500; margin-top: 2mm; }
+  .from { text-align: right; font-size: 9.5pt; margin-top: 0.5mm; line-height: 1.55; }
+
+  h1 {
+    text-align: center; font-weight: 700; font-size: 15.5pt; color: var(--navy);
+    letter-spacing: 0.3em; text-indent: 0.3em; margin: 3.5mm 0 0;
+  }
+  h1 small { display: block; font-size: 8pt; letter-spacing: 0.4em; color: var(--gold); margin-top: 1mm; }
+
+  .greet { font-size: 10pt; line-height: 1.8; margin-top: 4mm; text-align: justify; }
+
+  /* ---- summary table ---- */
+  table.sum { width: 100%; border-collapse: collapse; margin-top: 3.5mm; font-size: 10pt; }
+  table.sum th, table.sum td { border: 0.3mm solid var(--line); padding: 1.5mm 3.5mm; text-align: left; }
+  table.sum th { width: 34mm; background: #F2EFE6; font-weight: 700; color: var(--navy); }
+
+  /* ---- schedule ---- */
+  h2 {
+    margin-top: 3.5mm; font-size: 11.5pt; font-weight: 700; color: var(--navy);
+    border-left: 1.6mm solid var(--gold); padding-left: 3mm; letter-spacing: 0.12em;
+  }
+  table.tt { width: 100%; border-collapse: collapse; margin-top: 2mm; font-size: 9.3pt; }
+  table.tt th {
+    background: var(--navy); color: #FFF; font-weight: 500; padding: 2mm 2.5mm;
+    letter-spacing: 0.1em; font-size: 9.5pt; border: 0.3mm solid var(--navy);
+  }
+  table.tt td { border: 0.3mm solid var(--line); padding: 1.6mm 2.5mm; vertical-align: top; line-height: 1.5; }
+  table.tt td.no { width: 11mm; text-align: center; font-weight: 700; color: var(--gold); }
+  table.tt td.time { width: 30mm; font-weight: 700; white-space: nowrap; }
+  table.tt td.time small { display: block; font-weight: 400; font-size: 8pt; color: #666; }
+  table.tt tr.sep td { background: #F7F4EC; font-weight: 700; color: var(--navy); padding: 1.2mm 2.5mm; font-size: 9.5pt; letter-spacing: 0.08em; }
+  .addr { font-size: 8.5pt; color: #555; display: block; margin-top: 0.6mm; }
+
+  /* ---- notes ---- */
+  ul.notes { margin: 1.8mm 0 0 1mm; padding-left: 5mm; font-size: 9.2pt; line-height: 1.6; }
+  ul.notes li { margin-bottom: 0.6mm; }
+
+  .close {
+    margin-top: 3mm; font-size: 10.5pt; line-height: 1.7; text-align: center; font-weight: 500;
+  }
+  .close .big { font-size: 12pt; font-weight: 700; color: var(--navy); letter-spacing: 0.1em; }
+
+  .contact {
+    margin-top: 2.8mm; border: 0.3mm solid var(--line); border-radius: 1.5mm;
+    padding: 2.4mm 5mm; font-size: 10pt; line-height: 2.0; background: #FBFAF5;
+  }
+  .contact b { color: var(--navy); }
+  .blank { display: inline-block; min-width: 52mm; border-bottom: 0.3mm solid #888; }
+
+  .bottomline { position: absolute; bottom: 5.5mm; left: 18mm; right: 18mm; height: 0.25mm; background: var(--gold); }
+</style>
+</head>
+<body>
+  <div class="topline"></div>
+  <div class="date">2026年　　月　　日</div>
+  <div class="to">バス会社　ご担当者様</div>
+  <div class="from">依頼主：砂川 リチャード・葉月<br>(結婚式送迎のため)</div>
+
+  <h1>送迎バス 運行内容のご案内<small>SHUTTLE BUS SCHEDULE</small></h1>
+
+  <p class="greet">　このたびは、私どもの結婚式当日の送迎バスの運行をお引き受けいただき、誠にありがとうございます。当日の運行内容を下記のとおりおまとめいたしましたので、ご確認くださいますようお願い申し上げます。</p>
+
+  <table class="sum">
+    <tr><th>運行日</th><td><b>2026年12月13日(日)</b></td></tr>
+    <tr><th>挙式会場</th><td>ヴォヤージュ ドゥ ルミエール 北谷リゾート<span class="addr">〒904-0115 沖縄県中頭郡北谷町美浜9-22</span></td></tr>
+    <tr><th>披露宴会場</th><td>結婚式場 N.B.C(日本ブライダルセンター)<span class="addr">〒904-0021 沖縄県沖縄市胡屋6-12-1　TEL 098-933-0808</span></td></tr>
+  </table>
+
+  <h2>運行スケジュール</h2>
+  <table class="tt">
+    <tr><th style="width:11mm;">便</th><th style="width:30mm;">出発時刻</th><th>区間・内容</th></tr>
+    <tr class="sep"><td colspan="3">■ 往路(お迎え)</td></tr>
+    <tr>
+      <td class="no">1</td>
+      <td class="time">10:30 発</td>
+      <td><b>那覇空港 → 挙式会場(北谷)</b><br>挙式からご出席のゲストの送迎です</td>
+    </tr>
+    <tr>
+      <td class="no">2</td>
+      <td class="time">15:00 発</td>
+      <td><b>那覇空港 → 披露宴会場(N.B.C)</b><br>披露宴からご出席のゲストの送迎です</td>
+    </tr>
+    <tr class="sep"><td colspan="3">■ 挙式会場 → 披露宴会場 の移動</td></tr>
+    <tr>
+      <td class="no">3</td>
+      <td class="time">15:00 発</td>
+      <td><b>挙式会場(北谷) → 披露宴会場(N.B.C)</b><br>挙式にご出席のゲストの移動です(※第2便と同時刻のため別車両となります)</td>
+    </tr>
+    <tr class="sep"><td colspan="3">■ 復路(お送り)　※いずれも アメリカンビレッジ・国際通り に停車をお願いいたします</td></tr>
+    <tr>
+      <td class="no">4</td>
+      <td class="time">19:30頃 発<small>披露宴終了後</small></td>
+      <td><b>披露宴会場(N.B.C) → アメリカンビレッジ → 国際通り方面</b><br>披露宴までご出席のゲストの送迎です</td>
+    </tr>
+    <tr>
+      <td class="no">5</td>
+      <td class="time">21:00頃 発<small>二次会終了後</small></td>
+      <td><b>披露宴会場(N.B.C) → アメリカンビレッジ → 国際通り方面</b><br>二次会までご出席のゲストの送迎です</td>
+    </tr>
+  </table>
+
+  <h2>備考</h2>
+  <ul class="notes">
+    <li>第4便・第5便は、披露宴・二次会の進行状況により出発時刻が前後する場合がございます。あらかじめご了承ください。</li>
+    <li>各便のご利用人数は、出欠のとりまとめが完了し次第、あらためてご連絡いたします。</li>
+    <li>ご不明な点がございましたら、下記連絡先までお気軽にお問い合わせください。</li>
+  </ul>
+
+  <div class="contact">
+    <b>当日連絡先：</b>氏名 <span class="blank"></span>　電話 <span class="blank"></span>
+  </div>
+
+  <p class="close">当日は長時間の運行となりご負担をおかけいたしますが、<br><span class="big">何卒よろしくお願い申し上げます。</span></p>
+
+  <div class="bottomline"></div>
+</body>
+</html>
