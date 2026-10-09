@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>BINGO PRIZE PANELS</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Titan'; src: url('fonts/TitanOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('fonts/MPLUSRounded1c-Black.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('fonts/MPLUSRounded1c-Bold.ttf'); }
+
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 210mm 297mm; margin: 0; }
+  body { font-family: 'Rounded', sans-serif; }
+  .panel {
+    width: 210mm; height: 297mm; overflow: hidden; position: relative;
+    page-break-after: always; text-align: center;
+  }
+  .corner {
+    position: absolute; top: -16mm; left: -16mm; width: 52mm; height: 52mm;
+    border-radius: 50%; border: 1.6mm solid rgba(0,0,0,.55);
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 0 9mm 7mm 0; box-shadow: 0 2mm 0 rgba(0,0,0,.35);
+  }
+  .cnum { font-family: 'Titan'; font-size: 30pt; line-height: 1; }
+  .cnum small { font-family: 'Rounded'; font-weight: 900; font-size: 13pt; }
+  .corner, .cnum { color: inherit; }
+  .party-tag {
+    margin-top: 10mm; display: inline-block;
+    font-family: 'Alfa'; font-size: 8.5pt; letter-spacing: 0.18em;
+    background: rgba(0,0,0,.78); color: #FFF6E9;
+    padding: 1.6mm 6mm; border-radius: 999px;
+  }
+  .script { font-family: 'Yellowtail'; font-size: 24pt; margin-top: 8mm; }
+  .pname { font-family: 'Rounded'; font-weight: 900; line-height: 1.22; margin-top: 4mm; letter-spacing: 0.03em; padding: 0 10mm; }
+  .artwrap { margin-top: 9mm; }
+  .countrow { margin-top: 8mm; }
+  .count {
+    display: inline-block; font-family: 'Titan'; font-size: 30pt;
+    padding: 2.5mm 11mm 3mm; border-radius: 999px;
+    border: 1.4mm solid rgba(0,0,0,.55); box-shadow: 0 2.2mm 0 rgba(0,0,0,.35);
+  }
+  .count small { font-family: 'Rounded'; font-weight: 900; font-size: 15pt; margin-left: 1.5mm; }
+  .sub { margin-top: 6mm; font-weight: 900; font-size: 13pt; opacity: 0.92; letter-spacing: 0.08em; }
+  .pfoot {
+    position: absolute; bottom: 8mm; left: 0; right: 0;
+    font-family: 'Alfa'; font-size: 9pt; letter-spacing: 0.2em; opacity: 0.75;
+  }
+</style>
+</head>
+<body>
+
+  <div class="panel" style="background: radial-gradient(circle at 50% 20%, #2A3F7E, #141E42 70%);">
+    <div class="corner" style="background: #C8A24B; color: #141E42;">
+      <div class="cnum">1<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #E9C45E;">Dream Ticket</div>
+    <div class="pname" style="color: #F5E7B8; text-shadow: 1.6mm 1.6mm 0 #0B1330; font-size: 34pt;">ディズニー<br>ペアチケット</div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:150mm;display:block;margin:0 auto;">
+    <g fill="#F5D87A">
+      <circle cx="60" cy="40" r="2.6"/><circle cx="330" cy="30" r="2"/><circle cx="370" cy="90" r="2.6"/>
+      <circle cx="40" cy="120" r="2"/><circle cx="300" cy="70" r="1.6"/><circle cx="90" cy="80" r="1.6"/>
+      <path d="M200 8 l4 10 10 1.5 -7.5 7 2 10 -8.5 -5 -8.5 5 2 -10 -7.5 -7 10 -1.5 Z"/>
+      <path d="M330 150 l3 7 7.5 1 -5.5 5 1.5 7.5 -6.5 -4 -6.5 4 1.5 -7.5 -5.5 -5 7.5 -1 Z"/>
+      <path d="M62 180 l3 7 7.5 1 -5.5 5 1.5 7.5 -6.5 -4 -6.5 4 1.5 -7.5 -5.5 -5 7.5 -1 Z"/>
+    </g>
+    <g fill="#E9C45E">
+      <rect x="185" y="60" width="30" height="130" rx="2"/>
+      <path d="M200 28 L212 62 L188 62 Z"/>
+      <rect x="140" y="110" width="22" height="80" rx="2"/>
+      <path d="M151 88 L161 114 L141 114 Z"/>
+      <rect x="238" y="110" width="22" height="80" rx="2"/>
+      <path d="M249 88 L259 114 L239 114 Z"/>
+      <rect x="100" y="150" width="20" height="40" rx="1.5"/>
+      <path d="M110 132 L119 153 L101 153 Z"/>
+      <rect x="280" y="150" width="20" height="40" rx="1.5"/>
+      <path d="M290 132 L299 153 L281 153 Z"/>
+      <rect x="80" y="186" width="240" height="18" rx="2"/>
+      <rect x="60" y="200" width="280" height="14" rx="2"/>
+    </g>
+    <g stroke="#F5D87A" stroke-width="2.2" fill="none" stroke-linecap="round">
+      <path d="M120 44 q6 -18 22 -8"/><circle cx="148" cy="30" r="1.8" fill="#F5D87A" stroke="none"/>
+      <path d="M286 110 q14 -12 24 2"/><circle cx="316" cy="108" r="1.8" fill="#F5D87A" stroke="none"/>
+    </g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #C8A24B; color: #141E42;">&#215; 2<small>組</small></span>
+    </div>
+    <div class="sub" style="color: #F5E7B8;">ペアでご招待!</div>
+    <div class="pfoot" style="color: #F5E7B8;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: repeating-conic-gradient(from 0deg at 50% 38%, #1A0E0C 0deg 11deg, #2B1310 11deg 22deg);">
+    <div class="corner" style="background: #B01E24; color: #FFF;">
+      <div class="cnum">2<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #E8B04B;">Premium Beef</div>
+    <div class="pname" style="color: #F5E7B8; text-shadow: 1.6mm 1.6mm 0 #5A0E12; font-size: 46pt;">みさき牛</div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:138mm;display:block;margin:0 auto;">
+    <ellipse cx="200" cy="245" rx="165" ry="38" fill="#F3EADF"/>
+    <ellipse cx="200" cy="238" rx="165" ry="38" fill="#FFFDF7"/>
+    <g>
+      <path d="M90 210 Q75 140 135 110 Q195 82 265 102 Q325 120 318 175 Q312 222 250 232 Q160 244 90 210 Z" fill="#C23B45"/>
+      <path d="M90 210 Q75 140 135 110 Q195 82 265 102 Q325 120 318 175 Q312 222 250 232 Q160 244 90 210 Z" fill="none" stroke="#8E1F28" stroke-width="3"/>
+      <g stroke="#F6D9D4" stroke-width="3.6" fill="none" stroke-linecap="round" opacity="0.9">
+        <path d="M120 190 Q140 150 185 135"/>
+        <path d="M150 210 Q185 170 240 150"/>
+        <path d="M205 220 Q240 190 285 175"/>
+        <path d="M118 150 Q150 125 190 118"/>
+        <path d="M235 120 Q265 125 290 140"/>
+        <path d="M170 180 Q200 160 235 155" stroke-width="2.4"/>
+        <path d="M130 170 Q160 148 200 140" stroke-width="2.2"/>
+      </g>
+      <path d="M90 210 Q140 232 220 230 Q290 226 318 178 Q322 210 290 225 Q220 248 140 236 Q100 228 90 210 Z" fill="#A72F38" opacity="0.8"/>
+    </g>
+    <g fill="#2E5B3F"><ellipse cx="320" cy="212" rx="26" ry="10" transform="rotate(-18 320 212)"/><ellipse cx="338" cy="200" rx="22" ry="8" transform="rotate(-30 338 200)"/></g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #E8B04B; color: #2B1310;">&#215; 5<small>名分</small></span>
+    </div>
+    <div class="sub" style="color: #F5E7B8;">極上のお肉をご自宅へ</div>
+    <div class="pfoot" style="color: #F5E7B8;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: repeating-conic-gradient(from 0deg at 50% 36%, #B01E24 0deg 10deg, #C62E34 10deg 20deg);">
+    <div class="corner" style="background: #D7263D; color: #FFF;">
+      <div class="cnum">3<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #F5D87A;">Hakata Specialty</div>
+    <div class="pname" style="color: #FFF6E9; text-shadow: 1.6mm 1.6mm 0 #6E0F1A; font-size: 46pt;">博多明太子</div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:142mm;display:block;margin:0 auto;">
+    <ellipse cx="200" cy="240" rx="160" ry="40" fill="#1A2430"/>
+    <ellipse cx="200" cy="232" rx="160" ry="40" fill="#24303E"/>
+    <g fill="#3E7A4C"><path d="M95 200 Q130 170 180 182 Q150 206 112 210 Q98 210 95 200 Z"/><path d="M95 200 Q130 178 170 186" stroke="#2C5A37" stroke-width="2.5" fill="none"/></g>
+    <g>
+      <path d="M120 215 Q105 185 135 172 Q195 150 265 162 Q305 170 300 195 Q296 218 250 224 Q170 232 120 215 Z" fill="#E0566B"/>
+      <path d="M120 215 Q105 185 135 172 Q195 150 265 162 Q305 170 300 195 Q296 218 250 224 Q170 232 120 215 Z" fill="none" stroke="#A62B40" stroke-width="3"/>
+      <path d="M150 165 Q160 180 152 196" stroke="#C84258" stroke-width="2.4" fill="none"/>
+      <g fill="#C84258" opacity="0.75">
+        <circle cx="160" cy="185" r="2.2"/><circle cx="175" cy="178" r="2.2"/><circle cx="192" cy="188" r="2.2"/>
+        <circle cx="210" cy="176" r="2.2"/><circle cx="228" cy="188" r="2.2"/><circle cx="246" cy="180" r="2.2"/>
+        <circle cx="262" cy="192" r="2.2"/><circle cx="200" cy="202" r="2.2"/><circle cx="180" cy="206" r="2.2"/>
+        <circle cx="235" cy="205" r="2.2"/><circle cx="150" cy="200" r="2.2"/><circle cx="270" cy="205" r="2.2"/>
+      </g>
+      <path d="M118 150 Q100 125 128 115 Q180 97 240 106 Q275 112 272 132 Q269 150 230 156 Q160 164 118 150 Z" fill="#E86A7E" transform="translate(14,-4)"/>
+      <path d="M118 150 Q100 125 128 115 Q180 97 240 106 Q275 112 272 132 Q269 150 230 156 Q160 164 118 150 Z" fill="none" stroke="#A62B40" stroke-width="3" transform="translate(14,-4)"/>
+      <g fill="#C84258" opacity="0.7" transform="translate(14,-4)">
+        <circle cx="150" cy="130" r="2.2"/><circle cx="168" cy="122" r="2.2"/><circle cx="188" cy="132" r="2.2"/>
+        <circle cx="206" cy="120" r="2.2"/><circle cx="226" cy="130" r="2.2"/><circle cx="244" cy="124" r="2.2"/>
+        <circle cx="200" cy="145" r="2.2"/><circle cx="170" cy="148" r="2.2"/><circle cx="235" cy="146" r="2.2"/>
+      </g>
+    </g>
+    <g stroke="#FFF" stroke-width="2" fill="none" opacity="0.85" stroke-linecap="round">
+      <path d="M305 120 q10 -14 24 -8"/><path d="M90 110 q-4 -16 10 -22"/>
+    </g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #F5D87A; color: #6E0F1A;">&#215; 2<small>名分</small></span>
+    </div>
+    <div class="sub" style="color: #FFF6E9;">ピリ辛・ご飯のおとも</div>
+    <div class="pfoot" style="color: #FFF6E9;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: linear-gradient(170deg, #1B2A38, #0F1C28 65%);">
+    <div class="corner" style="background: #E8842C; color: #0F1C28;">
+      <div class="cnum">4<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #E8842C;">Shopping Free!</div>
+    <div class="pname" style="color: #FFF6E9; text-shadow: 1.6mm 1.6mm 0 #0A141E; font-size: 34pt;">Amazonギフト券<br><span style="font-size:0.72em">3,000円分</span></div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:138mm;display:block;margin:0 auto;">
+    <g transform="rotate(-5 200 150)">
+      <rect x="70" y="80" width="260" height="150" rx="14" fill="#2C3E50" stroke="#0A141E" stroke-width="4"/>
+      <rect x="70" y="80" width="260" height="150" rx="14" fill="none" stroke="#E8842C" stroke-width="2.5" stroke-dasharray="1 0" transform="translate(0,0)" opacity="0"/>
+      <rect x="86" y="98" width="110" height="16" rx="8" fill="#51impression"/>
+      <rect x="86" y="98" width="110" height="16" rx="8" fill="#51657A"/>
+      <rect x="86" y="122" width="70" height="12" rx="6" fill="#405468"/>
+      <text x="92" y="196" font-family="Titan" font-size="34" fill="#FFF">GIFT CARD</text>
+      <path d="M100 206 Q190 232 296 206" stroke="#E8842C" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M296 206 l-12 -7 M296 206 l-14 4" stroke="#E8842C" stroke-width="7" stroke-linecap="round" fill="none"/>
+    </g>
+    <g>
+      <circle cx="330" cy="76" r="26" fill="#E8842C" stroke="#0A141E" stroke-width="3.5"/>
+      <text x="330" y="86" text-anchor="middle" font-family="Titan" font-size="26" fill="#0F1C28">&#165;</text>
+    </g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #E8842C; color: #0F1C28;">&#215; 10<small>名</small></span>
+    </div>
+    <div class="sub" style="color: #FFF6E9;">好きなものを好きなだけ</div>
+    <div class="pfoot" style="color: #FFF6E9;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: linear-gradient(180deg, #BFE2F2, #8EC7E8 60%, #6FB4DE);">
+    <div class="corner" style="background: #1E6FBA; color: #FFF;">
+      <div class="cnum">5<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #1E4E78;">Let's go on a trip!</div>
+    <div class="pname" style="color: #FFFDF7; text-shadow: 1.6mm 1.6mm 0 #1E4E78; font-size: 34pt;">JTB商品券<br><span style="font-size:0.72em">5,000円分</span></div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:146mm;display:block;margin:0 auto;">
+    <g fill="#FFF" opacity="0.9">
+      <ellipse cx="90" cy="60" rx="38" ry="14"/><ellipse cx="118" cy="52" rx="28" ry="11"/>
+      <ellipse cx="320" cy="100" rx="42" ry="15"/><ellipse cx="292" cy="92" rx="26" ry="10"/>
+    </g>
+    <g transform="rotate(-8 200 140)">
+      <path d="M70 160 Q180 120 320 128 L352 134 Q362 138 352 144 L320 152 Q180 170 80 178 Q62 178 70 160 Z" fill="#FFFDF7" stroke="#1E4E78" stroke-width="4"/>
+      <path d="M300 128 L340 86 L318 84 L272 126 Z" fill="#FFFDF7" stroke="#1E4E78" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M120 170 L100 196 L116 196 L148 168 Z" fill="#FFFDF7" stroke="#1E4E78" stroke-width="4" stroke-linejoin="round"/>
+      <g fill="#D7263D"><rect x="84" y="150" width="54" height="13" rx="6" transform="rotate(-4 111 156)"/></g>
+      <circle cx="210" cy="146" r="5" fill="#9CC3DF"/><circle cx="236" cy="143" r="5" fill="#9CC3DF"/><circle cx="262" cy="140" r="5" fill="#9CC3DF"/>
+    </g>
+    <g stroke="#FFF" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.95">
+      <path d="M70 230 q40 -14 80 0 q40 14 80 0 q40 -14 80 0" />
+    </g>
+    <g transform="translate(60,196) rotate(6)">
+      <rect x="0" y="0" width="64" height="52" rx="7" fill="#C9792E" stroke="#7A4418" stroke-width="3.5"/>
+      <rect x="0" y="16" width="64" height="9" fill="#A35E1F"/>
+      <rect x="24" y="-10" width="16" height="14" rx="4" fill="none" stroke="#7A4418" stroke-width="3.5"/>
+    </g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #1E4E78; color: #FFFDF7;">&#215; 5<small>名分</small></span>
+    </div>
+    <div class="sub" style="color: #FFFDF7;">次の旅の足しに</div>
+    <div class="pfoot" style="color: #FFFDF7;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: linear-gradient(175deg, #0E6B45, #084D31 70%);">
+    <div class="corner" style="background: #0E6B45; color: #FFF;">
+      <div class="cnum">6<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #CFE8DC;">Coffee Break</div>
+    <div class="pname" style="color: #FFFDF7; text-shadow: 1.6mm 1.6mm 0 #06331F; font-size: 34pt;">スターバックス<br>カード <span style="font-size:0.72em">3,000円分</span></div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:120mm;display:block;margin:0 auto;">
+    <g stroke="#CFE8DC" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9">
+      <path d="M160 52 q-10 18 2 32 q10 12 0 26"/>
+      <path d="M200 44 q-10 18 2 32 q10 12 0 26"/>
+      <path d="M240 52 q-10 18 2 32 q10 12 0 26"/>
+    </g>
+    <path d="M118 140 L282 140 L268 262 Q266 278 248 278 L152 278 Q134 278 132 262 Z" fill="#FFFDF7" stroke="#06331F" stroke-width="5"/>
+    <rect x="106" y="126" width="188" height="24" rx="12" fill="#FFFDF7" stroke="#06331F" stroke-width="5"/>
+    <circle cx="200" cy="208" r="34" fill="#0E6B45"/>
+    <circle cx="200" cy="208" r="34" fill="none" stroke="#06331F" stroke-width="4"/>
+    <path d="M200 192 q-7 7 -5 15 q2 7 5 9 q3 -2 5 -9 q2 -8 -5 -15 Z" fill="#CFE8DC"/>
+    <path d="M186 212 q8 8 14 8 q6 0 14 -8" stroke="#CFE8DC" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #CFE8DC; color: #06331F;">&#215; 10<small>名分</small></span>
+    </div>
+    <div class="sub" style="color: #FFFDF7;">いつものコーヒーをもっと特別に</div>
+    <div class="pfoot" style="color: #FFFDF7;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: radial-gradient(circle at 12px 12px, rgba(255,255,255,.6) 3px, transparent 4px) 0 0 / 30px 30px, linear-gradient(170deg, #FFD95E, #FFB627);">
+    <div class="corner" style="background: #F2789F; color: #7A1020;">
+      <div class="cnum">7<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #B8451F;">Mystery Sweets</div>
+    <div class="pname" style="color: #7A1020; text-shadow: 1.6mm 1.6mm 0 #FFF6E9; font-size: 34pt;">箱の中のお菓子<br><span style="font-size:0.7em">どれか1つ!</span></div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:140mm;display:block;margin:0 auto;">
+    <g>
+      <rect x="120" y="140" width="160" height="110" rx="8" fill="#D7263D" stroke="#7A1020" stroke-width="5"/>
+      <rect x="108" y="118" width="184" height="34" rx="8" fill="#E8475C" stroke="#7A1020" stroke-width="5"/>
+      <rect x="188" y="118" width="24" height="132" fill="#F5D87A" stroke="#B88A1E" stroke-width="3"/>
+      <path d="M200 118 q-26 -26 -44 -12 q-14 12 10 18 q20 4 34 -6 Z" fill="#F5D87A" stroke="#B88A1E" stroke-width="3"/>
+      <path d="M200 118 q26 -26 44 -12 q14 12 -10 18 q-20 4 -34 -6 Z" fill="#F5D87A" stroke="#B88A1E" stroke-width="3"/>
+      <text x="200" y="212" text-anchor="middle" font-family="Titan" font-size="44" fill="#FFF6E9">?</text>
+    </g>
+    <g stroke="#7A1020" stroke-width="3">
+      <circle cx="94" cy="96" r="13" fill="#17BEBB"/>
+      <circle cx="318" cy="88" r="13" fill="#7C6BC4"/>
+      <circle cx="330" cy="196" r="11" fill="#D7263D"/>
+      <circle cx="70" cy="190" r="11" fill="#F2789F"/>
+    </g>
+    <g fill="#7A1020">
+      <path d="M94 91 l2.4 6 6 2.4 -6 2.4 -2.4 6 -2.4 -6 -6 -2.4 6 -2.4 Z" fill="#FFF"/>
+    </g>
+    <g stroke="#FFF" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.9">
+      <path d="M140 70 l8 14 M200 58 l0 16 M262 70 l-8 14"/>
+    </g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #D7263D; color: #FFF6E9;">&#215; 20<small>名分</small></span>
+    </div>
+    <div class="sub" style="color: #7A1020;">何が当たるかはお楽しみ</div>
+    <div class="pfoot" style="color: #7A1020;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+
+  <div class="panel" style="background: radial-gradient(circle at 14px 14px, rgba(255,255,255,.7) 3px, transparent 4px) 0 0 / 32px 32px, linear-gradient(175deg, #AEE3F2, #7FCBE8);">
+    <div class="corner" style="background: #2FA8D5; color: #FFF;">
+      <div class="cnum">8<small>等</small></div>
+    </div>
+    <div class="party-tag">RICHARD &amp; HAZUKI's AFTER PARTY &#9733; BINGO</div>
+    <div class="script" style="color: #1E6FBA;">Okinawan Ice Cream</div>
+    <div class="pname" style="color: #FFFDF7; text-shadow: 1.6mm 1.6mm 0 #1E6FBA; font-size: 34pt;">ブルーシールアイス<br><span style="font-size:0.72em">詰め合わせ</span></div>
+    <div class="artwrap"><svg viewBox="0 0 400 300" style="width:118mm;display:block;margin:0 auto;">
+    <g>
+      <path d="M168 170 L200 282 L232 170 Z" fill="#E8B04B" stroke="#8A5A20" stroke-width="4.5"/>
+      <g stroke="#8A5A20" stroke-width="2.2" opacity="0.7">
+        <path d="M176 196 L224 182 M182 218 L218 206 M188 240 L212 230" fill="none"/>
+        <path d="M184 178 L196 252 M216 178 L204 252" fill="none"/>
+      </g>
+      <circle cx="166" cy="140" r="34" fill="#F2789F" stroke="#A33355" stroke-width="4.5"/>
+      <circle cx="234" cy="140" r="34" fill="#9BC8E8" stroke="#3E6E96" stroke-width="4.5"/>
+      <circle cx="200" cy="106" r="36" fill="#B98BD6" stroke="#6E4495" stroke-width="4.5"/>
+      <circle cx="188" cy="96" r="7" fill="#FFF" opacity="0.65"/>
+      <circle cx="156" cy="130" r="5" fill="#FFF" opacity="0.6"/>
+      <circle cx="226" cy="130" r="5" fill="#FFF" opacity="0.6"/>
+      <path d="M196 62 q4 -12 14 -14" stroke="#D7263D" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="213" cy="46" r="7" fill="#D7263D" stroke="#8E1F28" stroke-width="3"/>
+    </g>
+    <g stroke="#FFF" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.9">
+      <path d="M110 90 l-8 14 M290 86 l8 14 M120 220 l-12 8 M284 222 l12 8"/>
+    </g>
+  </svg></div>
+    <div class="countrow">
+      <span class="count" style="background: #1E6FBA; color: #FFFDF7;">&#215; 1<small>名分</small></span>
+    </div>
+    <div class="sub" style="color: #FFFDF7;">沖縄の味をおうちで</div>
+    <div class="pfoot" style="color: #FFFDF7;">2026.12.13 SUN &#9733; N.B.C 4F</div>
+  </div>
+</body>
+</html>
