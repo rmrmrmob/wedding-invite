@@ -49,18 +49,22 @@
   .back-foot { margin-top: 10mm; font-family: 'Alfa'; font-size: 9pt; color: #B49A80; letter-spacing: 0.22em; }
 
   /* ========== PANEL 3 (right): front cover ========== */
-  .p-front { background: #93D9C8; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .fc-frame { position: absolute; inset: 9mm; border: 0.7mm solid #FFFDF7; border-radius: 4mm; }
-  .fc-frame2 { position: absolute; inset: 11.5mm; border: 0.35mm solid var(--cream); border-radius: 3mm; opacity: .75; }
-  .fc-star { font-size: 15pt; color: var(--cherry); letter-spacing: 1.2em; text-indent: 1.2em; }
-  .fc-script { margin-top: 7mm; font-family: 'Yellowtail'; font-size: 27pt; color: var(--cherry); }
+  .p-front { background: var(--cherry); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .fcc { position: absolute; left: 0; right: 0; height: 7mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 7mm 7mm; }
+  .fcc-top { top: 0; }
+  .fcc-bottom { bottom: 0; }
+  .fc-frame { position: absolute; inset: 13mm 9mm; border: 0.7mm solid var(--cream); border-radius: 4mm; }
+  .fc-frame2 { position: absolute; inset: 15.5mm 11.5mm; border: 0.35mm solid var(--cream); border-radius: 3mm; opacity: .75; }
+  .fc-star { font-size: 15pt; color: var(--mustard); letter-spacing: 1.2em; text-indent: 1.2em; }
+  .fc-script { margin-top: 7mm; font-family: 'Yellowtail'; font-size: 27pt; color: var(--mustard); }
   .fc-h1 { font-family: 'Alfa'; font-size: 52pt; color: var(--cream); line-height: 1.12;
     text-shadow: 2.2mm 2.2mm 0 var(--ink); letter-spacing: 0.05em; margin-top: 10mm; text-align: center; }
   .fc-rule { width: 58mm; display: flex; align-items: center; gap: 3mm; margin-top: 13mm; }
   .fc-rule::before, .fc-rule::after { content: ''; flex: 1; height: 0.5mm; background: var(--cream); opacity: .8; }
-  .fc-rule span { color: var(--cherry); font-size: 11pt; }
+  .fc-rule span { color: var(--mustard); font-size: 11pt; }
   .fc-names { margin-top: 12mm; font-family: 'Alfa'; font-size: 16.5pt; color: var(--cream); letter-spacing: 0.06em; }
-  .fc-names .amp { font-family: 'Yellowtail'; color: var(--cherry); font-size: 19pt; padding: 0 2.2mm; }
+  .fc-names .amp { font-family: 'Yellowtail'; color: var(--mustard); font-size: 19pt; padding: 0 2.2mm; }
   .fc-date { margin-top: 6mm; font-weight: 900; font-size: 11.5pt; color: var(--cream); letter-spacing: 0.3em; text-indent: 0.3em; }
 </style>
 </head>
@@ -95,6 +99,8 @@
 
   <!-- PANEL 3: front cover -->
   <div class="panel p-front">
+    <div class="fcc fcc-top"></div>
+    <div class="fcc fcc-bottom"></div>
     <div class="fc-frame"></div>
     <div class="fc-frame2"></div>
     <div class="fc-star">&#9733;&#9733;&#9733;</div>
