@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>BINGO PRIZES</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Luckiest'; src: url('fonts/LuckiestGuy-Regular.ttf'); }
+  @font-face { font-family: 'Titan'; src: url('fonts/TitanOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('fonts/MPLUSRounded1c-Black.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('fonts/MPLUSRounded1c-Bold.ttf'); }
+
+  :root {
+    --blue: #CDE4E6;
+    --ink: #101010;
+    --cherry: #D7263D;
+    --mustard: #FFB627;
+    --teal: #17BEBB;
+    --paper: #FFFDF7;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 297mm 420mm; margin: 0; }
+  html, body { width: 297mm; height: 420mm; }
+  body {
+    background:
+      radial-gradient(circle at 10px 10px, rgba(255,255,255,.55) 2px, transparent 3px) 0 0 / 26px 26px,
+      #CDE4E6;
+    font-family: 'Rounded', sans-serif; color: var(--ink);
+    overflow: hidden; position: relative; padding: 12mm 14mm;
+  }
+
+  .script { font-family: 'Yellowtail'; font-size: 23pt; text-align: center; color: var(--cherry); }
+  .balls { display: flex; justify-content: center; gap: 5mm; margin-top: 4mm; }
+  .ball {
+    width: 26mm; height: 26mm; border-radius: 50%;
+    border: 1.4mm solid var(--ink); box-shadow: 0 2.2mm 0 var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Titan'; font-size: 26pt; color: #FFF;
+    text-shadow: 0.8mm 0.8mm 0 rgba(0,0,0,.3); position: relative;
+  }
+  .ball::after {
+    content: ''; position: absolute; width: 15mm; height: 15mm; border-radius: 50%;
+    background: var(--paper); z-index: -1;
+  }
+  .ball span { position: relative; }
+  .b1 { background: var(--cherry); }
+  .b2 { background: var(--mustard); }
+  .b3 { background: var(--teal); }
+  .b4 { background: #7C6BC4; }
+  .b5 { background: #F2789F; }
+  .ball .inner {
+    position: absolute; inset: 4.5mm; border-radius: 50%; background: var(--paper);
+  }
+  .ball .ch { position: relative; color: var(--ink); text-shadow: none; }
+
+  .sub {
+    text-align: center; margin-top: 5mm;
+  }
+  .sub .tag {
+    display: inline-block; background: var(--ink); color: var(--blue);
+    font-family: 'Alfa'; font-size: 16pt; letter-spacing: 0.24em; text-indent: 0.24em;
+    padding: 2mm 9mm 1.7mm; border-radius: 999px;
+  }
+
+  /* ---- 1st prize hero card ---- */
+  .hero {
+    margin-top: 8mm; background: var(--paper);
+    border: 1.5mm solid var(--ink); border-radius: 5mm; box-shadow: 0 3mm 0 var(--ink);
+    padding: 6mm 8mm 7mm; position: relative; text-align: center;
+  }
+  .rank-badge {
+    position: absolute; top: -7mm; left: 50%; transform: translateX(-50%) rotate(-2deg);
+    background: var(--cherry); color: #FFF; font-family: 'Titan'; font-size: 17pt;
+    border: 1.2mm solid var(--ink); border-radius: 999px; padding: 1.6mm 9mm;
+    box-shadow: 0 1.8mm 0 var(--ink); letter-spacing: 0.1em; white-space: nowrap;
+  }
+  .hero .ph {
+    margin: 6mm auto 0; width: 150mm; height: 86mm; border-radius: 3mm;
+    border: 1mm dashed #9AB8BB; background: #EFF7F7;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Titan'; font-size: 48pt; color: #BCD4D6;
+  }
+  .hero .pname { margin-top: 4.5mm; font-weight: 900; font-size: 19pt; }
+  .hero .pnote { margin-top: 1mm; font-weight: 700; font-size: 10pt; color: #666; }
+
+  /* ---- smaller prizes ---- */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm 8mm; margin-top: 11mm; }
+  .card {
+    background: var(--paper); border: 1.3mm solid var(--ink); border-radius: 4mm;
+    box-shadow: 0 2.4mm 0 var(--ink); padding: 5mm 5mm 5.5mm; position: relative; text-align: center;
+  }
+  .card .rank-badge { font-size: 13pt; padding: 1.3mm 7mm; top: -6mm; }
+  .card.r2 .rank-badge { background: var(--mustard); color: var(--ink); }
+  .card.r3 .rank-badge { background: var(--teal); }
+  .card.r4 .rank-badge { background: #7C6BC4; }
+  .card.r5 .rank-badge { background: #F2789F; }
+  .card .ph {
+    margin: 5mm auto 0; width: 100%; height: 56mm; border-radius: 2.5mm;
+    border: 0.9mm dashed #9AB8BB; background: #EFF7F7;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Titan'; font-size: 34pt; color: #BCD4D6;
+  }
+  .card .pname { margin-top: 3.5mm; font-weight: 900; font-size: 14pt; }
+  .card .pnote { margin-top: 0.8mm; font-weight: 700; font-size: 8.5pt; color: #666; }
+
+  .foot {
+    position: absolute; bottom: 7mm; left: 0; right: 0; text-align: center;
+    font-family: 'Alfa'; font-size: 11pt; letter-spacing: 0.14em; color: var(--ink);
+  }
+  .foot .script2 { font-family: 'Yellowtail'; font-size: 15pt; color: var(--cherry); margin-right: 3mm; letter-spacing: 0; }
+
+  .deco { position: absolute; font-size: 15pt; }
+</style>
+</head>
+<body>
+  <div class="script">Richard &amp; Hazuki's After Party</div>
+
+  <div class="balls">
+    <div class="ball b1"><div class="inner"></div><span class="ch">B</span></div>
+    <div class="ball b2"><div class="inner"></div><span class="ch">I</span></div>
+    <div class="ball b3"><div class="inner"></div><span class="ch">N</span></div>
+    <div class="ball b4"><div class="inner"></div><span class="ch">G</span></div>
+    <div class="ball b5"><div class="inner"></div><span class="ch">O</span></div>
+  </div>
+
+  <div class="sub"><span class="tag">PRIZES ─ 景品紹介 ─</span></div>
+
+  <div class="hero">
+    <div class="rank-badge">&#9733; 1等 &#9733;</div>
+    <div class="ph">?</div>
+    <div class="pname">お楽しみに!</div>
+    <div class="pnote">(景品名をここに入れます)</div>
+  </div>
+
+  <div class="grid">
+    <div class="card r2">
+      <div class="rank-badge">2等</div>
+      <div class="ph">?</div>
+      <div class="pname">お楽しみに!</div>
+      <div class="pnote">(景品名)</div>
+    </div>
+    <div class="card r3">
+      <div class="rank-badge">3等</div>
+      <div class="ph">?</div>
+      <div class="pname">お楽しみに!</div>
+      <div class="pnote">(景品名)</div>
+    </div>
+    <div class="card r4">
+      <div class="rank-badge">4等</div>
+      <div class="ph">?</div>
+      <div class="pname">お楽しみに!</div>
+      <div class="pnote">(景品名)</div>
+    </div>
+    <div class="card r5">
+      <div class="rank-badge">5等</div>
+      <div class="ph">?</div>
+      <div class="pname">お楽しみに!</div>
+      <div class="pnote">(景品名)</div>
+    </div>
+  </div>
+
+  <div class="foot"><span class="script2">Good luck!</span>2026.12.13 &#9733; N.B.C 4F</div>
+</body>
+</html>
