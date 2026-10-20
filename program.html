@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>Reception Program</title>
+<style>
+  @font-face { font-family: 'Lobster'; src: url('fonts/Lobster-Regular.ttf'); }
+  @font-face { font-family: 'Alfa'; src: url('fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900; src: url('fonts/MPLUSRounded1c-Black.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700; src: url('fonts/MPLUSRounded1c-Bold.ttf'); }
+  :root { --cherry:#D7263D; --cherry-deep:#A31621; --cream:#FFF6E9; --mustard:#FFB627; --teal:#17BEBB;
+          --teal-dusty:#7CC7C0; --ink:#2B1B12; --paper:#FFFDF7; }
+  @page { size: 148mm 210mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 148mm; height: 210mm; }
+  body { font-family: 'Rounded', 'IPAPGothic', sans-serif; color: var(--ink);;
+    background: radial-gradient(circle, rgba(255,255,255,.28) 0.7mm, transparent 0.8mm) 0 0 / 4.2mm 4.2mm, var(--teal-dusty);
+    position: relative; overflow: hidden; }
+  .check { position: absolute; left: 0; right: 0; height: 5mm;
+    background: repeating-conic-gradient(#111 0 25%, #fff 0 50%) 0 0 / 5mm 5mm; }
+  .check.top { top: 0; } .check.bot { bottom: 0; }
+  .card { position: absolute; inset: 9mm 8mm 9mm; background: var(--paper); border-radius: 4mm;
+    box-shadow: 0 1.4mm 0 rgba(0,0,0,.18); padding: 6mm 7mm 5mm; }
+  .head { text-align: center; }
+  .eyebrow { font-family: 'Alfa'; font-size: 7.4pt; letter-spacing: .26em; color: var(--teal); }
+  .title { font-family: 'Lobster'; font-size: 34pt; color: var(--cherry); line-height: 1.05; margin-top: .6mm;
+    text-shadow: 0.6mm 0.6mm 0 var(--mustard); }
+  .chip { display: inline-block; margin-top: 1.6mm; background: var(--cherry-deep); color: #fff;
+    font-weight: 900; font-size: 8pt; letter-spacing: .3em; padding: .9mm 3.4mm .8mm 4.2mm; border-radius: .8mm; }
+  .meta { font-family: 'Alfa'; font-size: 7pt; letter-spacing: .14em; margin-top: 1.8mm; color: var(--ink); }
+  .open { display: flex; align-items: center; gap: 2mm; margin: 3.4mm 0 1.6mm; font-family: 'Alfa'; font-size: 7.5pt; letter-spacing: .12em; color: var(--cherry-deep); }
+  .open::before, .open::after { content: ''; flex: 1; border-top: 0.4mm dashed #D9C3A5; }
+  ol { list-style: none; padding: 0; }
+  li { display: flex; align-items: center; gap: 2.6mm; height: 7.8mm; border-bottom: 0.3mm dotted #E3D2B8; }
+  li .n { flex: none; width: 5.6mm; height: 5.6mm; border-radius: 50%; background: var(--cherry); color: #fff;
+    font-family: 'Alfa'; font-size: 7pt; display: flex; align-items: center; justify-content: center; }
+  li .t { font-weight: 900; font-size: 10pt; letter-spacing: .06em; }
+  li.ent .n { background: var(--teal); }
+  li.change { height: 8.6mm; border-bottom: none; justify-content: center; }
+  li.change .ribbon { background: var(--mustard); color: var(--ink); font-weight: 900; font-size: 9.4pt; letter-spacing: .18em;
+    padding: 1mm 5mm .9mm; border-radius: 99mm; box-shadow: 0 0.6mm 0 rgba(0,0,0,.15); }
+  li.change .ribbon small { font-family: 'Yellowtail'; font-size: 9.5pt; letter-spacing: .02em; margin-left: 1.5mm; color: var(--cherry-deep); }
+  .sign { position: absolute; left: 0; right: 0; bottom: 4.2mm; text-align: center; font-family: 'Yellowtail'; font-size: 13pt; color: var(--cherry-deep); }
+</style></head>
+<body>
+  <div class="check top"></div><div class="check bot"></div>
+  <div class="card">
+    <div class="head">
+      <div class="eyebrow">★ WEDDING RECEPTION ★</div>
+      <div class="title">Program</div>
+      <div class="chip">披露宴 進行</div>
+      <div class="meta">2026.12.13 SUN ・ N.B.C</div>
+    </div>
+    <div class="open">OPEN 16:30</div>
+    <ol>
+      <li class="ent"><span class="n">1</span><span class="t">新郎新婦入場</span></li>
+      <li><span class="n">2</span><span class="t">乾杯のご挨拶</span></li>
+      <li><span class="n">3</span><span class="t">来賓祝辞</span></li>
+      <li class="change"><span class="ribbon">お色直し<small>Dress Change</small></span></li>
+      <li><span class="n">4</span><span class="t">余興</span></li>
+      <li class="ent"><span class="n">5</span><span class="t">新郎新婦 再入場</span></li>
+      <li><span class="n">6</span><span class="t">新郎職場代表祝辞</span></li>
+      <li><span class="n">7</span><span class="t">新婦職場代表祝辞</span></li>
+      <li><span class="n">8</span><span class="t">新郎友人代表祝辞</span></li>
+      <li><span class="n">9</span><span class="t">新婦友人代表祝辞</span></li>
+      <li class="change"><span class="ribbon">お色直し<small>Dress Change</small></span></li>
+      <li><span class="n">10</span><span class="t">余興</span></li>
+      <li class="ent"><span class="n">11</span><span class="t">新郎新婦 再入場</span></li>
+      <li><span class="n">12</span><span class="t">カチャーシー</span></li>
+      <li><span class="n">13</span><span class="t">両親へのお手紙</span></li>
+      <li><span class="n">14</span><span class="t">祝辞</span></li>
+    </ol>
+    <div class="open" style="margin-top:2.4mm">CLOSE 19:30</div>
+    <div class="sign">Richard &amp; Hazuki</div>
+  </div>
+</body></html>
