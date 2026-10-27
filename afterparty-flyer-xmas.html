@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>After Party Flyer (Christmas)</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('file:///home/user/wedding-invite/fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Luckiest'; src: url('file:///home/user/wedding-invite/fonts/LuckiestGuy-Regular.ttf'); }
+  @font-face { font-family: 'Titan'; src: url('file:///home/user/wedding-invite/fonts/TitanOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('file:///home/user/wedding-invite/fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Black.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Bold.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 500;
+    src: url('file:///tmp/claude-0/-home-user-jp-stock-ai-trader/e76b6960-ed5f-5d99-b358-ca6527f5c049/scratchpad/gfonts/ofl/mplusrounded1c/MPLUSRounded1c-Medium.ttf'); }
+
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 148mm 210mm; margin: 0; }
+  html, body { width: 148mm; height: 210mm; }
+  body {
+    background:
+      radial-gradient(circle, rgba(255,255,255,.55) 0.35mm, transparent 0.45mm) 0 0 / 9mm 9mm,
+      radial-gradient(circle, rgba(255,255,255,.35) 0.25mm, transparent 0.35mm) 4.5mm 4.5mm / 9mm 9mm,
+      radial-gradient(ellipse at 50% 30%, #1B6B48 0%, #0F4A33 60%, #0A3324 100%);
+    color: #FFF7E6;
+    font-family: 'Rounded', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .frame {
+    position: absolute; inset: 4mm;
+    border: 2.2mm solid transparent;
+    border-image: repeating-linear-gradient(45deg, #C8102E 0 2.4mm, #FFFFFF 2.4mm 4.8mm) 22;
+  }
+  .frame::before {
+    content: ''; position: absolute; inset: 1.2mm;
+    border: 0.45mm solid #F2CF73; border-radius: 1.4mm;
+  }
+  .inner { position: absolute; inset: 7mm 8mm; }
+
+  /* ---------- top banner ---------- */
+  .script-top {
+    font-family: 'Yellowtail'; font-size: 48pt; text-align: center;
+    margin-top: 0; line-height: 1.05; letter-spacing: 0.02em;
+    color: #FFF7E6; -webkit-text-stroke: 0.35mm #FFF7E6;
+    text-shadow: 0.9mm 0.9mm 0 #C8102E;
+  }
+  .chips { text-align: center; margin-top: 3.5mm; }
+  .chips span {
+    display: inline-block; background: #C8102E; color: #FFFFFF; border: 0.4mm solid #F2CF73;
+    font-family: 'Alfa'; font-size: 15.5pt; padding: 1.6mm 2.6mm 1.2mm;
+    border-radius: 1.6mm; margin: 0 0.7mm; letter-spacing: 0.04em;
+  }
+  .only {
+    text-align: center; font-family: 'Alfa'; font-size: 13pt;
+    margin-top: 3.2mm; letter-spacing: 0.06em;
+  }
+
+  /* ---------- middle: cat + info ---------- */
+  .mid { display: flex; margin-top: 2mm; align-items: flex-start; }
+  .cat { flex: none; width: 41mm; margin-left: -1.5mm; }
+  .info { flex: 1; text-align: center; padding-top: 1mm; }
+
+  .bingo {
+    font-family: 'Titan'; font-size: 42pt; letter-spacing: 0.03em;
+    color: #F2CF73; text-shadow: 0.9mm 0.9mm 0 #C8102E;
+    margin-top: 1mm;
+  }
+  .bingo-sub {
+    font-weight: 700; font-size: 10.5pt; margin-top: 1mm; letter-spacing: 0.08em;
+  }
+  .move {
+    margin-top: 3.4mm; font-weight: 900; font-size: 12pt; line-height: 1.5;
+  }
+  .move .big { font-family: 'Luckiest'; font-size: 20pt; letter-spacing: 0.04em; display: block; margin-top: 1mm; }
+  .times {
+    margin-top: 2.6mm; display: inline-block; font-weight: 900; font-size: 10.5pt;
+    border-top: 0.5mm solid #F2CF73; border-bottom: 0.5mm solid #F2CF73;
+    padding: 1.2mm 2mm; letter-spacing: 0.04em;
+  }
+  .fee {
+    margin-top: 3.4mm; font-family: 'Alfa'; font-size: 19pt;
+  }
+  .fee small { font-family: 'Rounded'; font-weight: 700; font-size: 9.5pt; display: block; margin-top: 1mm; }
+  .fee small.change { font-weight: 500; font-size: 8.8pt; margin-top: 0.6mm; }
+  .fee small.food { font-weight: 500; font-size: 8.8pt; margin-top: 0.8mm; }
+
+  /* ---------- black notice box ---------- */
+  .notice {
+    margin-top: 3mm; background: #C8102E; color: #FFFFFF; box-shadow: 0 0 0 0.6mm #F2CF73 inset;
+    border-radius: 4mm; padding: 4mm 5mm 4.2mm; text-align: center;
+  }
+  .notice .l1 { font-weight: 700; font-size: 10.5pt; letter-spacing: 0.04em; }
+  .notice .l2 { font-weight: 900; font-size: 15.5pt; margin-top: 1.2mm; letter-spacing: 0.06em; }
+  .notice .l3 { font-weight: 500; font-size: 8.6pt; margin-top: 1.4mm; opacity: 0.92; }
+
+  /* ---------- bottom ---------- */
+  .talk {
+    margin-top: 2.8mm; text-align: center; font-weight: 700; font-size: 10.5pt; line-height: 1.6;
+  }
+  .sign {
+    text-align: center; font-family: 'Alfa'; font-size: 13.5pt; margin-top: 1.8mm; letter-spacing: 0.03em;
+  }
+  .sign .script { font-family: 'Yellowtail'; font-size: 19pt; margin-right: 2mm; color: #F2CF73; }
+  .flake { position: absolute; color: #FFFFFF; opacity: .8; font-family: 'Rounded'; }
+  .xmas { position: absolute; top: 9.5mm; right: 11mm; font-family: 'Yellowtail'; font-size: 13pt; color: #F2CF73; transform: rotate(8deg); }
+  .xmas2 { position: absolute; top: 9.5mm; left: 11mm; font-family: 'Yellowtail'; font-size: 13pt; color: #F2CF73; transform: rotate(-8deg); }
+</style>
+</head>
+<body>
+<div class="frame"></div>
+<div class="xmas2">Merry</div><div class="xmas">Christmas</div>
+<div class="flake" style="top:30mm;left:9mm;font-size:9pt">&#10052;</div>
+<div class="flake" style="top:24mm;right:10mm;font-size:12pt">&#10052;</div>
+<div class="flake" style="top:62mm;right:8mm;font-size:8pt">&#10052;</div>
+<div class="flake" style="top:118mm;left:8mm;font-size:10pt">&#10052;</div>
+<div class="flake" style="bottom:12mm;right:10mm;font-size:11pt">&#10052;</div>
+<div class="flake" style="bottom:20mm;left:12mm;font-size:8pt">&#10052;</div>
+<div class="inner">
+  <div class="script-top">After Party !</div>
+  <div class="chips"><span>12.13</span><span>SUN</span><span>NIGHT</span></div>
+  <div class="only">&#10033; RICHARD &amp; HAZUKI &#10033;</div>
+
+  <div class="mid">
+    <!-- Kit-Cat style clock (original SVG homage) -->
+    <svg class="cat" viewBox="0 -34 200 454" xmlns="http://www.w3.org/2000/svg">
+      <!-- tail -->
+      <g>
+        <path d="M100 330 C 96 360 104 374 100 398 C 97 412 88 416 84 412" fill="none" stroke="#101010" stroke-width="22" stroke-linecap="round"/>
+        <g stroke="#FFFFFF" stroke-width="4" opacity="0.9">
+          <line x1="88" y1="352" x2="110" y2="348"/>
+          <line x1="90" y1="368" x2="112" y2="366"/>
+          <line x1="88" y1="384" x2="110" y2="384"/>
+          <line x1="84" y1="398" x2="104" y2="400"/>
+        </g>
+      </g>
+      <!-- ears -->
+      <path d="M52 48 L70 8 L92 40 Z" fill="#101010"/>
+      <path d="M148 48 L130 8 L108 40 Z" fill="#101010"/>
+      <!-- head -->
+      <ellipse cx="100" cy="78" rx="62" ry="54" fill="#101010"/>
+      <!-- eyes -->
+      <ellipse cx="74" cy="72" rx="20" ry="26" fill="#FFFFFF"/>
+      <ellipse cx="126" cy="72" rx="20" ry="26" fill="#FFFFFF"/>
+      <ellipse cx="80" cy="76" rx="8" ry="13" fill="#101010"/>
+      <ellipse cx="132" cy="76" rx="8" ry="13" fill="#101010"/>
+      <!-- nose + mouth -->
+      <ellipse cx="100" cy="98" rx="6" ry="4.5" fill="#FFFFFF"/>
+      <path d="M78 108 Q 100 124 122 108" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+      <!-- whiskers -->
+      <g stroke="#FFFFFF" stroke-width="3" stroke-linecap="round">
+        <line x1="40" y1="96" x2="14" y2="90"/>
+        <line x1="42" y1="106" x2="16" y2="108"/>
+        <line x1="160" y1="96" x2="186" y2="90"/>
+        <line x1="158" y1="106" x2="184" y2="108"/>
+      </g>
+      <!-- body -->
+      <rect x="54" y="142" width="92" height="192" rx="44" fill="#101010"/>
+      <!-- bow tie -->
+      <path d="M100 138 L64 122 L64 152 Z" fill="#C8102E"/>
+      <path d="M100 138 L136 122 L136 152 Z" fill="#C8102E"/>
+      <circle cx="100" cy="138" r="7" fill="#F2CF73" stroke="#FFFFFF" stroke-width="2"/>
+      <!-- paws dots -->
+      <g fill="#FFFFFF">
+        <circle cx="66" cy="160" r="4"/><circle cx="76" cy="152" r="4"/>
+        <circle cx="134" cy="160" r="4"/><circle cx="124" cy="152" r="4"/>
+        <circle cx="66" cy="316" r="4"/><circle cx="78" cy="322" r="4"/>
+        <circle cx="134" cy="316" r="4"/><circle cx="122" cy="322" r="4"/>
+      </g>
+      <!-- clock belly -->
+      <ellipse cx="100" cy="238" rx="38" ry="52" fill="#FFFFFF"/>
+      <g fill="#101010" font-family="Rounded" font-weight="900" font-size="12" text-anchor="middle">
+        <text x="100" y="203">12</text>
+        <text x="119" y="211">1</text>
+        <text x="130" y="228">2</text>
+        <text x="133" y="244">3</text>
+        <text x="130" y="261">4</text>
+        <text x="119" y="277">5</text>
+        <text x="100" y="284">6</text>
+        <text x="81" y="277">7</text>
+        <text x="70" y="261">8</text>
+        <text x="67" y="244">9</text>
+        <text x="70" y="228">10</text>
+        <text x="81" y="211">11</text>
+      </g>
+      <!-- hands: 8:00 -->
+      <line x1="100" y1="240" x2="100" y2="206" stroke="#101010" stroke-width="5" stroke-linecap="round"/>
+      <line x1="100" y1="240" x2="74" y2="252" stroke="#101010" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="100" cy="240" r="5" fill="#101010"/>
+      <!-- santa hat -->
+      <path d="M44 46 C 70 6, 118 -30, 170 -14 C 150 -2, 150 22, 156 44 Z" fill="#C8102E"/>
+      <rect x="36" y="34" width="128" height="20" rx="10" fill="#FFFFFF"/>
+      <circle cx="172" cy="-14" r="13" fill="#FFFFFF"/>
+      <!-- holly -->
+      <g transform="translate(150 196)"><path d="M0 0 C 10 -12 24 -10 30 0 C 22 2 18 8 16 14 C 10 6 4 4 0 0 Z" fill="#2E8B57"/><path d="M0 0 C -10 -12 -24 -10 -30 0 C -22 2 -18 8 -16 14 C -10 6 -4 4 0 0 Z" fill="#2E8B57"/><circle cx="-4" cy="2" r="5" fill="#C8102E"/><circle cx="5" cy="3" r="5" fill="#C8102E"/></g>
+    </svg>
+
+    <div class="info">
+      <div class="bingo">BINGO</div>
+      <div class="bingo-sub">ビンゴ大会 やります&#127919;</div>
+      <div class="move">披露宴が終わり次第<span class="big">&#9654; MOVE TO 4F &#9664;</span>N.B.C 4階へ！同じ建物を降りるだけ&#128694;</div>
+      <div class="times">20:00頃スタート &#8594; 21:30頃おひらき予定</div>
+      <div class="fee">&yen;3,000<small>会費は受付でお渡しください</small><small class="change">お釣りのないようご準備いただけると助かります</small><small class="food">ドリンク&amp;フードをご用意してお待ちしています&#127867;</small></div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <div class="l1">急遽 参加できる！という方も　参加できなくなった方も</div>
+    <div class="l2">スタッフにお申し付けください</div>
+    <div class="l3">当日の変更もお気軽にどうぞ</div>
+  </div>
+
+  <div class="talk">披露宴でゆっくりお話しできなかった方も<br>二次会でたくさん話しましょう！</div>
+  <div class="sign"><span class="script">Richard &amp; Hazuki</span>AFTER PARTY</div>
+</div>
+</body>
+</html>
