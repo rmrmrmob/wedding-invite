@@ -157,6 +157,13 @@ URLを配り、サインインなしで誰でも開ける。作業を続ける�
   (1p=チャート, 2p=カバー)。パネル幅は等分198mm(印刷所から巻き込み側-2mm指定が来たら調整)
 - 残り41卓はオーナーから「○番 左:… 右:…」形式で届き次第 `guests` dict に追記していく
 
+## ヘアメイク指示書
+
+- `hairmake-kyoshiki.html` / `hairmake-hiroen1〜3.html` / `hairmake-nijikai.html`(A4・各1ページ)と空欄テンプレ `hairmake-sheet.html`
+- 参考写真は `hairmake-img/`(ページ名-元番号.jpg)、フォントは `fonts/` を相対パスで参照(以前はスクラッチパッドを参照していて
+  コンテナ再作成で写真が消えた。2026-11-12 にオーナー手元のPDFから写真を取り出して復元)
+- PDF化: Playwright で各HTMLを A4(210×297mm, printBackground)で出力して5ページに結合
+
 ## 環境の注意
 
 - Claude Codeセッションからは egressポリシーで `rmrmrmob.github.io` や `docs.google.com` に
