@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Seating Chart</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('fonts/MPLUSRounded1c-Bold.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('fonts/MPLUSRounded1c-Black.ttf'); }
+
+  :root {
+    --cherry: #D7263D;
+    --cherry-deep: #A31621;
+    --cream: #FFF6E9;
+    --mustard: #FFB627;
+    --teal: #17BEBB;
+    --ink: #2B1B12;
+    --paper: #FFFDF7;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 594mm 420mm; margin: 0; }
+  html, body { width: 594mm; height: 420mm; }
+  body { background: var(--cream); font-family: 'Rounded', sans-serif; color: var(--ink); overflow: hidden; position: relative; }
+
+  .checker-top, .checker-bottom {
+    position: absolute; left: 0; right: 0; height: 6mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 6mm 6mm;
+  }
+  .checker-top { top: 0; }
+  .checker-bottom { bottom: 0; }
+
+  .head { text-align: center; padding-top: 9mm; }
+  .head .script { font-family: 'Yellowtail'; font-size: 17pt; color: var(--cherry); line-height: 1.25; }
+  .head h1 {
+    font-family: 'Alfa'; font-size: 29pt; color: var(--cherry);
+    text-shadow: 1.7mm 1.7mm 0 var(--mustard); letter-spacing: 0.04em; margin-top: 2.2mm;
+  }
+  .head .sub {
+    display: inline-block; margin-top: 2.4mm; font-weight: 900; font-size: 10.5pt;
+    background: var(--ink); color: var(--cream); border-radius: 999px; padding: 1.3mm 7mm; letter-spacing: 0.16em;
+  }
+
+  .hina-zone { display: flex; align-items: center; justify-content: center; gap: 6mm; margin-top: 4.5mm; }
+  .hina {
+    width: 120mm; height: 15mm; background: var(--cherry);
+    border: 1.1mm solid var(--ink); border-radius: 999px;
+    display: flex; align-items: center; justify-content: center; gap: 4mm;
+    box-shadow: 0 1.8mm 0 var(--ink); color: #FFF;
+  }
+  .hina .names { font-family: 'Alfa'; font-size: 13.5pt; letter-spacing: 0.05em; }
+  .hina .star { color: var(--mustard); font-size: 12pt; }
+  .side-item { text-align: center; font-weight: 900; font-size: 8pt; color: #8A6F5A; }
+  .side-item .circ2 {
+    width: 13mm; height: 13mm; border-radius: 50%; background: var(--paper);
+    border: 0.9mm solid var(--ink); margin: 0 auto 0.8mm;
+    display: flex; align-items: center; justify-content: center; font-size: 11pt;
+  }
+
+  .sides { display: flex; justify-content: space-between; padding: 0 14mm; margin-top: 2.5mm; }
+  .side-tag {
+    font-weight: 900; font-size: 11pt; letter-spacing: 0.1em;
+    padding: 1.3mm 6mm; border-radius: 999px; border: 0.7mm solid var(--ink);
+    background: var(--paper); box-shadow: 0 1.3mm 0 var(--ink);
+  }
+  .side-tag.groom { color: #0E8683; }
+  .side-tag.bride { color: var(--cherry-deep); }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); row-gap: 5mm;
+    padding: 0 12mm; margin-top: 3mm;
+  }
+  .cell { display: flex; align-items: center; justify-content: center; height: 41mm; }
+  .nz { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 1.1mm; }
+  .nzL { align-items: flex-end; padding-right: 2.6mm; }
+  .nzR { align-items: flex-start; padding-left: 2.6mm; }
+  .gblock { display: flex; flex-direction: column; }
+  .nzL .gblock { align-items: flex-end; }
+  .nzR .gblock { align-items: flex-start; }
+  .gtitle { font-weight: 700; font-size: 5.4pt; color: #8A6F5A; letter-spacing: 0.1em; line-height: 1.1; }
+  .gname { font-weight: 700; font-size: 8.6pt; letter-spacing: 0.06em; white-space: nowrap; line-height: 1.25; }
+  .baby { font-size: 7.5pt; margin-left: 0.8mm; }
+  .tbl { position: relative; width: 30mm; flex: none; text-align: center; }
+  .circ {
+    width: 30mm; height: 30mm; border-radius: 50%; overflow: hidden;
+    border: 1.1mm solid var(--ink); background: var(--paper);
+    box-shadow: 0 1.6mm 0 rgba(43,27,18,.75);
+  }
+  .circ img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; display: block; }
+  .numbadge {
+    position: absolute; top: -2.5mm; left: -3mm;
+    width: 9mm; height: 9mm; border-radius: 50%;
+    background: var(--cherry); color: #FFF; border: 0.7mm solid var(--ink);
+    font-family: 'Alfa'; font-size: 10pt; line-height: 7.6mm;
+    box-shadow: 0 1mm 0 var(--ink);
+  }
+  .mlabel {
+    display: inline-block; margin-top: 1.4mm; font-family: 'Alfa'; font-size: 5.4pt;
+    background: var(--ink); color: var(--cream); border-radius: 999px;
+    padding: 0.7mm 2.6mm; letter-spacing: 0.08em; white-space: nowrap;
+  }
+
+  .door {
+    position: absolute; right: 3mm; width: 9mm; text-align: center;
+    font-weight: 900; font-size: 6.5pt; color: #8A6F5A; line-height: 1.3;
+  }
+  .door .bar { width: 1.6mm; height: 15mm; background: var(--teal); border-radius: 1mm; margin: 0 auto 1mm; }
+
+  .stage {
+    position: absolute; left: 14mm; right: 14mm; bottom: 10mm; height: 13mm;
+    background: var(--ink); border-radius: 2.5mm;
+    display: flex; align-items: center; justify-content: center; gap: 5mm;
+    color: var(--cream);
+  }
+  .stage .en { font-family: 'Alfa'; font-size: 11.5pt; letter-spacing: 0.3em; color: var(--mustard); }
+  .stage .jp { font-weight: 900; font-size: 10pt; letter-spacing: 0.4em; }
+  .mc {
+    position: absolute; left: 14mm; top: 44mm;
+    font-family: 'Alfa'; font-size: 8pt; color: #FFF; background: var(--teal);
+    border: 0.7mm solid var(--ink); border-radius: 2mm; padding: 1mm 3.4mm;
+    box-shadow: 0 1.2mm 0 var(--ink); transform: rotate(-4deg);
+  }
+</style>
+</head>
+<body>
+  <div class="checker-top"></div>
+
+  <div class="head">
+    <div class="script">Welcome to our Diner!</div>
+    <h1>SEATING CHART</h1>
+    <span class="sub">RICHARD &amp; HAZUKI &#9825; 2026.12.13 SUN</span>
+  </div>
+
+  <div class="mc">MC</div>
+
+  <div class="hina-zone">
+    <div class="side-item"><div class="circ2">&#128367;&#65039;</div>メインキャンドル</div>
+    <div class="hina">
+      <span class="star">&#9733;</span>
+      <span class="names">RICHARD &amp; HAZUKI</span>
+      <span class="star">&#9733;</span>
+    </div>
+    <div class="side-item"><div class="circ2">&#127874;</div>ウェディングケーキ</div>
+  </div>
+
+  <div class="sides">
+    <span class="side-tag groom">&#8592; 新郎側 GROOM</span>
+    <span class="side-tag bride">新婦側 BRIDE &#8594;</span>
+  </div>
+
+  <div class="grid">
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">佐藤 直樹 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">山川 穂高 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">秋広 優人 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">野村勇 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_01.png"></div>
+        <div class="numbadge">1</div>
+        <div class="mlabel">HAMBURGER</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">木村 雅奈 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">山野辺 翔 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">溝口文子 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">宮田 正教 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">尾中 智哉 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係ご家族</div><div class="gname">尾中礼苗 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係お子様</div><div class="gname">尾中奏太 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">浦田 俊輔 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_02.png"></div>
+        <div class="numbadge">2</div>
+        <div class="mlabel">HOT DOG</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">宮下拓明 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">濱中 泰大 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">河野 祐助 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">徳田泰寛 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">若林楽人 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">小濱 佑斗 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">浅野翔吾 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">佐々木俊輔 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_03.png"></div>
+        <div class="numbadge">3</div>
+        <div class="mlabel">PIZZA</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">知念大成 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">山瀬慎之助 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">門脇 誠 様</div></div><div class="gblock"><div class="gtitle">新郎ジャイアンツ関係</div><div class="gname">中山 礼都 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦上司</div><div class="gname">岡﨑 彩子 様</div></div><div class="gblock"><div class="gtitle">新婦上司</div><div class="gname">尾藤 洋介 様</div></div><div class="gblock"><div class="gtitle">新婦上司</div><div class="gname">中山 栄嗣 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_04.png"></div>
+        <div class="numbadge">4</div>
+        <div class="mlabel">FRENCH FRIES</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦恩師</div><div class="gname">廣松 信児 様</div></div><div class="gblock"><div class="gtitle">新婦恩師</div><div class="gname">廣松 千佐 様</div></div><div class="gblock"><div class="gtitle">&nbsp;</div><div class="gname">田原 智浩 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦仕事関係者</div><div class="gname">渡邉 伸太 様</div></div><div class="gblock"><div class="gtitle">新婦仕事関係者</div><div class="gname">濱 洋一 様</div></div><div class="gblock"><div class="gtitle">新婦仕事関係者</div><div class="gname">武 耕太郎 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_05.png"></div>
+        <div class="numbadge">5</div>
+        <div class="mlabel">COLA</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦相方</div><div class="gname">佐藤 和樹 様</div></div><div class="gblock"><div class="gtitle">新婦仕事関係者</div><div class="gname">阿部 景之 様</div></div><div class="gblock"><div class="gtitle">新婦仕事関係者</div><div class="gname">原田 嵐 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦先輩</div><div class="gname">松岡 菜摘 様</div></div><div class="gblock"><div class="gtitle">新婦先輩</div><div class="gname">吉留 理子 様</div></div><div class="gblock"><div class="gtitle">新婦先輩</div><div class="gname">後藤 泉 様</div></div><div class="gblock"><div class="gtitle">新婦先輩</div><div class="gname">深川 舞子 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_06.png"></div>
+        <div class="numbadge">6</div>
+        <div class="mlabel">HASH BROWNS</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦先輩</div><div class="gname">本村 碧唯 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48衣装部</div><div class="gname">森田 真理子 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48衣装部</div><div class="gname">藤田 典子 様</div></div><div class="gblock"><div class="gtitle">新婦ヘアメイク</div><div class="gname">鳥飼 智佳 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">仲与志亮輔 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">安里 大心 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">石川 亮介 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">岡留 英貴 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_07.png"></div>
+        <div class="numbadge">7</div>
+        <div class="mlabel">MILKSHAKE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">木村 哲汰 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">中村 琢夢 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">宮里 温 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">上原大輝 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎高校恩師</div><div class="gname">喜久山 翼 様</div></div><div class="gblock"><div class="gtitle">新郎高校恩師ご家族</div><div class="gname">喜久山里夏 様</div></div><div class="gblock"><div class="gtitle">新郎高校恩師お子様</div><div class="gname">喜久山翔乙 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎高校恩師お子様</div><div class="gname">喜久山愛樹 様<span class="baby">&#128118;</span></div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_08.png"></div>
+        <div class="numbadge">8</div>
+        <div class="mlabel">CANDY</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎高校恩師お子様</div><div class="gname">喜久山翔士 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎高校恩師</div><div class="gname">西村 晴成 様</div></div><div class="gblock"><div class="gtitle">新郎高校恩師ご家族</div><div class="gname">西村愛 様</div></div><div class="gblock"><div class="gtitle">新郎高校恩師お子様</div><div class="gname">里希 様<span class="baby">&#128118;</span></div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">野村大樹 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係お子様</div><div class="gname">野村家のお子様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">東浜巨 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">渡邉陸 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_09.png"></div>
+        <div class="numbadge">9</div>
+        <div class="mlabel">SHORTCAKE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">石川柊太 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">泉圭輔 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">水谷瞬 様</div></div><div class="gblock"><div class="gtitle">新郎ソフトバンク関係</div><div class="gname">中村宜聖 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">山下 エミリー 様</div></div><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">矢吹 奈子 様</div></div><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">栗原 紗英 様</div></div><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">山内 祐奈 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_10.png"></div>
+        <div class="numbadge">10</div>
+        <div class="mlabel">CHOCOLATE CAKE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">筒井 莉子 様</div></div><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">荒巻 美咲 様</div></div><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">坂本 愛玲菜 様</div></div><div class="gblock"><div class="gtitle">新婦同期</div><div class="gname">山本 茉央 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦後輩</div><div class="gname">松岡 はな 様</div></div><div class="gblock"><div class="gtitle">新婦後輩</div><div class="gname">運上 弘菜 様</div></div><div class="gblock"><div class="gtitle">新婦後輩</div><div class="gname">小田 彩加 様</div></div><div class="gblock"><div class="gtitle">新婦後輩</div><div class="gname">武田 智加 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_11.png"></div>
+        <div class="numbadge">11</div>
+        <div class="mlabel">MACARON</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦後輩</div><div class="gname">石橋 颯 様</div></div><div class="gblock"><div class="gtitle">新婦後輩</div><div class="gname">後藤 陽菜乃 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">藤倉 智水 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">松田 貴子 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">河内 綾音 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">堤 良夢 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">天本 真麻 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">宮川 優茉 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_12.png"></div>
+        <div class="numbadge">12</div>
+        <div class="mlabel">COOKIE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦中学校同級生</div><div class="gname">谷口 花絵 様</div></div><div class="gblock"><div class="gtitle">新婦中学校同級生</div><div class="gname">具志 菜々美 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">獅子原 駿 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">神山黎也 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">島袋 敬杜 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">笹木健太郎 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">大里 和 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_13.png"></div>
+        <div class="numbadge">13</div>
+        <div class="mlabel">BANANA SPLIT</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎高校恩師</div><div class="gname">比嘉監督 様</div></div><div class="gblock"><div class="gtitle">新郎高校恩師</div><div class="gname">石原 昌彦 様</div></div><div class="gblock"><div class="gtitle">新郎高校恩師</div><div class="gname">伊志嶺 大吾 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">伊藝彰吾 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">與座 巧人 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">サルビノ 諒磨 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">河野 哲平 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_14.png"></div>
+        <div class="numbadge">14</div>
+        <div class="mlabel">DINER</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">新垣 龍十 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">東江 哲汰 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">金城来利 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">仲井間憲輔 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">ごや りゅうき 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">大城 勇真 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">荷川取 謙太 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">添盛 龍世 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_15.png"></div>
+        <div class="numbadge">15</div>
+        <div class="mlabel">RECORD</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">与儀 幸輝 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">多和田 優亜 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">荷川取 こころ 様</div></div><div class="gblock"><div class="gtitle">新郎高校野球部</div><div class="gname">西平篤也 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">楠田 真也 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">濱本 英介 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">高山 謙一 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">八木 重和 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_16.png"></div>
+        <div class="numbadge">16</div>
+        <div class="mlabel">JUKEBOX</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">中村 智一 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">小迫 勇來 様</div></div><div class="gblock"><div class="gtitle">新婦HKT48スタッフ</div><div class="gname">原口 真一 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">阿部 弥夕 様</div></div><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">阿部 倫也 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">阿部 幸也 様<span class="baby">&#128118;</span></div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_17.png"></div>
+        <div class="numbadge">17</div>
+        <div class="mlabel">GUMBALL MACHINE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦友人配偶者</div><div class="gname">阿部 瑠威也 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">大塚 なな子 様</div></div><div class="gblock"><div class="gtitle">新婦友人配偶者</div><div class="gname">大塚 拓也 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦中学校恩師</div><div class="gname">野口 千佳子 様</div></div><div class="gblock"><div class="gtitle">新婦恩師配偶者</div><div class="gname">野口 将史 様</div></div><div class="gblock"><div class="gtitle">新婦中学校恩師お子様</div><div class="gname">野口 湊月 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新婦中学校恩師</div><div class="gname">園田 将生 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_18.png"></div>
+        <div class="numbadge">18</div>
+        <div class="mlabel">CADILLAC</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦中学校恩師</div><div class="gname">中村 志織 様</div></div><div class="gblock"><div class="gtitle">新婦中学校恩師配偶者</div><div class="gname">中村 祐也 様</div></div><div class="gblock"><div class="gtitle">新婦中学校恩師お子様</div><div class="gname">中村 澄架 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新婦中学校恩師お子様</div><div class="gname">中村 遥架 様<span class="baby">&#128118;</span></div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">はなわ 様</div></div><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">川満雄斗 様</div></div><div class="gblock"><div class="gtitle">新郎柔道部</div><div class="gname">上原 裕矢 様</div></div><div class="gblock"><div class="gtitle">新郎柔道部</div><div class="gname">伊集 盛翔 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_19.png"></div>
+        <div class="numbadge">19</div>
+        <div class="mlabel">POODLE SKIRT</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎柔道部</div><div class="gname">大城 祥平 様</div></div><div class="gblock"><div class="gtitle">新郎柔道部</div><div class="gname">許田 大夢 様</div></div><div class="gblock"><div class="gtitle">新郎柔道部</div><div class="gname">玉寄 盛貴 様</div></div><div class="gblock"><div class="gtitle">新郎柔道部</div><div class="gname">新垣 有留 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">新垣裕也 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">山内真里 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">源古竜太郎 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">大城裕之介 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_20.png"></div>
+        <div class="numbadge">20</div>
+        <div class="mlabel">MUSIC NOTES</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">喜納雅也 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">山田 真平 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">小浜 康大 様</div></div><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">阿部祐弥 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎中学校野球部</div><div class="gname">安里海 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">大城 琉斗 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">下地 佑緯 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">喜友名泰志 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_21.png"></div>
+        <div class="numbadge">21</div>
+        <div class="mlabel">CREAM SODA</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">比嘉優斗 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">川上汐七 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">中村有貴 様</div></div><div class="gblock"><div class="gtitle">新郎中学校友人</div><div class="gname">久高 隆史 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">深水 優希奈 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">吉田 雛 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">中村 葵 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">上山 夢雅 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_22.png"></div>
+        <div class="numbadge">22</div>
+        <div class="mlabel">DICE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">戸髙 奈波 様</div></div><div class="gblock"><div class="gtitle">新婦友人ご家族</div><div class="gname">戸髙 幸子 様</div></div><div class="gblock"><div class="gtitle">新婦友人ご家族</div><div class="gname">戸髙 愛花 様</div></div><div class="gblock"><div class="gtitle">新婦友人ご家族</div><div class="gname">戸髙 凰愛 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">佐々木 晴香 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">坂本 すみれ 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">坂本 哲士 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_23.png"></div>
+        <div class="numbadge">23</div>
+        <div class="mlabel">BOWLING</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦友人母</div><div class="gname">坂本 恭子 様</div></div><div class="gblock"><div class="gtitle">新婦友人妹</div><div class="gname">坂本 あすみ 様</div></div><div class="gblock"><div class="gtitle">新婦友人妹</div><div class="gname">坂本 望未 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦友人母</div><div class="gname">北條 志保 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">北條 風香 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">北條 凜香 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_24.png"></div>
+        <div class="numbadge">24</div>
+        <div class="mlabel">FLAMINGO</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦友人祖母</div><div class="gname">北條 愛子 様</div></div><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">久枝 明穂 様</div></div><div class="gblock"><div class="gtitle">新婦友人弟</div><div class="gname">久枝 純平 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">金城七枝 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">金城純海 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">金城拓海 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">金城沙紀 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_25.png"></div>
+        <div class="numbadge">25</div>
+        <div class="mlabel">DONUT</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">星山三三 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">星山勝義 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">星山勝輝 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">三宅 順子 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">柴田長生 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">柴田拓也 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">柴田愛 様</div></div><div class="gblock"><div class="gtitle">新郎母友人お子様</div><div class="gname">柴田幸長 様<span class="baby">&#128118;</span></div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_26.png"></div>
+        <div class="numbadge">26</div>
+        <div class="mlabel">PANCAKES</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎母友人お子様</div><div class="gname">柴田繁春 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎母友人お子様</div><div class="gname">柴田穂香 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">Ron Aldridge 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">Kumiko Aldridge 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">大城 泰樹 様</div></div><div class="gblock"><div class="gtitle">新郎友人ご家族</div><div class="gname">大城章 様</div></div><div class="gblock"><div class="gtitle">新郎友人ご家族</div><div class="gname">大城園美 様</div></div><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">田城 飛翔 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_27.png"></div>
+        <div class="numbadge">27</div>
+        <div class="mlabel">SOFT SERVE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">辻本 聡 様</div></div><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">今井 寛一 様</div></div><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">奥原 崇人 様</div></div><div class="gblock"><div class="gtitle">新郎友人</div><div class="gname">中村 晨 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦母友人</div><div class="gname">工藤 幸多 様</div></div><div class="gblock"><div class="gtitle">新婦母友人</div><div class="gname">工藤 七七 様</div></div><div class="gblock"><div class="gtitle">新婦母友人</div><div class="gname">工藤 千絵理 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_28.png"></div>
+        <div class="numbadge">28</div>
+        <div class="mlabel">APPLE PIE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">工藤 善多 様</div></div><div class="gblock"><div class="gtitle">新婦友人配偶者</div><div class="gname">工藤 咲輝菜 様</div></div><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">工藤 風凱 様<span class="baby">&#128118;</span></div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦友人</div><div class="gname">川平 千寿 様</div></div><div class="gblock"><div class="gtitle">新婦友人配偶者</div><div class="gname">川平 峻也 様</div></div><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">川平 莉茉 様<span class="baby">&#128118;</span></div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_29.png"></div>
+        <div class="numbadge">29</div>
+        <div class="mlabel">POPCORN</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">川平 琉煌 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">川平 莉唯 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新婦友人お子様</div><div class="gname">川平 玲亜 様<span class="baby">&#128118;</span></div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新婦恩師</div><div class="gname">工藤 薫 様</div></div><div class="gblock"><div class="gtitle">新婦恩師</div><div class="gname">舟本 誠治 様</div></div><div class="gblock"><div class="gtitle">新婦恩師</div><div class="gname">山尾 英一 様</div></div><div class="gblock"><div class="gtitle">新婦恩師</div><div class="gname">山尾 郁子 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_30.png"></div>
+        <div class="numbadge">30</div>
+        <div class="mlabel">ONION RINGS</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新婦親族</div><div class="gname">外薗 遥 様</div></div><div class="gblock"><div class="gtitle">新婦親族</div><div class="gname">外薗 薫 様</div></div><div class="gblock"><div class="gtitle">新婦親族</div><div class="gname">藤田 晶枝 様</div></div><div class="gblock"><div class="gtitle">新婦親族</div><div class="gname">外薗 克弘 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川隆之佑 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川享抹 様</div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">砂川泰隆 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">砂川成之佑 様<span class="baby">&#128118;</span></div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_31.png"></div>
+        <div class="numbadge">31</div>
+        <div class="mlabel">BLT SANDWICH</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">砂川一心 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">伊礼桃子 様</div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">伊礼海人 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">伊礼瑚波 様<span class="baby">&#128118;</span></div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">粟国隆広 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">粟国恵 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">オコミー ローレンス 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">オコミーかやの 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_32.png"></div>
+        <div class="numbadge">32</div>
+        <div class="mlabel">KETCHUP &amp; MUSTARD</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">福治友光 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">福治美恵子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">又吉 盛儀 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">又吉和子 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">Gerald Linker 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">Yukie Linker 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">Joe White 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">Kiyomi White 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_33.png"></div>
+        <div class="numbadge">33</div>
+        <div class="mlabel">COFFEE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">サルビノ畝利奈 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">パーラエルネスト 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">Billy Quinn 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">Sunni Quinn 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">神山あゆみ 様</div></div><div class="gblock"><div class="gtitle">新郎母友人ご家族</div><div class="gname">神山和也 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">山内 恵子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">源河栄三 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_34.png"></div>
+        <div class="numbadge">34</div>
+        <div class="mlabel">ROOT BEER FLOAT</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">大屋 みゆき 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">玉城若子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">大屋 尚子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">安里 智枝 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">仲間 克代 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">宮里 玲央南 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">金城 富美子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">仲本 兼悟 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_35.png"></div>
+        <div class="numbadge">35</div>
+        <div class="mlabel">CHERRY</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">リサ 恵利香 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">仲本恵子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">我如古 恵子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">比嘉 さよ子 様</div></div></div>
+    </div>
+    <div class="cell"></div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">伊礼 栞 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川 将吾 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">伊礼 由美子 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">伊礼純也 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_36.png"></div>
+        <div class="numbadge">36</div>
+        <div class="mlabel">ROLLER SKATES</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">ryuji sunagawa 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川尚子 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">Eric Tisthammer 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">神本 千賀子 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川 隆 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川盛子 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川結衣 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川 ジョセフ 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_37.png"></div>
+        <div class="numbadge">37</div>
+        <div class="mlabel">NEON SIGN</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川 未来 様</div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">砂川 ラナ 様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川 ルナ 様</div></div><div class="gblock"><div class="gtitle">新郎母友人</div><div class="gname">李 様</div></div></div>
+    </div>
+    <div class="cell">
+      <div class="nz nzL"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川 悟 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川理野 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川海衣 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">砂川愛海音 様</div></div></div>
+      <div class="tbl">
+        <div class="circ"><img src="tiles/tile_38.png"></div>
+        <div class="numbadge">38</div>
+        <div class="mlabel">RETRO PHONE</div>
+      </div>
+      <div class="nz nzR"><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">山内 光敏 様</div></div><div class="gblock"><div class="gtitle">新郎親族</div><div class="gname">山内紫月 様</div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">山内家のお子様<span class="baby">&#128118;</span></div></div><div class="gblock"><div class="gtitle">新郎親族お子様</div><div class="gname">山内家のお子様<span class="baby">&#128118;</span></div></div></div>
+    </div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+  </div>
+
+  <div class="door" style="top: 120mm;"><div class="bar"></div>出入口A</div>
+  <div class="door" style="top: 196mm;"><div class="bar"></div>出入口B</div>
+  <div class="door" style="top: 330mm;"><div class="bar"></div>入退場<br>出入口</div>
+
+  <div class="stage">
+    <span class="en">STAGE</span>
+    <span class="jp">舞台</span>
+    <span class="en">STAGE</span>
+  </div>
+
+  <div class="checker-bottom"></div>
+</body>
+</html>
