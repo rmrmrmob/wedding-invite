@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520">
+<g stroke="#1d1a1a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- hearts -->
+  <path d="M300 70 C300 52 276 48 270 66 C264 48 240 52 240 70 C240 92 270 104 270 112 C270 104 300 92 300 70Z" fill="#e25848" transform="translate(30,-10)"/>
+  <path d="M300 70 C300 52 276 48 270 66 C264 48 240 52 240 70 C240 92 270 104 270 112 C270 104 300 92 300 70Z" fill="#e25848" transform="translate(178,30) scale(.55)"/>
+  <path d="M300 70 C300 52 276 48 270 66 C264 48 240 52 240 70 C240 92 270 104 270 112 C270 104 300 92 300 70Z" fill="none" transform="translate(150,40) scale(.45)"/>
+
+  <!-- ===== groom (left, facing right) ===== -->
+  <!-- shirt / shoulders -->
+  <path d="M150 330 C120 345 70 360 45 400 C30 430 25 480 22 520 L300 520 C300 480 296 430 285 400 C276 378 255 360 238 345 Z" fill="#fffaf0"/>
+  <!-- suspenders -->
+  <path d="M120 352 C110 400 100 460 95 520" fill="none" stroke-width="16"/>
+  <path d="M232 352 C240 400 246 460 250 520" fill="none" stroke-width="16"/>
+  <!-- neck -->
+  <path d="M168 300 L170 345 C190 356 215 356 236 344 L232 300 Z" fill="#fbe0cf"/>
+  <!-- collar -->
+  <path d="M165 338 L200 362 L170 372 Z M238 338 L203 362 L236 372 Z" fill="#fffaf0"/>
+  <!-- bow tie -->
+  <path d="M201 362 L172 348 L174 380 Z M201 362 L230 348 L228 380 Z" fill="#e25848"/>
+  <circle cx="201" cy="363" r="8" fill="#e25848"/>
+  <!-- face -->
+  <path d="M150 200 C150 150 190 128 235 135 C252 140 262 160 262 182 L266 196 C270 208 284 226 286 236 C287 242 280 246 273 247 C276 252 277 256 276 260 L282 264 L276 270 C276 278 272 284 270 290 C266 300 258 306 246 308 C232 312 214 312 196 308 C170 302 150 260 150 200 Z" fill="#fbe0cf"/>
+  <!-- ear -->
+  
+  <!-- hair with quiff -->
+  <path d="M146 228 C130 190 132 140 160 112 C185 88 225 80 258 92 C278 98 292 112 288 126 C284 136 272 132 262 140 C258 146 256 156 252 162 C240 150 222 150 210 156 C196 162 188 175 186 195 L180 198 C170 196 160 205 158 222 Z" fill="#1d1a1a"/>
+  <path d="M200 104 C222 96 248 98 270 112" fill="none" stroke="#fffaf0" stroke-width="3"/>
+  <path d="M196 202 C182 196 176 216 182 228 C186 236 196 236 200 228" fill="#fbe0cf"/>
+  <path d="M192 210 C186 212 186 222 192 224" fill="none" stroke-width="3"/>
+  <!-- eye (happy closed) + brow -->
+  <path d="M236 192 C240 186 248 186 252 192" fill="none" stroke-width="4"/>
+  <path d="M234 176 C240 172 250 172 256 176" fill="none" stroke-width="4"/>
+  <!-- cheek -->
+  <ellipse cx="236" cy="222" rx="12" ry="7" fill="#f2a08f" stroke="none"/>
+
+  <!-- ===== bride (right, facing left) ===== -->
+  <!-- back hair -->
+  <path d="M440 150 C470 190 478 260 470 320 C466 360 480 400 470 430 L380 430 C360 380 350 330 352 300 Z" fill="#1d1a1a"/>
+  <!-- dress / shoulders -->
+  <path d="M340 340 C360 352 395 352 420 342 C450 352 500 380 520 420 C535 450 540 490 545 520 L305 520 C305 480 310 440 318 410 C324 385 330 360 340 340 Z" fill="#fffaf0"/>
+  <path d="M330 372 C360 392 410 392 446 372" fill="none" stroke-width="4"/>
+  <path d="M340 386 l8 8 M356 392 l8 8 M372 396 l8 8 M388 396 l8 8 M404 394 l8 8 M420 388 l8 8" stroke-width="3"/>
+  <!-- neck -->
+  <path d="M358 296 L356 345 C372 352 392 352 408 344 L404 296 Z" fill="#fbe0cf"/>
+  <!-- face -->
+  <path d="M430 200 C430 150 396 130 360 138 C344 142 334 158 334 178 L330 196 C326 206 312 222 311 230 C310 236 318 240 324 240 C321 246 320 250 322 254 L316 258 L322 264 C322 272 326 278 330 284 C336 296 348 302 362 304 C380 306 400 302 414 292 C428 280 430 240 430 200 Z" fill="#fbe0cf"/>
+  <!-- front hair + bangs -->
+  <path d="M332 182 C326 140 350 112 390 108 C430 104 456 126 462 160 C468 200 458 240 446 268 C440 240 432 220 420 210 C410 200 398 196 392 186 C378 192 362 190 350 180 C346 186 340 188 332 182 Z" fill="#1d1a1a"/>
+  <path d="M352 132 C372 122 400 120 420 128" fill="none" stroke="#fffaf0" stroke-width="3"/>
+  <!-- ribbon bow -->
+  <path d="M452 128 L430 100 L424 132 Z M452 128 L482 108 L476 142 Z" fill="#e25848"/>
+  <circle cx="452" cy="128" r="8" fill="#e25848"/>
+  <!-- eye + lashes -->
+  <path d="M350 206 C346 200 338 200 334 206" fill="none" stroke-width="4"/>
+  <path d="M336 205 l-6 -5 M342 202 l-3 -7" stroke-width="3"/>
+  <ellipse cx="352" cy="232" rx="12" ry="7" fill="#f2a08f" stroke="none"/>
+  <path d="M318 256 C320 260 322 260 324 256" fill="#e25848" stroke-width="3"/>
+  <!-- earring -->
+  <circle cx="396" cy="262" r="5" fill="#fffaf0" stroke-width="3"/>
+
+  <!-- ===== milkshake ===== -->
+  <path d="M282 263 L300 330" fill="none" stroke="#e25848" stroke-width="9"/>
+  <path d="M282 263 L300 330" fill="none" stroke="#fffaf0" stroke-width="3" stroke-dasharray="6 7"/>
+  <path d="M316 256 L304 330" fill="none" stroke="#e25848" stroke-width="9"/>
+  <path d="M316 256 L304 330" fill="none" stroke="#fffaf0" stroke-width="3" stroke-dasharray="6 7"/>
+  <path d="M262 352 C254 334 272 322 284 330 C288 316 314 314 318 330 C332 322 350 336 340 352 Z" fill="#fffaf0"/>
+  <path d="M258 352 L344 352 L328 450 L274 450 Z" fill="#e25848"/>
+  <path d="M282 362 L290 442 M301 362 L301 442 M320 362 L312 442" stroke="#fffaf0" stroke-width="5"/>
+  <path d="M274 450 L328 450 L310 470 L310 495 L330 508 L272 508 L292 495 L292 470 Z" fill="#fffaf0"/>
+  <path d="M244 512 L360 512" stroke-width="5"/>
+</g>
+</svg>
