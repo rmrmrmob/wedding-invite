@@ -1,0 +1,64 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>Kids Menu Retro</title><style>
+@font-face{font-family:Script;src:url('fonts/Yellowtail-Regular.ttf')}
+@font-face{font-family:Titan;src:url('fonts/TitanOne-Regular.ttf')}
+@font-face{font-family:Alfa;src:url('fonts/AlfaSlabOne-Regular.ttf')}
+@font-face{font-family:R;font-weight:900;src:url('fonts/MPLUSRounded1c-Black.ttf')}
+@font-face{font-family:R;font-weight:700;src:url('fonts/MPLUSRounded1c-Bold.ttf')}
+:root{--teal:#2fa7a8;--cream:#f8eedb;--red:#d3312c;--ink:#24201d;--yellow:#f2c230}
+@page{size:210mm 297mm;margin:0}
+*{box-sizing:border-box;margin:0}
+html,body{width:210mm;height:297mm}
+body{position:relative;overflow:hidden;background:var(--cream);font-family:R,sans-serif;color:var(--ink)}
+.panel{position:absolute;left:7mm;right:7mm;top:62mm;bottom:7mm;background:var(--teal);border-radius:4mm;border:0.8mm solid var(--ink)}
+.chk{position:absolute;height:8mm;background:repeating-conic-gradient(var(--red) 0 25%,var(--cream) 0 50%) 0 0/8mm 8mm}
+.head{position:absolute;top:9mm;left:0;right:0;text-align:center}
+.who{font-family:Script;font-size:16pt;color:var(--teal);line-height:1}
+.title{display:inline-block;font-family:Titan;font-size:56pt;line-height:1;color:var(--red);margin-top:1mm;letter-spacing:0.01em;text-shadow:1.4mm 1.4mm 0 var(--ink)}
+.ribbon{position:relative;display:inline-block;margin-top:3mm;background:var(--red);color:var(--cream);font-weight:900;font-size:19pt;letter-spacing:0.25em;padding:1.6mm 8mm 1.6mm 10mm;border:0.8mm solid var(--ink);border-radius:999px;box-shadow:0 1.2mm 0 var(--ink)}
+.ribbon i{font-style:normal;color:var(--yellow);font-size:12pt;letter-spacing:0;vertical-align:0.15em;margin:0 2mm}
+.grid{position:absolute;left:12mm;right:12mm;top:71mm;display:grid;grid-template-columns:repeat(3,1fr);column-gap:4.5mm;row-gap:10mm}
+.it{display:flex;flex-direction:column;align-items:center}
+.plate{width:100%;aspect-ratio:1.42;border-radius:50%;background:var(--cream);border:0.8mm solid var(--ink);padding:1.6mm;box-shadow:0 1.2mm 0 rgba(0,0,0,.35)}
+.plate div{width:100%;height:100%;border-radius:50%;border:0.5mm solid var(--red);overflow:hidden;background:var(--cream)}
+.plate img{width:100%;height:100%;object-fit:cover;display:block}
+.lab{margin-top:-4.5mm;position:relative;background:var(--cream);border:0.7mm solid var(--red);outline:0.6mm solid var(--cream);border-radius:999px;font-weight:900;font-size:15pt;padding:0.6mm 5.5mm;letter-spacing:0.04em;white-space:nowrap}
+.board{position:absolute;left:17mm;right:17mm;top:72mm;height:165mm;background:var(--cream);border:0.9mm solid var(--ink);border-radius:5mm;box-shadow:0 1.6mm 0 var(--ink);padding:8mm 11mm 6mm;outline:1.2mm solid var(--cream);outline-offset:-3.4mm}
+.board::before{content:'';position:absolute;inset:2.4mm;border:0.5mm solid var(--red);border-radius:3.4mm;pointer-events:none}
+.bh{display:flex;align-items:center;gap:3mm;justify-content:center}
+.bh .ln{flex:1;border-top:0.5mm dashed var(--red)}
+.bt{font-family:Script;font-size:22pt;color:var(--teal);line-height:1}
+.list{list-style:none;padding:0;margin:4mm 0 0}
+.list li{display:flex;align-items:baseline;gap:3mm;padding:3.1mm 0;border-bottom:0.3mm solid rgba(36,32,29,.12)}
+.list li:last-child{border-bottom:none}
+.no{font-family:Alfa;font-size:10pt;color:var(--red);width:8mm}
+.jp{font-weight:900;font-size:21pt;letter-spacing:0.06em;line-height:1}
+.dots{flex:1;border-bottom:0.7mm dotted rgba(36,32,29,.45);transform:translateY(-1.2mm)}
+.en{font-family:Alfa;font-size:8pt;color:var(--teal);letter-spacing:0.12em}
+.bf{text-align:center;font-weight:900;font-size:9pt;color:var(--red);letter-spacing:0.12em;margin-top:3mm}
+.al{position:absolute;left:22mm;right:22mm;bottom:14mm;background:var(--cream);border:0.8mm solid var(--ink);border-radius:3mm;text-align:center;padding:2.6mm 4mm 3mm;box-shadow:0 1.2mm 0 var(--ink)}
+.al .h{font-weight:900;font-size:13pt;letter-spacing:0.08em}
+.al .v{font-weight:900;font-size:25pt;color:var(--red);letter-spacing:0.08em;line-height:1.2;margin-top:0.6mm}
+.al .n{font-weight:700;font-size:7.6pt;color:#5c534a;margin-top:0.8mm}
+.burst{position:absolute;width:7mm;height:7mm}
+.foot{position:absolute;left:0;right:0;bottom:2mm;text-align:center;font-family:Alfa;font-size:6pt;letter-spacing:0.3em;color:#8d7f70}
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.45}
+</style></head><body>
+<div class="chk" style="left:0;right:0;top:0;height:5mm;background-size:5mm 5mm"></div>
+<div class="head">
+  <div class="who">Richard &amp; Hazuki's Diner</div>
+  <div class="title">KIDS MENU</div><br>
+  <div class="ribbon"><i>★</i>キッズメニュー<i>★</i></div>
+</div>
+<svg class="burst" style="left:24mm;top:26mm;width:11mm;height:11mm" viewBox="0 0 40 40"><path d="M20 0 L23 15 L38 12 L26 21 L34 36 L20 27 L6 36 L14 21 L2 12 L17 15Z" fill="#d3312c"/></svg>
+<svg class="burst" style="right:23mm;top:20mm;width:8mm;height:8mm" viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16Z" fill="#f2c230" stroke="#24201d" stroke-width="2"/></svg>
+<svg class="burst" style="right:33mm;top:40mm;width:5mm;height:5mm" viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16Z" fill="#2fa7a8"/></svg>
+<div class="panel"></div>
+<div class="board">
+  <div class="bh"><span class="ln"></span><span class="bt">Today's Plate</span><span class="ln"></span></div>
+  <ul class="list"><li><span class="no">01</span><span class="jp">オムライス</span><span class="dots"></span><span class="en">OMELET RICE</span></li><li><span class="no">02</span><span class="jp">ハンバーグ</span><span class="dots"></span><span class="en">HAMBURG STEAK</span></li><li><span class="no">03</span><span class="jp">エビフライ</span><span class="dots"></span><span class="en">FRIED SHRIMP</span></li><li><span class="no">04</span><span class="jp">からあげ</span><span class="dots"></span><span class="en">FRIED CHICKEN</span></li><li><span class="no">05</span><span class="jp">春巻き</span><span class="dots"></span><span class="en">SPRING ROLL</span></li><li><span class="no">06</span><span class="jp">焼売</span><span class="dots"></span><span class="en">SHUMAI</span></li><li><span class="no">07</span><span class="jp">ポテサラ</span><span class="dots"></span><span class="en">POTATO SALAD</span></li><li><span class="no">08</span><span class="jp">スープ</span><span class="dots"></span><span class="en">SOUP</span></li><li><span class="no">09</span><span class="jp">デザート</span><span class="dots"></span><span class="en">DESSERT</span></li></ul>
+  <div class="bf">ぜんぶ ひとつのプレートで お届けします ★</div>
+</div>
+<div class="al"><div class="h">アレルギー特定原材料</div><div class="v">えび・卵・小麦・乳</div><div class="n">気になることがあれば、スタッフにお声がけください</div></div>
+<div class="foot">RICHARD &amp; HAZUKI ・ 2026.12.13</div>
+<svg class="grain" width="100%" height="100%"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 0.55  0 0 0 0 0.48  0 0 0 0 0.40  0 0 0 0.28 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+</body></html>
