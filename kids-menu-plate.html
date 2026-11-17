@@ -1,0 +1,66 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>Kids Menu Retro</title><style>
+@font-face{font-family:Script;src:url('fonts/Yellowtail-Regular.ttf')}
+@font-face{font-family:Titan;src:url('fonts/TitanOne-Regular.ttf')}
+@font-face{font-family:Alfa;src:url('fonts/AlfaSlabOne-Regular.ttf')}
+@font-face{font-family:R;font-weight:900;src:url('fonts/MPLUSRounded1c-Black.ttf')}
+@font-face{font-family:R;font-weight:700;src:url('fonts/MPLUSRounded1c-Bold.ttf')}
+:root{--teal:#2fa7a8;--cream:#f8eedb;--red:#d3312c;--ink:#24201d;--yellow:#f2c230}
+@page{size:210mm 297mm;margin:0}
+*{box-sizing:border-box;margin:0}
+html,body{width:210mm;height:297mm}
+body{position:relative;overflow:hidden;background:var(--cream);font-family:R,sans-serif;color:var(--ink)}
+.panel{position:absolute;left:7mm;right:7mm;top:62mm;bottom:7mm;background:var(--teal);border-radius:4mm;border:0.8mm solid var(--ink)}
+.chk{position:absolute;height:8mm;background:repeating-conic-gradient(var(--red) 0 25%,var(--cream) 0 50%) 0 0/8mm 8mm}
+.head{position:absolute;top:9mm;left:0;right:0;text-align:center}
+.who{font-family:Script;font-size:16pt;color:var(--teal);line-height:1}
+.title{display:inline-block;font-family:Titan;font-size:56pt;line-height:1;color:var(--red);margin-top:1mm;letter-spacing:0.01em;text-shadow:1.4mm 1.4mm 0 var(--ink)}
+.ribbon{position:relative;display:inline-block;margin-top:3mm;background:var(--red);color:var(--cream);font-weight:900;font-size:19pt;letter-spacing:0.25em;padding:1.6mm 8mm 1.6mm 10mm;border:0.8mm solid var(--ink);border-radius:999px;box-shadow:0 1.2mm 0 var(--ink)}
+.ribbon i{font-style:normal;color:var(--yellow);font-size:12pt;letter-spacing:0;vertical-align:0.15em;margin:0 2mm}
+.grid{position:absolute;left:12mm;right:12mm;top:71mm;display:grid;grid-template-columns:repeat(3,1fr);column-gap:4.5mm;row-gap:10mm}
+.it{display:flex;flex-direction:column;align-items:center}
+.plate{width:100%;aspect-ratio:1.42;border-radius:50%;background:var(--cream);border:0.8mm solid var(--ink);padding:1.6mm;box-shadow:0 1.2mm 0 rgba(0,0,0,.35)}
+.plate div{width:100%;height:100%;border-radius:50%;border:0.5mm solid var(--red);overflow:hidden;background:var(--cream)}
+.plate img{width:100%;height:100%;object-fit:cover;display:block}
+.lab{margin-top:-4.5mm;position:relative;background:var(--cream);border:0.7mm solid var(--red);outline:0.6mm solid var(--cream);border-radius:999px;font-weight:900;font-size:15pt;padding:0.6mm 5.5mm;letter-spacing:0.04em;white-space:nowrap}
+.tray{position:absolute;left:13mm;right:13mm;top:71mm;height:166mm;background:var(--red);border:0.9mm solid var(--ink);border-radius:12mm;padding:5mm;display:grid;gap:3.2mm;
+ grid-template-columns:repeat(4,1fr);grid-template-rows:1.15fr 1fr 1fr;grid-template-areas:"omu omu ham ham" "ebi ebi kar har" "shu pot sou des";box-shadow:0 1.6mm 0 var(--ink),inset 0 0 0 1.4mm #b8251f}
+.cp{position:relative;background:var(--cream);border-radius:6mm;overflow:hidden;border:0.6mm solid #8f1d18;box-shadow:inset 0 1.2mm 0 rgba(0,0,0,.12)}
+.cp img{width:100%;height:100%;object-fit:cover;display:block}
+.cp .lab{position:absolute;left:50%;bottom:1.8mm;transform:translateX(-50%);margin:0;font-size:12pt;padding:0.3mm 4mm;box-shadow:0 0.6mm 0 rgba(0,0,0,.25)}
+.flag{position:absolute;left:46%;top:1.5mm;width:15mm;height:20mm}
+.platecap{position:absolute;left:0;right:0;top:239.5mm;text-align:center;font-family:Script;font-size:14pt;color:var(--cream)}
+.platecap span{font-family:R;font-weight:900;font-size:10pt;margin-left:3mm;letter-spacing:0.15em}
+.al{position:absolute;left:22mm;right:22mm;bottom:12mm;background:var(--cream);border:0.8mm solid var(--ink);border-radius:3mm;text-align:center;padding:2.6mm 4mm 3mm;box-shadow:0 1.2mm 0 var(--ink)}
+.al .h{font-weight:900;font-size:13pt;letter-spacing:0.08em}
+.al .v{font-weight:900;font-size:25pt;color:var(--red);letter-spacing:0.08em;line-height:1.2;margin-top:0.6mm}
+.al .n{font-weight:700;font-size:7.6pt;color:#5c534a;margin-top:0.8mm}
+.burst{position:absolute;width:7mm;height:7mm}
+.foot{position:absolute;left:0;right:0;bottom:2mm;text-align:center;font-family:Alfa;font-size:6pt;letter-spacing:0.3em;color:#8d7f70}
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.45}
+</style></head><body>
+<div class="chk" style="left:0;right:0;top:0;height:5mm;background-size:5mm 5mm"></div>
+<div class="head">
+  <div class="who">Richard &amp; Hazuki's Diner</div>
+  <div class="title">KIDS MENU</div><br>
+  <div class="ribbon"><i>★</i>キッズメニュー<i>★</i></div>
+</div>
+<svg class="burst" style="left:24mm;top:26mm;width:11mm;height:11mm" viewBox="0 0 40 40"><path d="M20 0 L23 15 L38 12 L26 21 L34 36 L20 27 L6 36 L14 21 L2 12 L17 15Z" fill="#d3312c"/></svg>
+<svg class="burst" style="right:23mm;top:20mm;width:8mm;height:8mm" viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16Z" fill="#f2c230" stroke="#24201d" stroke-width="2"/></svg>
+<svg class="burst" style="right:33mm;top:40mm;width:5mm;height:5mm" viewBox="0 0 40 40"><path d="M20 0 L24 16 L40 20 L24 24 L20 40 L16 24 L0 20 L16 16Z" fill="#2fa7a8"/></svg>
+<div class="panel"></div>
+<div class="tray">
+  <div class="cp" style="grid-area:omu"><img src="kids/omurice.png" style="transform:scale(1.13);object-position:50% 55%"><svg class="flag" viewBox="0 0 60 80"><path d="M8 78 L8 6" stroke="#24201d" stroke-width="3"/><path d="M8 6 L54 16 L8 28Z" fill="#d3312c" stroke="#24201d" stroke-width="2.5" stroke-linejoin="round"/><text x="22" y="21" font-family="Alfa" font-size="9" fill="#f8eedb">R&amp;H</text></svg><span class="lab">オムライス</span></div>
+  <div class="cp" style="grid-area:ham"><img src="kids/hamburg.png" style="transform:scale(1.15);object-position:50% 58%"><span class="lab">ハンバーグ</span></div>
+  <div class="cp" style="grid-area:ebi"><img src="kids/ebifry.png" style="transform:scale(1.13);object-position:50% 50%"><span class="lab">エビフライ</span></div>
+  <div class="cp" style="grid-area:kar"><img src="kids/karaage.png" style="transform:scale(1.15);object-position:45% 55%"><span class="lab">からあげ</span></div>
+  <div class="cp" style="grid-area:har"><img src="kids/harumaki.png" style="transform:scale(1.15);object-position:55% 55%"><span class="lab">春巻き</span></div>
+  <div class="cp" style="grid-area:shu"><img src="kids/shumai.png" style="transform:scale(1.15);object-position:50% 50%"><span class="lab">焼売</span></div>
+  <div class="cp" style="grid-area:pot"><img src="kids/potesara.png" style="transform:scale(1.15);object-position:50% 55%"><span class="lab">ポテサラ</span></div>
+  <div class="cp" style="grid-area:sou"><img src="kids/soup.png" style="transform:scale(1.15);object-position:50% 45%"><span class="lab">スープ</span></div>
+  <div class="cp" style="grid-area:des"><img src="kids/dessert.png" style="transform:scale(1.15);object-position:50% 45%"><span class="lab">デザート</span></div>
+</div>
+<div class="platecap">Kids One Plate<span>お子様ワンプレート</span></div>
+<div class="al"><div class="h">アレルギー特定原材料</div><div class="v">えび・卵・小麦・乳</div><div class="n">気になることがあれば、スタッフにお声がけください</div></div>
+<div class="foot">RICHARD &amp; HAZUKI ・ 2026.12.13</div>
+<svg class="grain" width="100%" height="100%"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 0.55  0 0 0 0 0.48  0 0 0 0 0.40  0 0 0 0.28 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+</body></html>
