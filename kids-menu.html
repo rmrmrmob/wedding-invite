@@ -1,0 +1,62 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>Kids Menu</title><style>
+@font-face{font-family:Script;src:url('fonts/Yellowtail-Regular.ttf')}
+@font-face{font-family:Alfa;src:url('fonts/AlfaSlabOne-Regular.ttf')}
+@font-face{font-family:Titan;src:url('fonts/TitanOne-Regular.ttf')}
+@font-face{font-family:R;font-weight:700;src:url('fonts/MPLUSRounded1c-Bold.ttf')}
+@font-face{font-family:R;font-weight:900;src:url('fonts/MPLUSRounded1c-Black.ttf')}
+@font-face{font-family:R;font-weight:500;src:url('fonts/MPLUSRounded1c-Medium.ttf')}
+:root{--red:#e0262f;--teal:#5cc6cf;--tealdk:#2a9fac;--yellow:#ffc928;--ink:#1d1a1a;--cream:#fff8ec;--pink:#ff8fa8}
+@page{size:148mm 210mm;margin:0}
+*{box-sizing:border-box;margin:0}
+html,body{width:148mm;height:210mm}
+body{position:relative;overflow:hidden;font-family:R,sans-serif;color:var(--ink);
+ background:radial-gradient(circle,rgba(92,198,207,.22) 0.6mm,transparent 0.7mm) 0 0/6mm 6mm,var(--cream)}
+.chk{position:absolute;left:0;right:0;height:7mm;background:repeating-conic-gradient(var(--ink) 0 25%,#fff 0 50%) 0 0/7mm 7mm}
+.chk.t{top:0}.chk.b{bottom:0}
+.stripe{position:absolute;left:0;right:0;height:1.6mm;background:var(--red)}
+.stripe.t{top:7mm}.stripe.b{bottom:7mm}
+.head{position:absolute;top:13mm;left:0;right:0;text-align:center}
+.who{font-family:Script;font-size:13pt;color:var(--tealdk);line-height:1}
+.title{font-family:Titan;font-size:40pt;line-height:1;color:var(--red);letter-spacing:0.02em;margin-top:1mm;
+ text-shadow:0.9mm 0.9mm 0 var(--yellow),1.6mm 1.6mm 0 var(--ink)}
+.jp{display:inline-block;margin-top:3mm;background:var(--ink);color:#fff;font-weight:900;font-size:11pt;letter-spacing:0.3em;padding:1.2mm 5mm 1.2mm 6mm;border-radius:999px}
+.sub{font-weight:700;font-size:8pt;color:#6b5f55;margin-top:2mm}
+.grid{position:absolute;top:60mm;left:10mm;right:10mm;display:grid;grid-template-columns:repeat(3,1fr);gap:3.2mm}
+.it{background:#fff;border:0.7mm solid var(--ink);border-radius:4mm;box-shadow:0 1.1mm 0 var(--ink);text-align:center;padding:2.6mm 1mm 2.2mm;height:32mm;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.it:nth-child(3n+1){background:#fff3f4}.it:nth-child(3n+2){background:#eefafb}.it:nth-child(3n){background:#fffbe9}
+.ic{width:15mm;height:15mm;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Color Emoji';font-size:24pt;line-height:1;background:#fff;border:0.5mm dashed rgba(0,0,0,.18)}
+.nm{font-weight:900;font-size:10.5pt;margin-top:1.8mm;line-height:1.15;white-space:nowrap}
+.en{font-family:Alfa;font-size:5.6pt;color:var(--tealdk);letter-spacing:0.08em;margin-top:0.8mm}
+.al{position:absolute;left:10mm;right:10mm;top:172mm;border:0.7mm solid var(--red);border-radius:3mm;background:#fff;padding:2.4mm 3.5mm 2.6mm;display:flex;align-items:center;gap:3mm}
+.al .lb{flex:none;background:var(--red);color:#fff;font-weight:900;font-size:8.5pt;line-height:1.25;padding:1.4mm 2.2mm;border-radius:2mm;text-align:center}
+.al .tx{font-size:7.6pt;font-weight:700;line-height:1.5}
+.chips{display:flex;gap:1.5mm;margin-bottom:0.8mm}
+.chips span{font-weight:900;font-size:10pt;background:var(--yellow);border:0.5mm solid var(--ink);border-radius:999px;padding:0.2mm 2.8mm}
+.foot{position:absolute;bottom:11.5mm;left:0;right:0;text-align:center;font-family:Alfa;font-size:6.6pt;letter-spacing:0.25em;color:#8a7d70}
+.star{position:absolute;color:var(--yellow);font-size:16pt;-webkit-text-stroke:0.3mm var(--ink)}
+</style></head><body>
+<div class="chk t"></div><div class="stripe t"></div>
+<span class="star" style="left:14mm;top:20mm">&#9733;</span><span class="star" style="right:15mm;top:24mm;font-size:12pt">&#9733;</span>
+<div class="head">
+  <div class="who">Richard &amp; Hazuki's Diner</div>
+  <div class="title">Kids Menu</div>
+  <div class="jp">キッズメニュー</div>
+  <div class="sub">小さなゲストのみなさま、きょうは来てくれてありがとう！</div>
+</div>
+<div class="grid">
+  <div class="it"><div class="ic">🍳</div><div class="nm">オムライス</div><div class="en">OMELET RICE</div></div>
+  <div class="it"><div class="ic">🥩</div><div class="nm">ハンバーグ</div><div class="en">HAMBURG STEAK</div></div>
+  <div class="it"><div class="ic">🍤</div><div class="nm">エビフライ</div><div class="en">FRIED SHRIMP</div></div>
+  <div class="it"><div class="ic">🍗</div><div class="nm">からあげ</div><div class="en">FRIED CHICKEN</div></div>
+  <div class="it"><div class="ic">🌯</div><div class="nm">春巻き</div><div class="en">SPRING ROLL</div></div>
+  <div class="it"><div class="ic">🥟</div><div class="nm">焼売</div><div class="en">SHUMAI</div></div>
+  <div class="it"><div class="ic">🥔</div><div class="nm">ポテサラ</div><div class="en">POTATO SALAD</div></div>
+  <div class="it"><div class="ic">🥣</div><div class="nm">スープ</div><div class="en">SOUP</div></div>
+  <div class="it"><div class="ic">🍮</div><div class="nm">デザート</div><div class="en">DESSERT</div></div>
+</div>
+<div class="al"><div class="lb">アレルギー<br>表示</div>
+  <div class="tx"><div class="chips"><span>えび</span><span>卵</span><span>小麦</span><span>乳</span></div>
+  このメニューには、上の<b>特定原材料</b>が使われています。<br>気になることがあれば、スタッフにお声がけください。</div></div>
+<div class="foot">RICHARD &amp; HAZUKI ・ 2026.12.13</div>
+<div class="chk b"></div><div class="stripe b"></div>
+</body></html>
