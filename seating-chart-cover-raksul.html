@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Seating Chart Cover</title>
+<style>
+  @font-face { font-family: 'Alfa'; src: url('fonts/AlfaSlabOne-Regular.ttf'); }
+  @font-face { font-family: 'Yellowtail'; src: url('fonts/Yellowtail-Regular.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 700;
+    src: url('fonts/MPLUSRounded1c-Bold.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 500;
+    src: url('fonts/MPLUSRounded1c-Medium.ttf'); }
+  @font-face { font-family: 'Rounded'; font-weight: 900;
+    src: url('fonts/MPLUSRounded1c-Black.ttf'); }
+
+  :root {
+    --cherry: #D7263D;
+    --cherry-deep: #A31621;
+    --cream: #FFF6E9;
+    --mustard: #FFB627;
+    --teal: #17BEBB;
+    --ink: #2B1B12;
+    --paper: #FFFDF7;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  @page { size: 594mm 420mm; margin: 0; }
+  html, body { width: 594mm; height: 420mm; }
+  body { background: var(--cream); font-family: 'Rounded', sans-serif; color: var(--ink);
+    overflow: hidden; position: relative; display: flex; }
+
+  .panel { width: 198mm; height: 420mm; position: relative; overflow: hidden; flex: none; }
+
+  /* roll fold: the fold-in flap is 3mm narrower, the other two take the space (196 / 199 / 199) */
+  .p-flap { width: 196mm; } .p-back { width: 199mm; } .p-front { width: 199mm; }
+  /* ========== PANEL 1 (left, folds inside): greeting ========== */
+  .p-flap { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .flap-box { width: 150mm; text-align: center; }
+  .flap-script { font-family: 'Yellowtail'; font-size: 24pt; color: var(--cherry); }
+  .flap-title { font-weight: 900; font-size: 13pt; letter-spacing: 0.3em; text-indent: 0.3em; margin-top: 3mm; color: var(--cherry-deep); }
+  .flap-msg { margin-top: 9mm; font-weight: 500; font-size: 11.5pt; line-height: 2.4; }
+  .flap-msg b { font-weight: 900; }
+  .flap-deco { margin-top: 11mm; display: flex; justify-content: center; }
+  .couple { width: 92mm; display: block; filter: drop-shadow(0 1.5mm 0 rgba(43,27,18,.18)); }
+  .bazz { width: 58mm; display: block; margin: 10mm auto 0; filter: drop-shadow(0 1.5mm 0 rgba(43,27,18,.18)); }
+
+  /* ========== PANEL 2 (middle): back cover ========== */
+  .p-back { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .back-box { text-align: center; }
+  .back-script { font-family: 'Yellowtail'; font-size: 26pt; color: var(--cherry); }
+  .back-mini { margin: 10mm auto 0; }
+  .back-foot { margin-top: 10mm; font-family: 'Alfa'; font-size: 9pt; color: #B49A80; letter-spacing: 0.22em; }
+
+  /* ========== PANEL 3 (right): front cover ========== */
+  .p-front { background: var(--cherry); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .fcc { position: absolute; left: 0; right: 0; height: 11mm;
+    background: repeating-conic-gradient(#1A1A1A 0% 25%, #FFFFFF 0% 50%) 0 0 / 11mm 11mm; }
+  .fcc-top { top: 0; }
+  .fcc-bottom { bottom: 0; }
+  .fc-frame { position: absolute; inset: 17mm 9mm; border: 0.7mm solid var(--cream); border-radius: 4mm; }
+  .fc-frame2 { position: absolute; inset: 19.5mm 11.5mm; border: 0.35mm solid var(--cream); border-radius: 3mm; opacity: .75; }
+  .fc-star { font-size: 15pt; color: var(--mustard); letter-spacing: 1.2em; text-indent: 1.2em; }
+  .fc-script { margin-top: 7mm; font-family: 'Yellowtail'; font-size: 27pt; color: var(--mustard); }
+  .fc-h1 { font-family: 'Alfa'; font-size: 52pt; color: var(--cream); line-height: 1.12;
+    text-shadow: 2.2mm 2.2mm 0 var(--ink); letter-spacing: 0.05em; margin-top: 10mm; text-align: center; }
+  .fc-rule { width: 58mm; display: flex; align-items: center; gap: 3mm; margin-top: 13mm; }
+  .fc-rule::before, .fc-rule::after { content: ''; flex: 1; height: 0.5mm; background: var(--cream); opacity: .8; }
+  .fc-rule span { color: var(--mustard); font-size: 11pt; }
+  .fc-names { margin-top: 12mm; font-family: 'Alfa'; font-size: 16.5pt; color: var(--cream); letter-spacing: 0.06em; }
+  .fc-names .amp { font-family: 'Yellowtail'; color: var(--mustard); font-size: 19pt; padding: 0 2.2mm; }
+  .fc-date { margin-top: 6mm; font-weight: 900; font-size: 11.5pt; color: var(--cream); letter-spacing: 0.3em; text-indent: 0.3em; }
+</style>
+</head>
+<body>
+
+  <!-- PANEL 1: greeting flap -->
+  <div class="panel p-flap">
+    <div class="flap-box">
+      <div class="flap-script">Thank you for coming!</div>
+      <div class="flap-title">ご　挨　拶</div>
+      <div class="flap-msg">
+        本日はご多用のなか<br>
+        私たちの披露宴にお越しいただき<br>
+        誠にありがとうございます<br><br>
+        ささやかではございますが<br>
+        感謝の気持ちを込めて<br>
+        おもてなしさせていただきます<br><br>
+        <b>どうぞごゆっくりお楽しみください</b>
+      </div>
+      <div class="flap-deco"><img class="couple" src="cover-couple.webp"></div>
+    </div>
+  </div>
+
+  <!-- PANEL 2: back cover -->
+  <div class="panel p-back">
+    <div class="back-box">
+      <div class="back-script">See you at the party!</div>
+      <img class="bazz" src="cover-bazz.webp">
+      <div class="back-foot">RICHARD &amp; HAZUKI WEDDING<br>2026.12.13</div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: front cover -->
+  <div class="panel p-front">
+    <div class="fcc fcc-top"></div>
+    <div class="fcc fcc-bottom"></div>
+    <div class="fc-frame"></div>
+    <div class="fc-frame2"></div>
+    <div class="fc-star">&#9733;&#9733;&#9733;</div>
+    <div class="fc-script">Welcome to our Diner!</div>
+    <div class="fc-h1">SEATING<br>CHART</div>
+    <div class="fc-rule"><span>&#9670;</span></div>
+    <div class="fc-names">RICHARD<span class="amp">&amp;</span>HAZUKI</div>
+    <div class="fc-date">2026.12.13 SUN</div>
+  </div>
+
+</body>
+</html>
